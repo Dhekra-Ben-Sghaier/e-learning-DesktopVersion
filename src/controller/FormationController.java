@@ -36,23 +36,13 @@ public class FormationController implements Initializable {
     private TextField diffField;
     @FXML
     private TextField certifField;
-    @FXML
-    private ImageView cons;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        try {
-//            Image consImg = new Image(new FileInputStream("src\\add.png"));
-//            ImageView imgView = new ImageView(consImg);
-//            imgView.setFitHeight(35);
-//            imgView.setFitWidth(35);
-//            cons.setImage(consImg);
-//                    } catch (FileNotFoundException ex) {
-//            Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        
     }    
     
 }

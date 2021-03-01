@@ -25,7 +25,7 @@ public class PidevFormation extends Application{
     public void start(Stage stage) throws Exception {
         
         //Stage stage = new Stage(StageStyle.UNDECORATED);
-        parentPage = FXMLLoader.load(getClass().getResource("/view/Formation.fxml"));
+        parentPage = FXMLLoader.load(getClass().getResource("/view/FormationPanel.fxml"));
         
         Scene scene = new Scene(parentPage);
         stage.setTitle("Formation");
