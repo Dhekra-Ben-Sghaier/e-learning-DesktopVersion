@@ -1,0 +1,25 @@
+
+.button
+{
+    -fx-background-color :#2b5b94;
+    -fx-background-radius :  30 0 0 30;
+}
+.button:hover
+{
+    -fx-background-color :linear-gradient(to top left, #aac3f4, #648cc8);
+    -fx-background-radius :  30 0 30 0;
+}
+.button:pressed
+{
+    -fx-background-color :linear-gradient(to top left, #648cc8, #aac3f4);
+    -fx-background-radius :  30 30 30 30;
+}
+.Acropane
+{
+    -fx-background-color :  #2b5b94;
+    -fx-background-radius:  0 20 20 0;
+}
+
+
+
+
