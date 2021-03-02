@@ -22,6 +22,25 @@
     -fx-background-color :  #2b5b94;
     -fx-background-radius:  0 20 20 0;
 }
+.button1
+{
+    -fx-background-color :#2b5b94;
+    -fx-background-radius :  30 30 30 30;
+    -fx-border-color : white;
+    -fx-border-width : 0px 0px 0px 0px;
+}
+.button1:hover
+{
+    -fx-background-color :linear-gradient(to top left, #aac3f4, #648cc8);
+    -fx-background-radius :  30 0 30 0;
+    -fx-border-width : 0px 0px 0px 0px;
+}
+.button1:pressed
+{
+    -fx-background-color :linear-gradient(to top left, #648cc8, #aac3f4);
+    -fx-background-radius :  30 30 30 30;
+}
+
 
 
 

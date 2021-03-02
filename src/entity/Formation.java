@@ -16,17 +16,55 @@ public class Formation {
     private String title;
     private String description;
     private float prix;
-    private String difficulté;
-    private Date date;
-
-    public Formation(int id, String title, String description, float prix, String difficulté, Date date) {
+    private String difficulte;
+    private boolean certifier;
+    
+    
+    public Formation() {
+    }
+    
+    public Formation(int id, String title, String description, float prix, String difficulté, boolean certifier) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.prix = prix;
-        this.difficulté = difficulté;
-        this.date = date;
+        this.difficulte = difficulté;
+        this.certifier = certifier;
     }
+    
+        public Formation(int id, String title, String description, float prix, String difficulte, Date date, boolean certifier) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.prix = prix;
+        this.difficulte = difficulte;
+        this.certifier = certifier;
+    }
+
+    public String getDifficulte() {
+        return difficulte;
+    }
+
+    public Formation(int id, String title, String description, float prix, String difficulte) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.prix = prix;
+        this.difficulte = difficulte;
+ 
+    }
+
+    public boolean isCertifier() {
+        return certifier;
+    }
+
+    public void setCertifier(boolean certifier) {
+        this.certifier = certifier;
+    }
+
+   
+
+
 
     public int getId() {
         return id;
@@ -44,13 +82,8 @@ public class Formation {
         return prix;
     }
 
-    public String getDifficulté() {
-        return difficulté;
-    }
 
-    public Date getDate() {
-        return date;
-    }
+
 
     public void setId(int id) {
         this.id = id;
@@ -68,13 +101,11 @@ public class Formation {
         this.prix = prix;
     }
 
-    public void setDifficulté(String difficulté) {
-        this.difficulté = difficulté;
+    public void setDifficulte(String difficulte) {
+        this.difficulte = difficulte;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+
     
     
     

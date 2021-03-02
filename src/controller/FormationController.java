@@ -5,17 +5,17 @@
  */
 package controller;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import entity.Formation;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import service.FormationDao;
 
 /**
  * FXML Controller class
@@ -36,6 +36,8 @@ public class FormationController implements Initializable {
     private TextField diffField;
     @FXML
     private TextField certifField;
+    @FXML
+    private Button btnAjout;
 
     /**
      * Initializes the controller class.
@@ -44,5 +46,23 @@ public class FormationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
     }    
+
+    @FXML
+    private void ajouterFormation(ActionEvent event) {
+        
+        btnAjout.setOnAction((ActionEvent event1) -> {
+            Formation f = new Formation(Integer.parseInt(idField.getText()), titleField.getText(), descField.getText(), Float.parseFloat(prixField.getText()), diffField.getText());
+            FormationDao fdao = FormationDao.getInstance();
+            fdao.insert(f);
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Personne insérée avec succés!");
+            alert.show();
+            titleField.setText("");
+            descField.setText("");
+        });
+    }
     
 }

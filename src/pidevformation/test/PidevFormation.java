@@ -23,17 +23,11 @@ public class PidevFormation extends Application{
     private Parent parentPage;
     @Override
     public void start(Stage stage) throws Exception {
-        
-        //Stage stage = new Stage(StageStyle.UNDECORATED);
+    
         parentPage = FXMLLoader.load(getClass().getResource("/view/FormationPanel.fxml"));
         
         Scene scene = new Scene(parentPage);
         stage.setTitle("Formation");
-        
-//        pour configurer les dimensions de stage 
-//        stage.setWidth(500);
-//        stage.setHeight(500);
-
         stage.setScene(scene);
         stage.show();
     }
