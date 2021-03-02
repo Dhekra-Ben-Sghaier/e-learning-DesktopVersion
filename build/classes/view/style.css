@@ -1,0 +1,43 @@
+
+.button
+{
+    -fx-background-color :#39558C;
+    -fx-background-radius :  30 0 0 30;
+    -fx-border-color : white;
+    -fx-border-width : 0px 0px 0px 0px;
+}
+.button:hover
+{
+    -fx-background-color :linear-gradient(to top left, #aac3f4, #648cc8);
+    -fx-background-radius :  30 0 30 0;
+    -fx-border-width : 0px 0px 0px 0px;
+}
+.button:pressed
+{
+    -fx-background-color :linear-gradient(to top left, #648cc8, #aac3f4);
+    -fx-background-radius :  30 30 30 30;
+}
+.Acropane
+{
+    -fx-background-color :  #2b5b94;
+    -fx-background-radius:  0 20 20 0;
+}
+.button2
+{
+-fx-background-color :  #0A0232;
+-fx-background-radius :  20;
+}
+.button2:hover
+{
+-fx-background-color : #524A7B ;
+-fx-background-radius :  20;
+}
+.button2:pressed
+{
+-fx-background-color : #2F2B43 ;
+-fx-background-radius :  20;
+}
+
+
+
+
