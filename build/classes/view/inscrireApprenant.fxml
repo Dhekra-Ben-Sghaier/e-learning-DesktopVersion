@@ -30,22 +30,22 @@
             <Font name="Nirmala UI Bold" size="23.0" />
          </font>
       </Label>
-      <TextField layoutX="295.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" promptText="Nom">
+      <TextField fx:id="nom" layoutX="295.0" layoutY="100.0" prefHeight="25.0" prefWidth="214.0" promptText="Nom">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <TextField layoutX="295.0" layoutY="163.0" prefHeight="25.0" prefWidth="214.0" promptText="Prénom">
+      <TextField fx:id="prenom" layoutX="295.0" layoutY="136.0" prefHeight="25.0" prefWidth="214.0" promptText="Prénom">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <TextField layoutX="295.0" layoutY="200.0" prefHeight="25.0" prefWidth="214.0" promptText="Email">
+      <TextField fx:id="email" layoutX="295.0" layoutY="175.0" prefHeight="25.0" prefWidth="214.0" promptText="Email">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="295.0" layoutY="240.0" prefHeight="25.0" prefWidth="214.0" promptText="Mot de passe">
+      <PasswordField fx:id="mdp" layoutX="295.0" layoutY="211.0" prefHeight="25.0" prefWidth="214.0" promptText="Mot de passe">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
@@ -55,8 +55,13 @@
             <Font name="Nirmala UI Bold" size="18.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cd" layoutX="295.0" layoutY="277.0" opacity="0.68" prefHeight="25.0" prefWidth="214.0" promptText="Centres d'intérêt" style="-fx-background-color: #ffffff;" >
+      <ComboBox fx:id="cd" layoutX="295.0" layoutY="277.0" opacity="0.68" prefHeight="25.0" prefWidth="214.0" promptText="Centres d'intérêt" style="-fx-background-color: #ffffff;">
     
       </ComboBox>
+      <TextField fx:id="nomuser" layoutX="295.0" layoutY="243.0" prefHeight="25.0" prefWidth="214.0" promptText="Nom d'utilisateur">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

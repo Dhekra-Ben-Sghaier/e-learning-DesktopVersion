@@ -19,6 +19,11 @@ public class Apprenant extends Personne {
         super(nom, prenom);
         this.cd = new SimpleStringProperty(cd);
     }
+
+    public Apprenant(String nom, String prenom, String email, String mdp, String login, String cd ,String role) {
+        super(nom, prenom, email, mdp, login, role);
+   this.cd = new SimpleStringProperty(cd);    
+    }
     
     public Apprenant(int id, String nom, String prenom ,String cd) {
         super(id, nom, prenom);

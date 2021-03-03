@@ -19,11 +19,22 @@ public class Personne {
     private SimpleStringProperty prenom;
     private SimpleStringProperty email;
     private SimpleStringProperty mdp;
+     private SimpleStringProperty login;
+      private SimpleStringProperty role;
 
     public Personne(int id, String nom, String prenom) {
         this.id = new SimpleIntegerProperty(id);
         this.nom = new SimpleStringProperty(nom);
         this.prenom = new SimpleStringProperty(prenom);
+    }
+
+    public Personne(String nom, String prenom, String email, String mdp, String login, String role) {
+        this.nom = new SimpleStringProperty( nom);
+        this.prenom = new SimpleStringProperty(prenom);
+        this.email = new SimpleStringProperty(email);
+        this.mdp = new SimpleStringProperty(mdp);
+        this.login = new SimpleStringProperty(login);
+        this.role = new SimpleStringProperty(role);
     }
 
     public Personne(String nom, String prenom) {
@@ -71,6 +82,21 @@ public class Personne {
     public void setMdp(String mdp) {
         this.mdp = new SimpleStringProperty(mdp);
     }
+     public String getLogin() {
+        return login.get();
+    }
+
+    public void setLogin(String login) {
+        this.login = new SimpleStringProperty(login);
+    }
+    
+     public String getRole() {
+        return role.get();
+    }
+
+    public void setRole(String role) {
+        this.role = new SimpleStringProperty(role);
+    }
      public SimpleStringProperty getNomProperty(){
         return nom;
     }
@@ -82,6 +108,12 @@ public class Personne {
     }
     public SimpleStringProperty getMdpProperty(){
         return mdp;
+    }
+    public SimpleStringProperty getLoginProperty(){
+        return login;
+    }
+    public SimpleStringProperty getRoleProperty(){
+        return role;
     }
 
     @Override

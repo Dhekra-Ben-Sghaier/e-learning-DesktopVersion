@@ -5,10 +5,11 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="578.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InscrireApprenantController">
@@ -22,7 +23,11 @@
             </ImageView>
          </children>
          <effect>
-            <Blend mode="OVERLAY" opacity="0.17" />
+            <DropShadow height="9.02" radius="5.46" spread="0.65" width="14.82">
+               <color>
+                  <Color red="0.6315789222717285" green="0.587768018245697" blue="0.5467836260795593" />
+               </color>
+            </DropShadow>
          </effect>
       </AnchorPane>
       <Label layoutX="343.0" layoutY="45.0" text="Sign up" textFill="#2f2f2f">
@@ -30,22 +35,22 @@
             <Font name="Nirmala UI Bold" size="23.0" />
          </font>
       </Label>
-      <TextField layoutX="295.0" layoutY="125.0" prefHeight="25.0" prefWidth="214.0" promptText="Nom">
+      <TextField fx:id="nom" layoutX="295.0" layoutY="100.0" prefHeight="25.0" prefWidth="214.0" promptText="Nom">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <TextField layoutX="295.0" layoutY="163.0" prefHeight="25.0" prefWidth="214.0" promptText="Prénom">
+      <TextField fx:id="prenom" layoutX="295.0" layoutY="136.0" prefHeight="25.0" prefWidth="214.0" promptText="Prénom">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <TextField layoutX="295.0" layoutY="200.0" prefHeight="25.0" prefWidth="214.0" promptText="Email">
+      <TextField fx:id="email" layoutX="295.0" layoutY="175.0" prefHeight="25.0" prefWidth="214.0" promptText="Email">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
       </TextField>
-      <PasswordField layoutX="295.0" layoutY="240.0" prefHeight="25.0" prefWidth="214.0" promptText="Mot de passe">
+      <PasswordField fx:id="mdp" layoutX="295.0" layoutY="211.0" prefHeight="25.0" prefWidth="214.0" promptText="Mot de passe">
          <font>
             <Font name="Arial Bold" size="12.0" />
          </font>
@@ -55,8 +60,19 @@
             <Font name="Nirmala UI Bold" size="18.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cd" layoutX="295.0" layoutY="277.0" opacity="0.68" prefHeight="25.0" prefWidth="214.0" promptText="Centres d'intérêt" style="-fx-background-color: #ffffff;" >
+      <ComboBox fx:id="cd" layoutX="295.0" layoutY="277.0" opacity="0.68" prefHeight="25.0" prefWidth="214.0" promptText="Centres d'intérêt" style="-fx-background-color: #ffffff;">
     
       </ComboBox>
+      <TextField fx:id="nomuser" layoutX="295.0" layoutY="243.0" prefHeight="25.0" prefWidth="214.0" promptText="Nom d'utilisateur">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextField>
+      <Button layoutX="219.0" layoutY="20.0" minWidth="34.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="34.0" style="-fx-background-color: #ffffff;" />
+      <ImageView fitHeight="40.0" fitWidth="43.0" layoutX="227.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/homeicon.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

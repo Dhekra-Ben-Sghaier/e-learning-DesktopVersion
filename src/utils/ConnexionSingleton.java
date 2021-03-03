@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 public class ConnexionSingleton {
      private String url="jdbc:mysql://127.0.0.1:3306/esprit";
     private String login="root";
-    private String pwd="root";
+    private String pwd="";
     private Connection cnx;
     private static ConnexionSingleton instance;
     

@@ -7,31 +7,14 @@ package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 
 /**
  * FXML Controller class
  *
  * @author benha
  */
-public class InterfaceAdminController implements Initializable {
-
-    @FXML
-    private BorderPane Bpadmin;
-    @FXML
-    private Button gererP;
-    @FXML
-    private Button gererF;
-    @FXML
-    private Button gererR;
-    @FXML
-    private Button gererC;
-    @FXML
-    private Label gererOC;
+public class AffEtsuppApprenantController implements Initializable {
 
     /**
      * Initializes the controller class.
