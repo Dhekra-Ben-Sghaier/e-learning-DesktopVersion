@@ -27,6 +27,7 @@
             <Button fx:id="autres" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Autres" />
             <ImageView fitHeight="29.0" fitWidth="27.0" layoutX="275.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="22.0" fitWidth="27.0" layoutX="509.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="consulter" layoutX="579.0" layoutY="99.0" mnemonicParsing="false" text="Consulter" />
          </children>
       </AnchorPane>
    </top>

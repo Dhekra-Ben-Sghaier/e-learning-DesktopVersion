@@ -15,11 +15,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -38,13 +41,28 @@ public class ReclamationController implements Initializable {
     private BorderPane bp;
     @FXML
     private Button Notes;
+    @FXML
+    private Button consulter;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // TODObtn_add.setOnAction(event -> {
+
+           consulter.setOnAction(event -> {
+
+            try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Consulter.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }  
     
     
@@ -67,6 +85,8 @@ public class ReclamationController implements Initializable {
     private void reclamer(javafx.scene.input.MouseEvent event) {
         loadPage("/view/Recnote.fxml");
     }
+    
+    
 
 
     }
