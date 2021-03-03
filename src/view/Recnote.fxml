@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="366.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RecnoteController">
+   <children>
+      <Label layoutX="46.0" layoutY="32.0" text="Examen" textFill="#35086f">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="131.0" text="Nom formateur" textFill="#35086f">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="196.0" text="Description" textFill="#35086f">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Date" layoutX="233.0" layoutY="78.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextField fx:id="nomformateur" layoutX="233.0" layoutY="129.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextArea fx:id="description" layoutX="133.0" layoutY="196.0" prefHeight="149.0" prefWidth="458.0" />
+      <Label layoutX="46.0" layoutY="80.0" text="Date" textFill="#35086f">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="Examen" layoutX="233.0" layoutY="30.0" prefHeight="25.0" prefWidth="174.0" />
+   </children>
+</AnchorPane>
