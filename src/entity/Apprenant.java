@@ -15,19 +15,33 @@ public class Apprenant extends Personne {
     
     private SimpleStringProperty cd ; //centre d'interet
 
+       public Apprenant() {
+        
+    }
     public Apprenant(String nom, String prenom ,String cd) {
         super(nom, prenom);
         this.cd = new SimpleStringProperty(cd);
     }
 
-    public Apprenant(String nom, String prenom, String email, String mdp, String login, String cd ,String role) {
-        super(nom, prenom, email, mdp, login, role);
+    public Apprenant(String cin ,String nom, String prenom, String email, String mdp, String login, String cd ,String role) {
+        super(cin,nom, prenom, email, mdp, login, role);
    this.cd = new SimpleStringProperty(cd);    
     }
+    
+
+
+    public Apprenant(int id, String nom, String prenom, String email, String mdp, String login, String cd) {
+        super(id, nom, prenom, email, mdp, login);
+    }
+
     
     public Apprenant(int id, String nom, String prenom ,String cd) {
         super(id, nom, prenom);
         this.cd = new SimpleStringProperty(cd);
+    }
+
+    private Apprenant(int id, String nom, String prenom, String email, String mdp, String login) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getCd() {

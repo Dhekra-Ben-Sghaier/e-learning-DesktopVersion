@@ -13,13 +13,13 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="Bpadmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="821.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.InterfaceAdminController">
+<BorderPane fx:id="Bpadmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="526.0" prefWidth="905.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InterfaceAdminController">
    <left>
       <VBox opacity="0.77" prefHeight="526.0" prefWidth="209.0" style="-fx-background-color: #39558C;" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane prefHeight="541.0" prefWidth="209.0">
                <children>
-                  <Button fx:id="gererP" layoutX="-3.0" layoutY="175.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #39558C;">
+                  <Button fx:id="gererP" layoutX="-3.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#supprimer" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #39558C;">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
@@ -39,11 +39,28 @@
                         <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
                   </Button>
-                  <Button fx:id="gererP" layoutX="-3.0" layoutY="303.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #39558C;">
+                  <Button layoutX="-3.0" layoutY="303.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #39558C;">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="1.0" green="1.0" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
                   </Button>
+               
                   <Button layoutX="-3.0" layoutY="335.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" style="-fx-background-color: #39558C;">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
@@ -70,24 +87,33 @@
                         <DropShadow />
                      </effect>
                   </AnchorPane>
-                  <Label layoutX="84.0" layoutY="182.0" text="Gérer Apprenent" textFill="#04065b">
+                  <Label layoutX="71.0" layoutY="183.0" text="Gérer Apprenent" textFill="#04065b">
                      <font>
-                        <Font name="Arial" size="12.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="84.0" layoutY="214.0" text="Gérer Formateur" textFill="#260579">
+                  <Label layoutX="71.0" layoutY="215.0" text="Gérer Formateur" textFill="#260579">
                      <font>
-                        <Font name="Arial Bold" size="12.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="75.0" layoutY="246.0" text="Gérer Reclamations">
+                  <Label layoutX="60.0" layoutY="247.0" text="Gérer Reclamations">
                      <font>
-                        <Font name="Arial Bold" size="12.0" />
+                        <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="85.0" layoutY="278.0" text="Gérer Certificats" />
-                  <Label layoutX="86.0" layoutY="310.0" text="Gérer Publicités" />
-                  <Label fx:id="gererOC" layoutX="60.0" layoutY="342.0" text="Gérer Offres et Stages" />
+                  <Label layoutX="71.0" layoutY="279.0" text="Gérer Certificats">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font></Label>
+                  <Label layoutX="73.0" layoutY="311.0" text="Gérer Publicités">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="gererOC" layoutX="60.0" layoutY="342.0" text="Gérer Offres et Stages">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font></Label>
                   <ImageView fitHeight="128.0" fitWidth="155.0" layoutX="62.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Admin-icon-removebg-preview.png" />
@@ -98,4 +124,7 @@
          </children>
       </VBox>
    </left>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
 </BorderPane>

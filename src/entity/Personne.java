@@ -16,25 +16,61 @@ import javafx.beans.property.SimpleStringProperty;
 public class Personne {
      private SimpleIntegerProperty id;
     private SimpleStringProperty nom;
+   private SimpleStringProperty cin;
+
     private SimpleStringProperty prenom;
     private SimpleStringProperty email;
     private SimpleStringProperty mdp;
      private SimpleStringProperty login;
       private SimpleStringProperty role;
 
+    public Personne(String cin ,String nom ,String prenom, String email, String mdp, String login) {
+      
+        this.cin = new SimpleStringProperty(cin);
+         this.nom = new SimpleStringProperty( nom);
+        this.prenom = new SimpleStringProperty(prenom);
+        this.email = new SimpleStringProperty(email);
+        this.mdp = new SimpleStringProperty(mdp);
+        this.login = new SimpleStringProperty(login);
+
+    } 
+     public Personne(String cin ,String nom ,String prenom, String email, String mdp, String login , String role) {
+      
+        this.cin = new SimpleStringProperty(cin);
+         this.nom = new SimpleStringProperty( nom);
+        this.prenom = new SimpleStringProperty(prenom);
+        this.email = new SimpleStringProperty(email);
+        this.mdp = new SimpleStringProperty(mdp);
+        this.login = new SimpleStringProperty(login);
+        this.role = new SimpleStringProperty(role);
+
+
+    } 
     public Personne(int id, String nom, String prenom) {
         this.id = new SimpleIntegerProperty(id);
         this.nom = new SimpleStringProperty(nom);
         this.prenom = new SimpleStringProperty(prenom);
     }
 
-    public Personne(String nom, String prenom, String email, String mdp, String login, String role) {
+    public Personne() {
+    }
+    public Personne(int id,String nom, String prenom, String email, String mdp, String login) {
+        this.id=new SimpleIntegerProperty(id);
         this.nom = new SimpleStringProperty( nom);
         this.prenom = new SimpleStringProperty(prenom);
         this.email = new SimpleStringProperty(email);
         this.mdp = new SimpleStringProperty(mdp);
         this.login = new SimpleStringProperty(login);
-        this.role = new SimpleStringProperty(role);
+    }
+
+
+
+    public Personne(String nom, String prenom, String email, String mdp, String login) {
+         this.nom = new SimpleStringProperty( nom);
+        this.prenom = new SimpleStringProperty(prenom);
+        this.email = new SimpleStringProperty(email);
+        this.mdp = new SimpleStringProperty(mdp);
+        this.login = new SimpleStringProperty(login);
     }
 
     public Personne(String nom, String prenom) {
@@ -58,7 +94,13 @@ public class Personne {
     public void setNom(String nom) {
         this.nom = new SimpleStringProperty(nom);
     }
+    public String getCin() {
+        return cin.get();
+    }
 
+    public void setCin(String cin) {
+        this.cin = new SimpleStringProperty(cin);
+    }
      public String getPrenom() {
         return prenom.get();
     }
@@ -114,6 +156,12 @@ public class Personne {
     }
     public SimpleStringProperty getRoleProperty(){
         return role;
+    }
+     public SimpleStringProperty getCinProperty(){
+        return cin;
+    }
+    public SimpleIntegerProperty getIdProperty(){
+        return id;
     }
 
     @Override

@@ -25,7 +25,7 @@ public class PidevUsers extends Application {
     public void start(Stage stage) throws Exception {
         
         //Stage stage = new Stage(StageStyle.UNDECORATED);
-        parentPage = FXMLLoader.load(getClass().getResource("/view/usersPanel.fxml"));
+        parentPage = FXMLLoader.load(getClass().getResource("/view/interfaceAdmin.fxml"));
         
         Scene scene = new Scene(parentPage);
         stage.setTitle("inscription");

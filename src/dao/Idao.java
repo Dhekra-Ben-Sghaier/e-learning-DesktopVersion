@@ -6,6 +6,8 @@
 package dao;
 
 import java.util.List;
+import java.util.Observable;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -16,7 +18,7 @@ public interface Idao <T> {
     public void delete(T o);
     public List<T> displayAll();
     public T displayById(int id);
-    
+    public ObservableList<T> displaylist();
     public boolean update(T os);
     
 }

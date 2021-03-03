@@ -19,10 +19,10 @@ public class ConnexionSingleton {
      private String url="jdbc:mysql://127.0.0.1:3306/esprit";
     private String login="root";
     private String pwd="";
-    private Connection cnx;
+    private static Connection cnx;
     private static ConnexionSingleton instance;
     
-      public Connection getCnx() {
+      public static Connection getCnx() {
         return cnx;
     }
         private ConnexionSingleton() {
