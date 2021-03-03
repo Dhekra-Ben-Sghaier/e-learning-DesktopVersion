@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="592.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjouterQuizController">
+   <children>
+      <VBox layoutX="250.0" layoutY="52.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" style="-fx-background-color: #B0C4DE;">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un nouveau Quiz" wrappingWidth="275.2685546875">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0">
+               <effect>
+                  <BoxBlur />
+               </effect>
+            </Separator>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <JFXTextField fx:id="nomQuiz" alignment="CENTER" labelFloat="true" prefHeight="32.0" prefWidth="324.0" promptText="Entrer le nom du Quiz">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <Button fx:id="setQuizTitleButton" mnemonicParsing="false" onAction="#setQuizTitle" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #B0C4DE;" text="ok" />
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0">
+               <effect>
+                  <BoxBlur iterations="3" />
+               </effect>
+            </Separator>
+            <JFXTextArea fx:id="question" prefHeight="53.0" prefWidth="445.0" promptText="Entrer Question 1">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="30.0" right="30.0" top="10.0" />
+               </VBox.margin>
+            </JFXTextArea>
+            <VBox prefHeight="270.0" prefWidth="600.0">
+               <children>
+                  <JFXTextField fx:id="option1" labelFloat="true" promptText="Option 1">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="option2" labelFloat="true" promptText="Option 2">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="option3" labelFloat="true" promptText="Option 3">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="option4" labelFloat="true" prefHeight="0.0" prefWidth="500.0" promptText="Option 4">
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+                     </VBox.margin>
+                  </JFXTextField>
+                  <Text nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisir la bonne réponse" textAlignment="CENTER" wrappingWidth="252.2685546875">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" right="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Text>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <JFXRadioButton fx:id="option1radio" text="Option 1">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="option2radio" text="Option 2">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="option3radio" text="Option 3">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </JFXRadioButton>
+                        <JFXRadioButton fx:id="option4radio" text="Option 4">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin>
+                        </JFXRadioButton>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="20.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </VBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="0.0" prefWidth="712.0">
+               <children>
+                  <JFXButton fx:id="ajouterQuestionSuivante" alignment="CENTER" onAction="#ajouterQuestionSuivanteButton" style="-fx-background-color: #B0C4DE;" text="Question Suivante">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="validerQuiz" alignment="BOTTOM_CENTER" contentDisplay="RIGHT" onAction="#validerQuizButton" style="-fx-background-color: #B0C4DE;" text="Valider">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
