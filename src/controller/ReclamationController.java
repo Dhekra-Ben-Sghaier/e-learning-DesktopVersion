@@ -5,6 +5,7 @@
  */
 package controller;
 
+import entity.Recnote;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +21,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -43,13 +46,14 @@ public class ReclamationController implements Initializable {
     private Button Notes;
     @FXML
     private Button consulter;
+ 
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODObtn_add.setOnAction(event -> {
+     public void initialize(URL url, ResourceBundle rb) {
+  
 
            consulter.setOnAction(event -> {
 
@@ -63,6 +67,7 @@ public class ReclamationController implements Initializable {
                 Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+           
     }  
     
     
@@ -75,7 +80,7 @@ public class ReclamationController implements Initializable {
         try {
             root = FXMLLoader.load(getClass().getResource(page));
         } catch (IOException ex) {
-            Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null,ex);
         }
         bp.setCenter(root);
             
@@ -84,6 +89,7 @@ public class ReclamationController implements Initializable {
     @FXML
     private void reclamer(javafx.scene.input.MouseEvent event) {
         loadPage("/view/Recnote.fxml");
+        
     }
     
     

@@ -10,12 +10,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="controller.ConsulterController">
    <children>
-      <TableView layoutX="11.0" layoutY="76.0" prefHeight="249.0" prefWidth="579.0">
+      <TableView fx:id="table" layoutX="11.0" layoutY="76.0" prefHeight="249.0" prefWidth="579.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="ID" />
-          <TableColumn prefWidth="75.0" text="Examen" />
-            <TableColumn prefWidth="153.0" text="Nom_formateur" />
-            <TableColumn prefWidth="275.0" text="Description" />
+          <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="col_ex" prefWidth="75.0" text="Examen" />
+            <TableColumn fx:id="col_nom" prefWidth="153.0" text="Nom_formateur" />
+            <TableColumn fx:id="col_des" prefWidth="275.0" text="Description" />
         </columns>
       </TableView>
       <Label layoutX="202.0" layoutY="34.0" text="Liste des reclamations" textFill="#3808bc">

@@ -5,6 +5,7 @@
  */
 package pidev.avis;
 
+import controller.ListData;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
  */
 public class PidevAvis extends Application {
     private Parent parentPage;
+
     @Override
     public void start(Stage stage) throws Exception {
         

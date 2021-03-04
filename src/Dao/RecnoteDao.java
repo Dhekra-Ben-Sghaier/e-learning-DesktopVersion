@@ -9,9 +9,12 @@ import entity.Recnote;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import utils.connexion;
 
 /**
@@ -53,12 +56,54 @@ import utils.connexion;
     public void delete(Recnote o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
     @Override
     public List<Recnote> displayAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      String req="select * from reclamation";
+        ObservableList<Recnote> list=FXCollections.observableArrayList();       
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                Recnote p=new Recnote();
+                p.setId_reclamation(rs.getInt(1));
+                p.setExamen(rs.getString(2));
+                p.setDate(rs.getString(3));
+                p.setNom_formateur(rs.getString(4));
+                p.setDescription(rs.getString(5));
+
+                
+                list.add(p);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Recnote.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list; //To change body of generated methods, choose Tools | Templates.
+    }
+    public List<Recnote> displayAllList() {
+        String req="select * from reclamation";
+        List<Recnote> list=new ArrayList<>();
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+              Recnote p=new Recnote();
+            p.setId_reclamation(rs.getInt(1));
+                p.setExamen(rs.getString(2));
+                p.setDate(rs.getString(3));
+                p.setNom_formateur(rs.getString(4));
+                p.setDescription(rs.getString(5));
+             
+                list.add(p);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
+ 
     @Override
     public Recnote displayById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

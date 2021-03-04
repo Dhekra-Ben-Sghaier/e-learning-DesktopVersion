@@ -15,23 +15,32 @@ import javafx.beans.property.SimpleStringProperty;
 public class Recnote {
     private SimpleIntegerProperty id_reclamation;
     private SimpleStringProperty examen;
-    private String date;
+    private SimpleStringProperty  date;
     private SimpleStringProperty nom_formateur;
     private SimpleStringProperty description;
 
-    public Recnote(int id_reclamation, String examen, String date, String nom_formateur,String description) {
+    public Recnote(int id_reclamation, String examen, String date, String nom_formateur, String description) {
         this.id_reclamation = new SimpleIntegerProperty(id_reclamation);
         this.examen = new SimpleStringProperty(examen);
-        this.date = date;
-        this.nom_formateur = new SimpleStringProperty(nom_formateur);
-        this.description = new SimpleStringProperty(description);
+        this.date =  new SimpleStringProperty(date);
+        this.nom_formateur = new SimpleStringProperty( nom_formateur);
+        this.description =  new SimpleStringProperty(description);
+    }
+    public Recnote( String examen, String date, String nom_formateur, String description) {
+       
+        this.examen = new SimpleStringProperty(examen);
+        this.date =  new SimpleStringProperty(date);
+        this.nom_formateur = new SimpleStringProperty( nom_formateur);
+        this.description =  new SimpleStringProperty(description);
     }
 
-   public Recnote(String examen, String date, String nom_formateur,String description) {
-        this.examen = new SimpleStringProperty(examen);
-        this.date = date;
-        this.nom_formateur = new SimpleStringProperty(nom_formateur);
-        this.description = new SimpleStringProperty(description);
+    
+    
+    
+
+  
+
+    public Recnote() {
     }
 
     public int getId_reclamation() {
@@ -45,17 +54,36 @@ public class Recnote {
     public String getExamen() {
         return examen.get();
     }
+    public SimpleIntegerProperty getId_reclamationProperty()
+    {
+        return id_reclamation;
+    }
+           
+    public SimpleStringProperty getExamProperty(){
+        return examen;
+    }
+    public SimpleStringProperty getFormProperty(){
+        return nom_formateur;
+    }
+     public SimpleStringProperty getDescProperty(){
+        return description;
+    }
+       public SimpleStringProperty getDateProperty(){
+        return date;
+    }
+   
+    
 
     public void setExamen(String examen) {
         this.examen = new SimpleStringProperty(examen);
     }
 
-    public String getDate() {
-        return date;
+    public  String getDate() {
+        return date.get();
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.date = new SimpleStringProperty(date);
     }
 
     public String getNom_formateur() {
@@ -72,6 +100,11 @@ public class Recnote {
 
     public void setDescription(String description) {
         this.description = new SimpleStringProperty(description);
+    }
+    
+    @Override
+     public String toString() {
+        return "Recnote{" + "id_reclamation=" + id_reclamation.get() + ", examen=" + examen.get() + ", nom_formateur=" + nom_formateur.get() + ", description=" + description.get() +'}';
     }
     
     
