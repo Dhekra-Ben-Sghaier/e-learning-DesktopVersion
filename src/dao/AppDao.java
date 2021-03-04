@@ -52,7 +52,17 @@ public class AppDao implements Idao<Apprenant> {
 
     @Override
     public void delete(Apprenant o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String req="delete from personne where id="+o.getId();
+        Apprenant p=displayById(o.getId());
+        
+          if(p!=null)
+              try {
+           
+            st.executeUpdate(req);
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(AppDao.class.getName()).log(Level.SEVERE, null, ex);
+        }else System.out.println("n'existe pas");
     }
 
     @Override
@@ -109,7 +119,26 @@ public class AppDao implements Idao<Apprenant> {
 
     @Override
     public Apprenant displayById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            String req="select * from personnes where id ="+id;
+        Apprenant p=new Apprenant();
+        try {
+            rs=st.executeQuery(req);
+           // while(rs.next()){
+            rs.next();
+                p.setId(rs.getInt(1));
+                 p.setCin(rs.getString(2));
+                p.setNom(rs.getString(3));
+                p.setPrenom(rs.getString(4));
+                p.setEmail(rs.getString(5));
+                  p.setMdp(rs.getString(6));
+                p.setLogin(rs.getString(7));
+                p.setCd(rs.getString(8));
+               
+                //}  
+        } catch (SQLException ex) {
+            Logger.getLogger(AppDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return p;
     }
 
     @Override

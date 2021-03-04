@@ -49,7 +49,7 @@ public class AffETSuppController implements Initializable {
     @FXML
     private Button btn_supp;
     @FXML
-    private TableColumn<?, ?> iduser;
+    private TableColumn<Apprenant, Integer> iduser;
     
     /**
      * Initializes the controller class.
@@ -58,7 +58,8 @@ public class AffETSuppController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          apprenants.setItems(listdata.getPersonsapp());
-         
+         iduser.setCellValueFactory(cell -> cell.
+                getValue().getIdProperty().asObject());
        cinuser.setCellValueFactory(cell -> cell.
                 getValue().getCinProperty());
        nomp.setCellValueFactory(cell -> cell.
