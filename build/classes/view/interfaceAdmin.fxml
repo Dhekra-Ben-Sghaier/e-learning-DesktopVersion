@@ -87,30 +87,30 @@
                         <DropShadow />
                      </effect>
                   </AnchorPane>
-                  <Label layoutX="71.0" layoutY="183.0" text="Gérer Apprenent" textFill="#04065b">
+                  <Label layoutX="71.0" layoutY="183.0" text="Gérer Apprenent" textFill="#070256">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="71.0" layoutY="215.0" text="Gérer Formateur" textFill="#260579">
+                  <Label layoutX="71.0" layoutY="215.0" text="Gérer Formateur" textFill="#070256">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="60.0" layoutY="247.0" text="Gérer Reclamations">
+                  <Label layoutX="60.0" layoutY="247.0" text="Gérer Reclamations" textFill="#070256">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="71.0" layoutY="279.0" text="Gérer Certificats">
+                  <Label layoutX="71.0" layoutY="279.0" text="Gérer Certificats" textFill="#070256">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font></Label>
-                  <Label layoutX="73.0" layoutY="311.0" text="Gérer Publicités">
+                  <Label layoutX="73.0" layoutY="311.0" text="Gérer Publicités" textFill="#070256">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font></Label>
-                  <Label fx:id="gererOC" layoutX="60.0" layoutY="342.0" text="Gérer Offres et Stages">
+                  <Label fx:id="gererOC" layoutX="60.0" layoutY="342.0" text="Gérer Offres et Stages" textFill="#070256">
                      <font>
                         <Font name="Arial Bold" size="14.0" />
                      </font></Label>

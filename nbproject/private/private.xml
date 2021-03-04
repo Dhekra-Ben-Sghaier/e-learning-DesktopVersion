@@ -8,19 +8,17 @@
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/dao/AppDao.java</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/controller/InterfaceAdminController.java</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/view/interfaceAdmin.fxml</file>
+            <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/view/affetsupp.fxml</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/entity/Personne.java</file>
+            <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/controller/AffETSuppController.java</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/pidevusers/PidevUsers.java</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/view/inscription.fxml</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/entity/Apprenant.java</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/controller/UsersPanelController.java</file>
-            <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/view/affsupp.fxml</file>
-            <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/controller/AffSuppController.java</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/utils/ConnexionSingleton.java</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/dao/Idao.java</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/controller/InscrireApprenantController.java</file>
             <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/controller/InscriptionController.java</file>
-            <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/controller/AffEtsuppApprenantController.java</file>
-            <file>file:/C:/Users/benha/OneDrive/Documents/NetBeansProjects/PidevUsers/src/controller/Student.java</file>
         </group>
     </open-files>
 </project-private>

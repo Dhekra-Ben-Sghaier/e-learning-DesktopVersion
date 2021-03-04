@@ -52,7 +52,7 @@ public class AppDao implements Idao<Apprenant> {
 
     @Override
     public void delete(Apprenant o) {
-         String req="delete from personne where id="+o.getId();
+         String req="delete from personnes where id_user="+o.getId();
         Apprenant p=displayById(o.getId());
         
           if(p!=null)
@@ -119,7 +119,7 @@ public class AppDao implements Idao<Apprenant> {
 
     @Override
     public Apprenant displayById(int id) {
-            String req="select * from personnes where id ="+id;
+            String req="select * from personnes where id_user ="+id;
         Apprenant p=new Apprenant();
         try {
             rs=st.executeQuery(req);

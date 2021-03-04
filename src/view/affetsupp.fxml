@@ -131,6 +131,14 @@
                                     <Font name="Arial Bold" size="15.0" />
                                  </font>
                               </Label>
+                              <Label fx:id="lab_id" layoutX="7.0" layoutY="32.0" />
+                              <Label fx:id="lab_cin" layoutX="64.0" layoutY="32.0" />
+                              <Label fx:id="lab_nom" layoutX="123.0" layoutY="32.0" />
+                              <Label fx:id="lab_prenom" layoutX="194.0" layoutY="32.0" />
+                              <Label fx:id="lab_email" layoutX="259.0" layoutY="32.0" />
+                              <Label fx:id="lab_password" layoutX="389.0" layoutY="32.0" />
+                              <Label fx:id="lab_nu" layoutX="516.0" layoutY="32.0" />
+                              <Label fx:id="lab_cd" layoutX="642.0" layoutY="32.0" />
                            </children>
                         </Pane>
                      </children>

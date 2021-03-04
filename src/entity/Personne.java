@@ -63,7 +63,15 @@ public class Personne {
         this.login = new SimpleStringProperty(login);
     }
 
-
+ public Personne(int id,String cin ,String nom, String prenom, String email, String mdp, String login) {
+        this.id=new SimpleIntegerProperty(id);
+         this.cin = new SimpleStringProperty( cin);
+        this.nom = new SimpleStringProperty( nom);
+        this.prenom = new SimpleStringProperty(prenom);
+        this.email = new SimpleStringProperty(email);
+        this.mdp = new SimpleStringProperty(mdp);
+        this.login = new SimpleStringProperty(login);
+    }
 
     public Personne(String nom, String prenom, String email, String mdp, String login) {
          this.nom = new SimpleStringProperty( nom);

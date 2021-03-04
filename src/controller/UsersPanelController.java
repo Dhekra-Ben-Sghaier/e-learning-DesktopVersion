@@ -13,12 +13,15 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -43,6 +46,8 @@ public class UsersPanelController implements Initializable {
     private Button btn4;
     @FXML
     private AnchorPane contenu;
+    @FXML
+    private Button btn_auth;
 
     /**
      * Initializes the controller class.
@@ -50,6 +55,18 @@ public class UsersPanelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        btn_auth.setOnAction(event -> {
+
+            try {
+                Parent page2 = FXMLLoader.load(getClass().getResource("/view/interfaceAdmin.fxml"));
+                Scene scene = new Scene(page2);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
     }    
     private void goToHome(MouseEvent event) {
         bp.setCenter(contenu);
