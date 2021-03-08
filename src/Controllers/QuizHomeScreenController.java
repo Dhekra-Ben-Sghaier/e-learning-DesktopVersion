@@ -1,44 +1,55 @@
-    package Controllers;
+package Controllers;
 
-import com.jfoenix.controls.JFXTabPane;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
 import javafx.stage.Stage;
     import javafx.fxml.FXML;
     import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
 
 public class QuizHomeScreenController implements Initializable {
 
     @FXML
-    private Tab ajouterQuizTab;
+    private Label brain;
     @FXML
-    private Tab ajoutersssTab;
+    private Button ajouterQuizTabb;
     @FXML
-    private JFXTabPane quiztb;
+    private Button modifierQuizTabb;
+    @FXML
+    private Button supprimerQuizTabb;
 
         
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+          
+    }    
+
+    @FXML
+    private void ajouterQuizTabb(ActionEvent event) {
         try {
-            Parent node = FXMLLoader.load(getClass().getResource("/Views/AjouterQuiz.fxml"));
-            ajouterQuizTab.setContent(node);
+            Parent node = FXMLLoader.load(getClass().getResource("/Views/AjouterQuiz.fxml"));          
+                Stage stage = (Stage) ajouterQuizTabb.getScene().getWindow();
+                Scene scene = new Scene(node); 
+                stage.setScene(scene);
+                            
         } catch (Exception e) {
             e.printStackTrace();
             
         }
-        
-      
-        
-    }    
+    }
+
+    @FXML
+    private void modifierQuizTabb(ActionEvent event) {
+    }
+
+    @FXML
+    private void supprimerQuizTabb(ActionEvent event) {
+    }
     
 }

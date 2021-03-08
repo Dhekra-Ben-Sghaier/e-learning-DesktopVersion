@@ -14,8 +14,9 @@ public class Test extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
         //Parent root= FXMLLoader.load(getClass().getResource("/Login.fxml"));
-        Parent root= FXMLLoader.load(getClass().getResource("/Views/QuizHomeScreen.fxml"));
+        //Parent root= FXMLLoader.load(getClass().getResource("/Views/QuizHomeScreen.fxml"));
         //Parent root= FXMLLoader.load(getClass().getResource("/Views/Insci_certif.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("/Views/Afficher_inscri.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(root); 
         stage.setScene(scene);

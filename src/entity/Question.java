@@ -10,6 +10,23 @@ public class Question {
     private String option3;
     private String option4;
     private String reponse;
+
+    public Question(String question, String option1) {
+        this.question = question;
+        this.option1 = option1;
+    }
+    
+    
+//    public static class MetaData{
+//        public static final String TABLE_NAME = "question";
+//        public static final String OPTION1 = "option1";
+//        public static final String OPTION2 = "option2";
+//        public static final String OPTION3 ="option3";
+//        public static final String OPTION4 ="option4";
+//        public static final String REPONSE = "reponse";       
+//        public static final String QUIZ_ID = "quia_id";   
+//    
+//    }
     
     public Question() {
     }

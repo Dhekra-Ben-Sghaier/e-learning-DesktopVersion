@@ -9,7 +9,8 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
-import entity.Quiz;
+import entity.Question;
+import entity.Inscription_certificat;
 import entity.Quizz;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,7 +25,8 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-import service.QuizDao;
+import service.QuestionDao;
+import service.Inscription_certificatDao;
 import service.QuizzDao;
 
 /**
@@ -60,10 +62,10 @@ public class AjouterQuizController implements Initializable {
     @FXML
     private JFXButton validerQuiz;
     
-    private ToggleGroup radioGroup;
-    
     @FXML
     private Button setQuizTitleButton;
+    
+    private ToggleGroup radioGroup;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -96,13 +98,13 @@ public class AjouterQuizController implements Initializable {
                 .showError();
             
         } else {
-            nomQuiz.setEditable(false);
+            //nomQuiz.setEditable(false);
             System.err.println("Enregistrement du  nom");
         }
     }
     
     private boolean champsValides(){
-         String quest = this.question.getText();
+        String quest = this.question.getText();
         String opt1 = this.option1.getText();
         String opt2 = this.option2.getText();
         String opt3 = this.option3.getText();
@@ -128,20 +130,21 @@ public class AjouterQuizController implements Initializable {
            }
         else 
             {
-                if(radio_selectionne == null)
-                    {
-                        Notifications.create()
-                        .title("Question")
-                        //.darkStyle()
-                        .position(Pos.CENTER)
-                        .text("Veuillez svp choisir une option")
-                        .showError();
-                        return false;
-                    }
-                else 
-                    {
-                      return true;
-                    }
+                return true;
+//                if(radio_selectionne == null)
+//                    {
+//                        Notifications.create()
+//                        .title("Question")
+//                        //.darkStyle()
+//                        .position(Pos.CENTER)
+//                        .text("Veuillez svp choisir une option")
+//                        .showError();
+//                        return false;
+//                    }
+//                else 
+//                    {
+//                      return true;
+//                    }
             
             }      
     
@@ -161,7 +164,7 @@ public class AjouterQuizController implements Initializable {
 
     @FXML
     private void validerQuizButton(ActionEvent event) {
-        validerQuiz.setOnAction((ActionEvent event1) -> {
+                validerQuiz.setOnAction((ActionEvent event1) -> {
             Quizz f = new Quizz (nomQuiz.getText());
             QuizzDao Q = QuizzDao.getInstance();
             Q.insert(f);
@@ -169,13 +172,14 @@ public class AjouterQuizController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("Personne insérée avec succés!");
+            alert.setContentText("Nom Quiz ajouté avec succés!");
             alert.show();
-            //titleField.setText("");
             nomQuiz.setText("");
             System.out.println("ok");
         });
         
     }
+
+    
     
 }

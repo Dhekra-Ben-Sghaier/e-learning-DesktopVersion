@@ -1,12 +1,9 @@
 package service;
 
-
-import entity.Quiz;
 import entity.Quizz;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,7 +21,7 @@ public class QuizzDao implements Idao<Quizz> {
         try {
             st=cs.getCnx().createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(QuizDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QuizzDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public static QuizzDao getInstance(){
@@ -46,7 +43,17 @@ public class QuizzDao implements Idao<Quizz> {
 
     @Override
     public void delete(Quizz o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        String req="delete from quizz where quizID="+o.getNom();
+//        Quizz p=displayById(o.getQuizID());
+//        
+//          if(p!=null)
+//              try {
+//           
+//            st.executeUpdate(req);
+//             
+//        } catch (SQLException ex) {
+//            Logger.getLogger(QuizzDao.class.getName()).log(Level.SEVERE, null, ex);
+//        }else System.out.println("n'existe pas");
     }
 
     @Override
