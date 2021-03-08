@@ -1,11 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Afficher_inscriController">
-    
+
+<AnchorPane id="AnchorPane" prefHeight="409.0" prefWidth="622.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="Controllers.Afficher_inscriController">
+   <children>
+      <AnchorPane opacity="0.94" prefHeight="410.0" prefWidth="204.0" style="-fx-background-color: #0A0232;">
+         <effect>
+            <DropShadow height="9.02" radius="5.46" spread="0.65" width="14.82">
+               <color>
+                  <Color red="0.6315789222717285" green="0.587768018245697" blue="0.5467836260795593" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="123.0" fitWidth="159.0" layoutX="23.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/certificat.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TableView layoutX="213.0" layoutY="84.0" prefHeight="242.0" prefWidth="398.0">
+        <columns>
+          <TableColumn fx:id="id_inscri" prefWidth="75.0" text="id_inscri" />
+          <TableColumn fx:id="nom_utilisateur" prefWidth="93.0" text="nom_utilisateur" />
+            <TableColumn fx:id="nom_certificat" prefWidth="85.0" text="nom_certificat" />
+            <TableColumn fx:id="description" prefWidth="79.0" text="description" />
+            <TableColumn fx:id="domaine" prefWidth="64.0" text="domaine" />
+        </columns>
+      </TableView>
+   </children>
 </AnchorPane>
