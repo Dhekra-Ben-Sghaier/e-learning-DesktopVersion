@@ -60,7 +60,8 @@ public class FormationPanelController implements Initializable {
 
     @FXML
     private void consulterFormation(MouseEvent event) {
-        bp.setCenter(apConsulter);
+//        bp.setCenter(apConsulter);
+        loadPage("/view/TableForm.fxml");
     }
 
     @FXML

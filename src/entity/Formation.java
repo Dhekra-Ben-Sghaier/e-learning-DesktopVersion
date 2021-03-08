@@ -74,6 +74,7 @@ public class Formation {
         return title;
     }
 
+
     public String getDescription() {
         return description;
     }
@@ -106,7 +107,11 @@ public class Formation {
     }
 
 
-    
+       @Override
+    public String toString() {
+        return "Formation{" + "id=" + id + ", title=" + title + ", description=" + description + ", prix=" + prix + ", difficulte=" + difficulte + ", certifier=" + certifier + '}';
+    }
+ 
     
     
 }

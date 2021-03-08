@@ -13,7 +13,7 @@
 
 <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormationPanelController">
    <left>
-      <AnchorPane fx:id="apMenu" prefHeight="642.0" prefWidth="343.0" style="-fx-background-color: #0A0232;" styleClass="Acropane" stylesheets="@style.css" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="apMenu" prefHeight="642.0" prefWidth="343.0" styleClass="Acropane" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
             <VBox layoutX="-6.0" layoutY="189.0" prefHeight="265.0" prefWidth="346.0" stylesheets="@style.css">
                <children>
@@ -30,7 +30,10 @@
                               <Light.Distant />
                            </light>
                         </Lighting>
-                     </effect></Button>
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Button>
                   <Button fx:id="ajoutForm" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#ajouterFormation" prefHeight="54.0" prefWidth="346.0" stylesheets="@style.css" text="Ajouter Formation" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="52.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
@@ -44,7 +47,10 @@
                               <Light.Distant />
                            </light>
                         </Lighting>
-                     </effect></Button>
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Button>
                   <Button fx:id="modiForm" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#modifierFormation" prefHeight="54.0" prefWidth="346.0" stylesheets="@style.css" text="Modifier Formation" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="52.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
@@ -58,7 +64,10 @@
                               <Light.Distant />
                            </light>
                         </Lighting>
-                     </effect></Button>
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Button>
                </children>
             </VBox>
          </children>

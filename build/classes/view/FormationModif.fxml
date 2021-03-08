@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="642.0" prefWidth="763.0" style="-fx-background-color: 000011;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormationController">
+<AnchorPane id="AnchorPane" prefHeight="642.0" prefWidth="763.0" style="-fx-background-color: 000011;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormationModifController">
    <children>
       <VBox layoutX="173.0" layoutY="128.0" prefHeight="333.0" prefWidth="143.0" spacing="22.0" AnchorPane.leftAnchor="173.0">
          <children>
@@ -19,13 +19,13 @@
       </VBox>
       <VBox layoutX="360.0" layoutY="128.0" prefHeight="333.0" prefWidth="299.0" spacing="10.0" AnchorPane.rightAnchor="104.0">
          <children>
-            <TextField fx:id="idField" />
+            <Label fx:id="idLab" />
             <TextField fx:id="titleField" layoutX="10.0" layoutY="10.0" />
             <TextField fx:id="descField" layoutX="10.0" layoutY="41.0" />
             <TextField fx:id="prixField" layoutX="10.0" layoutY="72.0" />
             <TextField fx:id="diffField" layoutX="10.0" layoutY="103.0" />
          </children>
       </VBox>
-      <Button fx:id="btnAjout" layoutX="252.0" layoutY="477.0" mnemonicParsing="false" onAction="#ajouterFormation" prefHeight="47.0" prefWidth="244.0" styleClass="button2" stylesheets="@style.css" text="Ajouter" textFill="WHITE" />
-   </children>
+      <Button fx:id="btnModif" layoutX="252.0" layoutY="477.0" mnemonicParsing="false" onAction="#modifierFormation" prefHeight="47.0" prefWidth="244.0" styleClass="button2" stylesheets="@style.css" text="Confirmer" textFill="WHITE" />
+   </children>  
 </AnchorPane>
