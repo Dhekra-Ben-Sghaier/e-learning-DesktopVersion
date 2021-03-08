@@ -1,13 +1,21 @@
 package entity;
 
 public class Inscription_certificat {
-    private int id;
 
-    
+    public Inscription_certificat(int id, String nomUtilisateur, String nom, String description) {
+        this.id = id;
+        this.nomUtilisateur = nomUtilisateur;
+        this.nom = nom;
+        this.description = description;
+    }
+    private int id;    
     private String nomUtilisateur;
     private String nom;
     private String description;
     private String domaine;
+
+    public Inscription_certificat() {
+    }
     
     public Inscription_certificat(String nomUtilisateur, String nom, String description, String domaine) {
         this.nomUtilisateur = nomUtilisateur;
@@ -24,10 +32,7 @@ public class Inscription_certificat {
         this.description = description;
         this.domaine = domaine;
         
-    }
-
-    public Inscription_certificat() {
-    }
+    }    
     
     public void setId(int id) {
         this.id = id;
@@ -57,22 +62,24 @@ public class Inscription_certificat {
     public String getNom() {
         return nom;
     }
-
-    public String getDescription() {
-        return description;
-    }
     
-
     public void setNom(String nom) {
         this.nom = nom;
     }
 
+    public String getDescription() {
+        return description;
+    }  
+
     public void setDescription(String description) {
         this.description = description;
     }
-
-    public Object getIdProperty() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+     @Override
+    public String toString() {
+        return "Inscription_certificat{" + "id=" + id + ", nomUtilisateur=" + nomUtilisateur + ", nom=" + nom + ", description=" + description + ", domaine=" + domaine + '}';
     }
+    
+    
        
 }

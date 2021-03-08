@@ -5,22 +5,20 @@ import entity.Inscription_certificat;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-/**
- *
- * @author benha
- */
+
 public class ListCertif {
-        private ObservableList<Inscription_certificat> personsapp=FXCollections.observableArrayList();
+        private ObservableList<Inscription_certificat> certifsapp=FXCollections.observableArrayList();
 
     public ListCertif() {
-        Inscription_certificatDao pdao=Inscription_certificatDao.getInstance();
-        personsapp= (ObservableList<Inscription_certificat>) pdao.displayAll();
-        System.out.println(personsapp);
+        Inscription_certificatDao cdao=Inscription_certificatDao.getInstance();
+        certifsapp= (ObservableList<Inscription_certificat>) cdao.displayAll();
+        System.out.println(certifsapp);
     }
 
-    public ObservableList<Inscription_certificat> getPersonsapp() {
-        return personsapp;
+    public ObservableList<Inscription_certificat> getInscriptionCertificat() {
+        return certifsapp;
     }
         
+    
 
 }
