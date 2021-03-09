@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
-import controller.TableFormController;
 import entity.Inscription_certificat;
 import java.io.IOException;
 import java.net.URL;
@@ -26,18 +20,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.Inscription_certificatDao;
 
-/**
- * FXML Controller class
- *
- * @author Tarek.Loussaief
- */
 public class Afficher_inscriController implements Initializable {
 
     @FXML
     private TableView<Inscription_certificat> tabInscriCertif;
     @FXML
-    private TableColumn<Inscription_certificat, String> id_inscri;
-    
+    private TableColumn<Inscription_certificat, String> id_inscri;    
     @FXML
     private TableColumn<Inscription_certificat, String> nom_utilisateur;
     @FXML
@@ -59,9 +47,9 @@ public class Afficher_inscriController implements Initializable {
     
     private void load(){
         listdata = new ListCertif();
-        id_inscri.setCellValueFactory(new PropertyValueFactory<>("id_inscri"));
-        nom_utilisateur.setCellValueFactory(new PropertyValueFactory<>("nom_utilisateur"));
-        nom_utilisateur.setCellValueFactory(new PropertyValueFactory<>("nom_certificat"));
+        id_inscri.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nom_utilisateur.setCellValueFactory(new PropertyValueFactory<>("nomUtilisateur"));
+        nom_certificat.setCellValueFactory(new PropertyValueFactory<>("nom"));
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
         domaine.setCellValueFactory(new PropertyValueFactory<>("domaine"));
   
@@ -98,7 +86,7 @@ public class Afficher_inscriController implements Initializable {
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(TableFormController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Afficher_inscriController.class.getName()).log(Level.SEVERE, null, ex);
         }
     
         
@@ -122,7 +110,7 @@ public class Afficher_inscriController implements Initializable {
             stage.show();
             load();
         } catch (IOException ex) {
-            Logger.getLogger(TableFormController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Afficher_inscriController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         

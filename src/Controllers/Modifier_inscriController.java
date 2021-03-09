@@ -8,6 +8,8 @@ package Controllers;
 import entity.Inscription_certificat;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,6 +26,8 @@ import service.Inscription_certificatDao;
  * @author Tarek.Loussaief
  */
 public class Modifier_inscriController implements Initializable {
+    ObservableList<String> list =FXCollections.observableArrayList("Info", "Design", "PNL");
+
 
     @FXML
     private TextField nomUtilisateur;
@@ -47,7 +51,8 @@ public class Modifier_inscriController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        String s = comb.getSelectionModel().getSelectedItem(); 
+        label.setText(s);
     }    
 
     public void setInscriptionCertificat(Inscription_certificat f){
@@ -56,7 +61,7 @@ public class Modifier_inscriController implements Initializable {
         nomUtilisateur.setText(f.getNomUtilisateur());
         nomField.setText(""+f.getNom());
         descField.setText(f.getDescription());
-        //comb.setText(f.getDomaine());
+        label.setText(f.getDomaine());
     }
     @FXML
     private void Select(ActionEvent event) {
@@ -69,7 +74,7 @@ public class Modifier_inscriController implements Initializable {
             Inscription_certificatDao fdao = Inscription_certificatDao.getInstance();
             
             
-           fdao.update(f);
+            fdao.update(f);
             
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");

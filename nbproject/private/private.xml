@@ -3,11 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/Controllers/ListCertif.java</file>
-            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/Controllers/Gerer_inscriController.java</file>
-            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/controller/TableFormController.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/Controllers/Modifier_inscriController.java</file>
             <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/entity/Inscription_certificat.java</file>
-            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/service/Inscription_certificatDao.java</file>
         </group>
     </open-files>
 </project-private>

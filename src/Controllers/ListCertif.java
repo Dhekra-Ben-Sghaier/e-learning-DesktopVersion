@@ -7,7 +7,8 @@ import javafx.collections.ObservableList;
 
 
 public class ListCertif {
-        private ObservableList<Inscription_certificat> certifsapp=FXCollections.observableArrayList();
+    
+    private ObservableList<Inscription_certificat> certifsapp =FXCollections.observableArrayList();
 
     public ListCertif() {
         Inscription_certificatDao cdao=Inscription_certificatDao.getInstance();
