@@ -1,0 +1,19 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+
+.button
+{
+    -fx-background-color :  #0A0232;
+    -fx-background-radius :  30 0 0 30;
+    -fx-border-color : white;
+    -fx-border-width : 0px 0px 0px 0px;
+}
+.button:hover
+{
+    -fx-background-color :linear-gradient(to top left, #aac3f4, #648cc8);
+    
+    -fx-border-width : 0px 0px 0px 0px;
+}
+

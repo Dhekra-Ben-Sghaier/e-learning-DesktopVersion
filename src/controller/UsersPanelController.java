@@ -37,17 +37,22 @@ public class UsersPanelController implements Initializable {
     @FXML
     private Button btn_acc;
     @FXML
-    private Button btn2;
-    @FXML
-    private Button btn3;
-    @FXML
-    private Button btn5;
-    @FXML
-    private Button btn4;
-    @FXML
     private AnchorPane contenu;
-    @FXML
     private Button btn_auth;
+    @FXML
+    private Button btn_cat;
+    @FXML
+    private Button btn_os;
+    @FXML
+    private Button btn_rec;
+    @FXML
+    private Button btn_pub;
+    @FXML
+    private Button btn_ct;
+    @FXML
+    private Button btn_conn;
+    @FXML
+    private Button btn_insc;
 
     /**
      * Initializes the controller class.
@@ -55,7 +60,8 @@ public class UsersPanelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        btn_auth.setOnAction(event -> {
+      
+         btn_conn.setOnAction(event -> {
 
             try {
                 Parent page2 = FXMLLoader.load(getClass().getResource("/view/interfaceAdmin.fxml"));
@@ -83,7 +89,8 @@ public class UsersPanelController implements Initializable {
             root = FXMLLoader.load(getClass().getResource(page));
         } catch (IOException ex) {
             Logger.getLogger(UserPanelController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        bp.setCenter(root);
+         }
         bp.setCenter(root);
             
         }

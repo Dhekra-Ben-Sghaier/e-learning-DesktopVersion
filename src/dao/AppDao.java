@@ -141,10 +141,7 @@ public class AppDao implements Idao<Apprenant> {
     return p;
     }
 
-    @Override
-    public boolean update(Apprenant os) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     @Override
     public ObservableList<Apprenant> displaylist() {
@@ -171,6 +168,22 @@ public class AppDao implements Idao<Apprenant> {
             Logger.getLogger(AppDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list; //To change body of generated methods, choose Tools | Templates
+    }
+
+    @Override
+    public boolean update(Apprenant os) {
+         
+        String qry = "UPDATE personnes SET cin = '"+os.getCin()+"', nom = '"+os.getNom()+"', prenom = '"+os.getPrenom()+"', email = '"+os.getEmail()+"', password = '"+os.getMdp()+"', nomUtilisateur = '"+os.getLogin()+"', centreInteret = '"+os.getCd()+"' WHERE id_user = "+os.getId();
+         
+        try {
+            if (st.executeUpdate(qry) > 0) {
+                return true;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(AppDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
     
 }

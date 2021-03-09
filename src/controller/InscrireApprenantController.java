@@ -26,6 +26,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 /**
  * FXML Controller class
@@ -62,10 +63,10 @@ public class InscrireApprenantController implements Initializable {
         cd.setItems(centreInteret);
        btn_add.setOnAction(event -> {
             
-            Apprenant p = new Apprenant(cin.getText(),nom.getText(), prenom.getText(),email.getText(),mdp.getText(),nomuser.getText(),cd.getValue(),"apprenant");
+            Apprenant p = new Apprenant(cin.getText(),nom.getText(), prenom.getText(),email.getText(),hashPassword(mdp.getText()),nomuser.getText(),cd.getValue(),"apprenant");
            AppDao pdao = AppDao.getInstance();
             pdao.insert(p);
-        
+       
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
@@ -93,6 +94,9 @@ public class InscrireApprenantController implements Initializable {
         
   
         });
-    }    
+    }
+private static String hashPassword(String txtpassword){
+    return BCrypt.hashpw(txtpassword, BCrypt.gensalt());
+}    
  
 }

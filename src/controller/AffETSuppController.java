@@ -7,14 +7,21 @@ package controller;
 
 import dao.AppDao;
 import entity.Apprenant;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -22,6 +29,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 /**
@@ -69,6 +77,8 @@ public class AffETSuppController implements Initializable {
     private Label lab_nu;
     @FXML
     private Label lab_cd;
+    @FXML
+    private Button btn_modif;
     
     /**
      * Initializes the controller class.
@@ -99,20 +109,14 @@ public class AffETSuppController implements Initializable {
       
     
     });
-     setCellValueFromTableToLabel();
+       //supprimer
+     
        btn_supp.setOnAction(event -> {
             
-    int id= Integer.parseInt(lab_id.getText());
-    String cin= lab_cin.getText();
-    String nom= lab_nom.getText();
-    String prenom= lab_prenom.getText();
-    String email= lab_email.getText();
-    String mdp= lab_password.getText();
-    String user= lab_nu.getText();
-    String cd= lab_cd.getText();
-     Apprenant p = new Apprenant(id,cin,nom, prenom,email,mdp,user,cd);
-           AppDao pdao = AppDao.getInstance();
-            pdao.delete(p);
+   Apprenant p = apprenants.getSelectionModel().getSelectedItem();
+          AppDao fo =AppDao.getInstance().getInstance();
+          fo.delete(p);
+          apprenants.getItems().removeAll(apprenants.getSelectionModel().getSelectedItem());
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
@@ -121,29 +125,35 @@ public class AffETSuppController implements Initializable {
         
    
         });
-    }
-   private void setCellValueFromTableToLabel(){
-       apprenants.setOnMouseClicked(new EventHandler<MouseEvent>(){
-           @Override
-           public void handle(MouseEvent event) {
-               Apprenant ls=apprenants.getItems().get(apprenants.getSelectionModel().getSelectedIndex());
-               lab_id.setText(String.valueOf(ls.getId()));
-               lab_cin.setText(ls.getCin());
-               lab_nom.setText(ls.getNom());
-               lab_prenom.setText(ls.getPrenom());
-               lab_email.setText(ls.getEmail());
-               lab_password.setText(ls.getMdp());
-               lab_nu.setText(ls.getLogin());
-               lab_cd.setText(ls.getCd());
-           }
+       //endSupp
+       //modifier
+         btn_modif.setOnAction(event -> {
+
+             Apprenant f = apprenants.getSelectionModel().getSelectedItem();
+        AppDao fo =AppDao.getInstance().getInstance();
+          
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/interfaceModif.fxml"));
+        
            
-           
-           
-       });
-   }
-    public void suppApprenant(){
-   
+                   
             
-}    
+            Parent parent = (Parent)loader.load();
+            
+            InterfaceModifController cont = loader.<InterfaceModifController>getController();
+            cont.setApprenant(f);
+            
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AffETSuppController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        });
+         //endModif
+    }
+
    
 }

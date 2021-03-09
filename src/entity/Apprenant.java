@@ -30,30 +30,30 @@ public class Apprenant extends Personne {
     
 
 
-    public Apprenant(int id, String nom, String prenom, String email, String mdp, String login, String cd) {
-        super(id, nom, prenom, email, mdp, login);
-    }
-
-      public Apprenant(int id, String cin ,String nom, String prenom, String email, String mdp, String login, String cd) {
+    public Apprenant(int id, String cin ,String nom, String prenom, String email, String mdp, String login) {
         super(id,cin, nom, prenom, email, mdp, login);
     }
-    public Apprenant(int id, String nom, String prenom ,String cd) {
-        super(id, nom, prenom);
-        this.cd = new SimpleStringProperty(cd);
-    }
+
+     
+   
 
     private Apprenant(int id, String nom, String prenom, String email, String mdp, String login) {
          //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getCd() {
+    public Apprenant(int id, String cin, String nom, String prenom, String email, String mdp, String login ,String cd) {
+        super(id, cin, nom, prenom, email, mdp, login);
+        this.cd = new SimpleStringProperty(cd);
+    }
+
+   public String getCd() {
         return cd.get();
     }
 
     public void setCd(String cd) {
         this.cd = new SimpleStringProperty(cd);
     }
- public SimpleStringProperty getCdProperty(){
+     public SimpleStringProperty getCdProperty(){
         return cd;
     }
     

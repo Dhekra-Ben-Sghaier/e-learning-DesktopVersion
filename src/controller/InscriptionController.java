@@ -34,6 +34,10 @@ public class InscriptionController implements Initializable {
     private Button btn_form;
     @FXML
     private Label formateur;
+    @FXML
+    private Button btn_soc;
+    @FXML
+    private Label formateur1;
 
     /**
      * Initializes the controller class.
