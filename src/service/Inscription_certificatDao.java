@@ -88,7 +88,7 @@ public class Inscription_certificatDao implements Idao<Inscription_certificat>{
 
     @Override
     public boolean update(Inscription_certificat os) {
-        String qry = "update inscri_certif set nom_utilisateur = '"+os.getNomUtilisateur()+"' , nom_certificat = '"+os.getNom()+"', description = '"+os.getDescription()+"'  WHERE id_inscri = "+os.getId();
+        String qry = "update inscri_certif set nom_utilisateur = '"+os.getNomUtilisateur()+"' , nom_certificat = '"+os.getNom()+"', description = '"+os.getDescription()+"', domaine = '"+os.getDomaine()+"'  WHERE id_inscri = "+os.getId();
         
         try {
             if (st.executeUpdate(qry) > 0) {

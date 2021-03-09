@@ -51,8 +51,9 @@ public class Modifier_inscriController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        comb.setItems(list);
         String s = comb.getSelectionModel().getSelectedItem(); 
-        label.setText(s);
+        //label.setText(s);
     }    
 
     public void setInscriptionCertificat(Inscription_certificat f){
@@ -61,7 +62,7 @@ public class Modifier_inscriController implements Initializable {
         nomUtilisateur.setText(f.getNomUtilisateur());
         nomField.setText(""+f.getNom());
         descField.setText(f.getDescription());
-        label.setText(f.getDomaine());
+        comb.setValue(f.getDomaine());
     }
     @FXML
     private void Select(ActionEvent event) {
@@ -70,7 +71,7 @@ public class Modifier_inscriController implements Initializable {
 
     @FXML
     private void Modifier(ActionEvent event) {
-            Inscription_certificat f = new Inscription_certificat(Integer.parseInt(id_inscri.getText()),nomUtilisateur.getText(), nomField.getText(), descField.getText() );
+            Inscription_certificat f = new Inscription_certificat(Integer.parseInt(id_inscri.getText()),nomUtilisateur.getText(), nomField.getText(), descField.getText() , comb.getValue() );
             Inscription_certificatDao fdao = Inscription_certificatDao.getInstance();
             
             
@@ -82,6 +83,7 @@ public class Modifier_inscriController implements Initializable {
             alert.setContentText("Certtif modifiée avec succés!");
             alert.show();
             nomUtilisateur.setText("");
+            nomField.setText("");
             descField.setText("");
     }
     

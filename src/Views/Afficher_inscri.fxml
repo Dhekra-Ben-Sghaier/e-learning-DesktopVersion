@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="424.0" prefWidth="722.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="Controllers.Afficher_inscriController">
+<AnchorPane id="AnchorPane" prefHeight="424.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Afficher_inscriController">
    <children>
       <AnchorPane opacity="0.94" prefHeight="424.0" prefWidth="204.0" style="-fx-background-color: #0A0232;">
          <effect>
@@ -37,9 +36,9 @@
             <TableColumn fx:id="domaine" minWidth="4.0" prefWidth="78.0" text="domaine" />
         </columns>
       </TableView>
-      <Button fx:id="actualiser" layoutX="488.0" layoutY="354.0" mnemonicParsing="false" onAction="#actualiser" text="actualiser" />
-      <Button fx:id="modifer" layoutX="383.0" layoutY="354.0" mnemonicParsing="false" onAction="#modifer" text="modifer" />
-      <Button fx:id="supprimer" layoutX="259.0" layoutY="354.0" mnemonicParsing="false" onAction="#supprimer" text="supprimer" />
-      <Button fx:id="ajouter" layoutX="589.0" layoutY="354.0" mnemonicParsing="false" onAction="#ajouter" text="ajouter" />
+      <Button fx:id="actualiser" layoutX="479.0" layoutY="355.0" mnemonicParsing="false" onAction="#actualiser" prefHeight="25.0" prefWidth="72.0" text="Actualiser" />
+      <Button fx:id="modifer" layoutX="361.0" layoutY="355.0" mnemonicParsing="false" onAction="#modifer" prefHeight="25.0" prefWidth="72.0" text="Modifer" />
+      <Button fx:id="supprimer" layoutX="604.0" layoutY="355.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
+      <Button fx:id="ajouter" alignment="CENTER" layoutX="245.0" layoutY="355.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="25.0" prefWidth="72.0" text="Ajouter" textAlignment="CENTER" />
    </children>
 </AnchorPane>
