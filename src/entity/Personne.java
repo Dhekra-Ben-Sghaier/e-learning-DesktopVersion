@@ -72,6 +72,7 @@ public class Personne {
         this.mdp = new SimpleStringProperty(mdp);
         this.login = new SimpleStringProperty(login);
     }
+ 
 
     public Personne(String nom, String prenom, String email, String mdp, String login) {
          this.nom = new SimpleStringProperty( nom);

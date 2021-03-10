@@ -18,17 +18,17 @@ public class Apprenant extends Personne {
        public Apprenant() {
         
     }
-    public Apprenant(String nom, String prenom ,String cd) {
-        super(nom, prenom);
-        this.cd = new SimpleStringProperty(cd);
-    }
+   
 
     public Apprenant(String cin ,String nom, String prenom, String email, String mdp, String login, String cd ,String role) {
         super(cin,nom, prenom, email, mdp, login, role);
    this.cd = new SimpleStringProperty(cd);    
     }
     
-
+ public Apprenant(String cin ,String nom, String prenom, String email, String mdp, String login, String cd) {
+        super(cin,nom, prenom, email, mdp, login);
+   this.cd = new SimpleStringProperty(cd);    
+    }
 
     public Apprenant(int id, String cin ,String nom, String prenom, String email, String mdp, String login) {
         super(id,cin, nom, prenom, email, mdp, login);

@@ -6,9 +6,11 @@
 package controller;
 
 import dao.AppDao;
+import dao.ControleSaisie;
 import entity.Apprenant;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,7 +52,7 @@ public class InscrireApprenantController implements Initializable {
     @FXML
     private TextField prenom;
     @FXML
-    private static TextField email;
+    private  TextField email;
     @FXML
     private PasswordField mdp;
     @FXML
@@ -65,6 +67,8 @@ public class InscrireApprenantController implements Initializable {
     private TextField txt_mdp;
     @FXML
     private Label lab_email;
+    @FXML
+    private Label lab_cin;
 
     /**
      * Initializes the controller class.
@@ -75,17 +79,32 @@ public class InscrireApprenantController implements Initializable {
         cd.setItems(centreInteret);
         //inserer un apprenant
        btn_add.setOnAction(event -> {
-            boolean emailvalidation=validEmail(email,lab_email,"format doitt être nom@address.com");
-            System.out.println(emailvalidation);
-            if(emailvalidation){
-            Apprenant p = new Apprenant(cin.getText(),nom.getText(), prenom.getText(),email.getText(),hashPassword(mdp.getText()),nomuser.getText(),cd.getValue(),"apprenant");
-           AppDao pdao = AppDao.getInstance();
-            pdao.insert(p);
+      
+           if(ControleSaisie.isNull(cin.getText()) || ControleSaisie.isNull(nom.getText()) || ControleSaisie.isNull(prenom.getText()) || ControleSaisie.isNull(email.getText()) || ControleSaisie.isNull(mdp.getText()) || ControleSaisie.isNull(nomuser.getText()))
+           {
+             Alert alerts = new Alert(Alert.AlertType.WARNING);
+        alerts.setTitle("Warning");
+        alerts.setHeaderText(null);
+        alerts.setContentText("Veuillez remplir les champs!");
+        alerts.show();
+           }else {
+             if(ControleSaisie.validemail(email.getText())== false){
+                 lab_email.setText("Veuillez saisir une adresse email valide !");
+             } if(ControleSaisie.iscin(cin.getText())==false){
+                 lab_cin.setText("Cin invalide !");
+                 
+             }if(ControleSaisie.iscin(cin.getText()) && ControleSaisie.validemail(email.getText()) ){
+               
+                 
+             
+                Apprenant f = new Apprenant(cin.getText(), nom.getText(), prenom.getText(), email.getText(), hashPassword(mdp.getText()), nomuser.getText(),cd.getValue());
+            AppDao fdao = AppDao.getInstance();
+            fdao.insert(f);
        
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
-        alert.setContentText("Personne insérée avec succés!");
+        alert.setContentText("Apprenant insérée avec succés!");
         alert.show();
         cin.setText("");
         nom.setText("");
@@ -94,7 +113,9 @@ public class InscrireApprenantController implements Initializable {
         mdp.setText("");
         nomuser.setText("");
         cd.setValue("Centres d'intérêt");
-            }
+             }
+             
+           }
         });
        // end inserer
        btn_retour.setOnAction(event -> {

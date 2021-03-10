@@ -15,6 +15,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,6 +25,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -43,6 +45,10 @@ public class LoginController implements Initializable {
     private PasswordField pwd;
     @FXML
     private Button btn_log;
+    @FXML
+    private TextField txt_mdp;
+    @FXML
+    private CheckBox check_mdp;
 
     /**
      * Initializes the controller class.
@@ -55,6 +61,22 @@ public class LoginController implements Initializable {
          connecter(user.getText(),pwd.getText());
   
         });
+             //aff mdp
+       txt_mdp.setVisible(false);
+       check_mdp.selectedProperty().addListener((ObservableValue<? extends Boolean> ov, Boolean old_value, Boolean newValue) -> {
+       if(check_mdp.isSelected()){
+           txt_mdp.setText(pwd.getText());
+           txt_mdp.setVisible(true);
+           pwd.setVisible(false);
+           return;
+           
+       }
+      pwd.setText(txt_mdp.getText());
+       pwd.setVisible(true);
+       txt_mdp.setVisible(false);
+       
+       });
+       //end aff mdp
     }    
     private static Connection   connection;
     private static java.sql.PreparedStatement pst;
@@ -76,7 +98,7 @@ public class LoginController implements Initializable {
                 }
                 
             }
-            if(count==1){
+            if((count==1) && username.equals("admin")){
                           
         
             Parent page1;
@@ -92,12 +114,33 @@ public class LoginController implements Initializable {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
+            } else  if(count==1){
+                          
+        
+            Parent page2;
+                 try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/usersPanel.fxml"));
+        
+            Parent parent = (Parent)loader.load();
+            
+          UsersPanelController cont = loader.<UsersPanelController>getController();
+            cont.loadhead("/view/usercompte.fxml");
+            
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
             }
             else
             {
                 Alert alert=new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
-                alert.setContentText("username and password is not correct");
+                alert.setContentText("username or password is not correct");
                 alert.show();
             }
         } catch (SQLException ex) {

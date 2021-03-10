@@ -40,7 +40,7 @@ public class InterfaceAdminController implements Initializable {
     @FXML
     private Button gererC;
     @FXML
-    private Label gererOC;
+    private Button home;
 
     /**
      * Initializes the controller class.
@@ -48,7 +48,24 @@ public class InterfaceAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+         // go to home
+           home.setOnAction(event -> {
+             try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/usersPanel.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(InterfaceAdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+          
+        
+  
+        });
          
+         
+         //home
     }   
     @FXML
     private void supprimer(MouseEvent event) {

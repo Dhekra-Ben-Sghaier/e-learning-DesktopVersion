@@ -76,7 +76,8 @@ public class InterfaceModifController implements Initializable {
             alert.show();
         });
         
-    }    
+    } 
+    // recuperer les donnés de la table view apprneants
     public void setApprenant(Apprenant a){
         this.apprenant= a;
         id_lab.setText(""+a.getId());

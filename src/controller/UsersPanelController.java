@@ -64,26 +64,17 @@ public class UsersPanelController implements Initializable {
         // TODO
         btn_conn.setOnAction(event -> {
 
-             
+              try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+            }
           
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
-        
-           
-                   
-            
-            Parent parent = (Parent)loader.load();
-            
-            
-            
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(AffETSuppController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+      
         });
       
     }    
@@ -107,4 +98,16 @@ public class UsersPanelController implements Initializable {
         bp.setCenter(root);
             
         }
+    public void  loadhead(String page){
+        Parent root = null;
+        
+        try {
+            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UserPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setTop(root);
+            
+        }
+
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
@@ -16,7 +17,12 @@
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="pwd" layoutX="93.0" layoutY="220.0" prefHeight="25.0" prefWidth="214.0" promptText="Password" style="-fx-background-color: #100A42;" />
+      <TextField fx:id="txt_mdp" layoutX="92.0" layoutY="216.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-color: #100A42;">
+         <font>
+            <Font name="Arial" size="12.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="pwd" layoutX="92.0" layoutY="216.0" prefHeight="25.0" prefWidth="214.0" promptText="Password" style="-fx-background-color: #100A42;" />
       <Label layoutX="147.0" layoutY="41.0" text="Login" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="44.0" />
@@ -36,6 +42,12 @@
       <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="52.0" layoutY="163.0" opacity="0.9" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/user-removebg-preview%20(1).png" />
+         </image>
+      </ImageView>
+      <CheckBox fx:id="check_mdp" layoutX="316.0" layoutY="220.0" mnemonicParsing="false" />
+      <ImageView fitHeight="17.0" fitWidth="25.0" layoutX="340.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/eyea.png" />
          </image>
       </ImageView>
    </children>

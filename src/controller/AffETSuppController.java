@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -139,9 +140,54 @@ public class AffETSuppController implements Initializable {
         });
          //endModif
          //Rechercher
-       
+          ApprenantList.addAll(listdata.getPersonsapp());
+         FilteredList<Apprenant> filtereddata= new FilteredList<>(ApprenantList, b->true);
+         
+         txt_search.textProperty().addListener((observable, oldValue, newValue) -> {
+             txt_search.textProperty().addListener((observables, oldVal, newVal) -> {
+			filtereddata.setPredicate(apprenant -> {
+				// If filter text is empty, display all persons.
+								
+				if (newVal == null || newVal.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (apprenant.getCin().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches cin.
+				} else if (apprenant.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom.
+				}else if (apprenant.getPrenom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom.
+				}else if (apprenant.getEmail().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom.
+				}else if (apprenant.getMdp().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom.
+				}else if (apprenant.getLogin().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom.
+				}
+				else if (apprenant.getCd().toLowerCase().indexOf(lowerCaseFilter) != -1)
+				     return true;
+                                
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
 
-    }
+    });
+         // 3. Wrap the FilteredList in a SortedList. 
+         SortedList<Apprenant> sortedData = new SortedList<>(filtereddata);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(apprenants.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		apprenants.setItems(sortedData);
 
-   
+
+   //end Recherche
+}
 }
