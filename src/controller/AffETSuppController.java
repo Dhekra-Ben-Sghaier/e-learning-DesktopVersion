@@ -14,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -27,6 +28,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -62,23 +64,9 @@ public class AffETSuppController implements Initializable {
     @FXML
     private TableColumn<Apprenant, Integer> iduser;
     @FXML
-    private Label lab_id;
-    @FXML
-    private Label lab_cin;
-    @FXML
-    private Label lab_nom;
-    @FXML
-    private Label lab_prenom;
-    @FXML
-    private Label lab_email;
-    @FXML
-    private Label lab_password;
-    @FXML
-    private Label lab_nu;
-    @FXML
-    private Label lab_cd;
-    @FXML
     private Button btn_modif;
+    @FXML
+    private TextField txt_search;
     
     /**
      * Initializes the controller class.
@@ -104,11 +92,8 @@ public class AffETSuppController implements Initializable {
         cdp.setCellValueFactory(cell -> cell.
                 getValue().getCdProperty());
         
-        
-       apprenants.setOnMouseClicked(event->{
-      
-    
-    });
+
+     
        //supprimer
      
        btn_supp.setOnAction(event -> {
@@ -153,6 +138,9 @@ public class AffETSuppController implements Initializable {
         }
         });
          //endModif
+         //Rechercher
+       
+
     }
 
    

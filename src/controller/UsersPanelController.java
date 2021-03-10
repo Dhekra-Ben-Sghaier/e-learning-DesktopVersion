@@ -5,6 +5,8 @@
  */
 package controller;
 
+import dao.AppDao;
+import entity.Apprenant;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -60,19 +62,30 @@ public class UsersPanelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-      
-         btn_conn.setOnAction(event -> {
+        btn_conn.setOnAction(event -> {
 
-            try {
-                Parent page2 = FXMLLoader.load(getClass().getResource("/view/interfaceAdmin.fxml"));
-                Scene scene = new Scene(page2);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException ex) {
-                Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+             
+          
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+        
+           
+                   
+            
+            Parent parent = (Parent)loader.load();
+            
+            
+            
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AffETSuppController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         });
+      
     }    
     private void goToHome(MouseEvent event) {
         bp.setCenter(contenu);
