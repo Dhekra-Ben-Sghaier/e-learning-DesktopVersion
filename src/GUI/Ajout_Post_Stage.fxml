@@ -22,7 +22,7 @@
       <Label layoutX="122.0" layoutY="222.0" prefHeight="17.0" prefWidth="96.0" text="Niveau d'étude :" />
       <Label layoutX="122.0" layoutY="266.0" prefHeight="17.0" prefWidth="96.0" text="Certificat :" />
       <Label layoutX="122.0" layoutY="304.0" prefHeight="17.0" prefWidth="96.0" text="Durée du stage" />
-      <Label layoutX="122.0" layoutY="398.0" prefHeight="17.0" prefWidth="96.0" text="Description :" />
+      <Label layoutX="125.0" layoutY="439.0" prefHeight="17.0" prefWidth="96.0" text="Description :" />
       <TextField fx:id="Champ_Nom_Soc" layoutX="278.0" layoutY="90.0" prefHeight="25.0" prefWidth="150.0" promptText="Nom société" />
       <TextField fx:id="Champ_Adresse_Mail" layoutX="278.0" layoutY="134.0" prefHeight="25.0" prefWidth="150.0" promptText="Adresse mail" />
       <TextField fx:id="Champ_Adresse" layoutX="278.0" layoutY="179.0" prefHeight="25.0" prefWidth="150.0" promptText="Adresse" />
@@ -32,7 +32,9 @@
       <Button fx:id="Retour_Acceuil_Ajout" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" onAction="#Retour_Ajout" text="Retour" />
       <Button fx:id="Btn_pub_travail" layoutX="538.0" layoutY="455.0" mnemonicParsing="false" onAction="#Ajouter_stage" text="Publier" />
       <Label layoutX="122.0" layoutY="348.0" prefHeight="17.0" prefWidth="96.0" text="Date du debut" />
-      <DatePicker fx:id="Champ_Date_debut" layoutX="278.0" layoutY="344.0" onAction="#select_date_debut" prefHeight="25.0" prefWidth="150.0" promptText="Date du debut" />
-      <TextArea fx:id="Champ_Desc" layoutX="278.0" layoutY="400.0" prefHeight="136.0" prefWidth="150.0" promptText="Description" />
+      <DatePicker fx:id="Champ_Date_debut" layoutX="278.0" layoutY="344.0" prefHeight="25.0" prefWidth="150.0" promptText="Date du debut" />
+      <TextArea fx:id="Champ_Desc" layoutX="281.0" layoutY="441.0" prefHeight="80.0" prefWidth="150.0" promptText="Description" />
+      <Label layoutX="122.0" layoutY="385.0" prefHeight="17.0" prefWidth="96.0" text="Date du fin" />
+      <DatePicker fx:id="Champ_Date_fin" layoutX="278.0" layoutY="381.0" prefHeight="25.0" prefWidth="150.0" promptText="Date du debut" />
    </children>
 </AnchorPane>

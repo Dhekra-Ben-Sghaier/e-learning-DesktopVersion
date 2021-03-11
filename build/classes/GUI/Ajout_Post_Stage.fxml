@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -15,23 +16,25 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="122.0" layoutY="94.0" prefHeight="17.0" prefWidth="96.0" text="Nom sociéte :" />
+      <Label layoutX="122.0" layoutY="94.0" prefHeight="17.0" prefWidth="96.0" text="Nom société :" />
       <Label layoutX="122.0" layoutY="138.0" prefHeight="17.0" prefWidth="96.0" text="Adresse mail :" />
       <Label layoutX="122.0" layoutY="183.0" prefHeight="17.0" prefWidth="96.0" text="Adresse :" />
       <Label layoutX="122.0" layoutY="222.0" prefHeight="17.0" prefWidth="96.0" text="Niveau d'étude :" />
       <Label layoutX="122.0" layoutY="266.0" prefHeight="17.0" prefWidth="96.0" text="Certificat :" />
       <Label layoutX="122.0" layoutY="304.0" prefHeight="17.0" prefWidth="96.0" text="Durée du stage" />
-      <Label layoutX="122.0" layoutY="398.0" prefHeight="17.0" prefWidth="96.0" text="Description :" />
-      <TextField fx:id="Champ_Nom_Soc" layoutX="278.0" layoutY="90.0" />
-      <TextField fx:id="Champ_Adresse_Mail" layoutX="278.0" layoutY="134.0" />
-      <TextField fx:id="Champ_Adresse" layoutX="278.0" layoutY="179.0" />
-      <ComboBox fx:id="Champ_Niveau_Etude" layoutX="278.0" layoutY="218.0" onAction="#select_niveau_etude" prefWidth="150.0" />
-      <ComboBox fx:id="Champ_Certificat" layoutX="278.0" layoutY="262.0" onAction="#select_Certificat" prefWidth="150.0" />
-      <ComboBox fx:id="Champ_Duree_stage" layoutX="278.0" layoutY="300.0" onAction="#Select_duree_stage" prefWidth="150.0" />
-      <TextField fx:id="Champ_Desc" layoutX="279.0" layoutY="388.0" prefHeight="92.0" prefWidth="149.0" />
+      <Label layoutX="125.0" layoutY="439.0" prefHeight="17.0" prefWidth="96.0" text="Description :" />
+      <TextField fx:id="Champ_Nom_Soc" layoutX="278.0" layoutY="90.0" prefHeight="25.0" prefWidth="150.0" promptText="Nom société" />
+      <TextField fx:id="Champ_Adresse_Mail" layoutX="278.0" layoutY="134.0" prefHeight="25.0" prefWidth="150.0" promptText="Adresse mail" />
+      <TextField fx:id="Champ_Adresse" layoutX="278.0" layoutY="179.0" prefHeight="25.0" prefWidth="150.0" promptText="Adresse" />
+      <ComboBox fx:id="Champ_Niveau_Etude" layoutX="278.0" layoutY="218.0" prefWidth="150.0" promptText="Faites votre choix" />
+      <ComboBox fx:id="Champ_Certificat" layoutX="278.0" layoutY="262.0" prefWidth="150.0" promptText="Faites votre choix" />
+      <ComboBox fx:id="Champ_Duree_stage" layoutX="278.0" layoutY="300.0" prefWidth="150.0" promptText="Faites votre choix" />
       <Button fx:id="Retour_Acceuil_Ajout" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" onAction="#Retour_Ajout" text="Retour" />
       <Button fx:id="Btn_pub_travail" layoutX="538.0" layoutY="455.0" mnemonicParsing="false" onAction="#Ajouter_stage" text="Publier" />
       <Label layoutX="122.0" layoutY="348.0" prefHeight="17.0" prefWidth="96.0" text="Date du debut" />
-      <DatePicker fx:id="Champ_Date_debut" layoutX="278.0" layoutY="344.0" onAction="#select_date_debut" />
+      <DatePicker fx:id="Champ_Date_debut" layoutX="278.0" layoutY="344.0" prefHeight="25.0" prefWidth="150.0" promptText="Date du debut" />
+      <TextArea fx:id="Champ_Desc" layoutX="281.0" layoutY="441.0" prefHeight="80.0" prefWidth="150.0" promptText="Description" />
+      <Label layoutX="122.0" layoutY="385.0" prefHeight="17.0" prefWidth="96.0" text="Date du fin" />
+      <DatePicker fx:id="Champ_Date_fin" layoutX="278.0" layoutY="381.0" prefHeight="25.0" prefWidth="150.0" promptText="Date du debut" />
    </children>
 </AnchorPane>

@@ -26,10 +26,11 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.paint.Paint;
-import javafx.util.Duration;
-import Entity.Stage;
+import Entity.OffreStage;
+import Services.StageService;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * FXML Controller class
@@ -58,22 +59,24 @@ public class Ajout_Post_StageController implements Initializable {
     private Button Btn_pub_travail;
     @FXML
     private DatePicker Champ_Date_debut;
+    @FXML
+    private DatePicker Champ_Date_fin;
 
     /**
      * Initializes the controller class.
+     *
      * @param url
      * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        ObservableList<String> list_ne =FXCollections.observableArrayList("Secondaire","Bac","Bac+1","Bac+2","Bac+3","bac+4","Bac+5");
+        ObservableList<String> list_ne = FXCollections.observableArrayList("Secondaire", "Bac", "Bac+1", "Bac+2", "Bac+3", "bac+4", "Bac+5");
         Champ_Niveau_Etude.setItems(list_ne);
-        ObservableList<String> list_Certificat =FXCollections.observableArrayList("Angalais","Français","Mecanique","Electrique","Informatique","Office");
+        ObservableList<String> list_Certificat = FXCollections.observableArrayList("Angalais", "Français", "Mecanique", "Electrique", "Informatique", "Office");
         Champ_Certificat.setItems(list_Certificat);
-        ObservableList<String> list_Duree =FXCollections.observableArrayList("1 mois","2 mois","3 mois","4 mois","5 mois","6 mois");
+        ObservableList<String> list_Duree = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6");
         Champ_Duree_stage.setItems(list_Duree);
-    }    
-    
+    }
 
     @FXML
     private void Retour_Ajout(ActionEvent event) throws IOException {
@@ -85,7 +88,7 @@ public class Ajout_Post_StageController implements Initializable {
     }
 
     @FXML
-    private void Ajouter_stage(ActionEvent event) {
+    private void Ajouter_stage(ActionEvent event) throws ParseException {
         if ((Champ_Nom_Soc.getText().equals("")) || (Champ_Adresse_Mail.getText().equals("")) || (Champ_Adresse.getText().equals("")) || (Champ_Niveau_Etude.getValue().equals("")) || (Champ_Certificat.getValue().equals("")) || (Champ_Duree_stage.getValue().equals("")) || (Champ_Desc.getText().equals(""))) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur de Saisie");
@@ -98,30 +101,25 @@ public class Ajout_Post_StageController implements Initializable {
             String AdresseS = Champ_Adresse.getText();
             String Niveau_EtudeS = Champ_Niveau_Etude.getValue();
             String CertificatS = Champ_Certificat.getValue();
-            String Duree_stageS = Champ_Duree_stage.getValue();
+            int Duree_stageS = Integer.parseInt(Champ_Duree_stage.getValue());
             String DescS = Champ_Desc.getText();
             LocalDate Date_debutS = Champ_Date_debut.getValue();
-            Stage SS = new Stage(0, 0, Date_debut, Date_fin, 0, Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pub, Niveau_EtudeS, CertificatS);
-            service.offreuserService su = new offreuserService();
-            su.insereroffre(ou);
+            //Date Date_debutS=new SimpleDateFormat("dd/MM/yyyy").parse(Date_debutt);  
+            LocalDate Date_finS = Champ_Date_fin.getValue();
+            //Date Date_finS=new SimpleDateFormat("dd/MM/yyyy").parse(Date_finn);      
+            String Date_pubb = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+            Date Date_pubS = new SimpleDateFormat("yyyyMMdd_HHmmss").parse(Date_pubb);
+            java.sql.Date datedeb = java.sql.Date.valueOf(Date_debutS);
+            java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
+            OffreStage SS = new OffreStage(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Duree_stageS, Date_pubS, Date_pubS);
+            Services.StageService su = new StageService();
+            su.ajouter_Offe_Stage(SS);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("offre ajouté");
-            alert.setHeaderText("Ajout");
-            alert.showAndWait();
-            TrayNotification tray = new TrayNotification();
-            Image whatsAppImg = new Image("/image/image1.png");
-            String text = "Offre ajouté avec succés ";
-
-            tray.setTray("welcome", text + " ", whatsAppImg, Paint.valueOf("#2A9A84"), AnimationType.SLIDE);
-
-            tray.showAndDismiss(Duration.seconds(10));
+            alert.setTitle("Ajout confirmé");
+            alert.setHeaderText("Confirmation");
+            alert.setContentText("le code de votre publication est:***"/*+SS.getId_Stage()*/);
+            Optional<ButtonType> result = alert.showAndWait();
         }
     }
 
-
-    @FXML
-    private void select_date_debut(ActionEvent event) {
-        
-    }
-    
 }

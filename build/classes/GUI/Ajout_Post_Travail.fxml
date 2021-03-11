@@ -21,14 +21,14 @@
       <Label layoutX="122.0" layoutY="266.0" prefHeight="17.0" prefWidth="96.0" text="Certificat :" />
       <Label layoutX="122.0" layoutY="304.0" prefHeight="17.0" prefWidth="96.0" text="Type contrat :" />
       <Label layoutX="122.0" layoutY="351.0" prefHeight="17.0" prefWidth="96.0" text="Description :" />
-      <TextField fx:id="Champ_Nom_Soc" layoutX="278.0" layoutY="90.0" />
-      <TextField fx:id="Champ_Adresse_Mail" layoutX="278.0" layoutY="134.0" />
-      <TextField fx:id="Champ_Adresse" layoutX="278.0" layoutY="179.0" />
-      <ComboBox fx:id="Champ_Niveau_Etude" layoutX="278.0" layoutY="218.0" prefWidth="150.0" />
-      <ComboBox fx:id="Champ_Certificat" layoutX="278.0" layoutY="262.0" prefWidth="150.0" />
-      <ComboBox fx:id="Champ_Type_Contrat" layoutX="278.0" layoutY="300.0" prefWidth="150.0" />
-      <TextField fx:id="Champ_Desc" layoutX="279.0" layoutY="347.0" prefHeight="92.0" prefWidth="149.0" />
+      <TextField fx:id="Champ_Nom_Soc" layoutX="278.0" layoutY="90.0" promptText="Nom société" />
+      <TextField fx:id="Champ_Adresse_Mail" layoutX="278.0" layoutY="134.0" promptText="Adresse mail" />
+      <TextField fx:id="Champ_Adresse" layoutX="278.0" layoutY="179.0" promptText="Adresse" />
+      <ComboBox fx:id="Champ_Niveau_Etude" layoutX="278.0" layoutY="218.0" prefWidth="150.0" promptText="Faites votre choix" />
+      <ComboBox fx:id="Champ_Certificat" layoutX="278.0" layoutY="262.0" prefWidth="150.0" promptText="Faites votre choix" />
+      <ComboBox fx:id="Champ_Type_Contrat" layoutX="278.0" layoutY="300.0" prefWidth="150.0" promptText="Faites votre choix" />
+      <TextField fx:id="Champ_Desc" layoutX="279.0" layoutY="347.0" prefHeight="92.0" prefWidth="149.0" promptText="Description" />
       <Button fx:id="Retour_Acceuil_Ajout" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" onAction="#Retour_Ajout" text="Retour" />
-      <Button fx:id="Btn_pub_travail" layoutX="479.0" layoutY="356.0" mnemonicParsing="false" text="Publier" />
+      <Button fx:id="Btn_pub_travail" layoutX="479.0" layoutY="356.0" mnemonicParsing="false" onAction="#Ajout_travail" text="Publier" />
    </children>
 </AnchorPane>
