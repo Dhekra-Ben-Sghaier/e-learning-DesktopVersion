@@ -5,15 +5,14 @@
         <group>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/Dao/RecnoteDao.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ListData.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/listdatas.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/pidev/avis/PidevAvis.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ReclamationController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/view/Modifier.fxml</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/Dao/Idao.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ConsulterListeController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/view/Consulter.fxml</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/RecnoteController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ModifierController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/entity/Recnote.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/view/ConsulterListe.fxml</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ConsulterController.java</file>
         </group>
     </open-files>

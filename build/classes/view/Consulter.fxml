@@ -4,13 +4,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="controller.ConsulterController">
+<AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConsulterController">
    <children>
-      <TableView fx:id="table" layoutX="11.0" layoutY="76.0" prefHeight="249.0" prefWidth="579.0">
+      <TableView fx:id="table" layoutX="11.0" layoutY="109.0" prefHeight="249.0" prefWidth="579.0">
         <columns>
           <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="col_ex" prefWidth="75.0" text="Examen" />
@@ -18,12 +20,18 @@
             <TableColumn fx:id="col_des" prefWidth="275.0" text="Description" />
         </columns>
       </TableView>
-      <Label layoutX="202.0" layoutY="34.0" text="Liste des reclamations" textFill="#3808bc">
+      <Label alignment="CENTER" layoutX="182.0" layoutY="14.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-color: #3F93C6;" text="Liste des reclamations" textFill="#0f005b">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="384.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #33ACFF;" text="Modifier" />
-      <Button layoutX="479.0" layoutY="345.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #FF3333;" text="Supprimer" />
+      <Button fx:id="modif" layoutX="386.0" layoutY="370.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #33ACFF;" text="Modifier" />
+      <Button fx:id="supprimer" layoutX="478.0" layoutY="370.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #FF3333;" text="Supprimer" />
+      <TextField fx:id="recherche" layoutX="365.0" layoutY="76.0" />
+      <ImageView fitHeight="36.0" fitWidth="44.0" layoutX="520.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rech-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

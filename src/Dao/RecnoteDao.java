@@ -54,7 +54,17 @@ import utils.connexion;
 
     @Override
     public void delete(Recnote o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String req="delete from reclamation where id_reclamation="+o.getId_reclamation();
+        Recnote p=displayById(o.getId_reclamation());
+        
+          if(p!=null)
+              try {
+           
+            st.executeUpdate(req);
+             
+        } catch (SQLException ex) {
+            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }else System.out.println("n'existe pas"); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
     public List<Recnote> displayAll() {
@@ -106,13 +116,42 @@ import utils.connexion;
  
     @Override
     public Recnote displayById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String req="select * from reclamation where id_reclamation ="+id;
+        Recnote p=new Recnote();
+        try {
+            rs=st.executeQuery(req);
+           // while(rs.next()){
+            rs.next();
+                p.setId_reclamation(rs.getInt(1));
+                 p.setExamen(rs.getString(2));
+                p.setDate(rs.getString(3));
+                p.setNom_formateur(rs.getString(4));
+                p.setDescription(rs.getString(5));
+               
+               
+                //}  
+        } catch (SQLException ex) {
+            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    return p; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public boolean update(Recnote os) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        String qry = "UPDATE reclamation SET examen = '"+os.getExamen()+"', date = '"+os.getDate()+"', nom_formateur = '"+os.getNom_formateur()+"', description = '"+os.getDescription()+"' WHERE id_reclamation = "+os.getId_reclamation();;
+         
+        try {
+            if (st.executeUpdate(qry) > 0) {
+                return true;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
     }
 
     
-}
