@@ -18,6 +18,8 @@ public class Formation {
     private float prix;
     private String difficulte;
     private boolean certifier;
+    private byte[] pdf;
+    private String path;
     
     
     public Formation() {
@@ -31,15 +33,37 @@ public class Formation {
         this.difficulte = difficulté;
         this.certifier = certifier;
     }
+
+    public Formation(int id, String title, String description, float prix, String difficulte, String path) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.prix = prix;
+        this.difficulte = difficulte;
+        this.path = path;
+    }
+
     
-        public Formation(int id, String title, String description, float prix, String difficulte, Date date, boolean certifier) {
+    
+    public Formation(int id, String title, String description, float prix, String difficulte, byte[] pdf) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.prix = prix;
+        this.difficulte = difficulte;
+        this.pdf = pdf;
+    }
+    
+    public Formation(int id, String title, String description, float prix, String difficulte, boolean certifier, byte[] pdf) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.prix = prix;
         this.difficulte = difficulte;
         this.certifier = certifier;
+        this.pdf = pdf;
     }
+    
 
     public String getDifficulte() {
         return difficulte;
@@ -60,6 +84,22 @@ public class Formation {
 
     public void setCertifier(boolean certifier) {
         this.certifier = certifier;
+    }
+
+    public byte[] getPdf() {
+        return pdf;
+    }
+
+    public void setPdf(byte[] pdf) {
+        this.pdf = pdf;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
    

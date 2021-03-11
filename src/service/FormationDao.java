@@ -6,10 +6,12 @@
 package service;
 
 import entity.Formation;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,10 +43,15 @@ public class FormationDao implements Idao<Formation>{
             instance=new FormationDao();
         return instance;
     }
+    
+
+    
     @Override
     public void insert(Formation o) {
-        String req = "insert into formation (id,titre,description,prix,difficulte) values ('"+o.getId()+"','"+o.getTitle()+"','"+o.getDescription()
-                +"','"+o.getPrix()+"','"+o.getDifficulte()+"')"; 
+        String req = "insert into formation (id,titre,description,prix,difficulte,cours) values ('"+o.getId()+"','"+o.getTitle()+"','"+o.getDescription()
+                +"','"+o.getPrix()+"','"+o.getDifficulte()+"', LOAD_FILE('"+o.getPath()+"'))";
+      
+        System.out.println(req);
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
@@ -81,6 +88,7 @@ public class FormationDao implements Idao<Formation>{
                 f.setPrix(rs.getFloat("prix"));
                 f.setDifficulte(rs.getString("difficulte"));
                 f.setCertifier(rs.getBoolean("certificat"));
+                f.setPath(req);
                 list.add(f);
             }
             
@@ -89,15 +97,96 @@ public class FormationDao implements Idao<Formation>{
         }
         return list;
     }
-
-    @Override
-    public Formation displayById(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public void insertAchat(int idUser, int id){
+        System.out.println(id);
+        System.out.println(idUser);
+        String req = "insert into achat (id_user, id) values ("+idUser+","+id+")";
+        
+        System.out.println("achat inseré");
+        System.out.println(req);
+                try {
+            st.executeUpdate(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(FormationDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
+    
+    @Override
+    public List<Formation> displayAllById(int id) {
+        ObservableList<Formation> list=FXCollections.observableArrayList();  
+        String req="SELECT * from formation f , achat a WHERE f.id = a.id AND a.id_user = 1";
+        
+        
+        try {
+            
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                Formation f =new Formation();
+                f.setId(rs.getInt("id"));
+                f.setTitle(rs.getString("titre"));
+                f.setDescription(rs.getString("description"));
+                f.setPrix(rs.getFloat("prix"));
+                f.setDifficulte(rs.getString("difficulte"));
+                f.setCertifier(rs.getBoolean("certificat"));
+                f.setPath(req);
+                list.add(f);
+            }    
+        } catch (SQLException ex) {
+            Logger.getLogger(FormationDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    
+    public Formation affFormation(int id){
+        String req = "SELECT * from formation f WHERE f.id ="+id; 
+        Formation f =new Formation();
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                f.setTitle(rs.getString("titre"));
+                f.setDescription(rs.getString("description"));
+                f.setDifficulte(rs.getString("difficulte"));
+  
+                try {
+			
+		InputStream input = null; 	
+		File theFile = new File("Cours "+ rs.getString("titre")+".pdf");
+                FileOutputStream output = new FileOutputStream(theFile);
+                input = rs.getBinaryStream("cours");
+		System.out.println("Reading cours from database...");
+		System.out.println(req);
+		byte[] buffer = new byte[1024];
+				while (input.read(buffer) > 0) {
+					output.write(buffer);
+				}
+				
+				System.out.println("\nSaved to file: " + theFile.getAbsolutePath());
+				
+				System.out.println("\nCompleted successfully!");				
+
+
+		} catch (Exception exc) {
+			exc.printStackTrace();
+		}
+                f.setPath(req);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(FormationDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return f;
+        
+    }
+    
+    
     @Override
     public boolean update(Formation f) {
-        String qry = "UPDATE formation SET titre = '"+f.getTitle()+"' , description = '"+f.getDescription()+"', prix = "+f.getPrix()+" , difficulte = '"+f.getDifficulte()+"' WHERE id = "+f.getId();
+        String qry = "UPDATE formation SET titre = '"+f.getTitle()+"' , description = '"+f.getDescription()+"', prix = "+f.getPrix()+" , difficulte = '"+f.getDifficulte()+" , cours = '"+f.getPath()+"' WHERE id = "+f.getId();
         
         try {
             if (st.executeUpdate(qry) > 0) {

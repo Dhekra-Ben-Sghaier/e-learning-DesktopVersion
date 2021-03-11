@@ -34,13 +34,15 @@ public class FormationModifController implements Initializable {
     @FXML
     private TextField diffField;
     @FXML
-    private TextField certifField;
-    @FXML
     private Button btnModif;
     
     private Formation formation;
     @FXML
     private Label idLab;
+    @FXML
+    private Button btnCours;
+    @FXML
+    private TextField cours;
 
     /**
      * Initializes the controller class.
@@ -73,6 +75,10 @@ public class FormationModifController implements Initializable {
             alert.show();
             titleField.setText("");
             descField.setText("");
+    }
+
+    @FXML
+    private void ajoutPdf(ActionEvent event) {
     }
     
 }

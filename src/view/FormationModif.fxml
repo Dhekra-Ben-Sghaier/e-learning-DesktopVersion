@@ -3,12 +3,15 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="642.0" prefWidth="763.0" style="-fx-background-color: 000011;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormationModifController">
    <children>
-      <VBox layoutX="173.0" layoutY="128.0" prefHeight="333.0" prefWidth="143.0" spacing="22.0" AnchorPane.leftAnchor="173.0">
+      <VBox layoutX="173.0" layoutY="128.0" prefHeight="224.0" prefWidth="143.0" spacing="22.0" AnchorPane.leftAnchor="173.0">
          <children>
             <Label prefHeight="21.0" prefWidth="100.0" text="Id" />
             <Label layoutX="10.0" layoutY="10.0" prefHeight="21.0" prefWidth="100.0" text="Titre" />
@@ -17,7 +20,7 @@
             <Label prefHeight="21.0" prefWidth="100.0" text="Difficulté" />
          </children>
       </VBox>
-      <VBox layoutX="360.0" layoutY="128.0" prefHeight="333.0" prefWidth="299.0" spacing="10.0" AnchorPane.rightAnchor="104.0">
+      <VBox layoutX="360.0" layoutY="128.0" prefHeight="224.0" prefWidth="299.0" spacing="10.0" AnchorPane.rightAnchor="104.0">
          <children>
             <Label fx:id="idLab" />
             <TextField fx:id="titleField" layoutX="10.0" layoutY="10.0" />
@@ -26,6 +29,18 @@
             <TextField fx:id="diffField" layoutX="10.0" layoutY="103.0" />
          </children>
       </VBox>
-      <Button fx:id="btnModif" layoutX="252.0" layoutY="477.0" mnemonicParsing="false" onAction="#modifierFormation" prefHeight="47.0" prefWidth="244.0" styleClass="button2" stylesheets="@style.css" text="Confirmer" textFill="WHITE" />
+      <Button fx:id="btnModif" layoutX="260.0" layoutY="431.0" mnemonicParsing="false" onAction="#modifierFormation" prefHeight="47.0" prefWidth="244.0" styleClass="button2" stylesheets="@style.css" text="Confirmer" textFill="WHITE">
+         <effect>
+            <Lighting diffuseConstant="2.0">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+             
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
+      
    </children>  
 </AnchorPane>

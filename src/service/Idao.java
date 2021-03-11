@@ -16,7 +16,7 @@ import java.util.List;
     public void insert(T o);
    // public void delete(T o);
     public List<T> displayAll();
-    public T displayById(int id);
+    public List<T> displayAllById(int id);
     
     public boolean update(T os);
     

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package controller;
+
 import entity.Formation;
 import java.io.IOException;
 import java.net.URL;
@@ -33,7 +34,8 @@ import service.FormationDao;
  *
  * @author Asus
  */
-public class TableFormController implements Initializable {
+public class ApprenantFormationController implements Initializable {
+
     @FXML
     private TableView<Formation> tabFormation;
     @FXML
@@ -48,24 +50,14 @@ public class TableFormController implements Initializable {
     private TableColumn<Formation, String> nivCol;
     @FXML
     private TableColumn<Formation, String> certifCol;
-
-    @FXML
-    private Button btnRefresh;
-    
-    private ListData listdata;
-    @FXML
-    private Button btnAdd;
-    @FXML
-    private Button btnDel;
-    @FXML
-    private Button btnModif;
     @FXML
     private TextField cherche;
     
-    /**
-     * Initializes the controller class.
-     */
-    public void load(){
+    private ListData listdata;
+    @FXML
+    private Button btnInsc;
+
+    private void load(){
         listdata = new ListData();
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         titreCol.setCellValueFactory(new PropertyValueFactory<>("title"));
@@ -78,76 +70,18 @@ public class TableFormController implements Initializable {
         tabFormation.setItems(listdata.getFormations());
         tabFormation.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
-    @FXML
-    private void refresh(MouseEvent event) {
-        
-        load();
-
-    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-         load();
-         search_formation();
-     
+        load();
+        search_formation();
     }    
 
-    @FXML
-    private void ajouterFormation(MouseEvent event) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/view/Formation.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            load();
-        } catch (IOException ex) {
-            Logger.getLogger(TableFormController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
-    @FXML
-    private void delete(ActionEvent event) {
-       
-          Formation f = tabFormation.getSelectionModel().getSelectedItem();
-          FormationDao fo =FormationDao.getInstance();
-          fo.delete(f);
-          tabFormation.getItems().removeAll(tabFormation.getSelectionModel().getSelectedItem());
-          
-        
-        
+
+
     
-    }
-
-    @FXML
-    private void modifier(ActionEvent event) {
-        Formation f = tabFormation.getSelectionModel().getSelectedItem();
-        FormationDao fo =FormationDao.getInstance();
-          
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FormationModif.fxml"));
-        
-           
-                   
-            
-            Parent parent = (Parent)loader.load();
-            
-            FormationModifController cont = loader.<FormationModifController>getController();
-            cont.setFormation(f);
-            
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(TableFormController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    
-        
-    }
-
-    @FXML
-    void search_formation() {     
+void search_formation() {     
         FilteredList<Formation> filteredata;
         filteredata = new FilteredList<>(listdata.getFormations(), b -> true);
         cherche.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -177,11 +111,30 @@ public class TableFormController implements Initializable {
         tabFormation.setItems(sortedData);
         
     }
+
+    @FXML
+    private void acheterFormation(ActionEvent event) {
+         
+        Formation f = tabFormation.getSelectionModel().getSelectedItem();
+        FormationDao fo =FormationDao.getInstance();
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Payer.fxml"));
+        
+            Parent parent = (Parent)loader.load();
+            
+            PayerController cont = loader.<PayerController>getController();
+            cont.setFormation(f);
+            
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(PayerController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
    
-
-
-
+    
 }
-    
-    
-
