@@ -6,6 +6,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import static javafx.collections.FXCollections.observableList;
+import static javafx.collections.FXCollections.observableList;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import service.Inscription_certificatDao;
@@ -34,8 +41,9 @@ public class Afficher_inscriController implements Initializable {
     private TableColumn<Inscription_certificat, String> description;
     @FXML
     private TableColumn<Inscription_certificat, String> domaine;
-    
+        
     private ListCertif listdata;
+    ObservableList<Inscription_certificat>  RechercheList = FXCollections.observableArrayList();
     @FXML
     private Button actualiser;
     @FXML
@@ -44,6 +52,9 @@ public class Afficher_inscriController implements Initializable {
     private Button supprimer;
     @FXML
     private Button ajouter;
+    @FXML
+    private TextField txt_search;
+    
     
     private void load(){
         listdata = new ListCertif();
@@ -62,11 +73,52 @@ public class Afficher_inscriController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         load();
+        RechercheList.addAll(listdata.getInscriptionCertificat());
+         FilteredList<Inscription_certificat> filtereddata= new FilteredList<>(RechercheList, b->true);
+         
+         txt_search.textProperty().addListener((observable, oldValue, newValue) -> {
+         txt_search.textProperty().addListener((observables, oldVal, newVal) -> {
+			filtereddata.setPredicate(personne -> {
+				// If filter text is empty, display all persons.
+								
+				if (newVal == null || newVal.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (personne.getNomUtilisateur().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches cin.
+				} else if (personne.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom.
+				}else if (personne.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom.
+				}else if (personne.getDomaine().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom.
+				}                                
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+
+    });
+         // 3. Wrap the FilteredList in a SortedList. 
+         SortedList<Inscription_certificat> sortedData = new SortedList<>(filtereddata);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedData.comparatorProperty().bind(tabInscriCertif.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tabInscriCertif.setItems(sortedData);
     }    
 
     @FXML
     private void actualiser(ActionEvent event) {
+        
         load();
+        
     }
 
     @FXML
@@ -115,5 +167,7 @@ public class Afficher_inscriController implements Initializable {
         
         
     }
+
+    
     
 }

@@ -13,6 +13,7 @@ import entity.Question;
 import entity.Inscription_certificat;
 import entity.Quizz;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -41,6 +42,8 @@ public class AjouterQuizController implements Initializable {
     @FXML
     private JFXTextArea question;
     @FXML
+    private JFXTextArea quizID;
+    @FXML
     private JFXTextField option1;
     @FXML
     private JFXTextField option2;
@@ -66,6 +69,12 @@ public class AjouterQuizController implements Initializable {
     private Button setQuizTitleButton;
     
     private ToggleGroup radioGroup;
+    
+    //mes variables
+    
+    private Quizz quiz = null;
+    //private HashMap<String, Object[]> questions= new HashMap<>();
+    private ArrayList <Question> questions = new ArrayList<>(); 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -100,6 +109,7 @@ public class AjouterQuizController implements Initializable {
         } else {
             //nomQuiz.setEditable(false);
             System.err.println("Enregistrement du  nom");
+            this.quiz= new Quizz(nom);
         }
     }
     
@@ -130,21 +140,21 @@ public class AjouterQuizController implements Initializable {
            }
         else 
             {
-                return true;
-//                if(radio_selectionne == null)
-//                    {
-//                        Notifications.create()
-//                        .title("Question")
-//                        //.darkStyle()
-//                        .position(Pos.CENTER)
-//                        .text("Veuillez svp choisir une option")
-//                        .showError();
-//                        return false;
-//                    }
-//                else 
-//                    {
-//                      return true;
-//                    }
+                
+                if(radio_selectionne == null)
+                    {
+                        Notifications.create()
+                        .title("Question")
+                        //.darkStyle()
+                        .position(Pos.CENTER)
+                        .text("Veuillez svp choisir une option")
+                        .showError();
+                        return false;
+                    }
+                else 
+                    {
+                      return true;
+                    }
             
             }      
     
@@ -153,9 +163,49 @@ public class AjouterQuizController implements Initializable {
     @FXML
     private void ajouterQuestionSuivanteButton(ActionEvent event) {
         boolean valid =champsValides();
-        if(valid){
-            //enregistrer
+        Question _question = new Question();
+        if(valid)
+        {
+            //enregistrer            
+            _question.setOption1(option1.getText().trim());
+            _question.setOption2(option2.getText().trim());
+            _question.setOption3(option3.getText().trim());
+            _question.setOption4(option4.getText().trim());
+            
+            Toggle selected = radioGroup.getSelectedToggle();
+            String rep = null;
+            if (selected == option1radio)
+            {
+                rep = option1.getText().trim();
+            } else if (selected == option1radio)
+            {
+                rep = option2.getText().trim();
+            } else if (selected == option1radio)
+            {
+                rep = option3.getText().trim();
+            }
+            else if (selected == option1radio)
+            {
+                rep = option4.getText().trim();          
+            }
+            
+            //_question.setAnswer(rep);
+            _question.setQuestion(this.question.getText().trim());
+                        
+            this.question.clear();
+            option1.clear();
+            option2.clear();
+            option3.clear();
+            option4.clear();
+            //Ajout d'une question au niveau de ArrayList de questions
+            questions.add(_question);
+            
+            
+            
             System.out.println("Sauvgarder question");
+            System.out.println(questions);
+            System.out.println(quiz);
+             
         }
         else{
         }
@@ -164,20 +214,42 @@ public class AjouterQuizController implements Initializable {
 
     @FXML
     private void validerQuizButton(ActionEvent event) {
-                validerQuiz.setOnAction((ActionEvent event1) -> {
-            Quizz f = new Quizz (nomQuiz.getText());
-            QuizzDao Q = QuizzDao.getInstance();
-            Q.insert(f);
+//        validerQuiz.setOnAction((ActionEvent event1) -> {
+//            Quizz q = new Quizz (nomQuiz.getText());
+//            QuizzDao Q = QuizzDao.getInstance();
+//            Q.insert(q);
+//                       
+//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+//            alert.setTitle("Information Dialog");
+//            alert.setHeaderText(null);
+//            alert.setContentText("Nom Quiz ajouté avec succés!");
+//            alert.show();
+//            nomQuiz.setText("");
+//            
+//            System.out.println("ok");
+//        });
+                
+        validerQuiz.setOnAction((ActionEvent event2) -> {
+            
+            
+            
+//            //Question f = new Question(question.getText(),option1.getText(),option2.getText(),option3.getText(),option4.getText(),quiz.getQuizID());
+//            QuestionDao F = QuestionDao.getInstance();
+//            F.insert(f);            
             
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("Nom Quiz ajouté avec succés!");
             alert.show();
-            nomQuiz.setText("");
+            
+            question.setText("");
+            option1.setText("");
+            option2.setText("");
+            option3.setText("");
+            option4.setText("");
             System.out.println("ok");
         });
-        
     }
 
     

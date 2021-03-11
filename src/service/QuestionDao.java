@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static jdk.nashorn.internal.objects.NativeObject.keys;
 import utils.DataSource;
 
 public class QuestionDao implements Idao<Question>{
@@ -33,21 +34,22 @@ public class QuestionDao implements Idao<Question>{
 
     @Override
     public void insert(Question o) {
-        String req = "insert into question (question, option1) values ('"+o.getQuestion()+"','"+o.getOption1()+"')"; 
-//        String query = String.format(req, Question.MetaData.TABLE_NAME,
-//                                            Question.MetaData.OPTION1,
-//                                            Question.MetaData.OPTION2,
-//                                            Question.MetaData.OPTION3,
-//                                            Question.MetaData.OPTION4,
-//                                            Question.MetaData.REPONSE,
-//                                            Question.MetaData.QUIZ_ID,
-//                                            Question.MetaData.QUIZ_ID,
-//                                            Quizz.MetaData.TABLE_NAME,
-//                                            Quizz.MetaData.QUIZ_ID
-//                );
-//        System.err.println(query);
+        String req = "insert into question (question,option1,option2,option3,option4,quizID) values  ('"+o.getQuestion()+"','"+o.getOption1()+"', '"+o.getOption2()+"', '"+o.getOption3()+"','"+o.getOption4()+"', '"+o.getQuiz()+"',)"; 
+
+        String query = String.format(req, Question.MetaData.TABLE_NAME,
+                                            Question.MetaData.OPTION1,
+                                            Question.MetaData.OPTION2,
+                                            Question.MetaData.OPTION3,
+                                            Question.MetaData.OPTION4,
+                                            Quizz.MetaData.QUIZ_ID
+                );
+        System.err.println(query);
         try {
-            st.executeUpdate(req);
+            st.executeUpdate(query);   
+////            ResultSet keys = o.getGeneratedKeys();
+////            if (keys.next()){
+//             
+//            }
         } catch (SQLException ex) {
             Logger.getLogger(QuestionDao.class.getName()).log(Level.SEVERE, null, ex);
         }

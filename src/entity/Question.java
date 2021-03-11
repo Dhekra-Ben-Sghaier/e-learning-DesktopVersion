@@ -1,50 +1,81 @@
 package entity;
 
 public class Question {
+    
 
-    private Quizz quiz;
     private Integer questionId;
     private String question;
     private String option1;
     private String option2;
     private String option3;
     private String option4;
-    private String reponse;
 
-    public Question(String question, String option1) {
-        this.question = question;
-        this.option1 = option1;
-    }
-    
-    
-//    public static class MetaData{
-//        public static final String TABLE_NAME = "question";
-//        public static final String OPTION1 = "option1";
-//        public static final String OPTION2 = "option2";
-//        public static final String OPTION3 ="option3";
-//        public static final String OPTION4 ="option4";
-//        public static final String REPONSE = "reponse";       
-//        public static final String QUIZ_ID = "quia_id";   
-//    
-//    }
-    
-    public Question() {
-    }
-
-    public Question(Quizz quiz, String question, String option1, String option2, String option3, String option4, String reponse) {
+    public void setQuiz(Quizz quiz) {
         this.quiz = quiz;
+    }
+    private Quizz quiz;
+
+    public Quizz getQuiz() {
+        return quiz;
+    }
+
+    
+    
+
+    public Question(Quizz quiz,Integer questionId, String question, String option1, String option2, String option3, String option4, int quizID) {
+        this.quiz=quiz;
+        this.questionId = questionId;
         this.question = question;
         this.option1 = option1;
         this.option2 = option2;
         this.option3 = option3;
         this.option4 = option4;
-        this.reponse = reponse;
+        
+    }
+    
+
+    
+   
+    public Question(String question) {
+        this.question = question;
+    }
+
+      
+
+    
+    
+    
+    public static class MetaData{
+        public static final String TABLE_NAME = "question";
+        public static final String OPTION1 = "option1";
+        public static final String OPTION2 = "option2";
+        public static final String OPTION3 = "option3";
+        public static final String OPTION4 = "option4";
+        public static final String REPONSE = "reponse";       
+        public static final String QUIZ_ID = "quiz_id";   
+    
+    }
+    
+
+            
+    
+    public Question() {
+    }
+
+    public Question(String question, String option1, String option2, String option3, String option4) {
+        
+        this.question = question;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.option4 = option4;
+        
     }
        
 
-    public void setQuiz(Quizz quiz) {
-        this.quiz = quiz;
-    }
+//    public void setQuiz(Quizz quiz) {
+//        this.quiz = quiz;
+//    }
 
     public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
@@ -70,14 +101,12 @@ public class Question {
         this.option4 = option4;
     }
 
-    public void setReponse(String reponse) {
-        this.reponse = reponse;
-    }
+    
     
 
-    public Quizz getQuiz() {
-        return quiz;
-    }
+//    public Quizz getQuiz() {
+//        return quiz;
+//    }
 
     public Integer getQuestionId() {
         return questionId;
@@ -103,8 +132,6 @@ public class Question {
         return option4;
     }
 
-    public String getReponse() {
-        return reponse;
-    }
+    
     
 }
