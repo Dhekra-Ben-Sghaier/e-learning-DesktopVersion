@@ -1,5 +1,6 @@
 package service;
 
+import entity.Inscription_certificat;
 import entity.Question;
 import entity.Quizz;
 import java.sql.ResultSet;
@@ -9,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import static jdk.nashorn.internal.objects.NativeObject.keys;
 import utils.DataSource;
 
@@ -34,22 +37,11 @@ public class QuestionDao implements Idao<Question>{
 
     @Override
     public void insert(Question o) {
-        String req = "insert into question (question,option1,option2,option3,option4,quizID) values  ('"+o.getQuestion()+"','"+o.getOption1()+"', '"+o.getOption2()+"', '"+o.getOption3()+"','"+o.getOption4()+"', '"+o.getQuiz()+"',)"; 
-
-        String query = String.format(req, Question.MetaData.TABLE_NAME,
-                                            Question.MetaData.OPTION1,
-                                            Question.MetaData.OPTION2,
-                                            Question.MetaData.OPTION3,
-                                            Question.MetaData.OPTION4,
-                                            Quizz.MetaData.QUIZ_ID
-                );
-        System.err.println(query);
+//        System.out.println("++++++++++++++++");
+//        System.out.println(o.getQuiz());
+        String req = "insert into questionn (question,option1,option2,option3,option4,reponse,idQuiz) values  ('"+o.getQuestion()+"','"+o.getOption1()+"', '"+o.getOption2()+"', '"+o.getOption3()+"','"+o.getOption4()+"','"+o.getReponse()+"','"+o.getQuiz()+"')"; 
         try {
-            st.executeUpdate(query);   
-////            ResultSet keys = o.getGeneratedKeys();
-////            if (keys.next()){
-//             
-//            }
+            st.executeUpdate(req);   
         } catch (SQLException ex) {
             Logger.getLogger(QuestionDao.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -62,7 +54,36 @@ public class QuestionDao implements Idao<Question>{
 
     @Override
     public List<Question> displayAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String req="SELECT * FROM quizz JOIN questionn ON questionn.idQuiz = quizz.quizID";
+        ObservableList<Question> list =FXCollections.observableArrayList();  
+        ObservableList<Quizz> list1 =FXCollections.observableArrayList();
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                Question f =new Question();
+                Quizz f1 =new Quizz();
+                //table question
+                f.setQuestionId(rs.getInt("id"));
+                f.setQuestion(rs.getString("question"));
+                f.setOption1(rs.getString("option1"));
+                f.setOption2(rs.getString("option2"));
+                f.setOption3(rs.getString("option3"));
+                f.setOption4(rs.getString("option4"));
+                f.setReponse(rs.getString("reponse"));
+                f.setQuiz(rs.getInt("idQuiz"));
+                //table quiz
+                f1.setQuizID(rs.getInt("quizID"));
+                f1.setNom(rs.getString("nom"));
+                //ajout dans list et list1
+                list.add(f);
+                list1.add(f1);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Inscription_certificatDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
     @Override
@@ -74,5 +95,6 @@ public class QuestionDao implements Idao<Question>{
     public boolean update(Question os) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
     
 }

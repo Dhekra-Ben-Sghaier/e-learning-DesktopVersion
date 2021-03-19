@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="224.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.QuizCardController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="21.0" layoutY="18.0" prefHeight="144.0" prefWidth="260.0" style="-fx-background-color: white;">
+         <children>
+            <VBox prefHeight="102.0" prefWidth="260.0" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding>
+               <children>
+                  <Label fx:id="nomQuiz" prefHeight="30.0" prefWidth="115.0" text="Nom Quiz : ">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nbquestions" prefHeight="32.0" prefWidth="201.0" text="Nombre de questions : 25">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <FlowPane alignment="CENTER_RIGHT" layoutX="79.0" layoutY="102.0" prefHeight="31.0" prefWidth="176.0">
+               <children>
+                  <JFXButton fx:id="startButton" alignment="CENTER" onAction="#startQuiz" prefHeight="44.0" prefWidth="132.0" text="Lancer Quiz">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </FlowPane>
+         </children>
+         <effect>
+            <DropShadow blurType="ONE_PASS_BOX" height="114.34" radius="45.9375" spread="0.12" width="71.41">
+               <color>
+                  <Color red="0.8026315569877625" green="0.7951998114585876" blue="0.7951998114585876" />
+               </color>
+            </DropShadow>
+         </effect>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </AnchorPane>
+   </children>
+</AnchorPane>

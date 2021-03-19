@@ -74,44 +74,39 @@ public class Afficher_inscriController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         load();
         RechercheList.addAll(listdata.getInscriptionCertificat());
-         FilteredList<Inscription_certificat> filtereddata= new FilteredList<>(RechercheList, b->true);
-         
-         txt_search.textProperty().addListener((observable, oldValue, newValue) -> {
-         txt_search.textProperty().addListener((observables, oldVal, newVal) -> {
-			filtereddata.setPredicate(personne -> {
-				// If filter text is empty, display all persons.
-								
-				if (newVal == null || newVal.isEmpty()) {
-					return true;
-				}
+        FilteredList<Inscription_certificat> filtereddata= new FilteredList<>(RechercheList, b->true);
+        txt_search.textProperty().addListener((observable, oldValue, newValue) -> {
+            txt_search.textProperty().addListener((observables, oldVal, newVal) -> {
+		filtereddata.setPredicate(personne -> {
+                    // If filter text is empty, display all persons.					
+                    if (newVal == null || newVal.isEmpty()) {
+                        return true;
+                    }
 				
-				// Compare first name and last name of every person with filter text.
-				String lowerCaseFilter = newValue.toLowerCase();
+                    // Compare first name and last name of every person with filter text.
+                    String lowerCaseFilter = newValue.toLowerCase();
 				
-				if (personne.getNomUtilisateur().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
-					return true; // Filter matches cin.
-				} else if (personne.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-					return true; // Filter matches nom.
-				}else if (personne.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-					return true; // Filter matches nom.
-				}else if (personne.getDomaine().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-					return true; // Filter matches nom.
-				}                                
-				     else  
-				    	 return false; // Does not match.
-			});
+                    if (personne.getNomUtilisateur().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+			return true; // Filter matches cin.
+                    } else if (personne.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+			return true; // Filter matches nom.
+                    }else if (personne.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+			return true; // Filter matches nom.
+                    }else if (personne.getDomaine().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+			return true; // Filter matches nom.
+                    }                                
+                    else  
+			return false; // Does not match.
+                    });
 		});
-
-    });
-         // 3. Wrap the FilteredList in a SortedList. 
-         SortedList<Inscription_certificat> sortedData = new SortedList<>(filtereddata);
-		
-		// 4. Bind the SortedList comparator to the TableView comparator.
-		// 	  Otherwise, sorting the TableView would have no effect.
-		sortedData.comparatorProperty().bind(tabInscriCertif.comparatorProperty());
-		
-		// 5. Add sorted (and filtered) data to the table.
-		tabInscriCertif.setItems(sortedData);
+             });
+        // 3. Wrap the FilteredList in a SortedList. 
+        SortedList<Inscription_certificat> sortedData = new SortedList<>(filtereddata);
+        // 4. Bind the SortedList comparator to the TableView comparator.
+	// 	  Otherwise, sorting the TableView would have no effect.
+        sortedData.comparatorProperty().bind(tabInscriCertif.comparatorProperty());
+        // 5. Add sorted (and filtered) data to the table.
+	tabInscriCertif.setItems(sortedData);
     }    
 
     @FXML

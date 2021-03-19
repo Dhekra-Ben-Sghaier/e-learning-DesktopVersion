@@ -9,61 +9,29 @@ public class Question {
     private String option2;
     private String option3;
     private String option4;
-
-    public void setQuiz(Quizz quiz) {
-        this.quiz = quiz;
+    private String reponse;
+    private int quiz;
+    
+    @Override
+    public String toString() {
+        return this.question;
     }
-    private Quizz quiz;
-
-    public Quizz getQuiz() {
-        return quiz;
-    }
-
-    
-    
-
-    public Question(Quizz quiz,Integer questionId, String question, String option1, String option2, String option3, String option4, int quizID) {
-        this.quiz=quiz;
-        this.questionId = questionId;
-        this.question = question;
-        this.option1 = option1;
-        this.option2 = option2;
-        this.option3 = option3;
-        this.option4 = option4;
-        
-    }
-    
-
-    
-   
-    public Question(String question) {
-        this.question = question;
-    }
-
-      
-
-    
-    
-    
-    public static class MetaData{
-        public static final String TABLE_NAME = "question";
-        public static final String OPTION1 = "option1";
-        public static final String OPTION2 = "option2";
-        public static final String OPTION3 = "option3";
-        public static final String OPTION4 = "option4";
-        public static final String REPONSE = "reponse";       
-        public static final String QUIZ_ID = "quiz_id";   
-    
-    }
-    
-
-            
     
     public Question() {
     }
 
-    public Question(String question, String option1, String option2, String option3, String option4) {
-        
+    public Question(String question, String option1, String option2, String option3, String option4, String reponse, int quiz) {
+        this.question = question;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.option4 = option4;
+        this.reponse = reponse;
+        this.quiz = quiz;
+    }
+
+    public Question(String question, String option1, String option2, String option3, String option4, int quiz) {
+        this.quiz=quiz;
         this.question = question;
         this.option1 = option1;
         this.option2 = option2;
@@ -71,12 +39,10 @@ public class Question {
         this.option4 = option4;
         
     }
-       
 
-//    public void setQuiz(Quizz quiz) {
-//        this.quiz = quiz;
-//    }
-
+    public Question(String question) {
+        this.question = question;
+    }
     public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
     }
@@ -101,12 +67,6 @@ public class Question {
         this.option4 = option4;
     }
 
-    
-    
-
-//    public Quizz getQuiz() {
-//        return quiz;
-//    }
 
     public Integer getQuestionId() {
         return questionId;
@@ -131,7 +91,20 @@ public class Question {
     public String getOption4() {
         return option4;
     }
+    public void setReponse(String reponse) {
+        this.reponse = reponse;
+    }
 
+    public String getReponse() {
+        return reponse;
+    }   
+
+    public void setQuiz(int quiz) {
+        this.quiz = quiz;
+    }
+    public int getQuiz() {
+        return quiz;
+    }
     
     
 }
