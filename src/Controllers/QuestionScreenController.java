@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXRadioButton;
 import entity.Question;
 import entity.Quizz;
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -54,7 +55,8 @@ public class QuestionScreenController implements Initializable {
     
     private void getData(){
         if(quiz != null){
-            this.questionList=  quiz.getQuestions();
+            this.questionList=  quiz.getQuestions();    
+            Collections.shuffle(this.questionList);
             setquestionSuivante();        
         }
     }
@@ -81,8 +83,9 @@ public class QuestionScreenController implements Initializable {
             this.option4.setText(this.questionCourante.getOption4());
             indexCourant++;            
         } else {
-            hideQuestionSuivanteButton();
             showValiderButton();
+            hideQuestionSuivanteButton();
+            
         }
     }
 
