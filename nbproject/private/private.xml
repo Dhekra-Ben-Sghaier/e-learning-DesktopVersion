@@ -4,9 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/Controllers/QuestionScreenController.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/Controllers/QuizProgressController.java</file>
             <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/entity/Quizz.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/entity/Question.java</file>
             <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/service/QuizzDao.java</file>
             <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/test/Test.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/Views/QuizProgress.fxml</file>
         </group>
     </open-files>
 </project-private>
