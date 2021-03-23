@@ -28,7 +28,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="gererF" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Formateur" textFill="WHITE">
+                        <Button fx:id="gererF"  onMouseClicked="#gererformateur" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Formateur" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>

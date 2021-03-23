@@ -17,9 +17,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="615.0" prefWidth="1144.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsersPanelController">
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="1144.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsersPanelController">
    <center>
-      <AnchorPane fx:id="contenu" prefHeight="540.0" prefWidth="837.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="contenu" prefHeight="568.0" prefWidth="852.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="505.0" fitWidth="858.0" layoutX="4.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -29,7 +29,7 @@
          </children></AnchorPane>
    </center>
    <left>
-      <VBox prefHeight="540.0" prefWidth="282.0" style="-fx-background-color: #0A0232;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="567.0" prefWidth="284.0" style="-fx-background-color: #0A0232;" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="btn_acc" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Accueil" textFill="WHITE">
                <VBox.margin>
@@ -46,7 +46,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btn_cat" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Catégories" textFill="WHITE">
+            <Button fx:id="btn_cat" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Formations" textFill="WHITE">
                <VBox.margin>
                   <Insets left="10.0" top="25.0" />
                </VBox.margin>
@@ -87,6 +87,21 @@
                      </image>
                   </ImageView>
                </graphic>
+            </Button>
+            <Button fx:id="btn_cert" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Certificats" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/inscription.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets left="10.0" top="25.0" />
+               </VBox.margin>
             </Button>
             <Button fx:id="btn_pub" mnemonicParsing="false" opacity="0.95" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Publicités" textFill="WHITE">
                <VBox.margin>

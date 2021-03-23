@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,17 +13,23 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="398.0" style="-fx-background-color: #0A0232;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
    <children>
-      <TextField fx:id="user" layoutX="93.0" layoutY="167.0" prefHeight="25.0" prefWidth="214.0" promptText="Username" style="-fx-background-color: #100A42;">
+      <TextField fx:id="user" layoutX="93.0" layoutY="167.0" prefHeight="25.0" prefWidth="214.0" promptText="Nom d'utilisateur" style="-fx-background-color: #100A42;">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
+         <effect>
+            <Glow level="0.36" />
+         </effect>
       </TextField>
       <TextField fx:id="txt_mdp" layoutX="92.0" layoutY="216.0" prefHeight="25.0" prefWidth="214.0" style="-fx-background-color: #100A42;">
          <font>
             <Font name="Arial" size="12.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="pwd" layoutX="92.0" layoutY="216.0" prefHeight="25.0" prefWidth="214.0" promptText="Password" style="-fx-background-color: #100A42;" />
+      <PasswordField fx:id="pwd" layoutX="92.0" layoutY="216.0" prefHeight="25.0" prefWidth="214.0" promptText="Mot de passe" style="-fx-background-color: #100A42;">
+         <effect>
+            <Glow level="0.36" />
+         </effect></PasswordField>
       <Label layoutX="147.0" layoutY="41.0" text="Login" textFill="WHITE">
          <font>
             <Font name="Tahoma" size="44.0" />
@@ -50,5 +57,6 @@
             <Image url="@../images/eyea.png" />
          </image>
       </ImageView>
+      <Button fx:id="btn_mdp" layoutX="69.0" layoutY="266.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="214.0" style="-fx-background-color: #0A0232;" text="Mot de passe oublié ?" textFill="#ff9900" />
    </children>
 </AnchorPane>

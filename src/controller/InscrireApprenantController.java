@@ -104,7 +104,7 @@ public class InscrireApprenantController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
-        alert.setContentText("Apprenant insérée avec succés!");
+        alert.setContentText("Apprenant inséré avec succés!");
         alert.show();
         cin.setText("");
         nom.setText("");
@@ -112,6 +112,8 @@ public class InscrireApprenantController implements Initializable {
         email.setText("");
         mdp.setText("");
         nomuser.setText("");
+        lab_cin.setText("");
+        lab_email.setText("");
         cd.setValue("Centres d'intérêt");
              }
              
@@ -151,34 +153,8 @@ public class InscrireApprenantController implements Initializable {
             
     }
     //crypt pwd
-private static String hashPassword(String txtpassword){
+public static String hashPassword(String txtpassword){
     return BCrypt.hashpw(txtpassword, BCrypt.gensalt());
 }   //end crypt 
-//validemail
-public static boolean validEmail(TextField txt, Label lab , String validation){
-   
-  /*  Pattern p=Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+");
-   Matcher m =p.matcher(email.getText());
-   return false;
-    if(m.find() && m.group().equals(email.getText())){
-        return true;
-        
-    }else {
-          Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("valider Email");
-        alert.setHeaderText(null);
-        alert.setContentText("veuillez saisir une adresse e-mail valide");
-        alert.show();
-        return false;
-    }*/
-    boolean isEmail=true;
-    String validate=null;
-    if(txt.getText().matches("[a-zA-Z0-9][a-zA-Z0-9._]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+")){
-        isEmail=false;
-        validate=validation;
-        
-    }
-    lab.setText(validate);
-    return isEmail;
-} //endemail
+
 }

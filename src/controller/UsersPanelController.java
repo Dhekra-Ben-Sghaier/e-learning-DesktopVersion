@@ -7,6 +7,7 @@ package controller;
 
 import dao.AppDao;
 import entity.Apprenant;
+import entity.Personne;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -55,6 +56,8 @@ public class UsersPanelController implements Initializable {
     private Button btn_conn;
     @FXML
     private Button btn_insc;
+    @FXML
+    private Button btn_cert;
 
     /**
      * Initializes the controller class.
@@ -63,12 +66,13 @@ public class UsersPanelController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         btn_conn.setOnAction(event -> {
-
+              Parent pagelog;
               try {
-                Parent page1 = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
-                Scene scene = new Scene(page1);
+                pagelog = FXMLLoader.load(getClass().getResource("/view/login.fxml"));
+                Scene scene = new Scene(pagelog);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
+                 stage.setTitle("Login");
                 stage.show();
             } catch (IOException ex) {
                 Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
@@ -92,21 +96,56 @@ public class UsersPanelController implements Initializable {
         try {
             root = FXMLLoader.load(getClass().getResource(page));
         } catch (IOException ex) {
-            Logger.getLogger(UserPanelController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
         bp.setCenter(root);
          }
         bp.setCenter(root);
             
         }
-    public void  loadhead(String page){
+    public void  loadheaduser(String page,String nom ,int n){
+        Parent parent = null;
+   
+        try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+            parent = (Parent)loader.load();
+             UsercompteController cont = loader.<UsercompteController>getController();
+             cont.setUser(nom);
+             cont.setId(n);
+//            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setTop(parent);
+            
+        }
+      public void  loadhead(String page ){
+        Parent root = null;
+   
+        try {
+             
+            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setTop(root);
+            
+        }
+      public void  loadcenter(String page ,Personne p,int n){
         Parent root = null;
         
         try {
-            root = FXMLLoader.load(getClass().getResource(page));
+             FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+          root = (Parent)loader.load();
+             ProfilUserController cont = loader.<ProfilUserController>getController();
+             cont.setPersonne(p);
+             cont.setId(n);
+           
         } catch (IOException ex) {
-            Logger.getLogger(UserPanelController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        bp.setTop(root);
+        bp.setCenter(root);
             
         }
 

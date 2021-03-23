@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -15,10 +16,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="56.0" prefWidth="1144.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="controller.UsercompteController">
+<AnchorPane id="AnchorPane" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="1145.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UsercompteController">
    <children>
-      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="1144.0" style="-fx-background-color: #fff;">
+      <HBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="1144.0" style="-fx-background-color: #fff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <VBox prefHeight="75.0" prefWidth="286.0" style="-fx-background-color: #0A0232;">
                <children>
@@ -71,23 +71,21 @@
                   </TextField>
                </children>
             </HBox>
-            <HBox prefHeight="56.0" prefWidth="620.0">
+            <HBox maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="620.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
+                        <Label fx:id="lab_id" disable="true" text="Label" visible="false" />
                         <Circle fx:id="circle" fill="DODGERBLUE" radius="26.0" stroke="BLACK" strokeType="INSIDE">
                            <HBox.margin>
-                              <Insets left="400.0" right="-380.0" />
+                              <Insets left="550.0" right="-320.0" />
                            </HBox.margin>
                         </Circle>
-                        <Label contentDisplay="BOTTOM" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="111.0" text="nom utilisateur">
-                           <HBox.margin>
-                              <Insets left="400.0" right="-380.0" />
-                           </HBox.margin>
-                           <font>
-                              <Font name="Arial Bold" size="15.0" />
-                           </font>
-                        </Label>
+                        <VBox alignment="CENTER" minWidth="-Infinity" prefHeight="56.0" prefWidth="313.0">
+                           <children>
+                              <Button fx:id="nom_user" mnemonicParsing="false" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #fff;" text="nom utilisateur" />
+                           </children>
+                        </VBox>
                      </children>
                   </HBox>
                </children>

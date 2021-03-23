@@ -7,6 +7,7 @@ package controller;
 
 import dao.AppDao;
 import entity.Apprenant;
+import entity.Formateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

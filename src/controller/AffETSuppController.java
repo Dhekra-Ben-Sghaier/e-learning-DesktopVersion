@@ -102,7 +102,8 @@ public class AffETSuppController implements Initializable {
    Apprenant p = apprenants.getSelectionModel().getSelectedItem();
           AppDao fo =AppDao.getInstance().getInstance();
           fo.delete(p);
-          apprenants.getItems().removeAll(apprenants.getSelectionModel().getSelectedItem());
+          apprenants.getSelectionModel().getSelectedItems().forEach(this.ApprenantList::remove);
+          //apprenants.getItems().removeAll(apprenants.getSelectionModel().getSelectedItem());
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
@@ -122,9 +123,6 @@ public class AffETSuppController implements Initializable {
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/interfaceModif.fxml"));
         
-           
-                   
-            
             Parent parent = (Parent)loader.load();
             
             InterfaceModifController cont = loader.<InterfaceModifController>getController();
@@ -133,6 +131,7 @@ public class AffETSuppController implements Initializable {
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);
+             stage.setTitle("Modifier Apprennant");
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(AffETSuppController.class.getName()).log(Level.SEVERE, null, ex);

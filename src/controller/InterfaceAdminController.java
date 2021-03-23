@@ -50,11 +50,13 @@ public class InterfaceAdminController implements Initializable {
         // TODO
          // go to home
            home.setOnAction(event -> {
+               Parent page1;
              try {
-                Parent page1 = FXMLLoader.load(getClass().getResource("/view/usersPanel.fxml"));
+                page1 = FXMLLoader.load(getClass().getResource("/view/usersPanel.fxml"));
                 Scene scene = new Scene(page1);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
+                 stage.setTitle("Brainovation");
                 stage.show();
             } catch (IOException ex) {
                 Logger.getLogger(InterfaceAdminController.class.getName()).log(Level.SEVERE, null, ex);
@@ -71,17 +73,23 @@ public class InterfaceAdminController implements Initializable {
     private void supprimer(MouseEvent event) {
         loadPage("/view/affetsupp.fxml");
     }
+     @FXML
+    private void gererformateur(MouseEvent event) {
+          loadPage("/view/gererFormateur.fxml");
+    }
     private void  loadPage(String page){
         Parent root = null;
         
         try {
             root = FXMLLoader.load(getClass().getResource(page));
         } catch (IOException ex) {
-            Logger.getLogger(UserPanelController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(InterfaceAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
         Bpadmin.setCenter(root);
             
         }
+
+   
 
     
 }

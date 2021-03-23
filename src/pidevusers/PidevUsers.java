@@ -14,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javax.mail.MessagingException;
+import utils.JavaMailUtil;
 
 /**
  *
@@ -28,7 +30,7 @@ public class PidevUsers extends Application {
         parentPage = FXMLLoader.load(getClass().getResource("/view/usersPanel.fxml"));
         
         Scene scene = new Scene(parentPage);
-        stage.setTitle("inscription");
+        stage.setTitle("Brainovation");
         
 //        pour configurer les dimensions de stage 
 //        stage.setWidth(500);
@@ -41,8 +43,9 @@ public class PidevUsers extends Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        launch(args);
+    public static void main(String[] args) throws Exception {
+       launch(args);
+        //JavaMailUtil.sendMail("mariembenhassine98@gmail.com", 0);
     }
     
 }

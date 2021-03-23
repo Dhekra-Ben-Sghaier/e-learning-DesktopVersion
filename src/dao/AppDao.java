@@ -67,7 +67,7 @@ public class AppDao implements Idao<Apprenant> {
 
     @Override
     public List<Apprenant> displayAll() {
-      String req="select * from personnes";
+      String req="select * from personnes where role ='"+roleapp+"'";;
         ObservableList<Apprenant> list=FXCollections.observableArrayList();       
         
         try {
@@ -93,7 +93,7 @@ public class AppDao implements Idao<Apprenant> {
         return list; //To change body of generated methods, choose Tools | Templates.
     }
     public List<Apprenant> displayAllList() {
-        String req="select * from personnes";
+        String req="select * from personnes where role ='"+roleapp+"'";;
         List<Apprenant> list=new ArrayList<>();
         
         try {
@@ -145,7 +145,7 @@ public class AppDao implements Idao<Apprenant> {
 
     @Override
     public ObservableList<Apprenant> displaylist() {
-        String req="select * from personnes";
+        String req="select * from personnes where role ='"+roleapp+"'";;
         ObservableList<Apprenant> list=FXCollections.observableArrayList();       
         
         try {

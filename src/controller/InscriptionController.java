@@ -52,6 +52,33 @@ public class InscriptionController implements Initializable {
                 Scene scene = new Scene(page1);
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(scene);
+                 stage.setTitle("Inscription");
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+         btn_form.setOnAction(event -> {
+
+            try {
+                Parent page2 = FXMLLoader.load(getClass().getResource("/view/inscrireFormateur.fxml"));
+                Scene scene = new Scene(page2);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Inscription");
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+          btn_soc.setOnAction(event -> {
+
+            try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/inscrireSoc.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                 stage.setTitle("Inscription");
                 stage.show();
             } catch (IOException ex) {
                 Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);

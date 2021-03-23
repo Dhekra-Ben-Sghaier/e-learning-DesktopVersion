@@ -5,8 +5,10 @@
  */
 package controller;
 
-import dao.AppDao;
-import entity.Apprenant;
+
+import dao.ControleSaisie;
+import dao.Operation;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -31,6 +33,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 import utils.ConnexionSingleton;
+import utils.JavaMailUtil;
 
 /**
  * FXML Controller class
@@ -49,6 +52,8 @@ public class LoginController implements Initializable {
     private TextField txt_mdp;
     @FXML
     private CheckBox check_mdp;
+    @FXML
+    private Button btn_mdp;
 
     /**
      * Initializes the controller class.
@@ -77,6 +82,40 @@ public class LoginController implements Initializable {
        
        });
        //end aff mdp
+       
+       //mdp oublié
+         btn_mdp.setOnAction(event -> {
+               Operation op= new Operation();
+               String o = op.recEmail(user.getText());
+               int d= op.recId(user.getText());
+               System.out.println(o+"  "+ d);
+             try {
+                 JavaMailUtil.sendMail(o,d);
+             } catch (Exception ex) {
+                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+               System.out.println(o);
+              try {
+                  FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/codeMdp.fxml"));
+        
+            Parent parent = (Parent)loader.load();
+              CodeMdpController cont = loader.<CodeMdpController>getController();
+            cont.setEmail(o);
+            cont.setCode(op.envoyerCode(d));
+            cont.setId(d);
+                Scene scene = new Scene(parent);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Mot de passe oublié ?");
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+          
+      
+        });
+      //end
+      
     }    
     private static Connection   connection;
     private static java.sql.PreparedStatement pst;
@@ -84,6 +123,8 @@ public class LoginController implements Initializable {
         ConnexionSingleton cs=ConnexionSingleton.getInstance();
        connection= cs.getCnx();
        System.out.println(connection);
+       Operation op=new Operation();
+        int d= op.recId(user.getText());
             String req="select * from personnes where nomUtilisateur=?";
              System.out.println(req);
         try {
@@ -98,6 +139,16 @@ public class LoginController implements Initializable {
                 }
                 
             }
+            
+               if(ControleSaisie.isNull(user.getText()) || ControleSaisie.isNull(pwd.getText()))
+           {
+             Alert alerts = new Alert(Alert.AlertType.WARNING);
+        alerts.setTitle("Warning");
+        alerts.setHeaderText(null);
+        alerts.setContentText("Veuillez remplir les champs!");
+        alerts.show();
+           } 
+           else {
             if((count==1) && username.equals("admin")){
                           
         
@@ -107,7 +158,8 @@ public class LoginController implements Initializable {
                      Parent parent;
                      
             Scene scene = new Scene(page1);
-            Stage stage = new Stage();
+            Stage stage = (Stage) btn_log.getScene().getWindow();
+          
             stage.setScene(scene);
             stage.show();
                 } catch (IOException ex) {
@@ -117,18 +169,21 @@ public class LoginController implements Initializable {
             } else  if(count==1){
                           
         
-            Parent page2;
+          
                  try {
+                     
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/usersPanel.fxml"));
         
             Parent parent = (Parent)loader.load();
             
           UsersPanelController cont = loader.<UsersPanelController>getController();
-            cont.loadhead("/view/usercompte.fxml");
+      
+            cont.loadheaduser("/view/usercompte.fxml",user.getText(),d);
             
+               
             Scene scene = new Scene(parent);
-            Stage stage = new Stage();
+            Stage stage = (Stage) btn_log.getScene().getWindow();
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
@@ -143,11 +198,13 @@ public class LoginController implements Initializable {
                 alert.setContentText("username or password is not correct");
                 alert.show();
             }
+               }  
         } catch (SQLException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
+    
 
     
     
