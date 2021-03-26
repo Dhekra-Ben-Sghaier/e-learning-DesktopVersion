@@ -70,7 +70,8 @@
 .button2
 {
 -fx-background-color :  #0A0232;
--fx-background-radius :  20;
+-fx-background-radius : 100 100 100 100;
+
 }
 .button2:hover
 {
@@ -81,4 +82,11 @@
 {
 -fx-background-color : #2F2B43 ;
 -fx-background-radius :  20;
+}
+
+
+.input {
+    -fx-background-color :  #F0F8FF;
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx--border-color: #898989;
 }

@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import service.FormationDao;
 
 /**
@@ -24,6 +25,7 @@ import service.FormationDao;
  */
 public class FormationModifController implements Initializable {
 
+    Stage stage;
     private TextField idField;
     @FXML
     private TextField titleField;
@@ -40,9 +42,9 @@ public class FormationModifController implements Initializable {
     @FXML
     private Label idLab;
     @FXML
-    private Button btnCours;
+    private Label idLab1;
     @FXML
-    private TextField cours;
+    private Button btnCancel;
 
     /**
      * Initializes the controller class.
@@ -76,9 +78,13 @@ public class FormationModifController implements Initializable {
             titleField.setText("");
             descField.setText("");
     }
+ 
 
     @FXML
-    private void ajoutPdf(ActionEvent event) {
+    private void cancelModif(ActionEvent event) {
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        stage.close();
     }
+
     
 }

@@ -18,12 +18,14 @@ class ListData {
         
     private ObservableList<Formation> formation =FXCollections.observableArrayList();
     private ObservableList<Formation> formAchete =FXCollections.observableArrayList();
+    private ObservableList<Formation> form =FXCollections.observableArrayList();
 
     public ListData() {
         
         FormationDao fdao =FormationDao.getInstance();
         formation = (ObservableList<Formation>) fdao.displayAll();
         formAchete = (ObservableList<Formation>) fdao.displayAllById(1);
+        form = (ObservableList<Formation>) fdao.display();
         
     }
     
@@ -35,6 +37,10 @@ class ListData {
     public ObservableList<Formation> getFormAch(){
         
         return formAchete;
+    }
+    public ObservableList<Formation> getForm(){
+        
+        return form;
     }
     
     

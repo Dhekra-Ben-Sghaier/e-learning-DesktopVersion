@@ -18,8 +18,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javax.swing.JFileChooser;
 import service.FormationDao;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -28,6 +34,7 @@ import service.FormationDao;
  */
 public class FormationController implements Initializable {
 
+    Stage stage;
     @FXML
     private TextField idField;
     @FXML
@@ -45,6 +52,12 @@ public class FormationController implements Initializable {
     private ListView listC;
     @FXML
     private TextField cours;
+    @FXML
+    private Button btnImgCours;
+    @FXML
+    private Button btnCancel;
+    @FXML
+    private TextField image;
 
     /**
      * Initializes the controller class.
@@ -69,7 +82,7 @@ public class FormationController implements Initializable {
                     }
             byte[] bytes = bos.toByteArray();
 
-            Formation f = new Formation(Integer.parseInt(idField.getText()), titleField.getText(), descField.getText(), Float.parseFloat(prixField.getText()), diffField.getText(), cours.getText());
+            Formation f = new Formation(Integer.parseInt(idField.getText()), titleField.getText(), descField.getText(), Float.parseFloat(prixField.getText()), diffField.getText(), cours.getText(), image.getText());
             FormationDao fdao = FormationDao.getInstance();
             fdao.insert(f);
             
@@ -87,6 +100,14 @@ public class FormationController implements Initializable {
             idField.setText("");
             prixField.setText("");
             diffField.setText("");
+            
+            TrayNotification tray =new TrayNotification();
+            tray.setTitle("Succès");
+            tray.setMessage("Formation ajoutée avec succé !");
+            tray.setAnimationType(AnimationType.POPUP);
+            tray.setNotificationType(NotificationType.INFORMATION);
+            tray.showAndWait();
+            
         });
     }
 
@@ -99,10 +120,32 @@ public class FormationController implements Initializable {
         if (selectedFile != null){
             cours.setText(fileName);
         } else {
-            System.err.println("file not valid");
+            System.out.println("file not valid");
         }
         
         
+    }
+
+    @FXML
+    private void ajoutImage(ActionEvent event) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.showOpenDialog(null);
+        File selectedFile = fileChooser.getSelectedFile();
+        String imgName = selectedFile.getAbsolutePath().replace("\\", "\\\\");
+        if (selectedFile != null) {
+            image.setText(imgName);
+//            Image image1 = new Image(selectedFile.toURI().toString());
+            
+        }
+        else {
+            System.out.println("file not valid");
+        }
+    }
+
+    @FXML
+    private void cancelAjout(ActionEvent event) {
+        stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
+        stage.close();
     }
 
   

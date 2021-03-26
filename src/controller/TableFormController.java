@@ -26,6 +26,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import service.FormationDao;
 
 /**
@@ -138,6 +139,7 @@ public class TableFormController implements Initializable {
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);
+            stage.initStyle(StageStyle.DECORATED);
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(TableFormController.class.getName()).log(Level.SEVERE, null, ex);

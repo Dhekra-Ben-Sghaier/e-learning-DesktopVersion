@@ -56,6 +56,7 @@ public class FormationPanelController implements Initializable {
 //                    } catch (FileNotFoundException ex) {
 //            Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
+        loadPage("/view/ListerFormations.fxml"); 
     }    
 
     @FXML
@@ -71,7 +72,7 @@ public class FormationPanelController implements Initializable {
 
     @FXML
     private void modifierFormation(MouseEvent event) {
-        loadPage("Formation");
+        loadPage("/view/ListerFormations.fxml");
     }
     
     private void  loadPage(String page){

@@ -48,8 +48,10 @@ public class FormationDao implements Idao<Formation>{
     
     @Override
     public void insert(Formation o) {
-        String req = "insert into formation (id,titre,description,prix,difficulte,cours) values ('"+o.getId()+"','"+o.getTitle()+"','"+o.getDescription()
-                +"','"+o.getPrix()+"','"+o.getDifficulte()+"', LOAD_FILE('"+o.getPath()+"'))";
+        String urlImage = o.getPathImg().length()>0?o.getPathImg():"C:\\\\xampp\\\\htdocs\\\\img\\\\default.jpg";
+        String req = "insert into formation (id,titre,description,prix,difficulte,cours,Image) values ('"+o.getId()+"','"+o.getTitle()+"','"+o.getDescription()
+                +"','"+o.getPrix()+"','"+o.getDifficulte()+"', LOAD_FILE('"+o.getPath()+"'),'"+urlImage+"')";
+        
       
         System.out.println(req);
         try {
@@ -97,7 +99,28 @@ public class FormationDao implements Idao<Formation>{
         }
         return list;
     }
-    
+    public List<Formation> display() {
+        String req="select titre,prix,Image from formation";
+        ObservableList<Formation> list=FXCollections.observableArrayList();       
+        System.out.println(req);
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                Formation f =new Formation();
+                
+                f.setTitle(rs.getString("titre"));
+                f.setPrix(rs.getFloat("prix"));
+                f.setPathImg(rs.getString("Image"));
+                
+                list.add(f);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(FormationDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
     public void insertAchat(int idUser, int id){
         System.out.println(id);
         System.out.println(idUser);
@@ -186,8 +209,7 @@ public class FormationDao implements Idao<Formation>{
     
     @Override
     public boolean update(Formation f) {
-        String qry = "UPDATE formation SET titre = '"+f.getTitle()+"' , description = '"+f.getDescription()+"', prix = "+f.getPrix()+" , difficulte = '"+f.getDifficulte()+" , cours = '"+f.getPath()+"' WHERE id = "+f.getId();
-        
+        String qry = "UPDATE formation SET titre = '"+f.getTitle()+"' , description = '"+f.getDescription()+"', prix = "+f.getPrix()+" , difficulte = '"+f.getDifficulte()+"' , cours = '"+f.getPath()+"' WHERE id = "+f.getId();
         try {
             if (st.executeUpdate(qry) > 0) {
                 return true;

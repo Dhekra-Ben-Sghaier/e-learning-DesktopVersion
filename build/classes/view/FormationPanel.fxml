@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="1088.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormationPanelController">
    <left>
@@ -17,7 +16,7 @@
          <children>
             <VBox layoutX="-6.0" layoutY="189.0" prefHeight="265.0" prefWidth="346.0" stylesheets="@style.css">
                <children>
-                  <Button fx:id="consForm" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#consulterFormation" prefHeight="62.0" prefWidth="362.0" stylesheets="@style.css" text="Consulter Formation" textFill="WHITE">
+                  <Button fx:id="consForm" alignment="BASELINE_LEFT" mnemonicParsing="false" onMouseClicked="#consulterFormation" prefHeight="62.0" prefWidth="362.0" stylesheets="@style.css" text="Gérer mes Formations" textFill="WHITE">
                      <graphic>
                         <ImageView fx:id="cons" fitHeight="52.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
@@ -51,7 +50,7 @@
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font></Button>
-                  <Button fx:id="modiForm" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#modifierFormation" prefHeight="54.0" prefWidth="346.0" stylesheets="@style.css" text="Modifier Formation" textFill="WHITE">
+                  <Button fx:id="modiForm" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="66.0" mnemonicParsing="false" onMouseClicked="#modifierFormation" prefHeight="54.0" prefWidth="346.0" stylesheets="@style.css" text="Consulter Formations" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="52.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" />
                      </graphic>
@@ -74,14 +73,6 @@
       </AnchorPane>
    </left>
    <center>
-      <AnchorPane fx:id="apConsulter" BorderPane.alignment="CENTER">
-         <children>
-            <Text fill="#33038d" layoutX="244.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gestion Formation" wrappingWidth="226.17578125" AnchorPane.leftAnchor="240.0" AnchorPane.rightAnchor="240.0">
-               <font>
-                  <Font size="48.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
+      <AnchorPane fx:id="apConsulter" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
