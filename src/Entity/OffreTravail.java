@@ -21,12 +21,14 @@ public class OffreTravail {
     private String Niv_etude;
     private String Certificat;
     private String Type_contrat;
+    private int Id_societe;
+    private String Titre;
 
     public OffreTravail() {
     }
 
-    public OffreTravail(int Id_Stage, String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, String Type_contrat) {
-        this.Id_Travail = Id_Stage;
+    public OffreTravail(int Id_Travail, String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, String Type_contrat,int Id_societe, String Titre) {
+        this.Id_Travail = Id_Travail;
         this.Nom_soc = Nom_soc;
         this.Adr_mail_soc = Adr_mail_soc;
         this.Adr_soc = Adr_soc;
@@ -35,9 +37,11 @@ public class OffreTravail {
         this.Niv_etude = Niv_etude;
         this.Certificat = Certificat;
         this.Type_contrat= Type_contrat;
+        this.Id_societe=Id_societe;
+        this.Titre=Titre;
     }
 
-    public OffreTravail(String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, String Type_contrat) {
+    public OffreTravail(String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, String Type_contrat,int Id_societe, String Titre) {
         this.Nom_soc = Nom_soc;
         this.Adr_mail_soc = Adr_mail_soc;
         this.Adr_soc = Adr_soc;
@@ -46,6 +50,8 @@ public class OffreTravail {
         this.Niv_etude = Niv_etude;
         this.Certificat = Certificat;
         this.Type_contrat= Type_contrat;
+        this.Id_societe=Id_societe;
+        this.Titre=Titre;
         
     }
 
@@ -85,6 +91,23 @@ public class OffreTravail {
         return Type_contrat;
     }
 
+    public String getTitre() {
+        return Titre;
+    }
+
+    public int getId_societe() {
+        return Id_societe;
+    }
+
+    public void setId_societe(int Id_societe) {
+        this.Id_societe = Id_societe;
+    }
+    
+
+    public void setTitre(String Titre) {
+        this.Titre = Titre;
+    }
+    
     public void setId_Travail(int Id_Travail) {
         this.Id_Travail = Id_Travail;
     }

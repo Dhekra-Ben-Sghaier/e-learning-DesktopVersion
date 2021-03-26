@@ -31,6 +31,11 @@ import Services.StageService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Paint;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -61,6 +66,8 @@ public class Ajout_Post_StageController implements Initializable {
     private DatePicker Champ_Date_debut;
     @FXML
     private DatePicker Champ_Date_fin;
+    @FXML
+    private TextField Champ_Titre;
 
     /**
      * Initializes the controller class.
@@ -72,7 +79,7 @@ public class Ajout_Post_StageController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         ObservableList<String> list_ne = FXCollections.observableArrayList("Secondaire", "Bac", "Bac+1", "Bac+2", "Bac+3", "bac+4", "Bac+5");
         Champ_Niveau_Etude.setItems(list_ne);
-        ObservableList<String> list_Certificat = FXCollections.observableArrayList("Angalais", "Français", "Mecanique", "Electrique", "Informatique", "Office");
+        ObservableList<String> list_Certificat = FXCollections.observableArrayList("Anglais", "Français", "Mecanique", "Electrique", "Informatique", "Office");
         Champ_Certificat.setItems(list_Certificat);
         ObservableList<String> list_Duree = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6");
         Champ_Duree_stage.setItems(list_Duree);
@@ -80,16 +87,16 @@ public class Ajout_Post_StageController implements Initializable {
 
     @FXML
     private void Retour_Ajout(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(("Accueil_Ajout_Post.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(("Home.fxml")));
         Parent root = loader.load();
-        Accueil_Ajout_PostController OAStage = loader.getController();
+        HomeController OAStage = loader.getController();
         Scene scene = Retour_Acceuil_Ajout.getScene();
         scene.setRoot(root);
     }
 
     @FXML
     private void Ajouter_stage(ActionEvent event) throws ParseException {
-        if ((Champ_Nom_Soc.getText().equals("")) || (Champ_Adresse_Mail.getText().equals("")) || (Champ_Adresse.getText().equals("")) || (Champ_Niveau_Etude.getValue().equals("")) || (Champ_Certificat.getValue().equals("")) || (Champ_Duree_stage.getValue().equals("")) || (Champ_Desc.getText().equals(""))) {
+        if ((Champ_Nom_Soc.getText().equals("")) || (Champ_Adresse_Mail.getText().equals("")) || (Champ_Adresse.getText().equals("")) || (Champ_Niveau_Etude.getValue().equals("")) || (Champ_Certificat.getValue().equals("")) || (Champ_Duree_stage.getValue().equals("")) || (Champ_Desc.getText().equals("")) || (Champ_Titre.getText().equals(""))) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur de Saisie");
             alert.setHeaderText("Erreur");
@@ -111,14 +118,23 @@ public class Ajout_Post_StageController implements Initializable {
             Date Date_pubS = new SimpleDateFormat("yyyyMMdd_HHmmss").parse(Date_pubb);
             java.sql.Date datedeb = java.sql.Date.valueOf(Date_debutS);
             java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
-            OffreStage SS = new OffreStage(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Duree_stageS, Date_pubS, Date_pubS);
+            String TitreS = Champ_Titre.getText();
+            int Id_societeS = 1;
+            OffreStage SS = new OffreStage(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Duree_stageS, datedeb, datef,Id_societeS , TitreS);
             Services.StageService su = new StageService();
             su.ajouter_Offe_Stage(SS);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Ajout confirmé");
             alert.setHeaderText("Confirmation");
-            alert.setContentText("le code de votre publication est:***"/*+SS.getId_Stage()*/);
+            //alert.setContentText("La publication est ajoutée avec succés.");           
             Optional<ButtonType> result = alert.showAndWait();
+            TrayNotification tray = new TrayNotification();
+            Image whatsAppImg = new Image("/image/image1.png");
+            String text = "Offre de stage ajouté avec succés ";
+
+            tray.setTray("welcome", text + " ", whatsAppImg, Paint.valueOf("#2A9A84"), AnimationType.SLIDE);
+
+            tray.showAndDismiss(Duration.seconds(10));
         }
     }
 

@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Optional;
@@ -29,6 +28,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Paint;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.TrayNotification;
 
 
 /**
@@ -56,6 +60,8 @@ public class Ajout_Post_TravailController implements Initializable {
     private Button Btn_pub_travail;
     @FXML
     private ComboBox<String> Champ_Type_Contrat;
+    @FXML
+    private TextField Champ_Titre;
 
     /**
      * Initializes the controller class.
@@ -74,9 +80,9 @@ public class Ajout_Post_TravailController implements Initializable {
 
     @FXML
     private void Retour_Ajout(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(("Accueil_Ajout_Post.fxml")));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(("Home.fxml")));
         Parent root = loader.load();
-        Accueil_Ajout_PostController OAStage = loader.getController();
+        HomeController OAStage = loader.getController();
         Scene scene = Retour_Acceuil_Ajout.getScene();
         scene.setRoot(root);
     }
@@ -99,14 +105,22 @@ public class Ajout_Post_TravailController implements Initializable {
             String Date_pubb = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
             Date Date_pubS = new SimpleDateFormat("yyyyMMdd_HHmmss").parse(Date_pubb);
             String Type_contratS = Champ_Type_Contrat.getValue();
-            OffreTravail SS = new OffreTravail(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Type_contratS);
+            String TitreS = Champ_Titre.getText();
+            int Id_societeS=1;
+            OffreTravail SS = new OffreTravail(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Type_contratS,Id_societeS, TitreS);
             Services.TravailService su = new TravailService();
             su.ajouter_Offe_Travail(SS);
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Ajout confirmé");
             alert.setHeaderText("Confirmation");
-            alert.setContentText("le code de votre publication est:***"/*+SS.getId_Stage()*/);
             Optional<ButtonType> result = alert.showAndWait();
+            TrayNotification tray = new TrayNotification();
+            Image whatsAppImg = new Image("/image/image1.png");
+            String text = "Offre de travail ajouté avec succés ";
+
+            tray.setTray("welcome", text + " ", whatsAppImg, Paint.valueOf("#2A9A84"), AnimationType.SLIDE);
+
+            tray.showAndDismiss(Duration.seconds(10));
         }
     }
     

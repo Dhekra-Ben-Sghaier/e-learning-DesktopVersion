@@ -25,11 +25,11 @@ public class Pi_dev_GOffre extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Hello World");
         
-        parentPage = FXMLLoader.load(getClass().getResource("/GUI/Accueil_Ajout_Post.fxml"));
+        parentPage = FXMLLoader.load(getClass().getResource("/GUI/Home.fxml"));
         Scene scene = new Scene(parentPage);
         this.primaryStage.setScene(scene);
         this.primaryStage.show();
-
+ 
     }
     /**
      * @param args the command line arguments

@@ -5,6 +5,7 @@
  */
 package Entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -23,11 +24,13 @@ public class OffreStage {
     private int Duree;
     private Date Date_debut;
     private Date Date_fin;
+    private int Id_societe;
+    private String Titre;
 
     public OffreStage() {
     }
 
-    public OffreStage(int Id_Stage, String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, int Duree, Date Date_debut, Date Date_fin) {
+    public OffreStage(int Id_Stage, String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, int Duree, Date Date_debut, Date Date_fin, int Id_societe, String Titre) {
         this.Id_Stage = Id_Stage;
         this.Nom_soc = Nom_soc;
         this.Adr_mail_soc = Adr_mail_soc;
@@ -39,9 +42,11 @@ public class OffreStage {
         this.Duree = Duree;
         this.Date_debut = Date_debut;
         this.Date_fin = Date_fin;
+        this.Id_societe=Id_societe;
+        this.Titre=Titre;
     }
 
-    public OffreStage(String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, int Duree, Date Date_debut, Date Date_fin) {
+    public OffreStage(String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, int Duree, Date Date_debut, Date Date_fin, int Id_societe, String Titre) {
         this.Nom_soc = Nom_soc;
         this.Adr_mail_soc = Adr_mail_soc;
         this.Adr_soc = Adr_soc;
@@ -52,6 +57,8 @@ public class OffreStage {
         this.Duree = Duree;
         this.Date_debut = Date_debut;
         this.Date_fin = Date_fin;
+        this.Id_societe = Id_societe;
+        this.Titre =Titre;
     }
 
     public int getId_Stage() {
@@ -97,6 +104,23 @@ public class OffreStage {
     public Date getDate_fin() {
         return Date_fin;
     }
+
+    public int getId_societe() {
+        return Id_societe;
+    }
+
+    public String getTitre() {
+        return Titre;
+    }
+
+    public void setTitre(String Titre) {
+        this.Titre = Titre;
+    }
+
+    public void setId_societe(int Id_societe) {
+        this.Id_societe = Id_societe;
+    }
+    
 
     public void setId_Stage(int Id_Stage) {
         this.Id_Stage = Id_Stage;
