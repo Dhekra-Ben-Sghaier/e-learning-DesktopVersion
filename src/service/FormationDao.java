@@ -17,6 +17,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 import utils.DataSource;
 
 /**
@@ -57,10 +61,25 @@ public class FormationDao implements Idao<Formation>{
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
-            Logger.getLogger(FormationDao.class.getName()).log(Level.SEVERE, null, ex);
+
         }
     }
-
+    public int verif(int id){
+        int v = -1;
+        String req="delete from formation where id="+id;
+        try {
+            v = st.executeUpdate(req);
+            
+            System.out.println("icciiii"+v);
+            
+            
+        } catch (SQLException ex) {
+            
+        }
+        System.out.println("iiiiiicciiii"+v);
+        return v;
+    
+        }
     public void delete(Formation o) {
         String req="delete from formation where id="+o.getId();
 //        Formation f =displayById(o.getId());
@@ -100,7 +119,7 @@ public class FormationDao implements Idao<Formation>{
         return list;
     }
     public List<Formation> display() {
-        String req="select titre,prix,Image from formation";
+        String req="select id,titre,description,prix,Image from formation";
         ObservableList<Formation> list=FXCollections.observableArrayList();       
         System.out.println(req);
         
@@ -108,8 +127,9 @@ public class FormationDao implements Idao<Formation>{
             rs=st.executeQuery(req);
             while(rs.next()){
                 Formation f =new Formation();
-                
+                f.setId(rs.getInt("id"));
                 f.setTitle(rs.getString("titre"));
+                f.setDescription(rs.getString("description"));
                 f.setPrix(rs.getFloat("prix"));
                 f.setPathImg(rs.getString("Image"));
                 

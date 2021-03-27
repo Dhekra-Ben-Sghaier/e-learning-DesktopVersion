@@ -92,6 +92,13 @@ public class Formation {
         return difficulte;
     }
 
+    public Formation(int id, String title, String description, float prix) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.prix = prix;
+    }
+
     public Formation(int id, String title, String description, float prix, String difficulte) {
         this.id = id;
         this.title = title;
