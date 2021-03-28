@@ -21,9 +21,12 @@ import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JFileChooser;
 import service.FormationDao;
@@ -61,6 +64,10 @@ public class FormationController implements Initializable {
     private TextField image;
     String nomImg ;
     int b;
+    @FXML
+    private Label errorId;
+    @FXML
+    private Label errorPrice;
 
     /**
      * Initializes the controller class.
@@ -87,25 +94,50 @@ public class FormationController implements Initializable {
 
             Formation f = new Formation(Integer.parseInt(idField.getText()), titleField.getText(), descField.getText(), Float.parseFloat(prixField.getText()), diffField.getText(), cours.getText(), image.getText());
             FormationDao fdao = FormationDao.getInstance();
-            fdao.verif(Integer.parseInt(idField.getText()));
-                System.out.println("herrre"+fdao.verif(Integer.parseInt(idField.getText())));
+            
+            
             fdao.insert(f);
             
-            } catch (Exception e) {
+            } catch (IOException | NumberFormatException e) {
+                if("".equals(idField.getText())){
+                    idField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
+                } 
+                if("".equals(titleField.getText())){
+                titleField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
+                }
+                if("".equals(descField.getText())){
+                descField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
+                }
+                if("".equals(prixField.getText())){
+                prixField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
+                }
+                if("".equals(diffField.getText())){
+                diffField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
+                }
+                if("".equals(cours.getText())){
+                cours.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
+                }
                 
-        }
-          
+                if(! "".equals(errorId.getText())){
             
-//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setTitle("Information Dialog");
-//            alert.setHeaderText(null);
-//            alert.setContentText("Formation insérée avec succés!");
-//            alert.show();
-//            titleField.setText("");
-//            descField.setText("");
-//            idField.setText("");
-//            prixField.setText("");
-//            diffField.setText("");
+            idField.setText("");
+   
+           } 
+           else if(!"".equals(errorPrice.getText())) {
+              prixField.setText(""); 
+           }
+           else {
+               Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Verifier les champs!");
+            alert.show();
+           }
+                
+        } 
+          
+           
+
 //            
 //            TrayNotification tray =new TrayNotification();
 //            tray.setTitle("Succès");
@@ -149,10 +181,7 @@ public class FormationController implements Initializable {
                 } catch (IOException ex) {
                     Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
-                
-                
-                
+   
             }
             try {
                     bin.close();
@@ -189,6 +218,30 @@ public class FormationController implements Initializable {
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         stage.close();
         
+    }
+
+    @FXML
+    private void verifId(MouseEvent event) {
+         if (!idField.getText().matches("^[0-9]*$") ) {
+                    System.out.println("IDDDD: "+ idField.getText());
+                    errorId.setText("L'id doit etre un entier!");
+                    
+                }
+         else {
+             errorId.setText("");
+         }
+    }
+
+    @FXML
+    private void verifPrice(MouseEvent event) {
+        if (!prixField.getText().matches("^([0-9]+([.][0-9]*)?|[.][0-9]+)*$") ) {
+                   System.out.println("IDDDD: "+ prixField.getText());
+                    errorPrice.setText("vous devez saisir un prix correcte!");
+                    
+                }
+         else {
+             errorPrice.setText("");
+         }
     }
 
   

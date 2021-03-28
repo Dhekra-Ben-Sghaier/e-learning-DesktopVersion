@@ -14,7 +14,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="642.0" prefWidth="763.0" style="-fx-background-color: 000011;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FormationController">
    <children>
-      <VBox layoutX="172.0" layoutY="116.0" prefHeight="218.0" prefWidth="143.0" spacing="22.0" AnchorPane.leftAnchor="172.0">
+      <VBox layoutX="127.0" layoutY="119.0" prefHeight="218.0" prefWidth="143.0" spacing="22.0" AnchorPane.leftAnchor="127.0">
          <children>
             <Label prefHeight="21.0" prefWidth="100.0" text="Id                   :">
                <font>
@@ -38,12 +38,12 @@
                </font></Label>
          </children>
       </VBox>
-      <VBox layoutX="355.0" layoutY="119.0" prefHeight="237.0" prefWidth="299.0" spacing="10.0" AnchorPane.rightAnchor="109.0">
+      <VBox layoutX="270.0" layoutY="119.0" prefHeight="237.0" prefWidth="255.0" spacing="10.0" AnchorPane.rightAnchor="238.0">
          <children>
-            <TextField fx:id="idField" />
+            <TextField fx:id="idField" onMouseExited="#verifId" />
             <TextField fx:id="titleField" layoutX="10.0" layoutY="10.0" />
             <TextField fx:id="descField" layoutX="10.0" layoutY="41.0" />
-            <TextField fx:id="prixField" layoutX="10.0" layoutY="72.0" />
+            <TextField fx:id="prixField" layoutX="10.0" layoutY="72.0" onMouseExited="#verifPrice" />
             <TextField fx:id="diffField" layoutX="10.0" layoutY="103.0" />
          </children>
       </VBox>
@@ -157,5 +157,15 @@
             </Button>
          </children>
       </HBox>
+      <Label fx:id="errorPrice" layoutX="581.0" layoutY="252.0" textFill="#dd0000" AnchorPane.leftAnchor="530.0">
+         <font>
+            <Font name="Calibri Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorId" layoutX="538.0" layoutY="128.0" textFill="#dd0000" AnchorPane.leftAnchor="538.0">
+         <font>
+            <Font name="Calibri Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

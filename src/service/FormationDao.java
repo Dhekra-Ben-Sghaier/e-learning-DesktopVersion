@@ -52,34 +52,48 @@ public class FormationDao implements Idao<Formation>{
     
     @Override
     public void insert(Formation o) {
+        
         String urlImage = o.getPathImg().length()>0?o.getPathImg():"C:\\\\xampp\\\\htdocs\\\\img\\\\default.jpg";
         String req = "insert into formation (id,titre,description,prix,difficulte,cours,Image) values ('"+o.getId()+"','"+o.getTitle()+"','"+o.getDescription()
                 +"','"+o.getPrix()+"','"+o.getDifficulte()+"', LOAD_FILE('"+o.getPath()+"'),'"+urlImage+"')";
         
-      
+        
         System.out.println(req);
         try {
             st.executeUpdate(req);
+            Alert alertInf = new Alert(Alert.AlertType.INFORMATION);
+            alertInf.setTitle("Information Dialog");
+            alertInf.setHeaderText(null);
+            alertInf.setContentText("Formation insérée avec succés!");
+            alertInf.show();
         } catch (SQLException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("id deja utilisé!");
+            alert.show();
 
         }
     }
-    public int verif(int id){
-        int v = -1;
-        String req="delete from formation where id="+id;
-        try {
-            v = st.executeUpdate(req);
-            
-            System.out.println("icciiii"+v);
-            
-            
-        } catch (SQLException ex) {
-            
-        }
-        System.out.println("iiiiiicciiii"+v);
-        return v;
     
-        }
+//    public int verif(int id){
+//        int v = 0;
+//        String req="select from formation where id="+id;
+//        try {
+//            
+//            v = st.executeUpdate(req);
+//            
+//            System.out.println("icciiii"+v);
+// 
+//        } catch (SQLException ex) {
+//            
+//        }
+//        
+//        return v;
+//    
+//        }
+//    
+    
     public void delete(Formation o) {
         String req="delete from formation where id="+o.getId();
 //        Formation f =displayById(o.getId());
@@ -242,29 +256,6 @@ public class FormationDao implements Idao<Formation>{
     }
     
     
-    
-//        public List<Formation> displayAllList() {
-//        String req="select * from personne";
-//        List<Formation> list=new ArrayList<>();
-//        
-//        try {
-//            rs=st.executeQuery(req);
-//            while(rs.next()){
-//                Formation f =new Formation();
-//                f.setId(rs.getInt(1));
-//                f.setTitle(rs.getString("titre"));
-//                f.setDescription(rs.getString("description"));
-//                f.setPrix(rs.getFloat("prix"));
-//                f.setDifficulte(rs.getString("difficulte"));
-//                f.setCertifier(rs.getBoolean("certificat"));
-//                
-//                list.add(f);
-//            }
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(FormationDao.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        return list;
-//    }
+
     
 }
