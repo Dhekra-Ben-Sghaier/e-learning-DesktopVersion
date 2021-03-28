@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="837.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="controller.ProfilUserController">
+<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProfilUserController">
    <children>
       <JFXTabPane fx:id="profilUser" layoutX="55.0" prefHeight="540.0" prefWidth="837.0" style="-fx-background-color: #fff;" styleClass="jfx-tab-pane" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <tabs>
@@ -64,7 +68,33 @@
             </Tab>
             <Tab fx:id="photo" text="Photo">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane fx:id="anchorpane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="btn_im" layoutX="322.0" layoutY="415.0" onAction="#choose" prefHeight="34.0" prefWidth="176.0" styleClass="button3" stylesheets="@style.css" text="Télécharger image">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                        <Label layoutX="216.0" layoutY="22.0" text="Ajoutez une photo de vous pour votre profil.">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="-1.0" layoutY="54.0" maxWidth="-Infinity" prefHeight="11.0" prefWidth="837.0" />
+                        <Button fx:id="btn_sauvim" layoutX="657.0" layoutY="449.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="136.0" styleClass="button1" stylesheets="@style.css" text="Sauvegarder" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Bold" size="14.0" />
+                           </font>
+                        </Button>
+                        <ImageView fx:id="imageview" fitHeight="325.0" fitWidth="332.0" layoutX="243.0" layoutY="80.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" styleClass="img">
+                           <image>
+                              <Image url="@../images/profil.png" />
+                           </image>
+                           <viewport>
+                              <Rectangle2D width="378.0" />
+                           </viewport>
+                        </ImageView>
+                     </children></AnchorPane>
               </content>
                <graphic>
                   <FontAwesomeIconView glyphName="IMAGE" />

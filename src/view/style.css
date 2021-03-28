@@ -53,7 +53,34 @@
 -fx-background-color : #2F2B43 ;
 -fx-background-radius :  20;
 }
+.button3 {
+  -fx-background-color: #fff; 
+  
+  -fx-border-width:  2px  ;
+  -fx-border-color: #0A0232;
+  -fx-border-style: solid;
+      
+}
+.button3:hover {-fx-background-color: #C4B7B7 ;
+                -fx-border-width:  2px  ;
+  -fx-border-color: #0A0232;
+  -fx-border-style: solid;}
 
+.button3:active {
+  -fx-background-color: #C4B7B7;
+    -fx-border-width:  2px  ;
+  -fx-border-color: #0A0232;
+  -fx-border-style: solid;
+
+}
+
+
+.img{
+     -fx-border-width:  2px  ;
+    -fx-border-radius: 10 10 10 10;
+     -fx-border-color: #0A0232;
+-fx-background-radius: 10 10 10 10;
+}
 .table-view{
     -fx-base:#0A0232;
     -fx-control-inner-background: #fff;

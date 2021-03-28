@@ -65,6 +65,8 @@ public class UsersPanelController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+                  btn_rec.setVisible(false);
+          btn_cert.setVisible(false);
         btn_conn.setOnAction(event -> {
               Parent pagelog;
               try {
@@ -112,6 +114,7 @@ public class UsersPanelController implements Initializable {
              UsercompteController cont = loader.<UsercompteController>getController();
              cont.setUser(nom);
              cont.setId(n);
+             cont.loadfile();
 //            root = FXMLLoader.load(getClass().getResource(page));
         } catch (IOException ex) {
             Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
@@ -131,6 +134,10 @@ public class UsersPanelController implements Initializable {
         bp.setTop(root);
             
         }
+      public void loadmenu (){
+          btn_rec.setVisible(true);
+          btn_cert.setVisible(true);
+      }
       public void  loadcenter(String page ,Personne p,int n){
         Parent root = null;
         

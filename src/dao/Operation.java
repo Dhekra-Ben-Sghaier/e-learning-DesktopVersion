@@ -6,7 +6,20 @@
 package dao;
 
 import entity.Personne;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import static java.lang.Math.random;
+import java.sql.Blob;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -17,6 +30,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import sun.misc.IOUtils;
 import utils.ConnexionSingleton;
 
 /**
@@ -179,4 +198,71 @@ public class Operation {
         }
         return res;
          }
+         public boolean insert(FileInputStream o ,int id)  {
+ Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
+              String req=("UPDATE personnes SET image= ? WHERE id_user="+id);
+        PreparedStatement ps;
+        ps=conn.prepareStatement(req);
+         ps.setBinaryStream(1, o); 
+    
+         
+         return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Operation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+       
+     
+        return false;
+        
+    }
+          public void recImage (int id , ImageView im) throws SQLException {
+        String req="select image from personnes where id_user ="+id;
+       
+        Connection conn;
+        try {
+             PreparedStatement ps;
+        
+            conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
+            ps=conn.prepareStatement(req);
+            rs=ps.executeQuery();
+            
+          if(rs.first()){
+            Blob blob=rs.getBlob("image");
+             System.out.println("blob"+blob.toString());
+            InputStream inputstream =blob.getBinaryStream();
+             System.out.println("input="+inputstream.toString());
+            Image image=new Image(inputstream);
+            System.out.println(image);
+            im.setImage(image);
+                    System.out.println("images="+image);
+          }
+       } catch (SQLException ex) {
+            Logger.getLogger(Operation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+          public Image getImageById(int id) throws SQLException, IOException  {
+ String req="select image from personnes where id_user ='"+id+"'";
+  Image img = null ;
+     try {
+           rs=st.executeQuery(req);
+       
+        if (rs.next()) {
+            Blob foto = rs.getBlob("image");
+            System.out.println(foto);
+            InputStream is = foto.getBinaryStream();
+            img = new Image(is) ; // false = no background loading
+            is.close();
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Operation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+  
+        rs.close();
+        return img ;
+    }
+
 }

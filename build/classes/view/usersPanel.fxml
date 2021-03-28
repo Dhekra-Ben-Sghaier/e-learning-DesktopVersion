@@ -76,33 +76,6 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btn_rec" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Reclamations" textFill="WHITE">
-               <VBox.margin>
-                  <Insets left="10.0" top="25.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="26.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/bibli-notice.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button fx:id="btn_cert" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Certificats" textFill="WHITE">
-               <graphic>
-                  <ImageView fitHeight="39.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/inscription.png" />
-                     </image>
-                     <viewport>
-                        <Rectangle2D />
-                     </viewport>
-                  </ImageView>
-               </graphic>
-               <VBox.margin>
-                  <Insets left="10.0" top="25.0" />
-               </VBox.margin>
-            </Button>
             <Button fx:id="btn_pub" mnemonicParsing="false" opacity="0.95" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Publicités" textFill="WHITE">
                <VBox.margin>
                   <Insets left="10.0" top="25.0" />
@@ -127,6 +100,33 @@
                      <viewport>
                         <Rectangle2D />
                      </viewport>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="btn_cert" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Certificats" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="39.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/inscription.png" />
+                     </image>
+                     <viewport>
+                        <Rectangle2D />
+                     </viewport>
+                  </ImageView>
+               </graphic>
+               <VBox.margin>
+                  <Insets left="10.0" top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btn_rec" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Reclamations" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="10.0" top="25.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="26.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/bibli-notice.png" />
+                     </image>
                   </ImageView>
                </graphic>
             </Button>

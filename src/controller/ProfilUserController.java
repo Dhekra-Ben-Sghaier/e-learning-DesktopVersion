@@ -5,14 +5,26 @@
  */
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTabPane;
 import com.jfoenix.controls.JFXTextField;
 import static controller.InscrireApprenantController.hashPassword;
 import dao.Operation;
 import entity.Personne;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+//import java.awt.Image;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +36,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
+import javafx.scene.image.Image;
+
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javax.swing.ImageIcon;
 import org.mindrot.jbcrypt.BCrypt;
 
 /**
@@ -67,20 +86,48 @@ public class ProfilUserController implements Initializable {
     private Label lab_user;
     @FXML
     private Label lab_mdp;
+    @FXML
+    private JFXButton btn_im;
+    @FXML
+    private AnchorPane anchorpane;
+    @FXML
+    private ImageView imageview;
+    
+    public String s;
+    @FXML
+    private Button btn_sauvim;
+    
+    //requete pour insert image
+    private PreparedStatement store;
+     private String openst="UPDATE personnes SET image= ? WHERE id_user=?";
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        try {
-//            // TODO
-//            Parent node= FXMLLoader.load(getClass().getResource("/view/compte.fxml"));
-//            
-//            compte.setContent(node);
-//            
-//        } catch (IOException ex) {
-//            Logger.getLogger(ProfilUserController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+ Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
+            store=conn.prepareStatement(openst);
+               //sauvegarder image 
+        btn_sauvim.setOnAction(event -> {
+
+
+                  Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                  alert.setTitle("Information Dialog");
+                  alert.setHeaderText(null);
+                  alert.setContentText("Image sauvegardée!");
+                  alert.show();
+          
+         
+            
+            
+        });
+        } catch (SQLException ex) {
+            Logger.getLogger(ProfilUserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+            
   btn_info.setOnAction(event -> {
 
             Operation info=new Operation();
@@ -122,10 +169,35 @@ public class ProfilUserController implements Initializable {
              }
            
         });
+
         
+    }   
+    //choisir une image
+    @FXML
+       private void choose(javafx.event.ActionEvent event) throws IOException { {  FileChooser filechooser = new FileChooser();
+          
+     Stage stage = (Stage) btn_im.getScene().getWindow();
+     File file = filechooser.showOpenDialog(stage);
+        FileInputStream inputstream=new FileInputStream(file);
+         FileInputStream input=new FileInputStream(file);
+     if (file !=null)
+     { //Desktop desktop = Desktop.getDesktop();
+    System.out.println(inputstream);
+           try {
+               store.setBinaryStream(1, inputstream);
+               store.setInt(2, Integer.parseInt(lab_id.getText()));
+               store.execute(); 
+           } catch (SQLException ex) {
+               Logger.getLogger(ProfilUserController.class.getName()).log(Level.SEVERE, null, ex);
+           }
         
-    }    
-    
+    Image image=new Image(input);
+    System.out.println(image);
+    imageview.setImage(image);
+   
+     }
+    }
+       }
   
      //rec infos user
      public void setPersonne(Personne a){
@@ -143,4 +215,7 @@ public class ProfilUserController implements Initializable {
       
         
     }
+      
+        
+    
 }

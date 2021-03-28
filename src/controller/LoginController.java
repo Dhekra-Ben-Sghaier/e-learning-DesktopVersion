@@ -161,6 +161,7 @@ public class LoginController implements Initializable {
             Stage stage = (Stage) btn_log.getScene().getWindow();
           
             stage.setScene(scene);
+            stage.setTitle("Admin");
             stage.show();
                 } catch (IOException ex) {
                     Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
@@ -180,6 +181,8 @@ public class LoginController implements Initializable {
           UsersPanelController cont = loader.<UsersPanelController>getController();
       
             cont.loadheaduser("/view/usercompte.fxml",user.getText(),d);
+            cont.loadmenu();
+            
             
                
             Scene scene = new Scene(parent);
