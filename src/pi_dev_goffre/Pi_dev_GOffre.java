@@ -23,7 +23,7 @@ public class Pi_dev_GOffre extends Application {
     @Override
      public void start(Stage primaryStage) throws IOException {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("Hello World");
+        this.primaryStage.setTitle("Pi_dev");
         
         parentPage = FXMLLoader.load(getClass().getResource("/GUI/Home.fxml"));
         Scene scene = new Scene(parentPage);

@@ -33,5 +33,7 @@
       </Label>
       <Button fx:id="update_travail" layoutX="117.0" layoutY="380.0" mnemonicParsing="false" onAction="#OAupdate_travail" prefHeight="25.0" prefWidth="237.0" text="Publication offre travail" />
       <Button fx:id="update_stage" layoutX="373.0" layoutY="380.0" mnemonicParsing="false" onAction="#OAupdate_stage" prefHeight="25.0" prefWidth="237.0" text="Publication offre stage" />
+      <Button fx:id="Update_back_stage" layoutX="412.0" layoutY="491.0" mnemonicParsing="false" onAction="#Update_back_stage" text="update admin stage" />
+      <Button fx:id="Update_back_travail" layoutX="249.0" layoutY="491.0" mnemonicParsing="false" onAction="#Update_back_travail" text="update admin travail" />
    </children>
 </AnchorPane>

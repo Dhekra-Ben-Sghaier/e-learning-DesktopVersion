@@ -96,13 +96,44 @@ public class Ajout_Post_StageController implements Initializable {
 
     @FXML
     private void Ajouter_stage(ActionEvent event) throws ParseException {
-        if ((Champ_Nom_Soc.getText().equals("")) || (Champ_Adresse_Mail.getText().equals("")) || (Champ_Adresse.getText().equals("")) || (Champ_Niveau_Etude.getValue().equals("")) || (Champ_Certificat.getValue().equals("")) || (Champ_Duree_stage.getValue().equals("")) || (Champ_Desc.getText().equals("")) || (Champ_Titre.getText().equals(""))) {
+        /*if ((Champ_Nom_Soc.getText().equals("")) || (Champ_Adresse_Mail.getText().equals("")) || (Champ_Adresse.getText().equals("")) || (Champ_Niveau_Etude.getValue().equals("")) || (Champ_Certificat.getValue().equals("")) || (Champ_Duree_stage.getValue().equals("")) || (Champ_Desc.getText().equals("")) || (Champ_Titre.getText().equals(""))) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur de Saisie");
             alert.setHeaderText("Erreur");
             alert.setContentText("S'il vous plait rempli tous les champs");
-            Optional<ButtonType> result = alert.showAndWait();
-        } else {
+            Optional<ButtonType> result = alert.showAndWait();*/
+        boolean test2=false;
+        boolean test1=false;
+         if((Champ_Date_fin.getValue()!=null)&& (Champ_Date_debut.getValue()!=null))
+         {
+         if(Champ_Date_fin.getValue().isBefore(Champ_Date_debut.getValue())){
+                test1=true;
+            }
+         }
+         
+         if ((Champ_Nom_Soc.getText().equals("")) || (Champ_Adresse_Mail.getText().equals("")) || (Champ_Adresse.getText().equals("")) || (Champ_Niveau_Etude.getValue()==null) || (Champ_Certificat.getValue()==null) || (Champ_Duree_stage.getValue()==null) || (Champ_Desc.getText().equals("")) || (Champ_Titre.getText().equals("")) || (Champ_Date_fin.getValue()==null) || (Champ_Date_debut.getValue()==null) || ((Champ_Titre.getText().equals("")))){
+                test2=true;
+               
+         
+            }
+         
+         if (test2==true){
+                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
+             alert.setTitle("ERREUR");
+             alert.setHeaderText(null);
+             alert.setContentText("Merci de remplir tous les champs");
+             alert.show();
+            
+            }
+         
+         else if (test1==true){
+             Alert alert4 = new Alert(Alert.AlertType.INFORMATION);
+             alert4.setTitle("ERREUR");
+             alert4.setHeaderText(null);
+             alert4.setContentText("merci de choisir une date valide");
+             alert4.show();
+         }
+         else if (  test2==false&&test1==false) {
             String Nom_SocS = Champ_Nom_Soc.getText();
             String Adresse_MailS = Champ_Adresse_Mail.getText();
             String AdresseS = Champ_Adresse.getText();
@@ -121,13 +152,14 @@ public class Ajout_Post_StageController implements Initializable {
             String TitreS = Champ_Titre.getText();
             int Id_societeS = 1;
             OffreStage SS = new OffreStage(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Duree_stageS, datedeb, datef,Id_societeS , TitreS);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+             alert.setTitle("Ajout");
+             alert.setHeaderText(null);
+             alert.setContentText("Vous Voulez Ajouter cet publication ?");
+             Optional<ButtonType> result = alert.showAndWait();
+             if (result.get() == ButtonType.OK){
             Services.StageService su = new StageService();
             su.ajouter_Offe_Stage(SS);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Ajout confirmé");
-            alert.setHeaderText("Confirmation");
-            //alert.setContentText("La publication est ajoutée avec succés.");           
-            Optional<ButtonType> result = alert.showAndWait();
             TrayNotification tray = new TrayNotification();
             Image whatsAppImg = new Image("/image/image1.png");
             String text = "Offre de stage ajouté avec succés ";
@@ -135,7 +167,17 @@ public class Ajout_Post_StageController implements Initializable {
             tray.setTray("welcome", text + " ", whatsAppImg, Paint.valueOf("#2A9A84"), AnimationType.SLIDE);
 
             tray.showAndDismiss(Duration.seconds(10));
-        }
+            Champ_Nom_Soc.setText("");
+            Champ_Adresse_Mail.setText("");
+            Champ_Adresse.setText("");
+            Champ_Niveau_Etude.setValue(null);
+            Champ_Certificat.setValue(null);
+            Champ_Duree_stage.setValue(null);
+            Champ_Desc.setText("");
+            Champ_Date_debut.setValue(null);
+            Champ_Date_fin.setValue(null);
+            Champ_Titre.setText("");
+        }}
     }
 
 }

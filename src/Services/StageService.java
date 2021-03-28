@@ -50,6 +50,32 @@ public class StageService {
             Logger.getLogger(StageService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+      public void valider_Offe_Stage(OffreStage S) {
+
+        String req = "insert into offre_stage_valide(Id_Stage,Nom_soc,Adr_mail_soc,Adr_soc,Description,Date_pub,Niv_etude,Certificat,Duree,Date_debut,Date_fin,Id_societe,Titre) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        try {
+            PreparedStatement ps = ds.getConnection().prepareStatement(req);
+            ps.setInt(1, S.getId_Stage());
+            ps.setString(2, S.getNom_soc());
+            ps.setString(3, S.getAdr_mail_soc());
+            ps.setString(4, S.getAdr_soc());
+            ps.setString(5, S.getDescription());
+            ps.setDate(6, new java.sql.Date(S.getDate_pub().getTime()));
+            ps.setString(7, S.getNiv_etude());
+            ps.setString(8, S.getCertificat());            
+            ps.setInt(9, S.getDuree());
+            ps.setDate(10, new java.sql.Date(S.getDate_debut().getTime()));
+            ps.setDate(11, new java.sql.Date(S.getDate_fin().getTime()));
+            ps.setInt(12, S.getId_societe());
+            ps.setString(13, S.getTitre());
+            ps.executeUpdate();
+
+
+        } catch (SQLException ex) {
+            Logger.getLogger(StageService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
        public void ajouter_Postuler_Stage(Postuler_stage S) {
 
         String req = "insert into postuler_stage(Id_Stage,Id_Societe) values (?,?)";
@@ -67,7 +93,7 @@ public class StageService {
        }
       
      public static void updateStage(OffreStage S) {      
-        String req = "UPDATE offre_stage SET Nom_soc=?,Adr_mail_soc=?,Adr_soc=?,Description=?,Date_pub=?, Niv_etude=?, Certificat=?, Duree=?, Date_debut=?, Date_fin=?, Titre=? WHERE Id_Stage =?";
+        String req = "UPDATE offre_stage_valide SET Nom_soc=?,Adr_mail_soc=?,Adr_soc=?,Description=?,Date_pub=?, Niv_etude=?, Certificat=?, Duree=?, Date_debut=?, Date_fin=?, Titre=? WHERE Id_Stage =?";
         try {
             PreparedStatement ps = ds.getConnection().prepareStatement(req);
             ps.setString(1, S.getNom_soc());
@@ -98,8 +124,19 @@ public class StageService {
         } catch (SQLException ex) {
         }
       }
+      public static void DeletoffreByID_valide(int id) {
+        String req = "DELETE  from offre_stage_valide where  Id_Stage =?";
+        try {
+            PreparedStatement ps = ds.getConnection().prepareStatement(req);
 
-public List<OffreStage>  selectstage()
+            ps.setInt(1, id);
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+        }
+      }
+
+/*public List<OffreStage>  selectstage()
     {
         List<OffreStage> list =new ArrayList<>() ; 
     String req ; 
@@ -129,5 +166,5 @@ public List<OffreStage>  selectstage()
             
         }
     return list ; 
-      }
+      }*/
 }

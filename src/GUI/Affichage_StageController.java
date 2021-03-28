@@ -150,7 +150,7 @@ public class Affichage_StageController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_stage WHERE Id_societe=" + 1);
+            rs = stmt.executeQuery("SELECT * FROM offre_stage_valide WHERE Id_societe=" + 1);
             while (rs.next()) {
                 int id = rs.getInt("Id_Stage");
                 String nom = rs.getString("Nom_soc");

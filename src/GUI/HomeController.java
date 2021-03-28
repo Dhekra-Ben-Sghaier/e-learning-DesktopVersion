@@ -35,6 +35,10 @@ public class HomeController implements Initializable {
     private Button update_travail;
     @FXML
     private Button update_stage;
+    @FXML
+    private Button Update_back_stage;
+    @FXML
+    private Button Update_back_travail;
 
     /**
      * Initializes the controller class.
@@ -95,6 +99,24 @@ public class HomeController implements Initializable {
         Parent root = loader.load();
         Update_stage_frontController OAStage = loader.getController();
         Scene scene = update_stage.getScene();
+        scene.setRoot(root);
+    }
+
+    @FXML
+    private void Update_back_stage(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(("Update_back_stage.fxml")));
+        Parent root = loader.load();
+        Update_back_stageController OAUpdate_back_stage = loader.getController();
+        Scene scene = Update_back_stage.getScene();
+        scene.setRoot(root);
+    }
+
+    @FXML
+    private void Update_back_travail(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(("Update_back_travail.fxml")));
+        Parent root = loader.load();
+        Update_back_travailController OAUpdate_back_travail = loader.getController();
+        Scene scene = Update_back_travail.getScene();
         scene.setRoot(root);
     }
     

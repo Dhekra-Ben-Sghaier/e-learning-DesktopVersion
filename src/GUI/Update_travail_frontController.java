@@ -134,7 +134,7 @@ public class Update_travail_frontController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_travail WHERE Id_societe=" + 1);
+            rs = stmt.executeQuery("SELECT * FROM offre_travail_valide WHERE Id_societe=" + 1);
             while (rs.next()) {
                 int id = rs.getInt("Id_travail");
                 String nom = rs.getString("Nom_soc");
@@ -187,7 +187,7 @@ public class Update_travail_frontController implements Initializable {
     private void supprimer(ActionEvent event) {
         int idE = Integer.valueOf(id1.getText());
 
-        TravailService.DeletoffreByID(idE);
+        TravailService.DeletoffreByID_valide(idE);
         id1.setText("");
         Nom_soc.setText("");
         Adr_mail_soc.setText("");

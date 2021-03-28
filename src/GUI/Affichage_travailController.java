@@ -145,7 +145,7 @@ public class Affichage_travailController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_travail WHERE Id_societe=" + 1);
+            rs = stmt.executeQuery("SELECT * FROM offre_travail_valide WHERE Id_societe=" + 1);
             while (rs.next()) {
                 int id = rs.getInt("Id_travail");
                 String nom = rs.getString("Nom_soc");
