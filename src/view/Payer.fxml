@@ -95,7 +95,7 @@
                   <Insets top="30.0" />
                </VBox.margin>
             </Label>
-            <TextField promptText="Votre Id">
+            <TextField fx:id="idField" onMouseExited="#verifId" promptText="Votre Id">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -105,13 +105,13 @@
                   <Font name="Britannic Bold" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="10.0" layoutY="10.0" promptText="Numero de carte" />
+            <TextField fx:id="numCarteField" layoutX="10.0" layoutY="10.0" onMouseExited="#verifCarte" promptText="Numero de carte" />
             <Label layoutX="10.0" layoutY="10.0" text="Code Confidentiel">
                <font>
                   <Font name="Britannic Bold" size="18.0" />
                </font>
             </Label>
-            <TextField layoutX="10.0" layoutY="41.0" promptText="Code" />
+            <TextField fx:id="codeConfidField" layoutX="10.0" layoutY="41.0" onMouseExited="#verifCode" promptText="Code" />
          </children>
       </VBox>
       <Button fx:id="btnPay" layoutX="502.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#payer" prefHeight="52.0" prefWidth="103.0" styleClass="btn" stylesheets="@style.css" text="Payer" textFill="WHITE">

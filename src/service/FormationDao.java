@@ -5,6 +5,7 @@
  */
 package service;
 
+import controller.SendMail;
 import entity.Formation;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -66,12 +67,21 @@ public class FormationDao implements Idao<Formation>{
             alertInf.setHeaderText(null);
             alertInf.setContentText("Formation insérée avec succés!");
             alertInf.show();
+                        
+            TrayNotification tray =new TrayNotification();
+            tray.setTitle("Succès");
+            tray.setMessage("Formation ajoutée avec succès !");
+            tray.setAnimationType(AnimationType.POPUP);
+            tray.setNotificationType(NotificationType.INFORMATION);
+          
+            tray.showAndWait();
         } catch (SQLException ex) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("id deja utilisé!");
             alert.show();
+            
 
         }
     }
@@ -164,8 +174,21 @@ public class FormationDao implements Idao<Formation>{
         System.out.println(req);
                 try {
             st.executeUpdate(req);
+            SendMail.sendMail("dhekra.bensghaier@esprit.tn", "", "Paiement de la formation a été effectué avec succès! \n Vous pouvez commencer maintenant votre formation.");
+                    
+            TrayNotification tray =new TrayNotification();
+            tray.setTitle("Succès");
+            tray.setMessage("Paiement effectué avec succès !");
+            tray.setAnimationType(AnimationType.POPUP);
+            tray.setNotificationType(NotificationType.INFORMATION);
+          
+            tray.showAndWait();
         } catch (SQLException ex) {
-            Logger.getLogger(FormationDao.class.getName()).log(Level.SEVERE, null, ex);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("vous avez déjà payé pour cette formation!");
+            alert.show();
         }
         
     }

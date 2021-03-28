@@ -24,7 +24,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -36,20 +35,23 @@ import service.FormationDao;
  *
  * @author Asus
  */
-public class ListerFormationsController implements Initializable {
-    
-    HBox hbox;
-    private ListData listdata;
-    @FXML
-    private FlowPane fl;
+public class ListerFormationsApprenantController implements Initializable {
+
     @FXML
     private TextField cherche;
-
-   
-    @Override
+    @FXML
+    private FlowPane fl;
+    private ListData listdata;
+    /**
+     * Initializes the controller class.
+     */
+    
+    
+ @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
+      
             
     }
+   
     
 }

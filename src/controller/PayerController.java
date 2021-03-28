@@ -10,10 +10,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import service.FormationDao;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 
 /**
  * FXML Controller class
@@ -34,6 +39,12 @@ public class PayerController implements Initializable {
     private Label prixLab;
     
     private Formation formation;
+    @FXML
+    private TextField idField;
+    @FXML
+    private TextField numCarteField;
+    @FXML
+    private TextField codeConfidField;
 
     /**
      * Initializes the controller class.
@@ -54,11 +65,42 @@ public class PayerController implements Initializable {
     
     @FXML
     private void payer(MouseEvent event) {
+       
+          if("".equals(idField.getText()) || "".equals(numCarteField.getText()) || "".equals(codeConfidField.getText())){
+                    verifField();
+                } 
+          else {
         Formation f = new Formation();
         FormationDao fdao = FormationDao.getInstance();
         fdao.insertAchat(1,Integer.parseInt(idLab.getText()));
+          }
+       
+     
 
+    }
+    public void verifField(){
+        
+        if("".equals(idField.getText())){
+                    idField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
+                } 
+                if("".equals(numCarteField.getText())){
+                numCarteField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
+                }
+                if("".equals(codeConfidField.getText())){
+                codeConfidField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
+                }
 
+        } 
+    @FXML
+    private void verifId(MouseEvent event) {
+    }
+
+    @FXML
+    private void verifCarte(MouseEvent event) {
+    }
+
+    @FXML
+    private void verifCode(MouseEvent event) {
     }
     
 }

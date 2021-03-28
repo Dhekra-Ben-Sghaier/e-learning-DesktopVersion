@@ -98,7 +98,7 @@ public class FormationController implements Initializable {
             
             fdao.insert(f);
             
-            } catch (IOException | NumberFormatException e) {
+            } catch (Exception e) {
                 if("".equals(idField.getText())){
                     idField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
                 } 
@@ -138,14 +138,7 @@ public class FormationController implements Initializable {
           
            
 
-//            
-//            TrayNotification tray =new TrayNotification();
-//            tray.setTitle("Succès");
-//            tray.setMessage("Formation ajoutée avec succé !");
-//            tray.setAnimationType(AnimationType.POPUP);
-//            tray.setNotificationType(NotificationType.INFORMATION);
-//          
-//            tray.showAndWait();
+
             
             
        
