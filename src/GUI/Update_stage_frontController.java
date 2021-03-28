@@ -38,11 +38,16 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import java.util.Date;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
@@ -79,7 +84,7 @@ public class Update_stage_frontController implements Initializable {
     @FXML
     private DatePicker Date_d;
     @FXML
-    private ComboBox<String> Duree;
+    private TextField Duree;
     @FXML
     private ComboBox<String> Certificat;
     @FXML
@@ -88,7 +93,7 @@ public class Update_stage_frontController implements Initializable {
     private TextArea Desc;
     @FXML
     private TextField date_pub;
-    
+    int id_User = 1;
     
 
     /**
@@ -101,8 +106,8 @@ public class Update_stage_frontController implements Initializable {
         Niv_etude.setItems(list_ne);
         ObservableList<String> list_Certificat = FXCollections.observableArrayList("Anglais", "Français", "Mecanique", "Electrique", "Informatique", "Office");
         Certificat.setItems(list_Certificat);
-        ObservableList<String> list_Duree = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6");
-        Duree.setItems(list_Duree);
+        Duree.setEditable(false);
+        
         
         
         setcellValue();
@@ -130,7 +135,7 @@ public class Update_stage_frontController implements Initializable {
                 Date_f.setValue( localDate);
                 LocalDate localDate1 = LocalDate.parse(ol.getDate_debut().toString(), formatter);
                 Date_d.setValue(localDate1 );                
-                Duree.setValue(Integer.toString(ol.getDuree()) );
+                Duree.setText(Integer.toString(ol.getDuree()) );
                 date_pub.setText(ol.getDate_pub().toString());
                 modifier.setDisable(false);
                 supprimer.setDisable(false);                  
@@ -145,7 +150,7 @@ public class Update_stage_frontController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_stage_valide WHERE Id_societe=" + 1);
+            rs = stmt.executeQuery("SELECT * FROM offre_stage_valide WHERE Id_societe=" + id_User);
             while (rs.next()) {
                 int id = rs.getInt("Id_Stage");
                 String nom = rs.getString("Nom_soc");
@@ -159,7 +164,7 @@ public class Update_stage_frontController implements Initializable {
                 Date date_d = rs.getDate("Date_debut");
                 Date date_f = rs.getDate("Date_fin");
                 String titre = rs.getString("Titre");
-                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, 1 , titre));
+                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_User , titre));
                 
             }
             con.close();
@@ -168,6 +173,73 @@ public class Update_stage_frontController implements Initializable {
             System.err.println(e.getMessage());
         }
         list_offreStage.setItems(data);
+    }
+
+    @FXML
+    private void Change_DureStage_F(ActionEvent event) {
+        
+         if (Date_d.getValue()!=null && Date_f.getValue()!=null)
+        {
+             LocalDate Date_debutS = Date_d.getValue();
+            //Date Date_debutS=new SimpleDateFormat("dd/MM/yyyy").parse(Date_debutt);  
+            LocalDate Date_finS = Date_f.getValue();
+            java.sql.Date datedeb = java.sql.Date.valueOf(Date_debutS);
+            java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
+            
+            long fin = 0;
+             long difference_In_Days
+                = ((datef.getTime() - datedeb.getTime() )
+                   / (1000 * 60 * 60 * 24))
+                  % 365;
+             
+              long difference_In_Years
+                = ((datef.getTime() - datedeb.getTime() )
+                   / (1000l * 60 * 60 * 24 * 365));
+             
+             if (difference_In_Years >=1)
+             {
+                 fin =difference_In_Years * 12 + (difference_In_Days / 30);
+             }else
+             if (difference_In_Days > 30 && difference_In_Years < 1)
+             {
+                 fin = difference_In_Days / 30 ;
+             }else fin = 1;
+             
+             Duree.setText(Long.toString(fin));
+        }
+    }
+
+    @FXML
+    private void Change_DureStage_D(ActionEvent event) {
+         if (Date_d.getValue()!=null && Date_f.getValue()!=null)
+        {
+             LocalDate Date_debutS = Date_d.getValue();
+            //Date Date_debutS=new SimpleDateFormat("dd/MM/yyyy").parse(Date_debutt);  
+            LocalDate Date_finS = Date_f.getValue();
+            java.sql.Date datedeb = java.sql.Date.valueOf(Date_debutS);
+            java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
+            
+            long fin = 0;
+             long difference_In_Days
+                = ((datef.getTime() - datedeb.getTime() )
+                   / (1000 * 60 * 60 * 24))
+                  % 365;
+             
+              long difference_In_Years
+                = ((datef.getTime() - datedeb.getTime() )
+                   / (1000l * 60 * 60 * 24 * 365));
+             
+             if (difference_In_Years >=1)
+             {
+                 fin =difference_In_Years * 12 + (difference_In_Days / 30);
+             }else
+             if (difference_In_Days > 30 && difference_In_Years < 1)
+             {
+                 fin = difference_In_Days / 30 ;
+             }else fin = 1;
+             
+             Duree.setText(Long.toString(fin));
+        }
     }
    static public class Collocation extends ListCell<OffreStage> {
 
@@ -190,8 +262,13 @@ public class Update_stage_frontController implements Initializable {
                 Text t2 = new Text(String.valueOf(item.getDate_debut()));
                 t.setStyle("-fx-font-size: 18 arial;");
                 t2.setStyle("-fx-font-size: 25 arial;");
+                if(item.getDate_debut().compareTo(new Date()) < 0)
+                {
+                    vBox.setBackground(new Background(new BackgroundFill(Color.rgb(250, 127, 80), CornerRadii.EMPTY, Insets.EMPTY)));
+                }
                 hBox.setSpacing(10);
                 setGraphic(hBox);
+                
             }
         }
     }
@@ -211,7 +288,7 @@ public class Update_stage_frontController implements Initializable {
         Date_d.setValue(null);
         date_pub.setText("");
         Certificat.setValue(null);
-        Duree.setValue(null);
+        Duree.setText("");
         Titre.setText("");
         data.clear();
         loadDataFromDatabase();
@@ -232,7 +309,7 @@ public class Update_stage_frontController implements Initializable {
         String AdresseS = Adr_soc.getText();
         String Niveau_EtudeS = Niv_etude.getValue();
         String CertificatS = Certificat.getValue();
-        int Duree_stageS = Integer.parseInt(Duree.getValue());
+        //int Duree_stageS = Integer.parseInt(Duree.getValue());
         String DescS = Desc.getText();
         LocalDate Date_debutS = Date_d.getValue();
         LocalDate Date_finS = Date_f.getValue();
@@ -241,7 +318,7 @@ public class Update_stage_frontController implements Initializable {
         java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
         String TitreS = Titre.getText();
         int Id_societeS = 1;
-        OffreStage o = new OffreStage(idE, Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubs, Niveau_EtudeS, CertificatS, Duree_stageS, datedeb, datef, Id_societeS, TitreS);
+        OffreStage o = new OffreStage(idE, Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubs, Niveau_EtudeS, CertificatS, Integer.parseInt(Duree.getText()), datedeb, datef, Id_societeS, TitreS);
         Services.StageService ser = new StageService();
         ser.updateStage(o);
         data.clear();

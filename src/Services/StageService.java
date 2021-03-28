@@ -136,35 +136,5 @@ public class StageService {
         }
       }
 
-/*public List<OffreStage>  selectstage()
-    {
-        List<OffreStage> list =new ArrayList<>() ; 
-    String req ; 
-        req = "SELECT *  FROM offre_stage ";
-        try { 
-            PreparedStatement ste = ds.getConnection().prepareStatement(req);
-             ResultSet result =ste.executeQuery() ; 
-            while (result.next()){
-            list.add(new OffreStage(result.getInt("Id_Stage"),
-                                    result.getString("Nom_soc"),
-                                    result.getString("Adr_mail_soc"), 
-                                    result.getString("Adr_soc"), 
-                                    result.getString("Description"),
-                                    result.getDate("Date_pub"), 
-                                    result.getString("Niv_etude"),
-                                    result.getString("Certificat"), 
-                                    result.getInt("Duree"),
-                                    result.getDate("Date_debut"),
-                                    result.getDate("Date_fin"),
-                                    result.getInt("Id_Societe"),
-                                    result.getString("Titre"))
-                                    
-            ); 
-            }
-            
-        } catch (SQLException ex) {
-            
-        }
-    return list ; 
-      }*/
+
 }

@@ -32,6 +32,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import javafx.scene.image.Image;
+import javafx.scene.input.DragEvent;
 import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
@@ -55,7 +56,7 @@ public class Ajout_Post_StageController implements Initializable {
     @FXML
     private ComboBox<String> Champ_Certificat;
     @FXML
-    private ComboBox<String> Champ_Duree_stage;
+    private TextField Champ_Duree_stage;
     @FXML
     private TextArea Champ_Desc;
     @FXML
@@ -68,6 +69,7 @@ public class Ajout_Post_StageController implements Initializable {
     private DatePicker Champ_Date_fin;
     @FXML
     private TextField Champ_Titre;
+    int id_User = 1;
 
     /**
      * Initializes the controller class.
@@ -81,8 +83,8 @@ public class Ajout_Post_StageController implements Initializable {
         Champ_Niveau_Etude.setItems(list_ne);
         ObservableList<String> list_Certificat = FXCollections.observableArrayList("Anglais", "Français", "Mecanique", "Electrique", "Informatique", "Office");
         Champ_Certificat.setItems(list_Certificat);
-        ObservableList<String> list_Duree = FXCollections.observableArrayList("1", "2", "3", "4", "5", "6");
-        Champ_Duree_stage.setItems(list_Duree);
+        Champ_Duree_stage.setEditable(false);
+        
     }
 
     @FXML
@@ -96,12 +98,6 @@ public class Ajout_Post_StageController implements Initializable {
 
     @FXML
     private void Ajouter_stage(ActionEvent event) throws ParseException {
-        /*if ((Champ_Nom_Soc.getText().equals("")) || (Champ_Adresse_Mail.getText().equals("")) || (Champ_Adresse.getText().equals("")) || (Champ_Niveau_Etude.getValue().equals("")) || (Champ_Certificat.getValue().equals("")) || (Champ_Duree_stage.getValue().equals("")) || (Champ_Desc.getText().equals("")) || (Champ_Titre.getText().equals(""))) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erreur de Saisie");
-            alert.setHeaderText("Erreur");
-            alert.setContentText("S'il vous plait rempli tous les champs");
-            Optional<ButtonType> result = alert.showAndWait();*/
         boolean test2=false;
         boolean test1=false;
          if((Champ_Date_fin.getValue()!=null)&& (Champ_Date_debut.getValue()!=null))
@@ -111,7 +107,7 @@ public class Ajout_Post_StageController implements Initializable {
             }
          }
          
-         if ((Champ_Nom_Soc.getText().equals("")) || (Champ_Adresse_Mail.getText().equals("")) || (Champ_Adresse.getText().equals("")) || (Champ_Niveau_Etude.getValue()==null) || (Champ_Certificat.getValue()==null) || (Champ_Duree_stage.getValue()==null) || (Champ_Desc.getText().equals("")) || (Champ_Titre.getText().equals("")) || (Champ_Date_fin.getValue()==null) || (Champ_Date_debut.getValue()==null) || ((Champ_Titre.getText().equals("")))){
+         if ((Champ_Nom_Soc.getText().equals("")) || (Champ_Adresse_Mail.getText().equals("")) || (Champ_Adresse.getText().equals("")) || (Champ_Niveau_Etude.getValue()==null) || (Champ_Certificat.getValue()==null)  || (Champ_Desc.getText().equals("")) || (Champ_Titre.getText().equals("")) || (Champ_Date_fin.getValue()==null) || (Champ_Date_debut.getValue()==null) || ((Champ_Titre.getText().equals("")))){
                 test2=true;
                
          
@@ -139,7 +135,8 @@ public class Ajout_Post_StageController implements Initializable {
             String AdresseS = Champ_Adresse.getText();
             String Niveau_EtudeS = Champ_Niveau_Etude.getValue();
             String CertificatS = Champ_Certificat.getValue();
-            int Duree_stageS = Integer.parseInt(Champ_Duree_stage.getValue());
+            //int Duree_stageS = Integer.parseInt(Champ_Duree_stage.getValue());
+            
             String DescS = Champ_Desc.getText();
             LocalDate Date_debutS = Champ_Date_debut.getValue();
             //Date Date_debutS=new SimpleDateFormat("dd/MM/yyyy").parse(Date_debutt);  
@@ -150,8 +147,15 @@ public class Ajout_Post_StageController implements Initializable {
             java.sql.Date datedeb = java.sql.Date.valueOf(Date_debutS);
             java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
             String TitreS = Champ_Titre.getText();
-            int Id_societeS = 1;
-            OffreStage SS = new OffreStage(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Duree_stageS, datedeb, datef,Id_societeS , TitreS);
+            
+            /*-----*/
+            
+            
+            /*----*/
+            OffreStage SS = new OffreStage(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS,
+                                            Niveau_EtudeS, CertificatS,
+                                               Integer.parseInt(Champ_Duree_stage.getText()), 
+                                                   datedeb, datef,id_User , TitreS);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
              alert.setTitle("Ajout");
              alert.setHeaderText(null);
@@ -159,7 +163,7 @@ public class Ajout_Post_StageController implements Initializable {
              Optional<ButtonType> result = alert.showAndWait();
              if (result.get() == ButtonType.OK){
             Services.StageService su = new StageService();
-            su.ajouter_Offe_Stage(SS);
+           su.ajouter_Offe_Stage(SS);
             TrayNotification tray = new TrayNotification();
             Image whatsAppImg = new Image("/image/image1.png");
             String text = "Offre de stage ajouté avec succés ";
@@ -172,12 +176,85 @@ public class Ajout_Post_StageController implements Initializable {
             Champ_Adresse.setText("");
             Champ_Niveau_Etude.setValue(null);
             Champ_Certificat.setValue(null);
-            Champ_Duree_stage.setValue(null);
+            Champ_Duree_stage.setText("");
             Champ_Desc.setText("");
             Champ_Date_debut.setValue(null);
             Champ_Date_fin.setValue(null);
             Champ_Titre.setText("");
         }}
     }
+
+    @FXML
+    private void Change_DureStage_D(ActionEvent event) {
+        
+        if (Champ_Date_debut.getValue()!=null && Champ_Date_fin.getValue()!=null)
+        {
+             LocalDate Date_debutS = Champ_Date_debut.getValue();
+            //Date Date_debutS=new SimpleDateFormat("dd/MM/yyyy").parse(Date_debutt);  
+            LocalDate Date_finS = Champ_Date_fin.getValue();
+            java.sql.Date datedeb = java.sql.Date.valueOf(Date_debutS);
+            java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
+            
+            long fin = 0;
+             long difference_In_Days
+                = ((datef.getTime() - datedeb.getTime() )
+                   / (1000 * 60 * 60 * 24))
+                  % 365;
+             
+              long difference_In_Years
+                = ((datef.getTime() - datedeb.getTime() )
+                   / (1000l * 60 * 60 * 24 * 365));
+             
+             if (difference_In_Years >=1)
+             {
+                 fin =difference_In_Years * 12 + (difference_In_Days / 30);
+             }else
+             if (difference_In_Days > 30 && difference_In_Years < 1)
+             {
+                 fin = difference_In_Days / 30 ;
+             }else fin = 1;
+             
+             Champ_Duree_stage.setText(Long.toString(fin));
+        }
+            
+    }
+
+    @FXML
+    private void Change_DureStage_F(ActionEvent event) {
+        if (Champ_Date_debut.getValue()!=null && Champ_Date_fin.getValue()!=null)
+        {
+             LocalDate Date_debutS = Champ_Date_debut.getValue();
+            //Date Date_debutS=new SimpleDateFormat("dd/MM/yyyy").parse(Date_debutt);  
+            LocalDate Date_finS = Champ_Date_fin.getValue();
+            java.sql.Date datedeb = java.sql.Date.valueOf(Date_debutS);
+            java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
+            
+            long fin = 0;
+             long difference_In_Days
+                = ((datef.getTime() - datedeb.getTime() )
+                   / (1000 * 60 * 60 * 24))
+                  % 365;
+             
+              long difference_In_Years
+                = ((datef.getTime() - datedeb.getTime() )
+                   / (1000l * 60 * 60 * 24 * 365));
+             
+             if (difference_In_Years >=1)
+             {
+                 fin =difference_In_Years * 12 + (difference_In_Days / 30);
+             }else
+             if (difference_In_Days > 30 && difference_In_Years < 1)
+             {
+                 fin = difference_In_Days / 30 ;
+             }else fin = 1;
+             
+             Champ_Duree_stage.setText(Long.toString(fin));
+        }
+        
+    }
+    
+    
+    
+    
 
 }

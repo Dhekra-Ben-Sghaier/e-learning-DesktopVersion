@@ -63,6 +63,7 @@ public class Ajout_Post_TravailController implements Initializable {
     private ComboBox<String> Champ_Type_Contrat;
     @FXML
     private TextField Champ_Titre;
+    int id_User = 1;
 
     /**
      * Initializes the controller class.
@@ -107,8 +108,10 @@ public class Ajout_Post_TravailController implements Initializable {
             Date Date_pubS = new SimpleDateFormat("yyyyMMdd_HHmmss").parse(Date_pubb);
             String Type_contratS = Champ_Type_Contrat.getValue();
             String TitreS = Champ_Titre.getText();
-            int Id_societeS=1;
-            OffreTravail SS = new OffreTravail(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Type_contratS,Id_societeS, TitreS);
+            
+            OffreTravail SS = new OffreTravail(Nom_SocS, Adresse_MailS, AdresseS,
+                                                DescS, Date_pubS, Niveau_EtudeS, CertificatS,
+                                                    Type_contratS,id_User, TitreS);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
              alert.setTitle("Ajout");
              alert.setHeaderText(null);

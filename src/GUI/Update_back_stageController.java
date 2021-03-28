@@ -101,6 +101,7 @@ public class Update_back_stageController implements Initializable {
     private Label champ_Date_pub;
     @FXML
     private Button Retour;
+    int id_User = 1;
 
     /**
      * Initializes the controller class.

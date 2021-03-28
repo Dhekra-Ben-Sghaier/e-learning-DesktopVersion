@@ -93,6 +93,13 @@ public class Affichage_travailController implements Initializable {
     private Label Id_stage;
     @FXML
     private Label Id_user;
+    @FXML
+    private Button Btn_deja_Inscrit;
+    @FXML
+    private Button Btn_Non_Inscrit;
+    @FXML
+    private Label Lbl_Titre;
+    int id_User = 1;
 
     /**
      * Initializes the controller class.
@@ -107,6 +114,27 @@ public class Affichage_travailController implements Initializable {
         loadDataFromDatabase();
         list.setCellFactory(lv -> new Affichage_travailController.Collocation());
         setcellValue();
+        Lbl_Titre.setText("Non Inscrit");
+    }
+
+    @FXML
+    private void Deja_Inscrit_Affichage(ActionEvent event) {
+        data = FXCollections.observableArrayList();
+        loadDataFromDatabase_Inscrit();
+        list.setCellFactory(lv -> new Affichage_travailController.Collocation());
+        setcellValue();        
+        Postuler.setDisable(true);
+        Lbl_Titre.setText("Deja Inscrit");
+    }
+
+    @FXML
+    private void Non_Inscrit_Affichage(ActionEvent event) {
+        data = FXCollections.observableArrayList();
+        loadDataFromDatabase();
+        list.setCellFactory(lv -> new Affichage_travailController.Collocation());
+        setcellValue();       
+        Postuler.setDisable(false);      
+        Lbl_Titre.setText("Non Inscrit");
     }
  static public class Collocation extends ListCell<OffreTravail> {
 
@@ -145,7 +173,7 @@ public class Affichage_travailController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_travail_valide WHERE Id_societe=" + 1);
+            rs = stmt.executeQuery("SELECT * FROM `offre_travail_valide` WHERE Id_travail not in (SELECT Id_travail FROM `postuler_travail` WHERE Id_Societe = " + id_User +")  ORDER by Date_pub DESC" );
             while (rs.next()) {
                 int id = rs.getInt("Id_travail");
                 String nom = rs.getString("Nom_soc");
@@ -157,8 +185,8 @@ public class Affichage_travailController implements Initializable {
                 String certificat = rs.getString("Certificat");
                 String titre = rs.getString("Titre");
                 String type_contrat = rs.getString("Type_contrat");
-                int id_user = 1;
-                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, type_contrat, id_user, titre));
+                
+                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, type_contrat, id_User, titre));
                 
             }
             con.close();
@@ -168,6 +196,38 @@ public class Affichage_travailController implements Initializable {
         }
         list.setItems(data);
     }
+  private void loadDataFromDatabase_Inscrit() {
+        
+            try {
+            String url = "jdbc:mysql://localhost:3306/base_pi";
+            Connection con = DriverManager.getConnection(url, "root", "");
+            Statement stmt = con.createStatement();
+            ResultSet rs;
+
+            rs = stmt.executeQuery("SELECT * FROM `offre_travail_valide` WHERE Id_travail  in (SELECT Id_travail  FROM `postuler_travail` WHERE Id_Societe = " + id_User +") ORDER by Date_pub DESC" );
+            while (rs.next()) {
+                int id = rs.getInt("Id_travail");
+                String nom = rs.getString("Nom_soc");
+                String Adr_mail = rs.getString("Adr_mail_soc");
+                String adresseE = rs.getString("Adr_soc");
+                String description = rs.getString("Description");
+                Date date_p = rs.getDate("Date_pub");
+                String niv_etude = rs.getString("Niv_etude");
+                String certificat = rs.getString("Certificat");
+                String titre = rs.getString("Titre");
+                String type_contrat = rs.getString("Type_contrat");
+                
+                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, type_contrat, id_User, titre));
+                
+            }
+            con.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        list.setItems(data);
+    
+  }
    private void setcellValue() {
         list.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
@@ -206,13 +266,11 @@ public class Affichage_travailController implements Initializable {
             Postuler_travail PS = new Postuler_travail(id_travail, id_user);
             Services.TravailService su = new TravailService();
             su.ajouter_Postuler_Travail(PS);
-            sendMail(Adresse_mail_user);
+            sendMail(champ_adressemail.getText());
            TrayNotification tray = new TrayNotification();
-            Image whatsAppImg = new Image("/image/image2.png");
+            Image whatsAppImg = new Image("/image/image1.png");
             String text = "Un mail est envoyé vers la societé avec vos coordonnées. ";
-
             tray.setTray("welcome", text + " ", whatsAppImg, Paint.valueOf("#2A9A84"), AnimationType.SLIDE);
-
             tray.showAndDismiss(Duration.seconds(10));
         
     }
@@ -260,7 +318,7 @@ public class Affichage_travailController implements Initializable {
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject("Recrutment pour l'offre"+ol.getTitre());
-            message.setText(mail_body.getText());
+            message.setText("L'adresse mail est :"+mail_user.getText()+"-- Lettre de motivation :"+ mail_body.getText());
             return message;
         } catch (Exception ex) {
             Logger.getLogger(Affichage_travailController.class.getName()).log(Level.SEVERE, null, ex);

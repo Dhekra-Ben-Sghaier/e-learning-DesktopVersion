@@ -41,6 +41,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 import javax.mail.Message;
@@ -95,22 +96,49 @@ public class Affichage_StageController implements Initializable {
     private Label Id_stage;
     @FXML
     private Label Id_user;
-
+    @FXML
+    private Button Btn_deja_Inscrit;
+    @FXML
+    private Button Btn_Non_Inscrit;
+    @FXML
+    private Label Lbl_Titre;
+    int id_User = 1;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
        Services.StageService os = new Services.StageService();
-
-        data = FXCollections.observableArrayList();
 
         data = FXCollections.observableArrayList();
         loadDataFromDatabase();
         list.setCellFactory(lv -> new Collocation());
-
-        setcellValue();
+        setcellValue();      
+        Lbl_Titre.setText("Non Inscrit");
     }
+
+    @FXML
+    private void Deja_Inscrit_Affichage(ActionEvent event) {
+        data = FXCollections.observableArrayList();
+        loadDataFromDatabase_Inscrit();
+        list.setCellFactory(lv -> new Collocation());
+        setcellValue();        
+        Postuler.setDisable(true);
+        Lbl_Titre.setText("Deja Inscrit");
+        
+    }
+
+    @FXML
+    private void Non_Inscrit_Affichage(ActionEvent event) {        
+        data = FXCollections.observableArrayList();
+        loadDataFromDatabase();
+        list.setCellFactory(lv -> new Collocation());
+        setcellValue();       
+        Postuler.setDisable(false);      
+        Lbl_Titre.setText("Non Inscrit");
+    }
+    
     static public class Collocation extends ListCell<OffreStage> {
 
         public Collocation() {
@@ -150,7 +178,41 @@ public class Affichage_StageController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_stage_valide WHERE Id_societe=" + 1);
+            rs = stmt.executeQuery("SELECT * FROM `offre_stage_valide` WHERE Id_Stage not in (SELECT Id_Stage FROM `postuler_stage` WHERE Id_Societe =" + id_User +") and Date_debut > now() ORDER by Date_pub DESC" );
+            while (rs.next()) {
+                int id = rs.getInt("Id_Stage");
+                String nom = rs.getString("Nom_soc");
+                String Adr_mail = rs.getString("Adr_mail_soc");
+                String adresseE = rs.getString("Adr_soc");
+                String description = rs.getString("Description");
+                Date date_p = rs.getDate("Date_pub");
+                String niv_etude = rs.getString("Niv_etude");
+                String certificat = rs.getString("Certificat");
+                int duree = rs.getInt("Duree");
+                Date date_d = rs.getDate("Date_debut");
+                Date date_f = rs.getDate("Date_fin");
+                String titre = rs.getString("Titre");
+                
+                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_User , titre));
+                
+            }
+            con.close();
+        } catch (Exception e) {
+            System.err.println("Got an exception! ");
+            System.err.println(e.getMessage());
+        }
+        list.setItems(data);
+    }
+    
+     private void loadDataFromDatabase_Inscrit() {
+        
+            try {
+            String url = "jdbc:mysql://localhost:3306/base_pi";
+            Connection con = DriverManager.getConnection(url, "root", "");
+            Statement stmt = con.createStatement();
+            ResultSet rs;
+
+            rs = stmt.executeQuery("SELECT * FROM `offre_stage_valide` WHERE Id_Stage in (SELECT Id_Stage FROM `postuler_stage` WHERE Id_Societe =" + id_User +") ORDER by Date_pub DESC" );
             while (rs.next()) {
                 int id = rs.getInt("Id_Stage");
                 String nom = rs.getString("Nom_soc");
@@ -165,7 +227,7 @@ public class Affichage_StageController implements Initializable {
                 Date date_f = rs.getDate("Date_fin");
                 String titre = rs.getString("Titre");
                 int id_user = 1;
-                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_user , titre));
+                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_User , titre));
                 
             }
             con.close();
@@ -175,6 +237,7 @@ public class Affichage_StageController implements Initializable {
         }
         list.setItems(data);
     }
+   
     private void setcellValue() {
         list.setOnMouseClicked(new EventHandler<javafx.scene.input.MouseEvent>() {
             @Override
@@ -198,7 +261,6 @@ public class Affichage_StageController implements Initializable {
         });
     }
     
-
     @FXML
     private void OApostuler(ActionEvent event) throws Exception  {
         if ((mail_user.getText().equals("")) || (mail_body.getText().equals(""))) {
@@ -216,9 +278,9 @@ public class Affichage_StageController implements Initializable {
             Postuler_stage PS = new Postuler_stage(id_stage, id_user);
             Services.StageService su = new StageService();
             su.ajouter_Postuler_Stage(PS);
-            sendMail(Adresse_mail_user);
+            sendMail(champ_adressemail.getText());
             TrayNotification tray = new TrayNotification();
-            Image whatsAppImg = new Image("/image/image2.png");
+            Image whatsAppImg = new Image("/image/image1.png");
             String text = "Un mail est envoyé vers la societé avec vos coordonnées. ";
 
             tray.setTray("welcome", text + " ", whatsAppImg, Paint.valueOf("#2A9A84"), AnimationType.SLIDE);
@@ -270,7 +332,7 @@ public class Affichage_StageController implements Initializable {
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject("Recrutment pour l'offre"+ol.getTitre());
-            message.setText(mail_body.getText());
+            message.setText("L'adresse :"+mail_user.getText()+"-- Lettre de motivation :"+ mail_body.getText());
             return message;
         } catch (Exception ex) {
             Logger.getLogger(Affichage_StageController.class.getName()).log(Level.SEVERE, null, ex);

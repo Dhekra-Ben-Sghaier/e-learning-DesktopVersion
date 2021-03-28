@@ -50,7 +50,6 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Label fx:id="cheminImage" layoutX="927.0" layoutY="333.0" visible="false" />
       <Label layoutX="13.0" layoutY="350.0" prefHeight="21.0" prefWidth="119.0" text="Date du debut" textFill="#0d0d0d">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -60,14 +59,8 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Label layoutX="35.0" layoutY="508.0" text="Etat" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Label>
-      <DatePicker fx:id="Date_f" layoutX="175.0" layoutY="390.0" />
-      <DatePicker fx:id="Date_d" layoutX="176.0" layoutY="348.0" />
-      <ComboBox fx:id="Duree" layoutX="176.0" layoutY="305.0" prefWidth="150.0" />
+      <DatePicker fx:id="Date_f" layoutX="175.0" layoutY="390.0" onAction="#Change_DureStage_F" />
+      <DatePicker fx:id="Date_d" layoutX="176.0" layoutY="348.0" onAction="#Change_DureStage_D" />
       <ComboBox fx:id="Certificat" layoutX="176.0" layoutY="262.0" prefWidth="150.0" />
       <ComboBox fx:id="Niv_etude" layoutX="176.0" layoutY="216.0" prefWidth="150.0" />
       <Label layoutX="13.0" layoutY="392.0" prefHeight="21.0" prefWidth="119.0" text="Date du fin" textFill="#0d0d0d">
@@ -87,5 +80,6 @@
       </Label>
       <TextArea fx:id="Desc" layoutX="176.0" layoutY="474.0" prefHeight="89.0" prefWidth="200.0" />
       <TextField fx:id="date_pub" editable="false" layoutX="104.0" layoutY="43.0" prefHeight="17.0" prefWidth="55.0" visible="false" />
+      <TextField fx:id="Duree" layoutX="177.0" layoutY="305.0" style="-fx-background-color: #D3D3D3;" />
    </children>
 </AnchorPane>

@@ -84,6 +84,7 @@ public class Update_travail_frontController implements Initializable {
     
     @FXML
     private ListView<OffreTravail> list_offreTravail;
+    int id_User = 1;
 
     /**
      * Initializes the controller class.
@@ -134,7 +135,7 @@ public class Update_travail_frontController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_travail_valide WHERE Id_societe=" + 1);
+            rs = stmt.executeQuery("SELECT * FROM offre_travail_valide WHERE Id_societe=" + id_User);
             while (rs.next()) {
                 int id = rs.getInt("Id_travail");
                 String nom = rs.getString("Nom_soc");
@@ -146,7 +147,7 @@ public class Update_travail_frontController implements Initializable {
                 String certificat = rs.getString("Certificat");
                 String Type_contratE = rs.getString("Type_contrat");
                 String titre = rs.getString("Titre");                                       
-                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, Type_contratE, 1, titre));
+                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, Type_contratE, id_User, titre));
                 
             }
             con.close();
@@ -221,8 +222,7 @@ public class Update_travail_frontController implements Initializable {
         String DescS = Desc.getText();
         Date Date_pubs=new SimpleDateFormat("yyyy-MM-dd").parse(date_pub.getText());       
         String TitreS = Titre.getText();
-        int Id_societeS = 1;
-        OffreTravail o = new OffreTravail(idE, Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubs, Niveau_EtudeS, CertificatS, Type_contratS, Id_societeS, TitreS);
+        OffreTravail o = new OffreTravail(idE, Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubs, Niveau_EtudeS, CertificatS, Type_contratS,  id_User, TitreS);
         Services.TravailService ser = new TravailService();
         ser.updateTravail(o);
         data.clear();

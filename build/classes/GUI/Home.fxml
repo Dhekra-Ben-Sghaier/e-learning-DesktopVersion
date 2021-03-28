@@ -24,7 +24,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="ajouter_travail" layoutX="118.0" layoutY="271.0" mnemonicParsing="false" onAction="#OAajouter_travail" prefHeight="25.0" prefWidth="237.0" text="Offre travail" />
+      <Button fx:id="ajouter_travail" layoutX="117.0" layoutY="271.0" mnemonicParsing="false" onAction="#OAajouter_travail" prefHeight="25.0" prefWidth="237.0" text="Offre travail" />
       <Button fx:id="ajouter_stage" layoutX="373.0" layoutY="271.0" mnemonicParsing="false" onAction="#OAajouter_stage" prefHeight="25.0" prefWidth="237.0" text="Offre stage" />
       <Label alignment="CENTER" layoutX="223.0" layoutY="330.0" prefHeight="27.0" prefWidth="300.0" text="Afficher et modifier mes publications" textAlignment="CENTER">
          <font>
