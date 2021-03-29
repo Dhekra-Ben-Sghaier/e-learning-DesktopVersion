@@ -66,11 +66,25 @@ public class ReclamationController implements Initializable {
             } catch (IOException ex) {
                 Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
+            
         });
+//            formations.setOnAction(event -> {
+//
+//            try {
+//                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Recformation.fxml"));
+//                Scene scene = new Scene(page1);
+//                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+//                stage.setScene(scene);
+//                stage.show();
+//            } catch (IOException ex) {
+//                Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
            
-    }  
+     
+   // });  
     
-    
+     }
 //    private void reclamer(MouseEvent event) {
 //               loadPage("/view/Recnote.fxml");
 //    }
@@ -91,10 +105,21 @@ public class ReclamationController implements Initializable {
         loadPage("/view/Recnote.fxml");
         
     }
+
+
+
+
+    @FXML
+    private void former(javafx.scene.input.MouseEvent event) {
+          loadPage("/view/Recformation.fxml");
+    }
     
+        
+   
     
 
 
     }
+
 
     

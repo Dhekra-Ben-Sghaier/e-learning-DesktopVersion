@@ -5,17 +5,14 @@
  */
 package controller;
 
-import Dao.RecnoteDao;
-import entity.Recnote;
+import Dao.RecformationDao;
+import entity.Recformation;
 import java.net.URL;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -24,21 +21,16 @@ import javafx.scene.control.TextField;
  *
  * @author asus
  */
-public class RecnoteController implements Initializable {
+public class RecformationController implements Initializable {
 
     @FXML
-    private TextField nomformateur;
+    private TextField idfr;
     @FXML
-    private TextArea description;
+    private TextField idfor;
     @FXML
-    private TextField Date;
+    private TextArea iddes;
     @FXML
-    private TextField Examen;
-    @FXML
-    private Button envoyer;
-    @FXML
-    private DatePicker champ_date;
-    
+    private Button idenv;
 
     /**
      * Initializes the controller class.
@@ -46,14 +38,10 @@ public class RecnoteController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        envoyer.setOnAction(event -> {
-            LocalDate Datee = champ_date.getValue();
-            java.sql.Date d = java.sql.Date.valueOf(Datee);
-            String dd = new SimpleDateFormat("yyyy-MM-dd").format(d);
-                    
-           Recnote r = new Recnote(Examen.getText(), /*Date.getText()*/ dd ,nomformateur.getText(),description.getText());
+         idenv.setOnAction(event -> {
+           Recformation r = new Recformation(idfr.getText(),idfor.getText(),iddes.getText());
 
-           RecnoteDao rdao = RecnoteDao.getInstance();
+           RecformationDao rdao = RecformationDao.getInstance();
             rdao.insert(r);
         
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -63,8 +51,6 @@ public class RecnoteController implements Initializable {
         alert.show();
        
         });
-        
-
     }    
     
 }

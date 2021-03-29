@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="controller.RecformationController">
+   <children>
+      <Label layoutX="46.0" layoutY="71.0" text="Formation" />
+      <Label layoutX="46.0" layoutY="128.0" text="Nom formateur" />
+      <Label layoutX="46.0" layoutY="185.0" text="Description" />
+      <TextField fx:id="idfr" layoutX="226.0" layoutY="67.0" />
+      <TextField fx:id="idfor" layoutX="226.0" layoutY="124.0" />
+      <TextArea fx:id="iddes" layoutX="226.0" layoutY="181.0" prefHeight="164.0" prefWidth="181.0" />
+      <Button fx:id="idenv" layoutX="508.0" layoutY="353.0" mnemonicParsing="false" text="Envoyer" />
+   </children>
+</AnchorPane>

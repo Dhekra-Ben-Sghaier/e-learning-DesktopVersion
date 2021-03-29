@@ -3,17 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/Dao/RecnoteDao.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ListData.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/images/icon.png</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/pidev/avis/PidevAvis.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ReclamationController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/entity/Recnote.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ConsulterController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/Dao/RecnoteDao.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ListData.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/view/Modifier.fxml</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/Dao/Idao.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/view/Consulter.fxml</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/images/rech-removebg-preview.png</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/images/rech.png</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/RecnoteController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ModifierController.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/entity/Recnote.java</file>
-            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ConsulterController.java</file>
         </group>
     </open-files>
 </project-private>

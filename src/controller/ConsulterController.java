@@ -60,6 +60,20 @@ public class ConsulterController implements Initializable {
     private Button supprimer;
     @FXML
     private TextField recherche;
+    @FXML
+    private TableView<?> tabfr;
+    @FXML
+    private TableColumn<?, ?> colfor;
+    @FXML
+    private TableColumn<?, ?> colnom;
+    @FXML
+    private TableColumn<?, ?> cold;
+    @FXML
+    private TextField cherche;
+    @FXML
+    private Button modifier;
+    @FXML
+    private Button suppr;
 
     /**
      * Initializes the controller class.
@@ -79,18 +93,22 @@ public class ConsulterController implements Initializable {
                 getValue().getDescProperty());
         
        // TODO  
+       
       supprimer.setOnAction(event -> {
             
    Recnote p = table.getSelectionModel().getSelectedItem();
           RecnoteDao fo =RecnoteDao.getInstance().getInstance();
           fo.delete(p);
-         table.getItems().removeAll(table.getSelectionModel().getSelectedItem());
-             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+          table.getSelectionModel().getSelectedItems().forEach(this.oblist::remove);
+          //table.getItems().removeAll(table.getSelectionModel().getSelectedItem());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
-        alert.setContentText("Reclamation supprimée!");
-        alert.show(); 
-      });
+        alert.setContentText("reclamation supprimée!");
+        alert.show();
+        
+   
+        });
       
        modif.setOnAction(event -> {
 

@@ -2,6 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -12,26 +14,61 @@
 
 <AnchorPane id="AnchorPane" prefHeight="441.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConsulterController">
    <children>
-      <TableView fx:id="table" layoutX="11.0" layoutY="109.0" prefHeight="249.0" prefWidth="579.0">
-        <columns>
-          <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="col_ex" prefWidth="75.0" text="Examen" />
-            <TableColumn fx:id="col_nom" prefWidth="153.0" text="Nom_formateur" />
-            <TableColumn fx:id="col_des" prefWidth="275.0" text="Description" />
-        </columns>
-      </TableView>
-      <Label alignment="CENTER" layoutX="182.0" layoutY="14.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-color: #3F93C6;" text="Liste des reclamations" textFill="#0f005b">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Label>
-      <Button fx:id="modif" layoutX="386.0" layoutY="370.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #33ACFF;" text="Modifier" />
-      <Button fx:id="supprimer" layoutX="478.0" layoutY="370.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #FF3333;" text="Supprimer" />
-      <TextField fx:id="recherche" layoutX="365.0" layoutY="76.0" />
-      <ImageView fitHeight="36.0" fitWidth="44.0" layoutX="520.0" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/rech-removebg-preview.png" />
-         </image>
-      </ImageView>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Gérer notes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="410.0">
+                     <children>
+                        <TableView fx:id="table" layoutX="11.0" layoutY="53.0" prefHeight="249.0" prefWidth="579.0">
+                           <columns>
+                              <TableColumn fx:id="col_id" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="col_ex" prefWidth="75.0" text="Examen" />
+                              <TableColumn fx:id="col_nom" prefWidth="153.0" text="Nom_formateur" />
+                              <TableColumn fx:id="col_des" prefWidth="275.0" text="Description" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="modif" layoutX="388.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #33ACFF;" text="Modifier" />
+                        <Button fx:id="supprimer" layoutX="489.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #FF3333;" text="Supprimer" />
+                        <Label alignment="CENTER" layoutX="70.0" layoutY="21.0" prefHeight="26.0" prefWidth="204.0" style="-fx-background-color: #3F93C6;" text="Reclamation note" textFill="#0f005b">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="36.0" fitWidth="44.0" layoutX="543.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/rech-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="recherche" layoutX="376.0" layoutY="22.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Gérer formations">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tabfr" layoutX="14.0" layoutY="58.0" prefHeight="266.0" prefWidth="559.0">
+                          <columns>
+                            <TableColumn fx:id="colfor" prefWidth="102.0" text="Formation" />
+                            <TableColumn fx:id="colnom" prefWidth="120.0" text="Nom_formateur" />
+                              <TableColumn fx:id="cold" prefWidth="336.0" text="Description" />
+                          </columns>
+                        </TableView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="14.0" prefHeight="36.0" prefWidth="186.0" style="-fx-background-color: #3F93C6;" text="Reclamation formation" />
+                        <TextField fx:id="cherche" layoutX="371.0" layoutY="20.0" />
+                        <ImageView fitHeight="35.0" fitWidth="52.0" layoutX="520.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/rech-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="modifier" layoutX="410.0" layoutY="347.0" mnemonicParsing="false" text="Modifier" />
+                        <Button fx:id="suppr" layoutX="494.0" layoutY="347.0" mnemonicParsing="false" text="Supprimer" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

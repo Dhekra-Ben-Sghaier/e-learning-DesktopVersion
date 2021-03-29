@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -21,13 +22,25 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="Notes" layoutX="30.0" layoutY="178.0" mnemonicParsing="false" onMouseClicked="#reclamer" prefHeight="25.0" prefWidth="112.0" text="Notes" />
-            <ImageView fitHeight="25.0" fitWidth="26.0" layoutX="37.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="formations" layoutX="275.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Formations" />
-            <Button fx:id="autres" layoutX="509.0" layoutY="178.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Autres" />
-            <ImageView fitHeight="29.0" fitWidth="27.0" layoutX="275.0" layoutY="176.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="Notes" layoutX="81.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#reclamer" prefHeight="25.0" prefWidth="112.0" text="Notes" />
+            <Button fx:id="formations" layoutX="296.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#former" prefHeight="25.0" prefWidth="110.0" text="Formations" />
+            <Button fx:id="autres" layoutX="516.0" layoutY="179.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="Autres" />
+            <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="42.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/nb-removebg-preview.png" />
+               </image></ImageView>
             <ImageView fitHeight="22.0" fitWidth="27.0" layoutX="509.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="consulter" layoutX="579.0" layoutY="99.0" mnemonicParsing="false" text="Consulter" />
+            <ImageView fitHeight="37.0" fitWidth="38.0" layoutX="252.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/fr_-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="31.0" fitWidth="36.0" layoutX="478.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rte.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </top>
