@@ -5,8 +5,8 @@
  */
 package controller;
 
-import dao.AppDao;
-import dao.ControleSaisie;
+import service.AppDao;
+import service.ControleSaisie;
 import entity.Apprenant;
 import java.io.IOException;
 import java.net.URL;

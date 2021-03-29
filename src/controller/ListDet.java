@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dao.AppDao;
+import service.AppDao;
 import entity.Apprenant;
 import entity.Formateur;
 import javafx.collections.FXCollections;

@@ -5,8 +5,8 @@
  */
 package controller;
 
-import dao.FormDao;
-import dao.ControleSaisie;
+import service.FormDao;
+import service.ControleSaisie;
 import entity.Formateur;
 import java.io.IOException;
 import java.net.URL;

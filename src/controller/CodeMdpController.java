@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dao.Operation;
+import service.Operation;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

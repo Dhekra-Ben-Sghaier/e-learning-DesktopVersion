@@ -6,8 +6,8 @@
 package controller;
 
 import static controller.InscrireApprenantController.hashPassword;
-import dao.SocDao;
-import dao.ControleSaisie;
+import service.SocDao;
+import service.ControleSaisie;
 import entity.Societe;
 import java.io.IOException;
 import java.net.URL;

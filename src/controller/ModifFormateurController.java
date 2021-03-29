@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dao.FormDao;
+import service.FormDao;
 import entity.Formateur;
 import java.net.URL;
 import java.util.ResourceBundle;

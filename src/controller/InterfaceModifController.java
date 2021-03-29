@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dao.AppDao;
+import service.AppDao;
 import entity.Apprenant;
 import java.io.IOException;
 import java.net.URL;

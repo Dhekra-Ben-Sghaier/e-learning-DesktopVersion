@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dao.FormDao;
+import service.FormDao;
 import entity.Formateur;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

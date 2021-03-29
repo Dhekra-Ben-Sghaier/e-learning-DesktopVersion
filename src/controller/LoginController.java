@@ -6,8 +6,8 @@
 package controller;
 
 
-import dao.ControleSaisie;
-import dao.Operation;
+import service.ControleSaisie;
+import service.Operation;
 
 import java.io.IOException;
 import java.net.URL;
