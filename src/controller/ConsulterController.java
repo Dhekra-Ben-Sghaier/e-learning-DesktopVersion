@@ -5,7 +5,7 @@
  */
 package controller;
 
-import Dao.RecnoteDao;
+import service.RecnoteDao;
 import entity.Recnote;
 import java.io.IOException;
 import static java.lang.ProcessBuilder.Redirect.from;

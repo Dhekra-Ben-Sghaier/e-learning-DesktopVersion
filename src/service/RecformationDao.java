@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dao;
+package service;
 
-import entity.Recnote;
+import entity.Recformation;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -21,41 +21,41 @@ import utils.connexion;
  *
  * @author asus
  */
-    public class RecnoteDao implements Idao<Recnote>{
+  public class RecformationDao implements Idao<Recformation>{
     
-    private static RecnoteDao instance;
+    private static RecformationDao instance;
     private Statement st;
     private ResultSet rs;
     
-    private RecnoteDao() {
+    private RecformationDao() {
         connexion cs=connexion.getInstance();
         try {
             st=cs.getCnx().createStatement();
         } catch (SQLException ex) {
-            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecformationDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    public static RecnoteDao getInstance(){
+    public static RecformationDao getInstance(){
         if(instance==null) 
-            instance=new RecnoteDao();
+            instance=new RecformationDao();
         return instance;
     }
 
     @Override
-    public void insert(Recnote o) {
-        String req="insert into reclamation (examen,date,nom_formateur,description) values ('"+o.getExamen()+"','"+o.getDate()+"','"+o.getNom_formateur()+"','"+o.getDescription()+"')";
+    public void insert(Recformation o) {
+        String req="insert into recformation (formation,nom_formateur,description) values ('"+o.getFormation()+"','"+o.getNom_formateur()+"','"+o.getDescription()+"')";
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
-            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecformationDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }   
 
     @Override
-    public void delete(Recnote o) {
-         String req="delete from reclamation where id_reclamation="+o.getId_reclamation();
-        Recnote p=displayById(o.getId_reclamation());
+    public void delete(Recformation o) {
+         String req="delete from recformation where id_formation="+o.getId_formation();
+        Recformation p=displayById(o.getId_formation());
         
           if(p!=null)
               try {
@@ -63,21 +63,20 @@ import utils.connexion;
             st.executeUpdate(req);
              
         } catch (SQLException ex) {
-            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecformationDao.class.getName()).log(Level.SEVERE, null, ex);
         }else System.out.println("n'existe pas"); //To change body of generated methods, choose Tools | Templates.
     }
     @Override
-    public List<Recnote> displayAll() {
-      String req="select * from reclamation";
-        ObservableList<Recnote> list=FXCollections.observableArrayList();       
+    public List<Recformation> displayAll() {
+      String req="select * from recformation";
+        ObservableList<Recformation> list=FXCollections.observableArrayList();       
         
         try {
             rs=st.executeQuery(req);
             while(rs.next()){
-                Recnote p=new Recnote();
-                p.setId_reclamation(rs.getInt(1));
-                p.setExamen(rs.getString(2));
-                p.setDate(rs.getString(3));
+                Recformation p=new Recformation();
+                p.setId_formation(rs.getInt(1));
+                p.setFormation(rs.getString(2));
                 p.setNom_formateur(rs.getString(4));
                 p.setDescription(rs.getString(5));
 
@@ -86,21 +85,20 @@ import utils.connexion;
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(Recnote.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Recformation.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list; //To change body of generated methods, choose Tools | Templates.
     }
-    public List<Recnote> displayAllList() {
-        String req="select * from reclamation";
-        List<Recnote> list=new ArrayList<>();
+    public List<Recformation> displayAllList() {
+        String req="select * from recformation";
+        List<Recformation> list=new ArrayList<>();
         
         try {
             rs=st.executeQuery(req);
             while(rs.next()){
-              Recnote p=new Recnote();
-            p.setId_reclamation(rs.getInt(1));
-                p.setExamen(rs.getString(2));
-                p.setDate(rs.getString(3));
+              Recformation p=new Recformation();
+            p.setId_formation(rs.getInt(1));
+                p.setFormation(rs.getString(2));
                 p.setNom_formateur(rs.getString(4));
                 p.setDescription(rs.getString(5));
              
@@ -108,38 +106,37 @@ import utils.connexion;
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecformationDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
 
  
     @Override
-    public Recnote displayById(int id) {
-        String req="select * from reclamation where id_reclamation ="+id;
-        Recnote p=new Recnote();
+    public Recformation displayById(int id) {
+        String req="select * from recformation where id_formation ="+id;
+        Recformation p=new Recformation();
         try {
             rs=st.executeQuery(req);
            // while(rs.next()){
             rs.next();
-                p.setId_reclamation(rs.getInt(1));
-                 p.setExamen(rs.getString(2));
-                p.setDate(rs.getString(3));
+                p.setId_formation(rs.getInt(1));
+                 p.setFormation(rs.getString(2));
                 p.setNom_formateur(rs.getString(4));
                 p.setDescription(rs.getString(5));
                
                
                 //}  
         } catch (SQLException ex) {
-            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecformationDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     return p; //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public boolean update(Recnote os) {
+    public boolean update(Recformation os) {
         
-        String qry = "UPDATE reclamation SET examen = '"+os.getExamen()+"', date = '"+os.getDate()+"', nom_formateur = '"+os.getNom_formateur()+"', description = '"+os.getDescription()+"' WHERE id_reclamation = "+os.getId_reclamation();;
+        String qry = "UPDATE formation SET recformation = '"+os.getFormation()+"', nom_formateur = '"+os.getNom_formateur()+"', description = '"+os.getDescription()+"' WHERE id_formation = "+os.getId_formation();;
          
         try {
             if (st.executeUpdate(qry) > 0) {
@@ -147,11 +144,9 @@ import utils.connexion;
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(RecnoteDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RecformationDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         return false;
     }
-    
-    }
 
-    
+  }

@@ -5,7 +5,7 @@
  */
 package controller;
 
-import Dao.RecnoteDao;
+import service.RecnoteDao;
 import entity.Recnote;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

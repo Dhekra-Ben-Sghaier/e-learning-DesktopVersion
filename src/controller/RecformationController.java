@@ -5,7 +5,7 @@
  */
 package controller;
 
-import Dao.RecformationDao;
+import service.RecformationDao;
 import entity.Recformation;
 import java.net.URL;
 import java.util.ResourceBundle;
