@@ -47,16 +47,9 @@ public class FormationPanelController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        try {
-//            Image consImg = new Image(new FileInputStream("src\\ajouter.png"));
-//            ImageView imgView = new ImageView(consImg);
-//            imgView.setFitHeight(35);
-//            imgView.setFitWidth(35);
-//            cons.setImage(consImg);
-//                    } catch (FileNotFoundException ex) {
-//            Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        loadPage("/view/ListerFormations.fxml"); 
+
+//        loadPage("/view/ListerFormations.fxml"); 
+loadPage("/view/TableForm.fxml");
     }    
 
     @FXML
@@ -72,7 +65,7 @@ public class FormationPanelController implements Initializable {
 
     @FXML
     private void modifierFormation(MouseEvent event) {
-        loadPage("/view/ListerFormations.fxml");
+//        loadPage("/view/ListerFormations.fxml");
     }
     
     private void  loadPage(String page){

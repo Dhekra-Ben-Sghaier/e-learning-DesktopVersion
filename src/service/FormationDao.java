@@ -7,6 +7,7 @@ package service;
 
 import controller.SendMail;
 import entity.Formation;
+import java.awt.Desktop;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -246,7 +247,7 @@ public class FormationDao implements Idao<Formation>{
 				}
 				
 				System.out.println("\nSaved to file: " + theFile.getAbsolutePath());
-				
+				Desktop.getDesktop().open(theFile.getAbsoluteFile());
 				System.out.println("\nCompleted successfully!");				
 
 

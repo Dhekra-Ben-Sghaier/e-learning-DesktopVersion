@@ -20,8 +20,8 @@ public class PidevFormation extends Application{
     @Override
     public void start(Stage stage) throws Exception {
     
-//        parentPage = FXMLLoader.load(getClass().getResource("/view/ApprenantPanel.fxml"));
-        parentPage = FXMLLoader.load(getClass().getResource("/view/FormationPanel.fxml"));
+        parentPage = FXMLLoader.load(getClass().getResource("/view/ApprenantPanel.fxml"));
+//        parentPage = FXMLLoader.load(getClass().getResource("/view/FormationPanel.fxml"));
         
         Scene scene = new Scene(parentPage);
         stage.setTitle("Formation");
