@@ -25,7 +25,7 @@ public class Pi_dev_GOffre extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Pi_dev");
         
-        parentPage = FXMLLoader.load(getClass().getResource("/GUI/Home.fxml"));
+        parentPage = FXMLLoader.load(getClass().getResource("/view/Home.fxml"));
         Scene scene = new Scene(parentPage);
         this.primaryStage.setScene(scene);
         this.primaryStage.show();
