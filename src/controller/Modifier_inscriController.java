@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 import entity.Inscription_certificat;
 import entity.Quizz;

@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane id="AnchorPane" fx:id="printPane" prefHeight="569.0" prefWidth="739.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CertificatController">
+<AnchorPane id="AnchorPane" fx:id="printPane" prefHeight="569.0" prefWidth="739.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CertificatController">
    <children>
       <Polyline fill="LIGHTSLATEGRAY" layoutX="195.0" layoutY="266.0" points="129.29290771484375, -268.70709228515625, 184.29290771484375, -268.70709228515625, -195.00001525878906, -66.0, -195.7071075439453, -268.70709228515625" stroke="LIGHTSLATEGRAY" strokeType="INSIDE" style="-fx-fill: #778899;" />
       <Polyline fill="LIGHTSTEELBLUE" layoutX="623.0" layoutY="39.0" points="-243.70709228515625, -41.70709228515625, 136.0, -41.70709228515625, 135.0, 189.0, -395.70709228515625, 38.29290771484375" stroke="LIGHTSTEELBLUE" strokeType="INSIDE" style="-fx-effect: #6495ED;" />

@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 import com.jfoenix.controls.JFXButton;
 import constants.NewScreenListener;
@@ -33,7 +33,7 @@ public class MainScreenController implements Initializable {
     }
     
     private void ajouterQuizListScreen(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/QuizList.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/QuizList.fxml"));
             try{
                 Node node = fxmlLoader.load();
                 QuizListController quizListController= fxmlLoader.getController();

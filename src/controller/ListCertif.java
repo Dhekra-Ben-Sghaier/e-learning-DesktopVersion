@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 import service.Inscription_certificatDao;
 import entity.Inscription_certificat;

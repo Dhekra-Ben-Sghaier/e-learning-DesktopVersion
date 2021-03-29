@@ -1,5 +1,5 @@
 
-package Views;
+package view;
 
 import entity.Question;
 import java.net.URL;

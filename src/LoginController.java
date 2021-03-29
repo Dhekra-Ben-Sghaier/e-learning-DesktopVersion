@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
         if(email_Login.trim().equalsIgnoreCase(AdminEmailPassword.email) 
                 && password_Login.trim().equalsIgnoreCase(AdminEmailPassword.password)){
             try{
-                Parent root= FXMLLoader.load(getClass().getResource("Views/QuizHomeScreen.fxml"));
+                Parent root= FXMLLoader.load(getClass().getResource("view/QuizHomeScreen.fxml"));
                 Stage stage = (Stage) password_field.getScene().getWindow();
                 Scene scene = new Scene(root); 
                 stage.setScene(scene);

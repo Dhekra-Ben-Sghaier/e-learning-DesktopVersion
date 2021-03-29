@@ -15,14 +15,14 @@ public class Test extends Application{
     public void start(Stage primaryStage) throws Exception {
         
         //Parent root= FXMLLoader.load(getClass().getResource("/Login.fxml"));
-        //Parent root= FXMLLoader.load(getClass().getResource("/Views/QuestionScreen.fxml"));
-        Parent root= FXMLLoader.load(getClass().getResource("/Views/MainScreen.fxml"));
-        //Parent root= FXMLLoader.load(getClass().getResource("/Views/Insci_certif.fxml"));
-        //Parent root= FXMLLoader.load(getClass().getResource("/Views/Afficher_inscri.fxml"));
-        //Parent root= FXMLLoader.load(getClass().getResource("/Views/Certificat.fxml"));
-        //Parent root= FXMLLoader.load(getClass().getResource("/Views/AjouterQuiz.fxml"));
-        //Parent root= FXMLLoader.load(getClass().getResource("/Views/QuizList.fxml"));
-        //Parent root= FXMLLoader.load(getClass().getResource("/Views/ProgressCercle.fxml"));
+        //Parent root= FXMLLoader.load(getClass().getResource("/view/QuestionScreen.fxml"));
+        Parent root= FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
+        //Parent root= FXMLLoader.load(getClass().getResource("/view/Insci_certif.fxml"));
+        //Parent root= FXMLLoader.load(getClass().getResource("/view/Afficher_inscri.fxml"));
+        //Parent root= FXMLLoader.load(getClass().getResource("/view/Certificat.fxml"));
+        //Parent root= FXMLLoader.load(getClass().getResource("/view/AjouterQuiz.fxml"));
+        //Parent root= FXMLLoader.load(getClass().getResource("/view/QuizList.fxml"));
+        //Parent root= FXMLLoader.load(getClass().getResource("/view/ProgressCercle.fxml"));
         Stage stage = new Stage();
         Scene scene = new Scene(root); 
         stage.setScene(scene);

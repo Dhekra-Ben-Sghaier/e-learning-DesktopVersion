@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 import constants.NewScreenListener;
 import entity.Quizz;
@@ -31,7 +31,7 @@ public class QuizListController implements Initializable {
     }
     private void setCards(){
         for (Quizz quiz: keys){
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/QuizCard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/QuizCard.fxml"));
             try{
                 Node node = fxmlLoader.load();
                 QuizCardController QuizCardController = fxmlLoader.getController();

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 
-<AnchorPane id="AnchorPane" prefHeight="424.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Afficher_inscriController">
+<AnchorPane id="AnchorPane" prefHeight="424.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Afficher_inscriController">
    <children>
       <AnchorPane opacity="0.94" prefHeight="424.0" prefWidth="204.0" style="-fx-background-color: #0A0232;">
          <effect>

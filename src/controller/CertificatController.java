@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 import com.jfoenix.controls.JFXTextField;
 import entity.Quizz;

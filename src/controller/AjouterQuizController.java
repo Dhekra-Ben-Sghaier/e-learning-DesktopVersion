@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -114,7 +114,7 @@ public class AjouterQuizController implements Initializable {
 
     @FXML
     private void setQuizTitle(ActionEvent event) {
-        System.out.println("Controllers.AjouterQuizController.setQuizTitle()");
+        System.out.println("controller.AjouterQuizController.setQuizTitle()");
         String nom = nomQuiz.getText();
         if(nom.trim().isEmpty()){
             Notifications.create()

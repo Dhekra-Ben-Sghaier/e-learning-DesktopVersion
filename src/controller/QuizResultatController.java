@@ -1,6 +1,6 @@
-package Controllers;
+package controller;
 
-import Views.ResultatQuestionUniqueController;
+import view.ResultatQuestionUniqueController;
 import com.jfoenix.controls.JFXButton;
 import constants.NewScreenListener;
 
@@ -97,7 +97,7 @@ public class QuizResultatController implements Initializable {
     
     private void renderQuestions(){
          for (int i = 0; i < this.questionList.size(); i++){
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/ResultatQuestionUnique.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/ResultatQuestionUnique.fxml"));
             try{
                 Node node = fxmlLoader.load();
                 ResultatQuestionUniqueController controller  = fxmlLoader.getController();
@@ -156,7 +156,7 @@ public class QuizResultatController implements Initializable {
     
     @FXML
     private void ObtenirCertificat(ActionEvent event)  {
-        FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource("/Views/Certificat.fxml"));
+        FXMLLoader fxmlLoader =  new FXMLLoader(getClass().getResource("/view/Certificat.fxml"));
 
         try {
                 Parent root = (Parent) fxmlLoader.load();  

@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
@@ -201,7 +201,7 @@ public class QuestionScreenController implements Initializable {
         private void renderProgress(){
             
         for (int i=0 ; i<this.questionList.size(); i++){
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/ProgressCercle.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/ProgressCercle.fxml"));
             try {
                 Node node = fxmlLoader.load();
                 ProgressCercleController progressCercleController= fxmlLoader.getController();
@@ -315,7 +315,7 @@ public class QuestionScreenController implements Initializable {
     }
     
     private void ouvrirResultatQuiz(){
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/QuizResultat.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/QuizResultat.fxml"));
             try{
                 Node node = fxmlLoader.load();
                 QuizResultatController controller  = fxmlLoader.getController();

@@ -11,7 +11,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="396.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Insci_certifController">
+<AnchorPane id="AnchorPane" prefHeight="396.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Insci_certifController">
    <children>
       <AnchorPane opacity="0.94" prefHeight="410.0" prefWidth="204.0" style="-fx-background-color: #0A0232;">
          <effect>

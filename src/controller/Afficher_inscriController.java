@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 import com.itextpdf.text.DocumentException;
 import entity.Inscription_certificat;
@@ -127,7 +127,7 @@ public class Afficher_inscriController implements Initializable {
 
           
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Views/Modifier_inscri.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Modifier_inscri.fxml"));
             Parent parent = (Parent)loader.load();            
             Modifier_inscriController x = loader.<Modifier_inscriController>getController();
             x.setInscriptionCertificat(f);
@@ -154,7 +154,7 @@ public class Afficher_inscriController implements Initializable {
     @FXML
     private void ajouter(ActionEvent event) {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/Views/Insci_certif.fxml"));
+            Parent parent = FXMLLoader.load(getClass().getResource("/view/Insci_certif.fxml"));
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);

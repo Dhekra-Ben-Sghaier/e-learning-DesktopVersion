@@ -1,4 +1,4 @@
-package Controllers;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -33,7 +33,7 @@ public class QuizHomeScreenController implements Initializable {
     @FXML
     private void ajouterQuizTabb(ActionEvent event) {
         try {
-            Parent node = FXMLLoader.load(getClass().getResource("/Views/AjouterQuiz.fxml"));          
+            Parent node = FXMLLoader.load(getClass().getResource("/view/AjouterQuiz.fxml"));          
                 Stage stage = (Stage) ajouterQuizTabb.getScene().getWindow();
                 Scene scene = new Scene(node); 
                 stage.setScene(scene);

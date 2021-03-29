@@ -16,7 +16,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="543.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjouterQuizController">
+<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="543.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AjouterQuizController">
    <children>
       <VBox prefHeight="543.0" prefWidth="626.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
