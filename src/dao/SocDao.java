@@ -23,7 +23,7 @@ public class SocDao implements Idao<Societe>{
    private static SocDao instance;
     private Statement st;
     private ResultSet rs;
-   
+   private String rolesoc="societe";
     private SocDao() {
         ConnexionSingleton cs=ConnexionSingleton.getInstance();
         try {
@@ -39,11 +39,11 @@ public class SocDao implements Idao<Societe>{
     }
     @Override
     public void insert(Societe o) {
-        String req="insert into societe (nom_soc,adr_mail_soc,adr_soc,password,nomUtilisateur) values ('"+o.getNom()+"','"+o.getEmail()+"','"+o.getAdresse()+"','"+o.getMdp()+"','"+o.getLogin()+"')";
+        String req="insert into personnes (email,password,nomUtilisateur,nomSociete,role) values ('"+o.getEmail()+"','"+o.getMdp()+"','"+o.getLogin()+"','"+o.getNomSoc()+"','"+rolesoc+"')";
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
-            Logger.getLogger(AppDao.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SocDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

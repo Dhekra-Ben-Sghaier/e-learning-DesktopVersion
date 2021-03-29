@@ -25,6 +25,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -76,38 +77,28 @@ public class UsercompteController implements Initializable {
             retrieve=conn.prepareStatement(loadst);
                
             
-               nom_user.setOnAction((ActionEvent event) -> {
-
-           
-          
-       
-                try {
-         
-
-FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/usersPanel.fxml"));
-Operation infos=new Operation();
-Personne p =new Personne();
-p=infos.recInfos(nom_user.getText());
-
-Parent parent = (Parent)loader.load();
-
-UsersPanelController cont = loader.<UsersPanelController>getController();
-
-
-cont.loadcenter("/view/profilUser.fxml",p,Integer.parseInt(lab_id.getText()));
-cont.loadheaduser("/view/usercompte.fxml",nom_user.getText(),Integer.parseInt(lab_id.getText()));
-
-Scene scene = new Scene(parent);
-Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-stage.setScene(scene);
-
-stage.setTitle("Brainovation");
-stage.show();
-                } catch (IOException ex) {
-                    Logger.getLogger(UsercompteController.class.getName()).log(Level.SEVERE, null, ex);
+               nom_user.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(UsercompteController.this.getClass().getResource("/view/usersPanel.fxml"));
+                        Operation infos=new Operation();
+                        Personne p =new Personne();
+                        p=infos.recInfos(nom_user.getText());
+                        Parent parent = (Parent)loader.load();
+                        UsersPanelController cont = loader.<UsersPanelController>getController();
+                        cont.loadcenter("/view/profilUser.fxml",p,Integer.parseInt(lab_id.getText()));
+                        cont.loadheaduser("/view/usercompte.fxml",nom_user.getText(),Integer.parseInt(lab_id.getText()));
+                        Scene scene = new Scene(parent);
+                        Stage stageUser = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stageUser.setScene(scene);
+                        stageUser.setTitle("Brainovation");
+                        stageUser.show();
+                    }catch (IOException ex) {
+                        Logger.getLogger(UsercompteController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-         
-        }); se_deconnecter.setOnAction(event -> {
+            }); se_deconnecter.setOnAction(event -> {
                Parent page1;
              try {
                 page1 = FXMLLoader.load(getClass().getResource("/view/usersPanel.fxml"));

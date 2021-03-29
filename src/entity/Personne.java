@@ -23,6 +23,14 @@ public class Personne {
     private SimpleStringProperty mdp;
      private SimpleStringProperty login;
       private SimpleStringProperty role;
+       public Personne( String email, String mdp, String login) {
+      
+       
+        this.email = new SimpleStringProperty(email);
+        this.mdp = new SimpleStringProperty(mdp);
+        this.login = new SimpleStringProperty(login);
+
+    } 
 
     public Personne(String cin ,String nom ,String prenom, String email, String mdp, String login) {
       
@@ -95,7 +103,7 @@ public class Personne {
     public void setId(int id) {
         this.id = new SimpleIntegerProperty(id);
     }
-
+  
    public String getNom() {
         return nom.get();
     }
@@ -172,6 +180,7 @@ public class Personne {
     public SimpleIntegerProperty getIdProperty(){
         return id;
     }
+ 
 
     @Override
     public String toString() {

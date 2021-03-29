@@ -67,7 +67,7 @@ public class InscrireSocController implements Initializable {
         // TODO
         btn_add.setOnAction(event -> {
       
-           if(ControleSaisie.isNull(nom.getText()) || ControleSaisie.isNull(adresse.getText()) || ControleSaisie.isNull(email.getText()) || ControleSaisie.isNull(mdp.getText()) || ControleSaisie.isNull(nomuser.getText()))
+           if(ControleSaisie.isNull(nom.getText())  || ControleSaisie.isNull(email.getText()) || ControleSaisie.isNull(mdp.getText()) || ControleSaisie.isNull(nomuser.getText()))
            {
              Alert alerts = new Alert(Alert.AlertType.WARNING);
         alerts.setTitle("Warning");
@@ -82,7 +82,7 @@ public class InscrireSocController implements Initializable {
                
                  
              
-               Societe f = new Societe( nom.getText(), email.getText(), adresse.getText(),nomuser.getText(), hashPassword(mdp.getText()));
+               Societe f = new Societe(email.getText(), hashPassword(mdp.getText()),nomuser.getText(),nom.getText());
             SocDao fdao = SocDao.getInstance();
             fdao.insert(f);
        
@@ -93,7 +93,7 @@ public class InscrireSocController implements Initializable {
         alert.show();
         
         nom.setText("");
-        adresse.setText("");
+        
         email.setText("");
         mdp.setText("");
         nomuser.setText("");
