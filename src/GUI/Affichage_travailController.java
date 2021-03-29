@@ -168,7 +168,7 @@ public class Affichage_travailController implements Initializable {
   private void loadDataFromDatabase() {
         
             try {
-            String url = "jdbc:mysql://localhost:3306/base_pi";
+            String url = "jdbc:mysql://localhost:3306/esprit";
             Connection con = DriverManager.getConnection(url, "root", "");
             Statement stmt = con.createStatement();
             ResultSet rs;
@@ -199,7 +199,7 @@ public class Affichage_travailController implements Initializable {
   private void loadDataFromDatabase_Inscrit() {
         
             try {
-            String url = "jdbc:mysql://localhost:3306/base_pi";
+            String url = "jdbc:mysql://localhost:3306/esprit";
             Connection con = DriverManager.getConnection(url, "root", "");
             Statement stmt = con.createStatement();
             ResultSet rs;
@@ -266,8 +266,10 @@ public class Affichage_travailController implements Initializable {
             Postuler_travail PS = new Postuler_travail(id_travail, id_user);
             Services.TravailService su = new TravailService();
             su.ajouter_Postuler_Travail(PS);
+            mail_user.setText("");
+            mail_body.setText("");
             sendMail(champ_adressemail.getText());
-           TrayNotification tray = new TrayNotification();
+            TrayNotification tray = new TrayNotification();
             Image whatsAppImg = new Image("/image/image1.png");
             String text = "Un mail est envoyé vers la societé avec vos coordonnées. ";
             tray.setTray("welcome", text + " ", whatsAppImg, Paint.valueOf("#2A9A84"), AnimationType.SLIDE);

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Update_travail_frontController">
+<AnchorPane id="AnchorPane" prefHeight="571.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Update_travail_frontController">
   <children>
       <Label layoutX="33.0" layoutY="22.0" text="Id" visible="false" />
       <Label layoutX="11.0" layoutY="78.0" prefHeight="21.0" prefWidth="119.0" text="Nom société :" textFill="#030303">
@@ -41,16 +41,16 @@
       <TextField fx:id="Adr_mail_soc" layoutX="177.0" layoutY="125.0" />
       <TextField fx:id="Adr_soc" layoutX="177.0" layoutY="172.0" />
       <TextField fx:id="Titre" layoutX="177.0" layoutY="348.0" />
-      <Button fx:id="supprimer" layoutX="40.0" layoutY="594.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-background-color: #ff0000;" text="Supprimer" textFill="WHITE">
+      <Button fx:id="supprimer" layoutX="169.0" layoutY="517.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-background-color: #ff0000;" text="Supprimer" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="modifier" layoutX="230.0" layoutY="594.0" mnemonicParsing="false" onAction="#modifier" style="-fx-background-color: #1100ff;" text="Modifier" textFill="WHITE">
+      <Button fx:id="modifier" layoutX="280.0" layoutY="517.0" mnemonicParsing="false" onAction="#modifier" style="-fx-background-color: #1100ff;" text="Modifier" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <ListView fx:id="list_offreTravail" layoutX="359.0" layoutY="19.0" prefHeight="370.0" prefWidth="541.0" />
-      <Button fx:id="retour" layoutX="196.0" layoutY="18.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #ff0000;" text="Retour" textFill="WHITE">
+      <ListView fx:id="list_offreTravail" layoutX="359.0" layoutY="68.0" prefHeight="415.0" prefWidth="541.0" />
+      <Button fx:id="retour" layoutX="17.0" layoutY="18.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: #ff0000;" text="Retour" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
@@ -74,5 +74,10 @@
       </Label>
       <TextArea fx:id="Desc" layoutX="169.0" layoutY="394.0" prefHeight="89.0" prefWidth="176.0" />
       <TextField fx:id="date_pub" editable="false" layoutX="104.0" layoutY="43.0" prefHeight="17.0" prefWidth="55.0" visible="false" />
+      <Label layoutX="359.0" layoutY="22.0" prefHeight="31.0" prefWidth="318.0" text="Liste de mes offres de travail " textFill="#ee7f03">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
    </children>  
 </AnchorPane>

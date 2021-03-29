@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author skander
  */
 public class DataSource {
-  private String url="jdbc:mysql://127.0.0.1/base_pi";
+  private String url="jdbc:mysql://127.0.0.1/esprit";
   private String login="root";
   private String pwd="";
   static DataSource instance;

@@ -116,7 +116,7 @@ public class Update_back_stageController implements Initializable {
     }  
     private void loadDataFromDatabase() {
         try {
-            String url = "jdbc:mysql://localhost:3306/base_pi";
+            String url = "jdbc:mysql://localhost:3306/esprit";
             Connection conn = DriverManager.getConnection(url, "root", "");
             Statement stmt = conn.createStatement();
             ResultSet rs;

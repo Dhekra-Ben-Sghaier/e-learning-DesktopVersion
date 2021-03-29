@@ -6,6 +6,9 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -13,9 +16,9 @@
    <children>
       <ListView fx:id="list" layoutX="7.0" layoutY="123.0" prefHeight="573.0" prefWidth="471.0" />
       <Separator layoutX="51.0" layoutY="61.0" prefHeight="2.0" prefWidth="350.0" />
-      <Label fx:id="Id_titre" layoutX="694.0" layoutY="61.0" text="Titre">
+      <Label fx:id="Id_titre" layoutX="678.0" layoutY="63.0" prefWidth="74.0" text="Titre" textFill="#ee7f03">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Tahoma Bold" size="18.0" />
          </font>
       </Label>
       <Label layoutX="520.0" layoutY="110.0" text="Nom societé :" />
@@ -28,7 +31,20 @@
       <Label layoutX="520.0" layoutY="320.0" text="Certificat demandé :" />
       <Label layoutX="520.0" layoutY="350.0" text="Durée :" />
       <Label layoutX="520.0" layoutY="380.0" text="Description :" />
-      <Button fx:id="Postuler" layoutX="634.0" layoutY="640.0" mnemonicParsing="false" onAction="#OApostuler" text="Postuler" />
+      <Button fx:id="Postuler" layoutX="634.0" layoutY="640.0" mnemonicParsing="false" onAction="#OApostuler" prefHeight="33.0" prefWidth="107.0" style="-fx-background-color: #3F93C6;" text="Postuler">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Button>
       <Label layoutX="520.0" layoutY="480.0" prefHeight="17.0" prefWidth="140.0" text="Entrez votre adresse mail :" />
       <Label layoutX="520.0" layoutY="510.0" text="Descrivez vous :" />
       <TextField fx:id="mail_user" layoutX="687.0" layoutY="480.0" />
@@ -43,11 +59,54 @@
       <Label fx:id="champ_certificat" layoutX="687.0" layoutY="320.0" prefHeight="17.0" prefWidth="155.0" />
       <Label fx:id="champ_durée" layoutX="678.0" layoutY="350.0" prefHeight="17.0" prefWidth="155.0" />
       <Label fx:id="champ_description" layoutX="678.0" layoutY="380.0" prefHeight="74.0" prefWidth="155.0" />
-      <Button fx:id="Retour" layoutX="14.0" layoutY="36.0" mnemonicParsing="false" onAction="#OAretour" text="Retour" />
       <Label fx:id="Id_stage" layoutX="527.0" layoutY="56.0" visible="false" />
       <Label fx:id="Id_user" layoutX="575.0" layoutY="56.0" visible="false" />
-      <Button fx:id="Btn_deja_Inscrit" layoutX="79.0" layoutY="64.0" mnemonicParsing="false" onAction="#Deja_Inscrit_Affichage" prefHeight="25.0" prefWidth="119.0" text="Deja Inscrit" />
-      <Button fx:id="Btn_Non_Inscrit" layoutX="198.0" layoutY="64.0" mnemonicParsing="false" onAction="#Non_Inscrit_Affichage" prefHeight="25.0" prefWidth="119.0" text="Non Inscrit" />
-      <Label fx:id="Lbl_Titre" layoutX="7.0" layoutY="97.0" prefHeight="27.0" prefWidth="250.0" />
+      <Button fx:id="Btn_deja_Inscrit" layoutX="79.0" layoutY="64.0" mnemonicParsing="false" onAction="#Deja_Inscrit_Affichage" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #3F93C6;" text="Deja Inscrit">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="Btn_Non_Inscrit" layoutX="198.0" layoutY="64.0" mnemonicParsing="false" onAction="#Non_Inscrit_Affichage" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #3F93C6;" text="Non Inscrit">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Button>
+      <Label fx:id="Lbl_Titre" layoutX="7.0" layoutY="97.0" prefHeight="27.0" prefWidth="250.0" textFill="#ee7f03">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font></Label>
+      <Button fx:id="Retour" layoutX="24.0" layoutY="31.0" mnemonicParsing="false" onAction="#OAretour" style="-fx-background-color: #ee7f03;" text="Retour">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </Button>
    </children> 
 </AnchorPane>

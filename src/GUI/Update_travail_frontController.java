@@ -130,7 +130,7 @@ public class Update_travail_frontController implements Initializable {
     private void loadDataFromDatabase() {
         
             try {
-            String url = "jdbc:mysql://localhost:3306/base_pi";
+            String url = "jdbc:mysql://localhost:3306/esprit";
             Connection con = DriverManager.getConnection(url, "root", "");
             Statement stmt = con.createStatement();
             ResultSet rs;

@@ -5,12 +5,16 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Update_back_travailController">
+<AnchorPane id="AnchorPane" prefHeight="452.0" prefWidth="966.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Update_back_travailController">
    <children>
-      <TableView fx:id="tableview" layoutX="365.0" layoutY="52.0" prefHeight="336.0" prefWidth="601.0">
+      <TableView fx:id="tableview" layoutX="365.0" layoutY="52.0" prefHeight="336.0" prefWidth="601.0" stylesheets="@style.css">
         <columns>
           <TableColumn fx:id="Id_user" prefWidth="117.0" text="Id user" />
             <TableColumn fx:id="Id_travail" prefWidth="78.0" text="Id travail" />
@@ -19,11 +23,24 @@
             <TableColumn fx:id="Date_pub" minWidth="0.0" prefWidth="111.0" text="Date publication" />
         </columns>
       </TableView>
-      <Button fx:id="supprimer" layoutX="170.0" layoutY="419.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-background-color: #ff0000;" text="Supprimer" textFill="WHITE">
+      <Button fx:id="supprimer" layoutX="170.0" layoutY="407.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-background-color: #D72400;" text="Supprimer">
          <font>
             <Font name="System Bold" size="12.0" />
-         </font></Button>
-      <TextField fx:id="recherche" layoutX="365.0" layoutY="18.0" prefHeight="25.0" prefWidth="324.0" promptText="Rechercher offre" />
+         </font>
+         <effect>
+            <Lighting diffuseConstant="1.26" specularConstant="0.7" specularExponent="33.95" surfaceScale="1.73">
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="1.0" green="0.12156862765550613" blue="0.12156862765550613" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></Button>
       <Label layoutX="36.0" layoutY="35.0" text="Id travail :" />
       <Label layoutX="36.0" layoutY="60.0" text="Nom société :" />
       <Label layoutX="36.0" layoutY="85.0" text="Adresse mail :" />
@@ -46,15 +63,41 @@
       <Label fx:id="Type_contrat" layoutX="152.0" layoutY="235.0" prefHeight="17.0" prefWidth="149.0" />
       <Label fx:id="champ_Id_user" layoutX="152.0" layoutY="260.0" prefHeight="17.0" prefWidth="149.0" />
       <Label fx:id="Description" layoutX="152.0" layoutY="285.0" prefHeight="17.0" prefWidth="149.0" />
-      <Button fx:id="Valider" layoutX="64.0" layoutY="419.0" mnemonicParsing="false" onAction="#Valider" style="-fx-background-color: #008000;" text="Valider" textFill="WHITE">
+      <Button fx:id="Valider" layoutX="63.0" layoutY="407.0" mnemonicParsing="false" onAction="#Valider" style="-fx-background-color: #008000;" text="Valider">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
       </Button>
-      <Button fx:id="Retour" layoutX="246.0" layoutY="6.0" mnemonicParsing="false" onAction="#Retour" style="-fx-background-color: #ff0000;" text="Retour" textFill="WHITE">
+      <Button fx:id="Retour" layoutX="33.0" layoutY="7.0" mnemonicParsing="false" onAction="#Retour" style="-fx-background-color: #ee7f03;" text="Retour">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
       </Button>
+      <TextField fx:id="recherche" layoutX="737.0" layoutY="19.0" prefHeight="25.0" prefWidth="215.0" promptText="Rechercher offre" />
+      <Label layoutX="365.0" layoutY="9.0" prefHeight="39.0" prefWidth="363.0" text="Liste des offre de travail à valider " textFill="#ee7f03">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
    </children> 
 </AnchorPane>

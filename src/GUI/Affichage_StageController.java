@@ -138,6 +138,7 @@ public class Affichage_StageController implements Initializable {
         Postuler.setDisable(false);      
         Lbl_Titre.setText("Non Inscrit");
     }
+
     
     static public class Collocation extends ListCell<OffreStage> {
 
@@ -173,7 +174,7 @@ public class Affichage_StageController implements Initializable {
     private void loadDataFromDatabase() {
         
             try {
-            String url = "jdbc:mysql://localhost:3306/base_pi";
+            String url = "jdbc:mysql://localhost:3306/esprit";
             Connection con = DriverManager.getConnection(url, "root", "");
             Statement stmt = con.createStatement();
             ResultSet rs;
@@ -207,7 +208,7 @@ public class Affichage_StageController implements Initializable {
      private void loadDataFromDatabase_Inscrit() {
         
             try {
-            String url = "jdbc:mysql://localhost:3306/base_pi";
+            String url = "jdbc:mysql://localhost:3306/esprit";
             Connection con = DriverManager.getConnection(url, "root", "");
             Statement stmt = con.createStatement();
             ResultSet rs;
@@ -278,6 +279,8 @@ public class Affichage_StageController implements Initializable {
             Postuler_stage PS = new Postuler_stage(id_stage, id_user);
             Services.StageService su = new StageService();
             su.ajouter_Postuler_Stage(PS);
+            mail_user.setText("");
+            mail_body.setText("");
             sendMail(champ_adressemail.getText());
             TrayNotification tray = new TrayNotification();
             Image whatsAppImg = new Image("/image/image1.png");

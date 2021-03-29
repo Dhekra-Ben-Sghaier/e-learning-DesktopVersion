@@ -6,37 +6,55 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="579.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Ajout_Post_StageController">
+<AnchorPane id="AnchorPane" prefHeight="579.0" prefWidth="632.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Ajout_Post_StageController">
    <children>
-      <Label layoutX="122.0" layoutY="34.0" prefHeight="35.0" prefWidth="357.0" text="Formulaire d'une offre de stage" textFill="#fc0505">
+      <Label layoutX="261.0" layoutY="34.0" prefHeight="35.0" prefWidth="303.0" text="Formulaire d'une offre de stage" textFill="#ee7f03">
          <font>
-            <Font size="24.0" />
+            <Font name="Tahoma Bold" size="19.0" />
          </font>
       </Label>
-      <Label layoutX="122.0" layoutY="90.0" prefHeight="17.0" prefWidth="96.0" text="Nom société :" />
-      <Label layoutX="122.0" layoutY="130.0" prefHeight="17.0" prefWidth="96.0" text="Adresse mail :" />
-      <Label layoutX="122.0" layoutY="170.0" prefHeight="17.0" prefWidth="96.0" text="Adresse :" />
-      <Label layoutX="122.0" layoutY="210.0" prefHeight="17.0" prefWidth="96.0" text="Niveau d'étude :" />
-      <Label layoutX="122.0" layoutY="250.0" prefHeight="17.0" prefWidth="96.0" text="Certificat :" />
-      <Label layoutX="122.0" layoutY="290.0" prefHeight="17.0" prefWidth="96.0" text="Durée du stage" />
-      <Label layoutX="122.0" layoutY="450.0" prefHeight="17.0" prefWidth="96.0" text="Description :" />
-      <TextField fx:id="Champ_Nom_Soc" layoutX="278.0" layoutY="90.0" prefHeight="25.0" prefWidth="150.0" promptText="Nom société" />
-      <TextField fx:id="Champ_Adresse_Mail" layoutX="278.0" layoutY="130.0" prefHeight="25.0" prefWidth="150.0" promptText="Adresse mail" />
-      <TextField fx:id="Champ_Adresse" layoutX="278.0" layoutY="170.0" prefHeight="25.0" prefWidth="150.0" promptText="Adresse" />
-      <ComboBox fx:id="Champ_Niveau_Etude" layoutX="278.0" layoutY="210.0" prefWidth="150.0" promptText="Faites votre choix" />
-      <ComboBox fx:id="Champ_Certificat" layoutX="278.0" layoutY="250.0" prefWidth="150.0" promptText="Faites votre choix" />
-      <Button fx:id="Retour_Acceuil_Ajout" layoutX="14.0" layoutY="34.0" mnemonicParsing="false" onAction="#Retour_Ajout" text="Retour" />
-      <Button fx:id="Btn_pub_travail" layoutX="530.0" layoutY="529.0" mnemonicParsing="false" onAction="#Ajouter_stage" text="Publier" />
-      <Label layoutX="122.0" layoutY="330.0" prefHeight="17.0" prefWidth="96.0" text="Date du debut" />
-      <DatePicker fx:id="Champ_Date_debut" layoutX="278.0" layoutY="330.0" onAction="#Change_DureStage_D" prefHeight="25.0" prefWidth="150.0" promptText="Date du debut" />
-      <TextArea fx:id="Champ_Desc" layoutX="278.0" layoutY="450.0" prefHeight="80.0" prefWidth="150.0" promptText="Description" />
-      <Label layoutX="122.0" layoutY="370.0" prefHeight="17.0" prefWidth="96.0" text="Date du fin" />
-      <DatePicker fx:id="Champ_Date_fin" layoutX="278.0" layoutY="370.0" onAction="#Change_DureStage_F" prefHeight="25.0" prefWidth="150.0" promptText="Date du debut" />
-      <Label layoutX="122.0" layoutY="410.0" prefHeight="17.0" prefWidth="96.0" text="Titre" />
-      <TextField fx:id="Champ_Titre" layoutX="278.0" layoutY="410.0" prefHeight="25.0" prefWidth="150.0" promptText="Titre" />
-      <TextField fx:id="Champ_Duree_stage" layoutX="278.0" layoutY="290.0" promptText="Durée du stage" />
+      <Label layoutX="261.0" layoutY="90.0" prefHeight="17.0" prefWidth="96.0" text="Nom société :" />
+      <Label layoutX="261.0" layoutY="130.0" prefHeight="17.0" prefWidth="96.0" text="Adresse mail :" />
+      <Label layoutX="261.0" layoutY="170.0" prefHeight="17.0" prefWidth="96.0" text="Adresse :" />
+      <Label layoutX="261.0" layoutY="210.0" prefHeight="17.0" prefWidth="96.0" text="Niveau d'étude :" />
+      <Label layoutX="261.0" layoutY="250.0" prefHeight="17.0" prefWidth="96.0" text="Certificat :" />
+      <Label layoutX="261.0" layoutY="290.0" prefHeight="17.0" prefWidth="96.0" text="Durée du stage" />
+      <Label layoutX="261.0" layoutY="450.0" prefHeight="17.0" prefWidth="96.0" text="Description :" />
+      <TextField fx:id="Champ_Nom_Soc" layoutX="417.0" layoutY="90.0" prefHeight="25.0" prefWidth="150.0" promptText="Nom société" />
+      <TextField fx:id="Champ_Adresse_Mail" layoutX="417.0" layoutY="130.0" prefHeight="25.0" prefWidth="150.0" promptText="Adresse mail" />
+      <TextField fx:id="Champ_Adresse" layoutX="417.0" layoutY="170.0" prefHeight="25.0" prefWidth="150.0" promptText="Adresse" />
+      <ComboBox fx:id="Champ_Niveau_Etude" layoutX="417.0" layoutY="210.0" prefWidth="150.0" promptText="Faites votre choix" />
+      <ComboBox fx:id="Champ_Certificat" layoutX="417.0" layoutY="250.0" prefWidth="150.0" promptText="Faites votre choix" />
+      <Button fx:id="Retour_Acceuil_Ajout" layoutX="274.0" layoutY="9.0" mnemonicParsing="false" onAction="#Retour_Ajout" text="Retour" />
+      <Button fx:id="Btn_pub_travail" layoutX="471.0" layoutY="527.0" mnemonicParsing="false" onAction="#Ajouter_stage" prefHeight="25.0" prefWidth="96.0" styleClass="button1" stylesheets="@style.css" text="Publier">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font></Button>
+      <Label layoutX="261.0" layoutY="330.0" prefHeight="17.0" prefWidth="96.0" text="Date du debut" />
+      <DatePicker fx:id="Champ_Date_debut" layoutX="417.0" layoutY="330.0" onAction="#Change_DureStage_D" prefHeight="25.0" prefWidth="150.0" promptText="Date du debut" />
+      <TextArea fx:id="Champ_Desc" layoutX="417.0" layoutY="450.0" prefHeight="56.0" prefWidth="150.0" promptText="Description" />
+      <Label layoutX="261.0" layoutY="370.0" prefHeight="17.0" prefWidth="96.0" text="Date du fin" />
+      <DatePicker fx:id="Champ_Date_fin" layoutX="417.0" layoutY="370.0" onAction="#Change_DureStage_F" prefHeight="25.0" prefWidth="150.0" promptText="Date du debut" />
+      <Label layoutX="261.0" layoutY="410.0" prefHeight="17.0" prefWidth="96.0" text="Titre" />
+      <TextField fx:id="Champ_Titre" layoutX="417.0" layoutY="410.0" prefHeight="25.0" prefWidth="150.0" promptText="Titre" />
+      <TextField fx:id="Champ_Duree_stage" layoutX="417.0" layoutY="290.0" promptText="Durée du stage" />
+      <AnchorPane layoutX="-20.0" prefHeight="579.0" prefWidth="266.0" style="-fx-background-color: #0A0232;">
+         <effect>
+            <DropShadow />
+         </effect>
+         <children>
+            <ImageView fitHeight="123.0" fitWidth="200.0" layoutX="52.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/image_offre.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
