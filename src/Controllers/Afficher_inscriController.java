@@ -1,14 +1,14 @@
 package Controllers;
 
+import com.itextpdf.text.DocumentException;
 import entity.Inscription_certificat;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
-import static javafx.collections.FXCollections.observableList;
-import static javafx.collections.FXCollections.observableList;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
@@ -19,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -54,7 +55,10 @@ public class Afficher_inscriController implements Initializable {
     private Button ajouter;
     @FXML
     private TextField txt_search;
-    
+    @FXML
+    private Button imprimer;
+     @FXML
+    private Label yarab;
     
     private void load(){
         listdata = new ListCertif();
@@ -162,6 +166,24 @@ public class Afficher_inscriController implements Initializable {
         
         
     }
+
+    @FXML
+    private void imprimer(ActionEvent event)   
+         
+    
+   {
+       Inscription_certificatDao S = new Inscription_certificatDao();
+       try {
+           S.FacturePdf();
+       } catch (SQLException ex) {
+           Logger.getLogger(Afficher_inscriController.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (DocumentException ex) {
+           Logger.getLogger(Afficher_inscriController.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (IOException ex) {
+           Logger.getLogger(Afficher_inscriController.class.getName()).log(Level.SEVERE, null, ex);
+       }
+   }
+    
 
     
     

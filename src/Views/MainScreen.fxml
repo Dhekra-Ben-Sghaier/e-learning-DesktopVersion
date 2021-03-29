@@ -2,14 +2,18 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXToolbar?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainScreenController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MainScreenController">
    <children>
-      <JFXToolbar>
+      <JFXToolbar AnchorPane.leftAnchor="210.0">
          <left>
             <FlowPane prefHeight="25.0" prefWidth="300.0" BorderPane.alignment="CENTER">
                <children>
@@ -18,6 +22,22 @@
             </FlowPane>
          </left>
       </JFXToolbar>
-      <StackPane fx:id="stackPanel" layoutY="32.0" prefHeight="368.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0" />
+      <StackPane fx:id="stackPanel" layoutY="32.0" prefHeight="368.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="32.0" />
+      <AnchorPane layoutY="-9.0" opacity="0.94" style="-fx-background-color: #0A0232;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <effect>
+            <DropShadow height="9.02" radius="5.46" spread="0.65" width="14.82">
+               <color>
+                  <Color red="0.6315789222717285" green="0.587768018245697" blue="0.5467836260795593" />
+               </color>
+            </DropShadow>
+         </effect>
+         <children>
+            <ImageView fitHeight="123.0" fitWidth="159.0" layoutX="25.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="138.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="24.491912841796875" AnchorPane.topAnchor="139.0">
+               <image>
+                  <Image url="@../images/certificat.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
 import entity.Inscription_certificat;
+import entity.Quizz;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -20,15 +16,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import service.Inscription_certificatDao;
 
-/**
- * FXML Controller class
- *
- * @author Tarek.Loussaief
- */
+
 public class Modifier_inscriController implements Initializable {
     ObservableList<String> list =FXCollections.observableArrayList("Info", "Design", "PNL");
 
-
+    //FXML
     @FXML
     private TextField nomUtilisateur;
     @FXML
@@ -41,20 +33,26 @@ public class Modifier_inscriController implements Initializable {
     private Label label;
     @FXML
     private Button btnModif;
-    
-    private Inscription_certificat p;
-    private TextField idField;
     @FXML
     private Label id_inscri;
-    /**
-     * Initializes the controller class.
-     */
+    //NON FXML
+    private Inscription_certificat p;
+    private TextField idField;
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         comb.setItems(list);
         String s = comb.getSelectionModel().getSelectedItem(); 
         //label.setText(s);
-    }    
+    }   
+    
+    public void setNomUtilisateurEtNomQuiz(Inscription_certificat f, Quizz q){
+        this.p = f;
+        id_inscri.setText(""+f.getId());
+        nomUtilisateur.setText(f.getNomUtilisateur());
+        nomField.setText(q.getNom());
+    }
 
     public void setInscriptionCertificat(Inscription_certificat f){
         this.p = f;

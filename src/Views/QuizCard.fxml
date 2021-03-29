@@ -10,8 +10,7 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="224.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.QuizCardController">
+<AnchorPane fx:id="list" prefHeight="224.0" prefWidth="337.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.QuizCardController">
    <children>
       <AnchorPane id="AnchorPane" layoutX="21.0" layoutY="18.0" prefHeight="144.0" prefWidth="260.0" style="-fx-background-color: white;">
          <children>

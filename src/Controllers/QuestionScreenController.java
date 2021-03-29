@@ -2,16 +2,25 @@ package Controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
+import constants.NewScreenListener;
 import entity.Question;
 import entity.Quizz;
+import entity.ResultatQuiz;
+import entity.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
@@ -19,9 +28,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.FlowPane;
+import javafx.stage.Stage;
+import org.controlsfx.control.Notifications;
 
 public class QuestionScreenController implements Initializable {
 
@@ -45,7 +58,7 @@ public class QuestionScreenController implements Initializable {
         }
 
     }
-
+    //FXML
     @FXML
     private Label nomQuiz;
     @FXML
@@ -71,6 +84,14 @@ public class QuestionScreenController implements Initializable {
     @FXML
     private FlowPane progressPane;
     
+   @FXML
+    private Label maissa;
+    
+    //listener
+    private NewScreenListener screenListener;
+
+    //NON FXML
+    
     private Quizz quiz;
     
     private List<Question> questionList;
@@ -80,19 +101,99 @@ public class QuestionScreenController implements Initializable {
     int indexCourant = 0;
     
     private QuestionsObservable questionsObservable;
+    
+    private Map<Question,String> utilisateurReponses = new HashMap<>();
+    
+    private Integer nombreDeBonnesReponses = 0 ;
+    
+    //Timer fields
+    
+    private long min, sec, hr,totalSec = 0 ;
+    private Timer timer;
+    private Integer eya;
+
+    
+    //Méthodes et constructeurs 
+    
+        public void setScreenListener(NewScreenListener screenListener){
+            this.screenListener=screenListener;
+        
+        
+        }
 
         public void setQuiz(Quizz quiz) {
             this.quiz = quiz;
             this.nomQuiz.setText(this.quiz.getNom());
             this.getData();
         }
+        
+        public  String format(long value){
+    
+        if(value<10){
+            return 0+""+value;
+        
+        }
+        return value +"";
+    
+        }
+    
+        public  void convertTime(){
 
+            min = TimeUnit.SECONDS.toMinutes(totalSec);
+            sec = totalSec - (min * 60);
+            hr = TimeUnit.MINUTES.toHours(min);
+            min = min -(hr * 60);
+            System.out.println(format(hr) + ":" + format(min) + ":" + format(sec) );
+            duree.setText(format(hr) + ":" + format(min) + ":" + format(sec) );
+
+            totalSec --;
+
+        }
+        
+        
+
+        private void setTimer(){
+            totalSec = this.questionList.size() * 15;
+            this.timer = new Timer();
+            TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(new Runnable(){
+                    @Override
+                        public void run() {
+
+                            System.out.println("Après une seconde");
+                            convertTime();
+                            if (totalSec<=0){
+                                timer.cancel();
+                                duree.setText("00:00:00");
+                                Notifications.create()
+                                        .title("Error")
+                                        .text("Time UP")
+                                       
+                                        .showError();
+                                
+                                
+                                
+                            }
+                        }
+                });
+            }
+        };
+        
+        timer.schedule(timerTask,0,1000 );   
+        
+        }
+       
+                              
         private void getData(){
             if(quiz != null){
                 this.questionList=  quiz.getQuestions();    
                 Collections.shuffle(this.questionList);
                 renderProgress();   
                 setquestionSuivante(); 
+                setTimer();
+                
                 
             }
         }
@@ -121,6 +222,7 @@ public class QuestionScreenController implements Initializable {
         this.hideValiderButton();
         this.questionsObservable = new QuestionsObservable();
         bindFields();
+        this.option1.setSelected(true);
         
     }    
     
@@ -133,19 +235,25 @@ public class QuestionScreenController implements Initializable {
         
     }
 
+
     @FXML
     private void questionSuivante(ActionEvent event) {
         boolean isRight = false ;
         {
-            //Verifier réponse 
+            //Verifier réponses
             JFXRadioButton SelectedButton = (JFXRadioButton)Options.getSelectedToggle();
             String utilisateurReponse = SelectedButton.getText();
             String bonneReponse = this.questionCourante.getReponse();
             
             if(utilisateurReponse.trim().equalsIgnoreCase(bonneReponse.trim())){
                 isRight= true;
+                this.nombreDeBonnesReponses++;
             }
+            
+            //Enregistrer réponses dans HashMap
+            utilisateurReponses.put(this.questionCourante, utilisateurReponse); 
         }
+        
         
         Node circleNode = this.progressPane.getChildren().get(indexCourant-1);
         ProgressCercleController controller = (ProgressCercleController) circleNode.getUserData();
@@ -157,6 +265,7 @@ public class QuestionScreenController implements Initializable {
         }
         this.setquestionSuivante();
     }
+ 
     
     private void setquestionSuivante(){
         if(!(indexCourant >= questionList.size())){
@@ -180,11 +289,6 @@ public class QuestionScreenController implements Initializable {
             this.questionCourante.setOption3(options.get(2));
             this.questionCourante.setOption4(options.get(3));
             
-//            this.Question.setText(this.questionCourante.getQuestion());
-//            this.option1.setText(options.get(0));
-//            this.option2.setText(options.get(1));
-//            this.option3.setText(options.get(2));
-//            this.option4.setText(options.get(3));
 
             this.questionsObservable.setQuestion(this.questionCourante);            
             indexCourant++;            
@@ -198,6 +302,30 @@ public class QuestionScreenController implements Initializable {
     @FXML
     private void valider(ActionEvent event) {
         
+        System.out.println(this.utilisateurReponses);
+        Utilisateur utilisateur = new Utilisateur();
+        utilisateur.setID(1);
+        
+        ResultatQuiz quizResultat = new ResultatQuiz(this.quiz, utilisateur, nombreDeBonnesReponses);
+        quizResultat.save(this.utilisateurReponses);
+        timer.cancel(); 
+        ouvrirResultatQuiz();
+       
+        
+    }
+    
+    private void ouvrirResultatQuiz(){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/Views/QuizResultat.fxml"));
+            try{
+                Node node = fxmlLoader.load();
+                QuizResultatController controller  = fxmlLoader.getController();
+                controller.setValues(this.utilisateurReponses, nombreDeBonnesReponses, quiz, questionList);
+                this.screenListener.removeTopScreen();
+                this.screenListener.ChangeScreen(node);                         
+            }
+            catch (IOException e){
+                e.printStackTrace();
+            }
     }
     
     private void showValiderButton(){

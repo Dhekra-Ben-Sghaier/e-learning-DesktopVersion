@@ -1,16 +1,32 @@
 package service;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import entity.Inscription_certificat;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.Connection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utils.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.List;
+
 
 
 public class Inscription_certificatDao implements Idao<Inscription_certificat>{
@@ -18,8 +34,10 @@ public class Inscription_certificatDao implements Idao<Inscription_certificat>{
     private static Inscription_certificatDao instance;
     private Statement st;
     private ResultSet rs;
+    Connection  myConnex;
+      
     
-    private Inscription_certificatDao() {
+    public Inscription_certificatDao() {
         DataSource cs= DataSource.getInstance();
         try {
             st=cs.getCnx().createStatement();
@@ -100,5 +118,109 @@ public class Inscription_certificatDao implements Idao<Inscription_certificat>{
         }
         return false;
     }
+    
+    public void FacturePdf() throws SQLException,FileNotFoundException,IOException, DocumentException 
+    {
+        Document doc = new Document();
+        String req="select * from inscri_certif";
+        
+        try {
+            rs=st.executeQuery(req);
+            PdfWriter.getInstance(doc, new FileOutputStream("d:/Resultat.pdf"));
+                    
+        doc.open();
+        doc.add(new Paragraph("   "));
+        doc.add(new Paragraph("  Liste de personnes inscrites à la certification  "));
+        doc.add(new Paragraph("   "));
+        PdfPTable table = new PdfPTable(5);
+        table.setWidthPercentage(100);
+        PdfPCell cell;
+        
+        cell = new PdfPCell(new Phrase("id_inscri",FontFactory.getFont("Comic Sans MS",12)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setBackgroundColor(BaseColor.GRAY);
+        table.addCell(cell);
+        
+        cell = new PdfPCell(new Phrase("Nom Utilisateur",FontFactory.getFont("Comic Sans MS",12)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setBackgroundColor(BaseColor.GRAY);
+        table.addCell(cell);
+        
+        cell = new PdfPCell(new Phrase("Nom Certificat",FontFactory.getFont("Comic Sans MS",12)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setBackgroundColor(BaseColor.GRAY);
+        table.addCell(cell);
+        
+        
+        cell = new PdfPCell(new Phrase("Description",FontFactory.getFont("Comic Sans MS",12)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setBackgroundColor(BaseColor.GRAY);
+        table.addCell(cell);
+        
+        cell = new PdfPCell(new Phrase("Domaine",FontFactory.getFont("Comic Sans MS",12)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        cell.setBackgroundColor(BaseColor.GRAY);
+        table.addCell(cell);
+        
+         while (rs.next()) {  
+             
+            int ID = rs.getInt("id_inscri");
+            String nomUtilisateur =rs.getString("nom_utilisateur");
+            String nomCertificat = rs.getString("nom_certificat");
+            String Description = rs.getString("description");
+            String Domaine = rs.getString("domaine");
+            String ID_ = Integer.toString(ID);
+               
+               cell = new PdfPCell(new Phrase(ID_,FontFactory.getFont("Comic Sans MS",12)));
+               cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+               cell.setBackgroundColor(BaseColor.GRAY);
+               table.addCell(cell);
+               
+               cell = new PdfPCell(new Phrase(nomUtilisateur,FontFactory.getFont("Comic Sans MS",12)));
+               cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+               cell.setBackgroundColor(BaseColor.GRAY);
+               table.addCell(cell);
+               
+               cell = new PdfPCell(new Phrase(nomCertificat,FontFactory.getFont("Comic Sans MS",12)));
+               cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+               cell.setBackgroundColor(BaseColor.GRAY);
+               table.addCell(cell);
+        
+        
+               cell = new PdfPCell(new Phrase(Description,FontFactory.getFont("Comic Sans MS",12)));
+               cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+               cell.setBackgroundColor(BaseColor.GRAY);
+               table.addCell(cell);
+               
+               cell = new PdfPCell(new Phrase(Domaine,FontFactory.getFont("Comic Sans MS",12)));
+               cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+               cell.setBackgroundColor(BaseColor.GRAY);
+               table.addCell(cell);
+        }
+         
+        doc.add(table);
+        doc.close();
+        Desktop.getDesktop().open(new File ("d:/Resultat.pdf"));
+
+        } 
+        
+        catch (SQLException ex) {
+            Logger.getLogger(Inscription_certificatDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+
+    }
+        
+   
+        
+        
+               
+              
+        
+           
+        
+        
+        
  
 }

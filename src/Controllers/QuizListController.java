@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
 import constants.NewScreenListener;
@@ -42,7 +37,7 @@ public class QuizListController implements Initializable {
                 QuizCardController QuizCardController = fxmlLoader.getController();
                 QuizCardController.setQuiz(quiz);
 
-                //QuizCardController.setNom(quiz.getNom());
+                QuizCardController.setNomQuiz(quiz.getNom());
                 QuizCardController.setNbq(quizzes.get(quiz) + "");
                 QuizCardController.setScreenListener(this.screenListener);
                 quizListContainer.getChildren().add(node);              
@@ -57,6 +52,7 @@ public class QuizListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
         
+   
         quizzes= QuizzDao.getInstance().compterNombreQuestions();
         keys = quizzes.keySet();
     }

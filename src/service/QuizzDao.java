@@ -170,45 +170,32 @@ public class QuizzDao implements Idao<Quizz> {
         }
     return quizes;
     }
-    
-    //get questions Using quiz
-//    public List<Question> getQuestions(){
-//            List<Question> quizes = new ArrayList<>();
-//
-//            String  req = "select id, question, option1, option2, option3, option4, reponse FROM questionn WHERE idQuiz ";
-//            System.out.println(req);
-//            
-//        try {
-//            rs=st.executeQuery(req);
-//            System.out.println(rs);
-//            while(rs.next()){
-//
-//                Quizz temp = new Quizz();
-//                temp.setQuizID(rs.getInt(1));
-//                Question tempQuestion = new Question();
-//                
-//                tempQuestion.setQuestionId(rs.getInt(1));
-//                tempQuestion.setQuestion(rs.getString(2));
-//                tempQuestion.setOption1(rs.getString(3));
-//                tempQuestion.setOption2(rs.getString(4));
-//                tempQuestion.setOption3(rs.getString(5));
-//                tempQuestion.setOption4(rs.getString(6));
-//                tempQuestion.setReponse(rs.getString(7));
-//                tempQuestion.setQuiz(temp.getQuizID());
-//                quizes.add(tempQuestion);
-//
-//                }
-//        } catch (SQLException ex) {
-//            Logger.getLogger(QuizzDao.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//
-//                
-//        return quizes;  
-//
-//        }
-    
+    public Map <Quizz,String>  retoutnerNom(){
+        Map <Quizz,String> quizes = new HashMap<>();
+        Quizz key = null;   
+        String nomq = null;
 
+        
+        String req="select nom FROM quizz INNER JOIN questionn ON quizz.quizID = questionn.idQuiz ";
+    System.out.println(req);
+    try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                Quizz temp = new Quizz();
+                temp.setNom(rs.getString(1));
+                quizes.put(temp, nomq);  
+                
+
+
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(QuizzDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     
-    
+    return quizes;
+    }
+
+   
     
 }

@@ -60,6 +60,7 @@ public class Quizz {
         return Objects.hash(quizID,nom);
     }
     
+    //get questions Using quiz
     public List<Question> getQuestions(){
         List<Question> quizes = new ArrayList<>();
 

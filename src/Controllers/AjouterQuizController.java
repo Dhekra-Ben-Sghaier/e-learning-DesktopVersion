@@ -5,18 +5,11 @@ import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTreeView;
-import static com.sun.javafx.fxml.expression.Expression.set;
-import static com.sun.scenario.Settings.set;
 import entity.Question;
 import entity.Quizz;
-import static java.lang.reflect.Array.set;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
-import java.util.Set;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -25,9 +18,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.TreeItem;
 import javafx.util.Duration;
-import static javax.management.Query.value;
 import org.controlsfx.control.Notifications;
 import service.QuestionDao;
 import service.QuizzDao;
@@ -82,38 +73,35 @@ public class AjouterQuizController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         radioButtonSetup();  
-        renderTreeView();
-       
-        
-        
+//        renderTreeView();
     }    
     
-    private void renderTreeView(){
-       
-        
-        Map<Quizz, List<Question>> data=  QuizzDao.getInstance().getAll();
-        Set <Quizz> quizzes = data.keySet();
-        TreeItem root = new TreeItem ("Quizzes");
-        
-        for (Quizz q : quizzes )  {
-            TreeItem quizTreeItem = new TreeItem (q);            
-                List<Question> questions = data.get(q);
-                for (Question p : questions){
-                    TreeItem questionTreeItem = new TreeItem(p);
-                    questionTreeItem.getChildren().add(new TreeItem("A :" + p.getOption1()));
-                    questionTreeItem.getChildren().add(new TreeItem("B :" + p.getOption2()));
-                    questionTreeItem.getChildren().add(new TreeItem("C :" + p.getOption3()));
-                    questionTreeItem.getChildren().add(new TreeItem("D :" + p.getOption4()));
-                    questionTreeItem.getChildren().add(new TreeItem("Réponse :" +p.getReponse()));
-                    
-                    quizTreeItem.getChildren().add(questionTreeItem);
-                }
-            quizTreeItem.setExpanded(true);
-            root.getChildren().add(quizTreeItem);
-        } 
-        root.setExpanded(true);
-        this.treeView1.setRoot(root);   
-    }
+//    private void renderTreeView(){
+//       
+//        
+//        Map<Quizz, List<Question>> data=  QuizzDao.getInstance().getAll();
+//        Set <Quizz> quizzes = data.keySet();
+//        TreeItem root = new TreeItem ("Quizzes");
+//        
+//        for (Quizz q : quizzes )  {
+//            TreeItem quizTreeItem = new TreeItem (q);            
+//                List<Question> questions = data.get(q);
+//                for (Question p : questions){
+//                    TreeItem questionTreeItem = new TreeItem(p);
+//                    questionTreeItem.getChildren().add(new TreeItem("A :" + p.getOption1()));
+//                    questionTreeItem.getChildren().add(new TreeItem("B :" + p.getOption2()));
+//                    questionTreeItem.getChildren().add(new TreeItem("C :" + p.getOption3()));
+//                    questionTreeItem.getChildren().add(new TreeItem("D :" + p.getOption4()));
+//                    questionTreeItem.getChildren().add(new TreeItem("Réponse :" +p.getReponse()));
+//                    
+//                    quizTreeItem.getChildren().add(questionTreeItem);
+//                }
+//            quizTreeItem.setExpanded(true);
+//            root.getChildren().add(quizTreeItem);
+//        } 
+//        root.setExpanded(true);
+//        this.treeView1.setRoot(root);   
+//    }
 
 
     private void radioButtonSetup() {
@@ -295,7 +283,6 @@ public class AjouterQuizController implements Initializable {
             //reponse.setText("");
             
             System.out.println("Quiz Ajouté!!");
-        });
-//         
+        });        
     } 
 }

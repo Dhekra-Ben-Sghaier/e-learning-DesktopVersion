@@ -28,19 +28,19 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <TableView fx:id="tabInscriCertif" layoutX="270.0" layoutY="91.0" prefHeight="242.0" prefWidth="419.0">
+      <TableView fx:id="tabInscriCertif" layoutX="250.0" layoutY="91.0" prefHeight="242.0" prefWidth="439.0">
         <columns>
           <TableColumn fx:id="id_inscri" prefWidth="58.0" text="id_inscri" />
           <TableColumn fx:id="nom_utilisateur" prefWidth="101.0" text="nom_utilisateur" />
             <TableColumn fx:id="nom_certificat" prefWidth="97.0" text="nom_certificat" />
-            <TableColumn fx:id="description" prefWidth="82.0" text="description" />
-            <TableColumn fx:id="domaine" minWidth="4.0" prefWidth="79.0" text="domaine" />
+            <TableColumn fx:id="description" prefWidth="93.0" text="description" />
+            <TableColumn fx:id="domaine" minWidth="4.0" prefWidth="89.0" text="domaine" />
         </columns>
       </TableView>
-      <Button fx:id="actualiser" layoutX="495.0" layoutY="355.0" mnemonicParsing="false" onAction="#actualiser" prefHeight="25.0" prefWidth="72.0" text="Actualiser" />
-      <Button fx:id="modifer" layoutX="379.0" layoutY="355.0" mnemonicParsing="false" onAction="#modifer" prefHeight="25.0" prefWidth="72.0" text="Modifer" />
-      <Button fx:id="supprimer" layoutX="617.0" layoutY="355.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
-      <Button fx:id="ajouter" alignment="CENTER" layoutX="270.0" layoutY="355.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="25.0" prefWidth="72.0" text="Ajouter" textAlignment="CENTER" />
+      <Button fx:id="actualiser" layoutX="419.0" layoutY="355.0" mnemonicParsing="false" onAction="#actualiser" prefHeight="25.0" prefWidth="72.0" text="Actualiser" />
+      <Button fx:id="modifer" layoutX="332.0" layoutY="355.0" mnemonicParsing="false" onAction="#modifer" prefHeight="25.0" prefWidth="72.0" text="Modifer" />
+      <Button fx:id="supprimer" layoutX="504.0" layoutY="355.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
+      <Button fx:id="ajouter" alignment="CENTER" layoutX="250.0" layoutY="355.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="25.0" prefWidth="72.0" text="Ajouter" textAlignment="CENTER" />
       <ImageView fitHeight="54.0" fitWidth="57.0" layoutX="217.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../build/classes/images/admin-settings-male.png" />
@@ -52,5 +52,6 @@
             <Image url="@../../../../../Desktop/BrainNovation-GestUser/src/images/recherche.png" />
          </image>
       </ImageView>
+      <Button fx:id="imprimer" layoutX="582.0" layoutY="355.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="25.0" prefWidth="107.0" styleClass="Button2" stylesheets="@../../../../../Desktop/jardin/src/resource/Style.css" text="Imprimer la liste" />
    </children>
 </AnchorPane>
