@@ -5,8 +5,8 @@
  */
 package controller;
 
-import dao.PubDao;
-import dao.fct;
+import service.PubDao;
+import service.fct;
 import entity.Pub;
 import java.io.IOException;
 import java.io.InputStream;

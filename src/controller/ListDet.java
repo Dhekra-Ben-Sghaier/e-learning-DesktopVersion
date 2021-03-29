@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package controller;
-import dao.PubDao;
+import service.PubDao;
 import entity.Pub;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

@@ -5,9 +5,9 @@
  */
 package controller;
 
-import dao.fct;
-import dao.ControleSaisie;
-import dao.PubDao;
+import service.fct;
+import service.ControleSaisie;
+import service.PubDao;
 import entity.Pub;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;

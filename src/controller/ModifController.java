@@ -5,7 +5,7 @@
  */
 package controller;
 
-import dao.PubDao;
+import service.PubDao;
 import entity.Pub;
 import java.net.URL;
 import java.util.ResourceBundle;
