@@ -9,18 +9,18 @@
    <children>
       <Button fx:id="retour" layoutX="126.0" layoutY="184.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="73.0" styleClass="button1" stylesheets="@style.css" text="retour" />
       <Button fx:id="contrat" layoutX="384.0" layoutY="184.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" styleClass="button1" stylesheets="@style.css" text="Contrat" />
-      <Button fx:id="valider" layoutX="264.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #;" text="Valider" />
+      <Button fx:id="valider" layoutX="264.0" layoutY="234.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" style="-fx-background-color: #;" styleClass="button1" stylesheets="@style.css" text="Valider" />
       <Label layoutX="100.0" layoutY="73.0" prefHeight="17.0" prefWidth="92.0" text="Prix est :">
          <font>
             <Font name="Arial Bold" size="16.0" />
          </font>
       </Label>
       <Label fx:id="prx" layoutX="271.0" layoutY="73.0" prefHeight="17.0" prefWidth="113.0" style="-fx-background-color: white;" />
-      <Label fx:id="first" layoutX="36.0" layoutY="268.0" prefHeight="17.0" prefWidth="51.0" text="Label" />
-      <Label fx:id="second" layoutX="112.0" layoutY="268.0" text="Label" />
-      <Label fx:id="three" layoutX="178.0" layoutY="268.0" text="Label" />
-      <Label fx:id="four" layoutX="250.0" layoutY="268.0" text="Label" />
-      <Label fx:id="five" layoutX="314.0" layoutY="268.0" text="Label" />
-      <Label fx:id="six" layoutX="402.0" layoutY="268.0" text="Label" />
+      <Label fx:id="first" layoutX="36.0" layoutY="268.0" prefHeight="17.0" prefWidth="51.0" text="Label" textFill="WHITE" />
+      <Label fx:id="second" layoutX="112.0" layoutY="268.0" text="Label" textFill="WHITE" />
+      <Label fx:id="three" layoutX="178.0" layoutY="268.0" text="Label" textFill="WHITE" />
+      <Label fx:id="four" layoutX="250.0" layoutY="268.0" text="Label" textFill="WHITE" />
+      <Label fx:id="five" layoutX="314.0" layoutY="268.0" text="Label" textFill="WHITE" />
+      <Label fx:id="six" layoutX="402.0" layoutY="268.0" text="Label" textFill="WHITE" />
    </children>
 </AnchorPane>

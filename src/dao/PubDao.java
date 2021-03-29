@@ -76,22 +76,51 @@ public class PubDao implements Idao<Pub>{
         }
         return list; //To change body of generated methods, choose Tools | Templates.
     }
-    public List<Pub> displayAllList() {
-        String req="select * from publicité";
-        List<Pub> list=new ArrayList<>();
+    
+    /**
+     *
+     * @return
+     */
+//    @Override
+//    public List<Pub> displayAll() {
+//      String req="select * from publicité";
+//        ObservableList<Pub> list=FXCollections.observableArrayList();       
+//        
+//        try {
+//            rs=st.executeQuery(req);
+//            while(rs.next()){
+//              Pub p=new Pub();
+//                p.setId(rs.getInt(1));
+//               p.setNom(rs.getString(2));
+//                p.setPrenom(rs.getString(3));
+//                p.setEmail(rs.getString(4));
+//                p.setDomaine(rs.getString(5));
+//                p.setAffichage(rs.getString(6));
+//                 p.setPrix(rs.getInt(8));
+//                
+//
+//                
+//                list.add(p);
+//            }
+            
+//        } catch (SQLException ex) {
+//            Logger.getLogger(PubDao.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return list; //To change body of generated methods, choose Tools | Templates.
+//    }
+    
+    public ArrayList displayPrixList() {
+        String req="select DISTINCT Prix from publicité ORDER by Prix ASC";
+        ArrayList list=new ArrayList();
         
         try {
            rs=st.executeQuery(req);
             while(rs.next()){
                 Pub p=new Pub();
-           p.setId(rs.getInt(1));
-                p.setNom(rs.getString(2));
-                p.setPrenom(rs.getString(3));
-                p.setEmail(rs.getString(4));
-                p.setDomaine(rs.getString(5));
-                p.setAffichage(rs.getString(6));
-                p.setPrix(rs.getInt(8));
-                list.add(p);
+           
+                p.setPrix(rs.getInt("Prix"));
+                
+                list.add(p.getPrix());
             }
             
         } catch (SQLException ex) {

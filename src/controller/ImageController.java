@@ -38,8 +38,12 @@ private String loadst="select image from publicité where id =(?)";
     private ImageView imageview;
     @FXML
     private Button load;
+    @FXML
+    private ImageView exit;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        exit.setOnMouseClicked(event -> {
+        System.exit(0);});
         try {
         
             Connection conn=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");

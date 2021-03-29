@@ -62,7 +62,7 @@ ObservableList<String> Affichage =FXCollections.observableArrayList("1000","2000
         cb_occ.setValue(f.getAffichage());
         prix_p.setText(""+f.getPrix());
     }
-   /*
+   
    @FXML
     private void Modifier(ActionEvent event) {
             Pub f = new Pub (Integer.parseInt(id_p.getText()),nom_p.getText(), prenom_p.getText(), email_p.getText() , domaine_p.getText() , cb_occ.getValue() );
@@ -79,9 +79,7 @@ ObservableList<String> Affichage =FXCollections.observableArrayList("1000","2000
             domaine_p.setText("");
             
 }
-*/
 
-    @FXML
-    private void Modifier(ActionEvent event) {
-    }
+
+   
 }

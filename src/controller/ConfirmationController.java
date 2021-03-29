@@ -106,7 +106,7 @@ public class ConfirmationController implements Initializable {
             e.printStackTrace();
             
         } 
-          String tilte ="sign in";
+          String tilte ="Confirmation d'ajout";
           String message =first.getText();
           TrayNotification tray = new TrayNotification();
           AnimationType type = AnimationType.POPUP;

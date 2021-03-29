@@ -11,6 +11,11 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import javafx.collections.transformation.SortedList;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,6 +26,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
@@ -73,7 +79,7 @@ public class ConsulterController implements Initializable {
     @FXML
     private TableColumn<Pub, Integer> prixp;
     @FXML
-    private PieChart piechart1;
+//    private PieChart piechart1;
    private void load(){
         listdata = new ListDet();
         idp.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -93,6 +99,31 @@ public class ConsulterController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+//        ObservableList<PieChart.Data>data=FXCollections.observableArrayList();
+//        Connection conn;
+//        try {
+//                
+//               
+//                conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
+//               String req=" select * from publicité GROUP BY Affichage";
+//               Statement st = conn.createStatement();
+//               ResultSet rs =st.executeQuery(req);
+//               while(rs.next()) {
+//                   String d=(rs.getString(6));
+//                   System.out.println("d "+d);
+//                   System.out.println("rs:  "+rs.toString());
+//                   System.out.println("getInt : "+rs.getInt(8));
+//                   
+//                data.add(new PieChart.Data(d,rs.getInt(8)));
+//               
+//                
+//               }
+//        } catch (SQLException ex) {
+//         Logger.getLogger(ConsulterController.class.getName()).log(Level.SEVERE, null, ex);
+//     }
+//        piechart1.setTitle("Statistique des annonceurs");
+//        piechart1.setLegendSide(Side.LEFT);
+//        piechart1.setData(data);
          load();
         // TODO
         //aff liste pub
@@ -136,7 +167,7 @@ public class ConsulterController implements Initializable {
          FilteredList<Pub> filtereddata= new FilteredList<>(PubList, b->true);
          txt_search.textProperty().addListener((observable, oldValue, newValue) -> { 
             txt_search.textProperty().addListener((observables, oldVal, newVal) -> {
-               filtereddata.setPredicate(publ -> {
+               filtereddata.setPredicate((Pub publ) -> {
                    if (newVal == null || newVal.isEmpty()){
                    return true; }
                    String lowerCaseFilter = newValue.toLowerCase();
@@ -148,7 +179,16 @@ public class ConsulterController implements Initializable {
 					return true; // Filter matches nom.
 		}  else if (publ.getDomaine().toLowerCase().indexOf(lowerCaseFilter) != -1) {
 					return true; // Filter matches nom.
-		}  else  
+                
+                                        
+		} else if ((""+publ.getPrix()).contains(lowerCaseFilter)) {
+                    
+					return true; // Filter matches nom.
+                
+                                        } 
+                    
+                  
+                else  
 				    	 return false;
                
                });

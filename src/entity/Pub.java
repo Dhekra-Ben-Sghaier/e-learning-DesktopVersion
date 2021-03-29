@@ -39,10 +39,16 @@ public class Pub {
         this.domaine = new SimpleStringProperty(domaine);
         this.Affichage = new SimpleStringProperty(Affichage);
     }
-
-    public Pub(String text, String text0, String text1, String text2, String text3, String text4) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+ public Pub (int id,String nom,String prenom,String email, String domaine, String Affichage) {
+             this.id = new SimpleIntegerProperty(id);
+        this.nom = new SimpleStringProperty(nom);
+        this.prenom = new SimpleStringProperty(prenom);
+        this.email = new SimpleStringProperty(email);
+        this.domaine = new SimpleStringProperty(domaine);
+        this.Affichage = new SimpleStringProperty(Affichage);
     }
+
+   
     public int getId() {
         return id.get();
     }
