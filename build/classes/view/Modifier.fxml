@@ -7,30 +7,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="controller.ModifierController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ModifierController">
    <children>
-      <Label alignment="CENTER" layoutX="177.0" layoutY="14.0" prefHeight="25.0" prefWidth="240.0" style="-fx-background-color: #3F93C6;" text="Modifier reclamation" textFill="#0f005b">
+      <Label alignment="CENTER" prefHeight="59.0" prefWidth="600.0" style="-fx-background-color: #0A0232;" text="Modifier reclamation" textFill="#f5f5f8">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="30.0" layoutY="84.0" text="Examen" textFill="#150343">
+      <Label layoutX="30.0" layoutY="84.0" text="Examen">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="30.0" layoutY="138.0" text="Date" textFill="#150343">
+      <Label layoutX="30.0" layoutY="138.0" text="Date">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="30.0" layoutY="192.0" text="Nom formateur" textFill="#150343">
+      <Label layoutX="30.0" layoutY="192.0" text="Nom formateur">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Label layoutX="30.0" layoutY="246.0" text="Description" textFill="#150343">
+      <Label layoutX="30.0" layoutY="246.0" text="Description">
          <font>
             <Font size="14.0" />
          </font>
@@ -39,7 +38,7 @@
       <TextField fx:id="moddat" layoutX="223.0" layoutY="134.0" />
       <TextField fx:id="modfor" layoutX="223.0" layoutY="184.0" />
       <TextArea fx:id="moddes" layoutX="223.0" layoutY="234.0" prefHeight="114.0" prefWidth="214.0" />
-      <Button fx:id="valider" layoutX="528.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: #3F93C6;" text="Valider" textFill="#0f005b">
+      <Button fx:id="valider" layoutX="528.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #EE7F03;" text="Valider" textFill="#f5f5f8">
          <font>
             <Font size="14.0" />
          </font>

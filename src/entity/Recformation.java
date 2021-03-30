@@ -14,19 +14,30 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Recformation {
     private SimpleIntegerProperty id_formation;
+    private SimpleStringProperty adressemail;
     private SimpleStringProperty formation;
     private SimpleStringProperty  nom_formateur;
     private SimpleStringProperty description;
 
-    public Recformation(int id_formation, String formation, String nom_formateur, String description) {
+    public Recformation(int id_formation,String adressemail, String formation, String nom_formateur, String description) {
         this.id_formation = new SimpleIntegerProperty(id_formation);
+        this.adressemail = new SimpleStringProperty(adressemail);
         this.formation = new SimpleStringProperty(formation);
         this.nom_formateur =  new SimpleStringProperty(nom_formateur);
         this.description = new SimpleStringProperty(description);
      
     }
-    public Recformation(String formation, String nom_formateur, String description) {
-       
+     public Recformation(int id_formation, String formation, String nom_formateur, String description) {
+        this.id_formation = new SimpleIntegerProperty(id_formation);
+        
+        this.formation = new SimpleStringProperty(formation);
+        this.nom_formateur =  new SimpleStringProperty(nom_formateur);
+        this.description = new SimpleStringProperty(description);
+     
+    }
+    public Recformation(String adressemail,String formation, String nom_formateur, String description) {
+        
+       this.adressemail=new SimpleStringProperty(adressemail);
    
         this.formation =  new SimpleStringProperty(formation);
         this.nom_formateur = new SimpleStringProperty(nom_formateur);
@@ -41,7 +52,7 @@ public class Recformation {
 
     public Recformation() {
     }
-
+ 
     public int getId_formation() {
         return id_formation.get();
     }
@@ -49,13 +60,18 @@ public class Recformation {
     public void setId_formation(int id_formation) {
         this.id_formation =new SimpleIntegerProperty(id_formation);
     }
-
+    public String getAdressemail() {
+        return adressemail.get();
+    }
     public String getFormation() {
         return formation.get();
     }
     public SimpleIntegerProperty getId_formationProperty()
     {
         return id_formation;
+    }
+    public SimpleStringProperty getAdressemailProperty(){
+        return adressemail;
     }
            
     public SimpleStringProperty getFormationProperty(){
@@ -70,7 +86,10 @@ public class Recformation {
        
    
     
-
+    public void setAdressemail(String adressemail) {
+        this.adressemail = new SimpleStringProperty(adressemail);
+    }
+    
     public void setFormation(String formation) {
         this.formation = new SimpleStringProperty(formation);
     }
@@ -94,7 +113,7 @@ public class Recformation {
     
     @Override
      public String toString() {
-        return "Recformation{" + "id_formation=" + id_formation.get() + ", formation=" + formation.get() + ", nom_formateur=" + nom_formateur.get() + ", description=" + description.get() +'}';
+        return "Recformation{" + ", formation=" + formation.get() + ", nom_formateur=" + nom_formateur.get() + ", description=" + description.get() +'}';
     }
     
 }

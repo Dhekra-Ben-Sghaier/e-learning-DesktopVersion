@@ -10,30 +10,36 @@
 
 <AnchorPane id="AnchorPane" prefHeight="366.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RecnoteController">
    <children>
-      <Label layoutX="46.0" layoutY="32.0" text="Examen" textFill="#35086f">
+      <Label layoutX="46.0" layoutY="71.0" text="Examen">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="46.0" layoutY="131.0" text="Nom formateur" textFill="#35086f">
+      <Label layoutX="47.0" layoutY="154.0" text="Nom formateur">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="46.0" layoutY="196.0" text="Description" textFill="#35086f">
+      <Label layoutX="46.0" layoutY="196.0" text="Description">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="nomformateur" layoutX="233.0" layoutY="129.0" prefHeight="25.0" prefWidth="174.0" />
-      <TextArea fx:id="description" layoutX="133.0" layoutY="184.0" prefHeight="129.0" prefWidth="362.0" />
-      <Label layoutX="46.0" layoutY="80.0" text="Date" textFill="#35086f">
+      <TextField fx:id="nomformateur" layoutX="236.0" layoutY="152.0" prefHeight="25.0" prefWidth="174.0" />
+      <TextArea fx:id="description" layoutX="236.0" layoutY="206.0" prefHeight="107.0" prefWidth="233.0" />
+      <Label layoutX="47.0" layoutY="109.0" text="Date">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="Examen" layoutX="233.0" layoutY="30.0" prefHeight="25.0" prefWidth="174.0" />
-      <Button fx:id="envoyer" layoutX="528.0" layoutY="320.0" mnemonicParsing="false" text="Envoyer" />
-      <DatePicker fx:id="champ_date" layoutX="233.0" layoutY="78.0" promptText="date" />
+      <TextField fx:id="Examen" layoutX="236.0" layoutY="69.0" prefHeight="25.0" prefWidth="174.0" />
+      <Button fx:id="envoyer" layoutX="528.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: #EE7F03;" text="Envoyer" textFill="#fff6f6" />
+      <DatePicker fx:id="champ_date" layoutX="236.0" layoutY="107.0" promptText="date" />
+      <Label layoutX="47.0" layoutY="32.0" text="Adresse mail">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="mailnote" layoutX="236.0" layoutY="30.0" prefHeight="25.0" prefWidth="174.0" />
    </children>
 </AnchorPane>

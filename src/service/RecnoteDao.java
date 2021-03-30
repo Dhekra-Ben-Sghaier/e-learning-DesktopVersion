@@ -44,7 +44,7 @@ import utils.connexion;
 
     @Override
     public void insert(Recnote o) {
-        String req="insert into reclamation (examen,date,nom_formateur,description) values ('"+o.getExamen()+"','"+o.getDate()+"','"+o.getNom_formateur()+"','"+o.getDescription()+"')";
+        String req="insert into reclamation (adressem,examen,date,nom_formateur,description) values ('"+o.getAdressem()+"','"+o.getExamen()+"','"+o.getDate()+"','"+o.getNom_formateur()+"','"+o.getDescription()+"')";
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
@@ -75,11 +75,12 @@ import utils.connexion;
             rs=st.executeQuery(req);
             while(rs.next()){
                 Recnote p=new Recnote();
-                p.setId_reclamation(rs.getInt(1));
-                p.setExamen(rs.getString(2));
-                p.setDate(rs.getString(3));
-                p.setNom_formateur(rs.getString(4));
-                p.setDescription(rs.getString(5));
+                p.setId_reclamation(rs.getInt("id_reclamation"));
+                p.setAdressem(rs.getString("adressem"));
+                p.setExamen(rs.getString("examen"));
+                p.setDate(rs.getString("date"));
+                p.setNom_formateur(rs.getString("nom_formateur"));
+                p.setDescription(rs.getString("description"));
 
                 
                 list.add(p);
@@ -98,11 +99,12 @@ import utils.connexion;
             rs=st.executeQuery(req);
             while(rs.next()){
               Recnote p=new Recnote();
-            p.setId_reclamation(rs.getInt(1));
-                p.setExamen(rs.getString(2));
-                p.setDate(rs.getString(3));
-                p.setNom_formateur(rs.getString(4));
-                p.setDescription(rs.getString(5));
+            p.setId_reclamation(rs.getInt("id_reclamation"));
+            p.setAdressem(rs.getString("adressem"));
+                p.setExamen(rs.getString("examen"));
+                p.setDate(rs.getString("date"));
+                p.setNom_formateur(rs.getString("nom_formateur"));
+                p.setDescription(rs.getString("description"));
              
                 list.add(p);
             }
@@ -122,11 +124,12 @@ import utils.connexion;
             rs=st.executeQuery(req);
            // while(rs.next()){
             rs.next();
-                p.setId_reclamation(rs.getInt(1));
-                 p.setExamen(rs.getString(2));
-                p.setDate(rs.getString(3));
-                p.setNom_formateur(rs.getString(4));
-                p.setDescription(rs.getString(5));
+                p.setId_reclamation(rs.getInt("id_reclamation"));
+                p.setAdressem(rs.getString("adressem"));
+                 p.setExamen(rs.getString("examen"));
+                p.setDate(rs.getString("date"));
+                p.setNom_formateur(rs.getString("nom_formateur"));
+                p.setDescription(rs.getString("description"));
                
                
                 //}  
@@ -139,7 +142,7 @@ import utils.connexion;
     @Override
     public boolean update(Recnote os) {
         
-        String qry = "UPDATE reclamation SET examen = '"+os.getExamen()+"', date = '"+os.getDate()+"', nom_formateur = '"+os.getNom_formateur()+"', description = '"+os.getDescription()+"' WHERE id_reclamation = "+os.getId_reclamation();;
+        String qry = "UPDATE reclamation SET adressem = '"+os.getAdressem()+"'examen = '"+os.getExamen()+"', date = '"+os.getDate()+"', nom_formateur = '"+os.getNom_formateur()+"', description = '"+os.getDescription()+"' WHERE id_reclamation = "+os.getId_reclamation();;
          
         try {
             if (st.executeUpdate(qry) > 0) {

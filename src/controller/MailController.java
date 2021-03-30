@@ -51,7 +51,7 @@ public class MailController implements Initializable {
         // TODO
          send.setOnAction(event -> {
             
-            Mail.sendEmail(emailToField.getText(),emailFromField.getText(),emailPasswordField.getText(),emailSubjectField.getText(),emailMessageField.getText());
+            Mail.sendEmail(emailFromField.getText(),emailPasswordField.getText(),emailSubjectField.getText(),emailMessageField.getText());
             
         });
     }    

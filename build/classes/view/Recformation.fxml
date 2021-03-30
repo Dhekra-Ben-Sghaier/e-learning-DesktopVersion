@@ -5,16 +5,31 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="controller.RecformationController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RecformationController">
    <children>
-      <Label layoutX="46.0" layoutY="71.0" text="Formation" />
-      <Label layoutX="46.0" layoutY="128.0" text="Nom formateur" />
-      <Label layoutX="46.0" layoutY="185.0" text="Description" />
-      <TextField fx:id="idfr" layoutX="226.0" layoutY="67.0" />
-      <TextField fx:id="idfor" layoutX="226.0" layoutY="124.0" />
-      <TextArea fx:id="iddes" layoutX="226.0" layoutY="181.0" prefHeight="164.0" prefWidth="181.0" />
-      <Button fx:id="idenv" layoutX="508.0" layoutY="353.0" mnemonicParsing="false" text="Envoyer" />
+      <Label layoutX="46.0" layoutY="83.0" text="Formation">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="46.0" layoutY="134.0" text="Nom formateur">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <Label layoutX="46.0" layoutY="182.0" text="Description">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="idfr" layoutX="226.0" layoutY="81.0" />
+      <TextField fx:id="idfor" layoutX="226.0" layoutY="132.0" />
+      <TextArea fx:id="iddes" layoutX="226.0" layoutY="192.0" prefHeight="141.0" prefWidth="240.0" />
+      <Button fx:id="idenv" layoutX="528.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: #EE7F03;" text="Envoyer" textFill="#fff6f6" />
+      <Label layoutX="46.0" layoutY="31.0" text="Adresse mail">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="mailfor" layoutX="226.0" layoutY="29.0" />
    </children>
 </AnchorPane>

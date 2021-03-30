@@ -14,6 +14,7 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Recnote {
     private SimpleIntegerProperty id_reclamation;
+    private SimpleStringProperty adressem;
     private SimpleStringProperty examen;
     private SimpleStringProperty  date;
     private SimpleStringProperty nom_formateur;
@@ -21,18 +22,24 @@ public class Recnote {
 
     public Recnote(int id_reclamation, String examen, String date, String nom_formateur, String description) {
         this.id_reclamation = new SimpleIntegerProperty(id_reclamation);
+        
+        this.examen = new SimpleStringProperty(examen);
+        this.date =  new SimpleStringProperty(date);
+        this.nom_formateur = new SimpleStringProperty( nom_formateur);
+        this.description =  new SimpleStringProperty(description);
+    }
+    public Recnote(String adressem, String examen, String date, String nom_formateur, String description) {
+       this.adressem = new SimpleStringProperty(adressem);
         this.examen = new SimpleStringProperty(examen);
         this.date =  new SimpleStringProperty(date);
         this.nom_formateur = new SimpleStringProperty( nom_formateur);
         this.description =  new SimpleStringProperty(description);
     }
     public Recnote( String examen, String date, String nom_formateur, String description) {
-       
         this.examen = new SimpleStringProperty(examen);
         this.date =  new SimpleStringProperty(date);
         this.nom_formateur = new SimpleStringProperty( nom_formateur);
-        this.description =  new SimpleStringProperty(description);
-    }
+        this.description =  new SimpleStringProperty(description);}
 
     
     
@@ -50,6 +57,9 @@ public class Recnote {
     public void setId_reclamation(int id_reclamation) {
         this.id_reclamation =new SimpleIntegerProperty(id_reclamation);
     }
+    public String getAdressem() {
+        return examen.get();
+    }
 
     public String getExamen() {
         return examen.get();
@@ -57,6 +67,9 @@ public class Recnote {
     public SimpleIntegerProperty getId_reclamationProperty()
     {
         return id_reclamation;
+    }
+    public SimpleStringProperty getAdressemProperty(){
+        return examen;
     }
            
     public SimpleStringProperty getExamProperty(){
@@ -73,6 +86,9 @@ public class Recnote {
     }
    
     
+    public void setAdressem(String adressem) {
+        this.adressem = new SimpleStringProperty(adressem);
+    }
 
     public void setExamen(String examen) {
         this.examen = new SimpleStringProperty(examen);

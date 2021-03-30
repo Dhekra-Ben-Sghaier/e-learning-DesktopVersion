@@ -25,8 +25,8 @@ public class Mail {
     public Mail() {
     }
     
-     public static void sendEmail(String rec ,String em ,String mdp , String subj ,String desc){
-      String to = rec;
+     public static void sendEmail(String em ,String mdp , String subj ,String desc){
+      String to ="brainovation21@gmail.com";
         String from=em;
         String host = "smtp.gmail.com";
        String username = em;

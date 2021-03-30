@@ -5,6 +5,7 @@
  */
 package controller;
 
+import entity.Recformation;
 import service.RecnoteDao;
 import entity.Recnote;
 import java.io.IOException;
@@ -31,6 +32,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import service.RecformationDao;
 
 /**
  * FXML Controller class
@@ -54,6 +56,10 @@ public class ConsulterController implements Initializable {
     
     ObservableList<Recnote> oblist = FXCollections.observableArrayList();
      private ListData listdata = new ListData();
+     
+     ObservableList<Recformation> olist = FXCollections.observableArrayList();
+     private ListRec listrec = new ListRec();
+     
     @FXML
     private Button modif;
     @FXML
@@ -61,19 +67,21 @@ public class ConsulterController implements Initializable {
     @FXML
     private TextField recherche;
     @FXML
-    private TableView<?> tabfr;
+    private TableView<Recformation> tabfr;
     @FXML
-    private TableColumn<?, ?> colfor;
+    private TableColumn<Recformation,String> colfor;
     @FXML
-    private TableColumn<?, ?> colnom;
+    private TableColumn<Recformation,String> colnom;
     @FXML
-    private TableColumn<?, ?> cold;
+    private TableColumn<Recformation,String> cold;
     @FXML
     private TextField cherche;
     @FXML
     private Button modifier;
     @FXML
     private Button suppr;
+    @FXML
+    private TableColumn<Recformation, Integer> idfor;
 
     /**
      * Initializes the controller class.
@@ -81,6 +89,16 @@ public class ConsulterController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        tabfr.setItems(listrec.gettables());
+        idfor.setCellValueFactory(cell -> cell.
+                getValue().getId_formationProperty().asObject());
+        colfor.setCellValueFactory(cell -> cell.
+                getValue().getFormationProperty());
+        colnom.setCellValueFactory(cell -> cell.
+                getValue().getNomformateurProperty());
+        cold.setCellValueFactory(cell -> cell.
+                getValue().getDescriptionProperty());
+        
      
        table.setItems(listdata.gettables());
         col_ex.setCellValueFactory(cell -> cell.
@@ -100,6 +118,22 @@ public class ConsulterController implements Initializable {
           RecnoteDao fo =RecnoteDao.getInstance().getInstance();
           fo.delete(p);
           table.getSelectionModel().getSelectedItems().forEach(this.oblist::remove);
+          //table.getItems().removeAll(table.getSelectionModel().getSelectedItem());
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("reclamation supprimée!");
+        alert.show();
+        
+   
+        });
+      
+      suppr.setOnAction(event -> {
+            
+   Recformation p = tabfr.getSelectionModel().getSelectedItem();
+          RecformationDao fo =RecformationDao.getInstance().getInstance();
+          fo.delete(p);
+          tabfr.getSelectionModel().getSelectedItems().forEach(this.oblist::remove);
           //table.getItems().removeAll(table.getSelectionModel().getSelectedItem());
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
@@ -135,6 +169,33 @@ public class ConsulterController implements Initializable {
             Logger.getLogger(ConsulterController.class.getName()).log(Level.SEVERE, null, ex);
         }
         });
+       
+       modifier.setOnAction(event -> {
+
+             Recformation f = tabfr.getSelectionModel().getSelectedItem();
+        RecformationDao fo =RecformationDao.getInstance().getInstance();
+          
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Modiffor.fxml"));
+        
+           
+                   
+            
+            Parent parent = (Parent)loader.load();
+            
+            ModifforController cont = loader.<ModifforController>getController();
+            cont.setRecnote(f);
+            
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        });
+       
    oblist.addAll(listdata.gettables());
          FilteredList<Recnote> filtereddata= new FilteredList<>(oblist, b->true);
          
@@ -166,6 +227,48 @@ public class ConsulterController implements Initializable {
 		});
 
     });
+         olist.addAll(listrec.gettables());
+         FilteredList<Recformation> filteredrec= new FilteredList<>(olist, b->true);
+         
+         cherche.textProperty().addListener((observable, oldValue, newValue) -> {
+             cherche.textProperty().addListener((observables, oldVal, newVal) -> {
+			filteredrec.setPredicate(rec -> {
+				// If filter text is empty, display all persons.
+								
+				if (newVal == null || newVal.isEmpty()) {
+					return true;
+				}
+				
+				// Compare first name and last name of every person with filter text.
+				String lowerCaseFilter = newValue.toLowerCase();
+				
+				if (rec.getFormation().toLowerCase().indexOf(lowerCaseFilter) != -1 ) {
+					return true; // Filter matches cin.
+				
+				}else if (rec.getNom_formateur().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+					return true; // Filter matches nom.
+				}
+				else if (rec.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1)
+				     return true;
+                                
+				     else  
+				    	 return false; // Does not match.
+			});
+		});
+
+    });
+          // 3. Wrap the FilteredList in a SortedList. 
+         SortedList<Recformation> sortedrec = new SortedList<>(filteredrec);
+		
+		// 4. Bind the SortedList comparator to the TableView comparator.
+		// 	  Otherwise, sorting the TableView would have no effect.
+		sortedrec.comparatorProperty().bind(tabfr.comparatorProperty());
+		
+		// 5. Add sorted (and filtered) data to the table.
+		tabfr.setItems(sortedrec);
+         
+         
+         
          // 3. Wrap the FilteredList in a SortedList. 
          SortedList<Recnote> sortedData = new SortedList<>(filtereddata);
 		
@@ -176,9 +279,5 @@ public class ConsulterController implements Initializable {
 		// 5. Add sorted (and filtered) data to the table.
 		table.setItems(sortedData);
 
-       
-    }
-    }    
-         
-    
+    }}
 

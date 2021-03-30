@@ -44,7 +44,7 @@ import utils.connexion;
 
     @Override
     public void insert(Recformation o) {
-        String req="insert into recformation (formation,nom_formateur,description) values ('"+o.getFormation()+"','"+o.getNom_formateur()+"','"+o.getDescription()+"')";
+        String req="insert into recformation (adressemail,formation,nom_formateur,description) values ( '"+o.getAdressemail()+"','"+o.getFormation()+"','"+o.getNom_formateur()+"','"+o.getDescription()+"')";
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
@@ -75,10 +75,11 @@ import utils.connexion;
             rs=st.executeQuery(req);
             while(rs.next()){
                 Recformation p=new Recformation();
-                p.setId_formation(rs.getInt(1));
-                p.setFormation(rs.getString(2));
-                p.setNom_formateur(rs.getString(4));
-                p.setDescription(rs.getString(5));
+                p.setId_formation(rs.getInt("id_formation"));
+                p.setAdressemail(rs.getString("adressemail"));
+                p.setFormation(rs.getString("formation"));
+                p.setNom_formateur(rs.getString("nom_formateur"));
+                p.setDescription(rs.getString("description"));
 
                 
                 list.add(p);
@@ -97,10 +98,11 @@ import utils.connexion;
             rs=st.executeQuery(req);
             while(rs.next()){
               Recformation p=new Recformation();
-            p.setId_formation(rs.getInt(1));
-                p.setFormation(rs.getString(2));
-                p.setNom_formateur(rs.getString(4));
-                p.setDescription(rs.getString(5));
+               p.setId_formation(rs.getInt("id_formation"));
+               p.setAdressemail(rs.getString("adressemail"));
+                p.setFormation(rs.getString("formation"));
+                p.setNom_formateur(rs.getString("nom_formateur"));
+                p.setDescription(rs.getString("description"));
              
                 list.add(p);
             }
@@ -120,10 +122,11 @@ import utils.connexion;
             rs=st.executeQuery(req);
            // while(rs.next()){
             rs.next();
-                p.setId_formation(rs.getInt(1));
-                 p.setFormation(rs.getString(2));
-                p.setNom_formateur(rs.getString(4));
-                p.setDescription(rs.getString(5));
+                p.setId_formation(rs.getInt("id_formation"));
+                p.setAdressemail(rs.getString("adressemail"));
+                 p.setFormation(rs.getString("formation"));
+                p.setNom_formateur(rs.getString("nom_formateur"));
+                p.setDescription(rs.getString("description"));
                
                
                 //}  
@@ -136,7 +139,7 @@ import utils.connexion;
     @Override
     public boolean update(Recformation os) {
         
-        String qry = "UPDATE formation SET recformation = '"+os.getFormation()+"', nom_formateur = '"+os.getNom_formateur()+"', description = '"+os.getDescription()+"' WHERE id_formation = "+os.getId_formation();;
+        String qry = "UPDATE recformation SET adressemail= '"+os.getAdressemail()+"',formation = '"+os.getFormation()+"', nom_formateur = '"+os.getNom_formateur()+"', description = '"+os.getDescription()+"' WHERE id_formation = "+os.getId_formation();;
          
         try {
             if (st.executeUpdate(qry) > 0) {

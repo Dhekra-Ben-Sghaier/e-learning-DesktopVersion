@@ -8,16 +8,14 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MailController">
    <children>
-      <Label layoutX="41.0" layoutY="83.0" text="Send to" />
-      <Label layoutX="41.0" layoutY="120.0" text="Send from" />
-      <Label layoutX="41.0" layoutY="151.0" text="Password" />
-      <Label layoutX="41.0" layoutY="190.0" text="Subject" />
-      <Label layoutX="41.0" layoutY="221.0" text="Message" />
-      <TextField fx:id="emailToField" layoutX="207.0" layoutY="79.0" prefHeight="25.0" prefWidth="186.0" />
-      <TextField fx:id="emailFromField" layoutX="207.0" layoutY="116.0" prefHeight="25.0" prefWidth="186.0" />
-      <PasswordField fx:id="emailPasswordField" layoutX="207.0" layoutY="147.0" prefHeight="25.0" prefWidth="186.0" />
-      <TextField fx:id="emailSubjectField" layoutX="207.0" layoutY="188.0" prefHeight="25.0" prefWidth="186.0" />
-      <TextField fx:id="emailMessageField" layoutX="207.0" layoutY="230.0" prefHeight="134.0" prefWidth="186.0" />
-      <Button fx:id="send" layoutX="491.0" layoutY="339.0" mnemonicParsing="false" text="Send" />
+      <Label layoutX="131.0" layoutY="80.0" text="Adresse mail" />
+      <Label layoutX="129.0" layoutY="126.0" text="Mot de passe" />
+      <Label layoutX="131.0" layoutY="184.0" text="Sujet" />
+      <Label layoutX="129.0" layoutY="222.0" text="Message" />
+      <TextField fx:id="emailFromField" layoutX="213.0" layoutY="76.0" prefHeight="25.0" prefWidth="186.0" />
+      <PasswordField fx:id="emailPasswordField" layoutX="213.0" layoutY="126.0" prefHeight="25.0" prefWidth="186.0" />
+      <TextField fx:id="emailSubjectField" layoutX="213.0" layoutY="180.0" prefHeight="25.0" prefWidth="186.0" />
+      <TextField fx:id="emailMessageField" layoutX="213.0" layoutY="222.0" prefHeight="114.0" prefWidth="197.0" />
+      <Button fx:id="send" layoutX="427.0" layoutY="336.0" mnemonicParsing="false" style="-fx-background-color: #EE7F03;" text="Send" />
    </children>
 </AnchorPane>

@@ -31,6 +31,8 @@ public class RecformationController implements Initializable {
     private TextArea iddes;
     @FXML
     private Button idenv;
+    @FXML
+    private TextField mailfor;
 
     /**
      * Initializes the controller class.
@@ -39,7 +41,7 @@ public class RecformationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          idenv.setOnAction(event -> {
-           Recformation r = new Recformation(idfr.getText(),idfor.getText(),iddes.getText());
+           Recformation r = new Recformation(mailfor.getText(),idfr.getText(),idfor.getText(),iddes.getText());
 
            RecformationDao rdao = RecformationDao.getInstance();
             rdao.insert(r);
@@ -51,6 +53,6 @@ public class RecformationController implements Initializable {
         alert.show();
        
         });
-    }    
     
+    }    
 }

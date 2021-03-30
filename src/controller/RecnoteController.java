@@ -31,13 +31,13 @@ public class RecnoteController implements Initializable {
     @FXML
     private TextArea description;
     @FXML
-    private TextField Date;
-    @FXML
     private TextField Examen;
     @FXML
     private Button envoyer;
     @FXML
     private DatePicker champ_date;
+    @FXML
+    private TextField mailnote;
     
 
     /**
