@@ -36,6 +36,7 @@ public class Insci_certifController implements Initializable {
     private ComboBox <String> comb;
     //NON FXML
     ObservableList<String> list =FXCollections.observableArrayList("Info", "Design", "PNL");
+    
      
     
     
@@ -66,10 +67,12 @@ public class Insci_certifController implements Initializable {
             }      
     
     }
+    
 
         @Override
     public void initialize(URL url, ResourceBundle rb) {
             comb.setItems(list);
+             
         
     }    
     @FXML
@@ -78,8 +81,12 @@ public class Insci_certifController implements Initializable {
         label.setText(s);
         
     }
+    
+    
     @FXML
     private void InscriptionCertificat(ActionEvent event) {
+         
+        
         
 
         boolean valid =champsValides();

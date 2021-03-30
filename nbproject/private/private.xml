@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/controller/Insci_certifController.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/controller/CertificatController.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/controller/Afficher_inscriController.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/utils/DataSource.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/service/Inscription_certificatDao.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/service/QuizzDao.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/test/Test.java</file>
+            <file>file:/C:/Users/Tarek.Loussaief/Documents/NetBeansProjects/PidevCertificats/src/controller/MainScreenController.java</file>
+        </group>
     </open-files>
 </project-private>

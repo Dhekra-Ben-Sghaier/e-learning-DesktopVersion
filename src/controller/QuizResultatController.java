@@ -2,10 +2,10 @@ package controller;
 
 import view.ResultatQuestionUniqueController;
 import com.jfoenix.controls.JFXButton;
-import constants.NewScreenListener;
 
 import entity.Question;
 import entity.Quizz;
+import entity.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -51,6 +51,7 @@ public class QuizResultatController implements Initializable {
     Map<Question, String> utilisateurReponses;
     Integer nombreDeBonnesReponses = 0;
     Quizz quiz;
+    Utilisateur utili;
     List<Question> questionList;    
     private Integer notAttemped = 0;
     private Integer attemped= 0;  
@@ -162,6 +163,8 @@ public class QuizResultatController implements Initializable {
                 Parent root = (Parent) fxmlLoader.load();  
                 CertificatController qq = fxmlLoader.<CertificatController>getController();
                 qq.setNom(quiz.getNom());
+//                CertificatController aa = fxmlLoader.<CertificatController>getController();
+//                aa.setUtlisateur(utili.getPrenom());
 
                 Scene scene = new Scene(root); 
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

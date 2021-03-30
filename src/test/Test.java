@@ -16,9 +16,9 @@ public class Test extends Application{
         
         //Parent root= FXMLLoader.load(getClass().getResource("/Login.fxml"));
         //Parent root= FXMLLoader.load(getClass().getResource("/view/QuestionScreen.fxml"));
-        Parent root= FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
+       Parent root= FXMLLoader.load(getClass().getResource("/view/MainScreen.fxml"));
         //Parent root= FXMLLoader.load(getClass().getResource("/view/Insci_certif.fxml"));
-        //Parent root= FXMLLoader.load(getClass().getResource("/view/Afficher_inscri.fxml"));
+       //Parent root= FXMLLoader.load(getClass().getResource("/view/Afficher_inscri.fxml"));
         //Parent root= FXMLLoader.load(getClass().getResource("/view/Certificat.fxml"));
         //Parent root= FXMLLoader.load(getClass().getResource("/view/AjouterQuiz.fxml"));
         //Parent root= FXMLLoader.load(getClass().getResource("/view/QuizList.fxml"));

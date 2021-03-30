@@ -26,6 +26,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.print.PageLayout;
 import javafx.print.PageOrientation;
 import javafx.print.Printer;
 import javafx.print.PrinterJob;
@@ -83,6 +84,12 @@ public class CertificatController implements Initializable {
     public void setNom(String value) {
 
         this.nomQuiz.setText(value);
+
+    }
+    //------------------------------------------------//
+    public void setUtlisateur(String value) {
+
+        this.NomPrenom.setText(value);
 
     }
     //------------------------------------------------//
@@ -148,16 +155,20 @@ public class CertificatController implements Initializable {
 //          mbp2.setDataHandler(new DataHandler(fichier_joint));
 //          mbp2.setFileName(fichier_joint.getName());
                 try {
-                    Robot robot = new Robot();
-                    String format = "jpg";
-                    String fileName = "Part." + format;
-                    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize().getSize(); 
-                    Rectangle captureRect = new Rectangle (0, 0, 739, 569 );
-                    BufferedImage screenFullImage = robot.createScreenCapture(captureRect); 
-                    ImageIO.write(screenFullImage, format, new File(fileName));
-                    mbp2.attachFile(fileName);
+//                    Robot robot = new Robot();
+//                    String format = "jpg";
+//                    String fileName = "Part." + format;
+//                    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize().getSize(); 
+//                    Rectangle captureRect = new Rectangle (0, 0, 739, 569 );
+//                    BufferedImage screenFullImage = robot.createScreenCapture(captureRect); 
+//                    ImageIO.write(screenFullImage, format, new File(fileName));
+                     File file=new File("C:\\Users\\Tarek.Loussaief\\Desktop\\11111.pdf");
+                     javafx.scene.image.Image img = new javafx.scene.image.Image(file.toURI().toURL().toString());
+             //        imageCadeau.setImage(img);
+               //     mbp2.attachFile(img);
+                    mbp2.attachFile(file);
                     System.out.println("A partial screenshot saved!");
-                } catch (AWTException | IOException ex) {
+                } catch (IOException ex) {
                     System.err.println(ex);
                 }
 
@@ -177,23 +188,25 @@ public class CertificatController implements Initializable {
     //------------------------------------------------//
 
     @FXML
-    private void cap(ActionEvent event) throws MessagingException {
-        try {
-                    Robot robot = new Robot();
-                    String format = "jpg";
-                    String fileName = "Part." + format;
-
-                    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize().getSize(); 
-                    Rectangle captureRect = new Rectangle(0, 0, 739, 569 );
-                    BufferedImage screenFullImage = robot.createScreenCapture(captureRect); 
-                    ImageIO.write(screenFullImage, format, new File(fileName));
+    private void cap(ActionEvent event) throws MessagingException, IOException {
+         
+                   
+            try {
+                Robot robot = new Robot();
+                String format = "jpg";
+                String fileName = "Part." + format;
+                
+                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize().getSize();
+                Rectangle captureRect = new Rectangle(0, 0, 739, 569 );
+                BufferedImage screenFullImage = robot.createScreenCapture(captureRect);
+                ImageIO.write(screenFullImage, format, new File(fileName));
 //                    mbp2.attachFile(fileName);
-                     
 
-                    System.out.println("A partial screenshot saved!");
-                } catch (AWTException | IOException ex) {
-                    System.err.println(ex);
-                }
+              System.out.println("A partial screenshot saved!");
+            } catch (AWTException ex) {
+                Logger.getLogger(CertificatController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+//                
     }
     //------------------------------------------------//
     //------------------------------------------------//
@@ -202,12 +215,17 @@ public class CertificatController implements Initializable {
     private void pdf(ActionEvent event) {
                
         Printer printer = Printer.getDefaultPrinter();
+        
         javafx.print.PageLayout pageLayout = printer.createPageLayout(javafx.print.Paper.A4, PageOrientation.PORTRAIT, Printer.MarginType.HARDWARE_MINIMUM);
         PrinterJob job = PrinterJob.createPrinterJob();
+
         if (job != null && job.showPrintDialog(printPane.getScene().getWindow())) {
+            
             boolean success = job.printPage(pageLayout, printPane);
             if (success) {
+                job.showPrintDialog(stage);
                 job.endJob();
+                
             }
         }  
     }
