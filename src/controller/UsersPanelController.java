@@ -13,6 +13,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -58,6 +59,11 @@ public class UsersPanelController implements Initializable {
     private Button btn_insc;
     @FXML
     private Button btn_cert;
+    @FXML
+    private Label roleLab;
+    @FXML
+    private Label IdUser;
+    private int id;
 
     /**
      * Initializes the controller class.
@@ -111,6 +117,7 @@ public class UsersPanelController implements Initializable {
               FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
               
             parent = (Parent)loader.load();
+            
              UsercompteController cont = loader.<UsercompteController>getController();
              cont.setUser(nom);
              cont.setId(n);
@@ -122,6 +129,24 @@ public class UsersPanelController implements Initializable {
         bp.setTop(parent);
             
         }
+    public void  loadPageUser(String page ,int n){
+        Parent parent = null;
+   
+        try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+            parent = (Parent)loader.load();
+            
+             ApprenantFormationController cont = loader.<ApprenantFormationController>getController();
+          
+             cont.setId(n);
+
+//            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setCenter(parent);
+    }
       public void  loadhead(String page ){
         Parent root = null;
    
@@ -155,5 +180,34 @@ public class UsersPanelController implements Initializable {
         bp.setCenter(root);
             
         }
+ 
+            
+        
+     public void setRole(String roleUser){
+        
+       roleLab.setText(roleUser);
+       System.out.println(roleLab);
+        
+    }
+        public void setId(int a){
+        this.id= a;
+      IdUser.setText(a+"");
+      
+        
+    }
+
+    @FXML
+    private void affform(ActionEvent event) {
+        System.out.println("rolelab="+roleLab.getText());
+        if("apprenant".equals(roleLab.getText())){
+            
+             loadPageUser("/view/ApprenantFormation.fxml",Integer.parseInt(IdUser.getText()));
+        }
+        else if("formateur".equals(roleLab.getText())){
+              loadPageUser("/view/TableForm.fxml",Integer.parseInt(IdUser.getText()));
+        
+        } 
+          
+    }
 
 }

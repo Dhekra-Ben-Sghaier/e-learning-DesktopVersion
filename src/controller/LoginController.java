@@ -88,6 +88,7 @@ public class LoginController implements Initializable {
                Operation op= new Operation();
                String o = op.recEmail(user.getText());
                int d= op.recId(user.getText());
+           
                System.out.println(o+"  "+ d);
              try {
                  JavaMailUtil.sendMail(o,d);
@@ -125,6 +126,9 @@ public class LoginController implements Initializable {
        System.out.println(connection);
        Operation op=new Operation();
         int d= op.recId(user.getText());
+         String role=op.recRole(user.getText());
+            
+               System.out.println("Role="+ role);
             String req="select * from personnes where nomUtilisateur=?";
              System.out.println(req);
         try {
@@ -182,9 +186,9 @@ public class LoginController implements Initializable {
       
             cont.loadheaduser("/view/usercompte.fxml",user.getText(),d);
             cont.loadmenu();
-            
-            
-               
+            cont.setRole(role);
+            cont.setId(d);
+
             Scene scene = new Scene(parent);
             Stage stage = (Stage) btn_log.getScene().getWindow();
             stage.setScene(scene);

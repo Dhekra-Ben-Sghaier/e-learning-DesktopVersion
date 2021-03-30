@@ -28,7 +28,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="gererF"  onMouseClicked="#gererformateur" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Formateur" textFill="WHITE">
+                        <Button fx:id="gererF" mnemonicParsing="false" onMouseClicked="#gererformateur" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Formateur" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -38,6 +38,17 @@
                            <padding>
                               <Insets bottom="20.0" />
                            </padding>
+                        </Button>
+                        <Button fx:id="gererForm" mnemonicParsing="false" onAction="#listerForm" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Formations" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="-5.0" />
+                           </VBox.margin>
                         </Button>
                         <Button fx:id="gererC" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Certificats" textFill="WHITE">
                            <graphic>

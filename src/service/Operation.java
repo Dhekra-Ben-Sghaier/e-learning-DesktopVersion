@@ -77,6 +77,21 @@ public class Operation {
         }
         return res; 
     }
+     public String recRole (String user) {
+        String req="select role from personnes where nomUtilisateur ='"+user+"'";
+        String res="null";
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+               res=rs.getString("role");
+              return res ;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Operation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res; 
+    }
      public String recCode (int id) {
         String req="select code from personnes where id_user ='"+id+"'";
         String res="null";

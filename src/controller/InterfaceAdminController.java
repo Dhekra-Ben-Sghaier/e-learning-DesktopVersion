@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -41,6 +42,8 @@ public class InterfaceAdminController implements Initializable {
     private Button gererC;
     @FXML
     private Button home;
+    @FXML
+    private Button gererForm;
 
     /**
      * Initializes the controller class.
@@ -88,6 +91,11 @@ public class InterfaceAdminController implements Initializable {
         Bpadmin.setCenter(root);
             
         }
+
+    @FXML
+    private void listerForm(ActionEvent event) {
+        loadPage("/view/TableForm.fxml");
+    }
 
    
 

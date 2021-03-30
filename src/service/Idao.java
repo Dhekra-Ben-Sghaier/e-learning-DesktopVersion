@@ -18,6 +18,7 @@ public interface Idao <T> {
     public void delete(T o);
     public List<T> displayAll();
     public T displayById(int id);
+     public List<T> displayAllById(int id);
     public ObservableList<T> displaylist();
     public boolean update(T os);
     

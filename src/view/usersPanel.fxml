@@ -46,7 +46,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btn_cat" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Formations" textFill="WHITE">
+            <Button fx:id="btn_cat" mnemonicParsing="false" onAction="#affform" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Formations" textFill="WHITE">
                <VBox.margin>
                   <Insets left="10.0" top="25.0" />
                </VBox.margin>
@@ -138,6 +138,8 @@
          <children>
             <VBox prefHeight="75.0" prefWidth="286.0" style="-fx-background-color: #0A0232;">
                <children>
+                  <Label fx:id="roleLab" disable="true" visible="false" />
+                  <Label fx:id="IdUser" disable="true" text="Label" visible="false" />
                   <Label fx:id="br" opacity="0.48" text="Brainovation" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                      <font>
                         <Font name="Nirmala UI Bold" size="30.0" />

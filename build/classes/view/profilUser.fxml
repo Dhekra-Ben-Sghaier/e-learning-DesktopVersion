@@ -55,7 +55,6 @@
                               <Font name="Tahoma Bold" size="18.0" />
                            </font>
                         </Button>
-                        <Label fx:id="lab_id" disable="true" layoutX="262.0" layoutY="28.0" text="label" visible="false" />
                         <Label fx:id="lab_user" disable="true" text="label" visible="false" />
                         <Label fx:id="lab_mdp" layoutX="548.0" layoutY="333.0" textFill="#bf0707">
                            <font>
@@ -100,7 +99,16 @@
                   <FontAwesomeIconView glyphName="IMAGE" />
                </graphic>
             </Tab>
+            <Tab fx:id="mesform" onSelectionChanged="#mesform" text="Mes formations">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+               <graphic>
+                  <FontAwesomeIconView glyphName="LIST" />
+               </graphic>
+            </Tab>
          </tabs>
       </JFXTabPane>
+      <Label fx:id="labb_id" disable="true" />
    </children>
 </AnchorPane>

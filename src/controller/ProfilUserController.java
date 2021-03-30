@@ -28,6 +28,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -80,7 +81,6 @@ public class ProfilUserController implements Initializable {
     private Button btn_info;
     
     private int id;
-    @FXML
     private Label lab_id;
     @FXML
     private Label lab_user;
@@ -100,6 +100,10 @@ public class ProfilUserController implements Initializable {
     //requete pour insert image
     private PreparedStatement store;
      private String openst="UPDATE personnes SET image= ? WHERE id_user=?";
+    @FXML
+    private Tab mesform;
+    @FXML
+    private Label labb_id;
     /**
      * Initializes the controller class.
      */
@@ -107,6 +111,7 @@ public class ProfilUserController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
  Connection conn;
         try {
+
             conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
             store=conn.prepareStatement(openst);
                //sauvegarder image 
@@ -132,7 +137,7 @@ public class ProfilUserController implements Initializable {
 
             Operation info=new Operation();
             
-            info.updateInfo(nom.getText(), prenom.getText(), email.getText(), nomUser.getText(), Integer.parseInt(lab_id.getText()));
+            info.updateInfo(nom.getText(), prenom.getText(), email.getText(), nomUser.getText(), Integer.parseInt(labb_id.getText()));
             
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
@@ -150,7 +155,7 @@ public class ProfilUserController implements Initializable {
                 }
                  if (mdp_new.getText().equals(mdp_conf.getText()) && count ==1){
                    Operation o =new Operation();
-                   o.update(hashPassword(mdp_new.getText()), Integer.parseInt(lab_id.getText()));
+                   o.update(hashPassword(mdp_new.getText()), Integer.parseInt(labb_id.getText()));
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);
@@ -185,7 +190,7 @@ public class ProfilUserController implements Initializable {
     System.out.println(inputstream);
            try {
                store.setBinaryStream(1, inputstream);
-               store.setInt(2, Integer.parseInt(lab_id.getText()));
+               store.setInt(2, Integer.parseInt(labb_id.getText()));
                store.execute(); 
            } catch (SQLException ex) {
                Logger.getLogger(ProfilUserController.class.getName()).log(Level.SEVERE, null, ex);
@@ -211,11 +216,34 @@ public class ProfilUserController implements Initializable {
     }
       public void setId(int a){
         this.id= a;
-        lab_id.setText(a+"");
+        labb_id.setText(a+"");
       
         
     }
       
         
-    
+    public void  loadPage(String page){
+        Parent parent = null;
+        System.out.println("page => "+page+"  id=  "+Integer.parseInt(labb_id.getText()));
+        try {
+             
+              FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+            parent = (Parent)loader.load();
+            
+           MesFormationsController cont = loader.<MesFormationsController>getController();
+            cont.setId(Integer.parseInt(labb_id.getText()));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+       
+         }
+        
+                    mesform.setContent(parent);
+    }   
+
+    @FXML
+    private void mesform(Event event) {
+        System.out.println("iiiid="+labb_id.getText());
+   loadPage("/view/MesFormations.fxml");
+    }
 }
