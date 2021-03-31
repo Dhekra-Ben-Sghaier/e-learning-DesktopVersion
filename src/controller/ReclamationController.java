@@ -54,7 +54,18 @@ public class ReclamationController implements Initializable {
     @Override
      public void initialize(URL url, ResourceBundle rb) {
   
+           consulter.setOnAction(event -> {
 
+            try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("/view/Consulter.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException ex) {
+                Logger.getLogger(ReclamationController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           });
           
           autres.setOnAction(event -> {
 
