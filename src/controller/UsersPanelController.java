@@ -230,7 +230,24 @@ public class UsersPanelController implements Initializable {
       
         
     }
+    public void  loadPageRec(String page ,int n){
+        Parent parent = null;
+   
+        try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+            parent = (Parent)loader.load();
+            
+             ReclamationController cont = loader.<ReclamationController>getController();
+          
+           cont.setId(n);
 
+//            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setCenter(parent);
+    }
     @FXML
     private void affform(ActionEvent event) {
         System.out.println("rolelab="+roleLab.getText());
@@ -254,6 +271,16 @@ public class UsersPanelController implements Initializable {
               loadPageCertifapp("/view/MainScreen.fxml",Integer.parseInt(IdUser.getText()));
         
         }
+    }
+
+    @FXML
+    private void affRec(ActionEvent event) {
+        if("apprenant".equals(roleLab.getText())){
+            
+             loadPageRec("/view/reclamation.fxml",Integer.parseInt(IdUser.getText()));
+        }
+        
+        
     }
 
 }

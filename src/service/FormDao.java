@@ -190,5 +190,10 @@ public class FormDao implements Idao <Formateur> {
     public List<Formateur> displayAllById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Formateur> displayAllByEmail(String s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -102,6 +102,11 @@ public class InterfaceAdminController implements Initializable {
         loadPage("/view/Afficher_inscri.fxml");
     }
 
+    @FXML
+    private void gererRec(ActionEvent event) {
+         loadPage("/view/Consulter.fxml");
+    }
+
    
 
     

@@ -118,7 +118,7 @@
                   <Insets left="10.0" top="25.0" />
                </VBox.margin>
             </Button>
-            <Button fx:id="btn_rec" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Reclamations" textFill="WHITE">
+            <Button fx:id="btn_rec" mnemonicParsing="false" onAction="#affRec" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Reclamations" textFill="WHITE">
                <VBox.margin>
                   <Insets left="10.0" top="25.0" />
                </VBox.margin>

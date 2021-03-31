@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ConsulterController">
+   <children>
+      <TabPane prefHeight="441.0" prefWidth="723.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Gérer notes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="410.0">
+                     <children>
+                        <TableView fx:id="table" layoutY="53.0" prefHeight="282.0" prefWidth="695.0">
+                           <columns>
+                              <TableColumn fx:id="col_id" prefWidth="89.0" text="ID" />
+                              <TableColumn fx:id="col_ex" prefWidth="104.0" text="Examen" />
+                              <TableColumn fx:id="col_nom" prefWidth="173.0" text="Nom_formateur" />
+                              <TableColumn fx:id="col_des" prefWidth="328.0" text="Description" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="modif" layoutX="499.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #090257;" text="Modifier" textFill="#f8f8ff" />
+                        <Button fx:id="supprimer" layoutX="592.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #bc0505;" text="Supprimer" textFill="#f8f1f1" />
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="16.0" prefHeight="26.0" prefWidth="204.0" text="Reclamation note" textFill="#0a0232">
+                           <font>
+                              <Font name="Nirmala UI Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="36.0" fitWidth="44.0" layoutX="646.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/rech-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="recherche" layoutX="497.0" layoutY="22.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Gérer formations">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="694.0">
+                     <children>
+                        <TableView fx:id="tabfr" layoutY="53.0" prefHeight="275.0" prefWidth="695.0">
+                          <columns>
+                              <TableColumn fx:id="idfor" prefWidth="123.0" text="ID formation" />
+                            <TableColumn fx:id="colfor" prefWidth="126.0" text="Formation" />
+                            <TableColumn fx:id="colnom" prefWidth="126.0" text="Nom_formateur" />
+                              <TableColumn fx:id="cold" prefWidth="319.0" text="Description" />
+                          </columns>
+                        </TableView>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="19.0" prefHeight="27.0" prefWidth="186.0" text="Reclamation formation" textFill="#0a0232">
+                           <font>
+                              <Font name="Nirmala UI Bold" size="16.0" />
+                           </font></Label>
+                        <TextField fx:id="cherche" layoutX="490.0" layoutY="20.0" />
+                        <ImageView fitHeight="35.0" fitWidth="52.0" layoutX="639.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/rech-removebg-preview.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="modifier" layoutX="499.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #090257;" text="Modifier" textFill="GHOSTWHITE" />
+                        <Button fx:id="suppr" layoutX="592.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: #bc0505;" text="Supprimer" textFill="GHOSTWHITE" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

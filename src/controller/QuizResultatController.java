@@ -174,7 +174,7 @@ public class QuizResultatController implements Initializable {
                 String prenom=operation.recPrenom(Integer.parseInt(labid.getText()));
                qq.setNomPrenom(nom, prenom);
                 Scene scene = new Scene(root); 
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.show();
             }catch(IOException ex){

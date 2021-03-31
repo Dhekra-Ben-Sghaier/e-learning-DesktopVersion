@@ -61,7 +61,7 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
-                        <Button fx:id="gererR" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Reclamations" textFill="WHITE">
+                        <Button fx:id="gererR" mnemonicParsing="false" onAction="#gererRec" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Reclamations" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>

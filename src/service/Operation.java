@@ -76,6 +76,21 @@ public class Operation {
         }
         return res; 
     }
+       public String recEmailUser (int id) {
+        String req="select email from personnes where id_user ="+id;
+        String res="null";
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+               res=rs.getString("email");
+              return res ;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Operation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res; 
+    }
      public String recNom (int id) {
         String req="select nom from personnes where id_user ="+id;
         String res="null";

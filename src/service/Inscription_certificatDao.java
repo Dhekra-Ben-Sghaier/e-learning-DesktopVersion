@@ -204,6 +204,11 @@ public class Inscription_certificatDao implements Idao<Inscription_certificat>{
     public ObservableList<Inscription_certificat> displaylist() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public List<Inscription_certificat> displayAllByEmail(String s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
    
         
