@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeSocController">
+   <children>
+      <Label alignment="CENTER" layoutX="149.0" layoutY="39.0" prefHeight="62.0" prefWidth="399.0" text="Le portail de l'emploi" textAlignment="CENTER">
+         <font>
+            <Font name="System Italic" size="42.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="236.0" layoutY="119.0" prefHeight="27.0" prefWidth="237.0" text="Ajouter une offre" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="ajouter_travail" layoutX="118.0" layoutY="176.0" mnemonicParsing="false" onAction="#OAajouter_travail" prefHeight="25.0" prefWidth="237.0" text="Offre travail" />
+      <Button fx:id="ajouter_stage" layoutX="385.0" layoutY="176.0" mnemonicParsing="false" onAction="#OAajouter_stage" prefHeight="25.0" prefWidth="237.0" text="Offre stage" />
+      <Label alignment="CENTER" layoutX="204.0" layoutY="241.0" prefHeight="27.0" prefWidth="300.0" text="Afficher et modifier mes publications" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="update_travail" layoutX="112.0" layoutY="296.0" mnemonicParsing="false" onAction="#OAupdate_travail" prefHeight="25.0" prefWidth="237.0" text="Publication offre travail" />
+      <Button fx:id="update_stage" layoutX="385.0" layoutY="296.0" mnemonicParsing="false" onAction="#OAupdate_stage" prefHeight="25.0" prefWidth="237.0" text="Publication offre stage" />
+      <Label fx:id="labid" disable="true" layoutX="27.0" layoutY="31.0" />
+   </children> 
+</AnchorPane>

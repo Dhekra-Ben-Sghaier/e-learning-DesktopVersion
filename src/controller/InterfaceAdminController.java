@@ -44,6 +44,10 @@ public class InterfaceAdminController implements Initializable {
     private Button home;
     @FXML
     private Button gererForm;
+    @FXML
+    private Button validerstage;
+    @FXML
+    private Button validertravail;
 
     /**
      * Initializes the controller class.
@@ -105,6 +109,16 @@ public class InterfaceAdminController implements Initializable {
     @FXML
     private void gererRec(ActionEvent event) {
          loadPage("/view/Consulter.fxml");
+    }
+
+    @FXML
+    private void gererstage(ActionEvent event) {
+        loadPage("/view/Update_back_stage.fxml");
+    }
+
+    @FXML
+    private void gerertravail(ActionEvent event) {
+        loadPage("/view/Update_back_travail.fxml");
     }
 
    

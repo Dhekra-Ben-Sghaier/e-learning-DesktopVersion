@@ -61,7 +61,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btn_os" mnemonicParsing="false" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Offres et stages" textFill="WHITE">
+            <Button fx:id="btn_os" mnemonicParsing="false" onAction="#affOff" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Offres et stages" textFill="WHITE">
                <VBox.margin>
                   <Insets left="10.0" top="25.0" />
                </VBox.margin>

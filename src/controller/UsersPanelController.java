@@ -248,6 +248,42 @@ public class UsersPanelController implements Initializable {
         }
         bp.setCenter(parent);
     }
+     public void  loadPageHome(String page,int n){
+        Parent parent = null;
+   
+        try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+            parent = (Parent)loader.load();
+            
+           HomeController cont = loader.<HomeController>getController();
+          
+           cont.setId(n);
+
+//            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setCenter(parent);
+    }
+       public void  loadPageHomeSoc(String page,int n){
+        Parent parent = null;
+   
+        try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+            parent = (Parent)loader.load();
+            
+            HomeSocController cont = loader.<  HomeSocController>getController();
+          
+           cont.setId(n);
+
+//            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setCenter(parent);
+    }
     @FXML
     private void affform(ActionEvent event) {
         System.out.println("rolelab="+roleLab.getText());
@@ -281,6 +317,17 @@ public class UsersPanelController implements Initializable {
         }
         
         
+    }
+
+    @FXML
+    private void affOff(ActionEvent event) {
+        if("societe".equals(roleLab.getText())){
+            
+             loadPageHomeSoc("/view/homeSoc.fxml",Integer.parseInt(IdUser.getText()));
+        }else {
+              loadPageHome("/view/Home.fxml",Integer.parseInt(IdUser.getText()));
+        
+        }
     }
 
 }

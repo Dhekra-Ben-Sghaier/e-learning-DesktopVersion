@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:id="Bpadmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="1008.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InterfaceAdminController">
+<BorderPane fx:id="Bpadmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="1128.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InterfaceAdminController">
    <left>
       <VBox prefHeight="526.0" prefWidth="209.0" style="-fx-background-color: #0A0232;" BorderPane.alignment="CENTER">
          <children>
@@ -84,7 +84,7 @@
                            </padding>
                         </Button>
                      
-                                    <Button mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Offres et Stages" textFill="WHITE">
+                                    <Button fx:id="validerstage" mnemonicParsing="false" onAction="#gererstage" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Valider Offres de stages" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>
@@ -95,33 +95,40 @@
                               <Insets bottom="20.0" />
                            </padding>
                         </Button>
+                        <Button fx:id="validertravail" mnemonicParsing="false" onAction="#gerertravail" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Valider Offres de travails" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                           <padding>
+                              <Insets bottom="20.0" />
+                           </padding>
+                        </Button>
                      </children>
                   </VBox>
                   <AnchorPane layoutY="-99.0" prefHeight="739.0" prefWidth="43.0" style="-fx-background-color: #0A0232;">
                      <effect>
                         <DropShadow />
                      </effect>
+                     <children>
+                        <ImageView fitHeight="33.0" fitWidth="50.0" layoutX="6.0" layoutY="107.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/homeicon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
                   </AnchorPane>
                   <ImageView fitHeight="128.0" fitWidth="155.0" layoutX="62.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Admin-icon-removebg-preview.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="home" layoutX="62.0" layoutY="592.0" mnemonicParsing="false" style="-fx-background-color: #0A0232;">
-                     <graphic>
-                        <ImageView fitHeight="33.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../images/homeicon.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <Button fx:id="home" layoutX="62.0" layoutY="592.0" mnemonicParsing="false" style="-fx-background-color: #0A0232;" />
                </children>
             </AnchorPane>
          </children>
       </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="479.0" prefWidth="796.0" BorderPane.alignment="CENTER" />
+      <AnchorPane prefHeight="642.0" prefWidth="1102.0" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
