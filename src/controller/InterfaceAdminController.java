@@ -97,6 +97,11 @@ public class InterfaceAdminController implements Initializable {
         loadPage("/view/TableForm.fxml");
     }
 
+    @FXML
+    private void gererCertificat(ActionEvent event) {
+        loadPage("/view/Afficher_inscri.fxml");
+    }
+
    
 
     

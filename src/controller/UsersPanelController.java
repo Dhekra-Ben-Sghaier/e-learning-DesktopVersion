@@ -181,8 +181,43 @@ public class UsersPanelController implements Initializable {
             
         }
  
+           public void  loadPageCertif(String page ,int n){
+        Parent parent = null;
+   
+        try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+            parent = (Parent)loader.load();
             
-        
+             AjouterQuizController cont = loader.<AjouterQuizController>getController();
+          
+             cont.setId(n);
+
+//            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setCenter(parent);
+    }  
+         public void  loadPageCertifapp(String page ,int n){
+        Parent parent = null;
+   
+        try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+            parent = (Parent)loader.load();
+            
+             MainScreenController cont = loader.<MainScreenController>getController();
+            System.out.println("idd="+n);
+             cont.setId(n);
+             cont.ajouterQuizListScreen();
+
+//            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setCenter(parent);
+    }  
      public void setRole(String roleUser){
         
        roleLab.setText(roleUser);
@@ -208,6 +243,17 @@ public class UsersPanelController implements Initializable {
         
         } 
           
+    }
+
+    @FXML
+    private void affcertif(ActionEvent event) {
+        if("formateur".equals(roleLab.getText())){
+            
+             loadPageCertif("/view/AjouterQuiz.fxml",Integer.parseInt(IdUser.getText()));
+        }else if("apprenant".equals(roleLab.getText())){
+              loadPageCertifapp("/view/MainScreen.fxml",Integer.parseInt(IdUser.getText()));
+        
+        }
     }
 
 }

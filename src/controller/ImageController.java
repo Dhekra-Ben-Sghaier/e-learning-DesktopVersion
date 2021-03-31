@@ -116,8 +116,6 @@ public class ImageController implements Initializable {
         
         } catch (FileNotFoundException ex) {
             Logger.getLogger(ImageController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(ImageController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
             Logger.getLogger(ImageController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -50,7 +50,7 @@
                               <Insets bottom="20.0" top="-5.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="gererC" mnemonicParsing="false" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Certificats" textFill="WHITE">
+                        <Button fx:id="gererC" mnemonicParsing="false" onAction="#gererCertificat" prefHeight="32.0" prefWidth="216.0" stylesheets="@admin.css" text="Gérer Certificats" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="28.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
                            </graphic>

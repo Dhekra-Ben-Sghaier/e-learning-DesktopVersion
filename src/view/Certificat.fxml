@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Polyline?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="printPane" prefHeight="569.0" prefWidth="739.0" style="-fx-background-color: #DCDCDC;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CertificatController">
+   <children>
+      <Polyline fill="LIGHTSLATEGRAY" layoutX="195.0" layoutY="266.0" points="129.29290771484375, -268.70709228515625, 184.29290771484375, -268.70709228515625, -195.00001525878906, -66.0, -195.7071075439453, -268.70709228515625" stroke="LIGHTSLATEGRAY" strokeType="INSIDE" style="-fx-fill: #778899;" />
+      <Polyline fill="LIGHTSTEELBLUE" layoutX="623.0" layoutY="39.0" points="-243.70709228515625, -41.70709228515625, 136.0, -41.70709228515625, 135.0, 189.0, -395.70709228515625, 38.29290771484375" stroke="LIGHTSTEELBLUE" strokeType="INSIDE" style="-fx-effect: #6495ED;" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="440.0" layoutY="32.0" prefHeight="68.0" prefWidth="276.0" text="ATTESTATION " textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="39.0" />
+         </font>
+      </Label>
+      <Label layoutX="507.0" layoutY="80.0" prefHeight="56.0" prefWidth="193.0" text="DE FIN DE FORMATION" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="200.0" prefHeight="56.0" prefWidth="268.0" text="Cette attestation est attribué à : ">
+         <font>
+            <Font name="Times New Roman" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="nomQuiz" layoutX="122.0" layoutY="351.0" prefHeight="17.0" prefWidth="250.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="NomPrenom" alignment="CENTER" focusColor="LIGHTSLATEGRAY" layoutX="62.0" layoutY="270.0" prefHeight="20.0" prefWidth="497.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="26.0" layoutY="422.0" prefHeight="56.0" prefWidth="515.0" text="En guise de remerciement pour ses efforts considérables.">
+         <font>
+            <Font name="Times New Roman" size="21.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="84.0" fitWidth="108.0" layoutX="14.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/certificat.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="pdf" layoutX="560.0" layoutY="515.0" mnemonicParsing="false" onAction="#pdf" text="PDF" />
+      <Label layoutX="26.0" layoutY="340.0" prefHeight="56.0" prefWidth="45.0" text="En : ">
+         <font>
+            <Font name="Times New Roman" size="21.0" />
+         </font>
+      </Label>
+      <Button fx:id="mail" layoutX="640.0" layoutY="515.0" mnemonicParsing="false" onAction="#mail" text="Mail" />
+      <Button fx:id="cap" layoutX="493.0" layoutY="515.0" mnemonicParsing="false" onAction="#cap" text="cap" />
+      <Label fx:id="labid" disable="true" layoutX="175.0" layoutY="519.0" visible="false" />
+   </children>
+</AnchorPane>

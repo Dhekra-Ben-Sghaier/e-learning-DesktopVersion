@@ -35,7 +35,6 @@ import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import sun.misc.IOUtils;
 import utils.ConnexionSingleton;
 
 /**
@@ -69,6 +68,36 @@ public class Operation {
             rs=st.executeQuery(req);
             while(rs.next()){
                res=rs.getString("email");
+              return res ;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Operation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res; 
+    }
+     public String recNom (int id) {
+        String req="select nom from personnes where id_user ="+id;
+        String res="null";
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+               res=rs.getString("nom");
+              return res ;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Operation.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res; 
+    }
+     public String recPrenom (int id) {
+        String req="select prenom from personnes where id_user ="+id;
+        String res="null";
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+               res=rs.getString("prenom");
               return res ;
             }
             

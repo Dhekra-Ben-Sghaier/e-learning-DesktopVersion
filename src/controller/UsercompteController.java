@@ -89,6 +89,7 @@ public class UsercompteController implements Initializable {
                         UsersPanelController cont = loader.<UsersPanelController>getController();
                         cont.loadcenter("/view/profilUser.fxml",p,Integer.parseInt(lab_id.getText()));
                         cont.loadheaduser("/view/usercompte.fxml",nom_user.getText(),Integer.parseInt(lab_id.getText()));
+                        cont.loadmenu();
                         Scene scene = new Scene(parent);
                         Stage stageUser = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stageUser.setScene(scene);
