@@ -7,14 +7,19 @@
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/SuiviController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ReclamationController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ListRec.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/RatingController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/service/RecformationDao.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/utils/connexion.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ConsulterController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ListData.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/service/RecnoteDao.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/SuivreReclamationController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/MailController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/service/control.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/RecnoteController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ModifierController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/AutresController.java</file>
+            <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/controller/ModifforController.java</file>
             <file>file:/C:/Users/asus/Documents/NetBeansProjects/Pidev%20avis/src/entity/Recformation.java</file>
         </group>
     </open-files>

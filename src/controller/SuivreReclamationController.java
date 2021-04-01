@@ -54,7 +54,7 @@ public class SuivreReclamationController implements Initializable {
         }
     @FXML
     private void afficher(ActionEvent event) {
-        loadPage("/view/suivi.fxml");
+        loadPage("/view/rating.fxml");
     }
     
 }

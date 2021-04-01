@@ -17,14 +17,14 @@
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label layoutX="26.0" layoutY="101.0" text="Type de reclamation" textFill="#0a0232">
+            <Label layoutX="26.0" layoutY="101.0" prefHeight="29.0" prefWidth="191.0" text="Type de reclamation" textFill="#ee7f03">
                <font>
-                  <Font name="Nirmala UI Bold" size="15.0" />
+                  <Font name="Nirmala UI Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="Notes" layoutX="81.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#reclamer" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #0A0232;" text="Notes" textFill="#f5f8f5" />
-            <Button fx:id="formations" layoutX="296.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#former" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0A0232;" text="Formations" textFill="#f5f8f5" />
-            <Button fx:id="autres" layoutX="516.0" layoutY="179.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0A0232;" text="Autres" textFill="#f5f8f5" />
+            <Button fx:id="Notes" layoutX="81.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#reclamer" prefHeight="25.0" prefWidth="112.0" style="-fx-background-color: #0A0232;" styleClass="button2" stylesheets="@style.css" text="Notes" textFill="#f5f8f5" />
+            <Button fx:id="formations" layoutX="296.0" layoutY="179.0" mnemonicParsing="false" onMouseClicked="#former" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0A0232;" styleClass="button2" stylesheets="@style.css" text="Formations" textFill="#f5f8f5" />
+            <Button fx:id="autres" layoutX="516.0" layoutY="179.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #0A0232;" styleClass="button2" stylesheets="@style.css" text="Autres" textFill="#f5f8f5" />
             <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="42.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/nb-removebg-preview.png" />
@@ -45,6 +45,6 @@
       </AnchorPane>
    </top>
    <center>
-      <AnchorPane fx:id="contenu" prefHeight="374.0" prefWidth="660.0" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="contenu" prefHeight="374.0" prefWidth="660.0" stylesheets="@style.css" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>

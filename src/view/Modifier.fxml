@@ -34,11 +34,11 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="modex" layoutX="223.0" layoutY="84.0" />
-      <TextField fx:id="moddat" layoutX="223.0" layoutY="134.0" />
-      <TextField fx:id="modfor" layoutX="223.0" layoutY="184.0" />
-      <TextArea fx:id="moddes" layoutX="223.0" layoutY="234.0" prefHeight="114.0" prefWidth="214.0" />
-      <Button fx:id="valider" layoutX="528.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #EE7F03;" text="Valider" textFill="#f5f5f8">
+      <TextField fx:id="modex" layoutX="223.0" layoutY="84.0" promptText="examen" />
+      <TextField fx:id="moddat" layoutX="223.0" layoutY="134.0" promptText="date" />
+      <TextField fx:id="modfor" layoutX="223.0" layoutY="184.0" promptText="nom formateur" />
+      <TextArea fx:id="moddes" layoutX="223.0" layoutY="234.0" prefHeight="114.0" prefWidth="214.0" promptText="description" />
+      <Button fx:id="valider" layoutX="528.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="65.0" style="-fx-background-color: #EE7F03;" styleClass="button1" stylesheets="@style.css" text="Valider" textFill="#f5f5f8">
          <font>
             <Font size="14.0" />
          </font>

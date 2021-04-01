@@ -9,27 +9,27 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RecformationController">
    <children>
-      <Label layoutX="46.0" layoutY="83.0" text="Formation">
+      <Label layoutX="122.0" layoutY="83.0" text="Formation">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="46.0" layoutY="134.0" text="Nom formateur">
+      <Label layoutX="122.0" layoutY="134.0" text="Nom formateur">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <Label layoutX="46.0" layoutY="182.0" text="Description">
+      <Label layoutX="122.0" layoutY="182.0" text="Description">
          <font>
             <Font size="15.0" />
          </font></Label>
-      <TextField fx:id="idfr" layoutX="226.0" layoutY="81.0" />
-      <TextField fx:id="idfor" layoutX="226.0" layoutY="132.0" />
-      <TextArea fx:id="iddes" layoutX="226.0" layoutY="192.0" prefHeight="141.0" prefWidth="240.0" />
-      <Button fx:id="idenv" layoutX="528.0" layoutY="320.0" mnemonicParsing="false" style="-fx-background-color: #EE7F03;" text="Envoyer" textFill="#fff6f6" />
-      <Label layoutX="46.0" layoutY="31.0" text="Adresse mail">
+      <TextField fx:id="idfr" layoutX="300.0" layoutY="81.0" promptText="formation" />
+      <TextField fx:id="idfor" layoutX="300.0" layoutY="132.0" promptText="nom formateur" />
+      <TextArea fx:id="iddes" layoutX="300.0" layoutY="193.0" prefHeight="141.0" prefWidth="240.0" promptText="description" />
+      <Button fx:id="idenv" layoutX="525.0" layoutY="343.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="62.0" style="-fx-background-color: #EE7F03;" styleClass="button1" stylesheets="@style.css" text="Envoyer" textFill="#fff6f6" />
+      <Label layoutX="122.0" layoutY="31.0" text="Adresse mail">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="mailfor" layoutX="226.0" layoutY="29.0" />
+      <TextField fx:id="mailfor" layoutX="300.0" layoutY="29.0" promptText="adresse " />
    </children>
 </AnchorPane>

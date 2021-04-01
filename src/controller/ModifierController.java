@@ -8,11 +8,14 @@ package controller;
 import service.RecnoteDao;
 import entity.Recnote;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -37,15 +40,20 @@ public class ModifierController implements Initializable {
     @FXML
     private Label idrec;
     private Recnote Recnote;
+    @FXML
+    private DatePicker od;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODObt_modif.setOnAction(event -> {
-            valider.setOnAction(event -> {
-              Recnote f = new Recnote(Integer.parseInt(idrec.getText()),modex.getText(), moddat.getText(), modfor.getText(), moddes.getText());
+        // TODObt_modif.setOnAction(event -> 
+        
+        valider.setOnAction(event -> {
+          
+           
+              Recnote f = new Recnote(Integer.parseInt(idrec.getText()),moddat.getText(),moddat.getText(), modfor.getText(), moddes.getText());
            RecnoteDao fdao = RecnoteDao.getInstance();
             
             

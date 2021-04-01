@@ -142,7 +142,7 @@ import utils.connexion;
     @Override
     public boolean update(Recnote os) {
         
-        String qry = "UPDATE reclamation SET adressem = '"+os.getAdressem()+"'examen = '"+os.getExamen()+"', date = '"+os.getDate()+"', nom_formateur = '"+os.getNom_formateur()+"', description = '"+os.getDescription()+"' WHERE id_reclamation = "+os.getId_reclamation();;
+        String qry = "UPDATE reclamation SET examen = '"+os.getExamen()+"', date = '"+os.getDate()+"', nom_formateur = '"+os.getNom_formateur()+"', description = '"+os.getDescription()+"' WHERE id_reclamation = "+os.getId_reclamation();;
          
         try {
             if (st.executeUpdate(qry) > 0) {

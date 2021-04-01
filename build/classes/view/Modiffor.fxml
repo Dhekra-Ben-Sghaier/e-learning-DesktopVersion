@@ -25,10 +25,10 @@
          <font>
             <Font size="14.0" />
          </font></Label>
-      <TextField fx:id="mdfr" layoutX="204.0" layoutY="97.0" />
-      <TextField fx:id="mdnm" layoutX="204.0" layoutY="161.0" />
-      <TextArea fx:id="mdds" layoutX="204.0" layoutY="227.0" prefHeight="142.0" prefWidth="182.0" />
-      <Button fx:id="vld" layoutX="522.0" layoutY="354.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="64.0" style="-fx-background-color: #EE7F03;" text="Valider" textFill="#f5f5f8">
+      <TextField fx:id="mdfr" layoutX="204.0" layoutY="97.0" promptText="formation" />
+      <TextField fx:id="mdnm" layoutX="204.0" layoutY="161.0" promptText="nom formateur" />
+      <TextArea fx:id="mdds" layoutX="204.0" layoutY="227.0" prefHeight="142.0" prefWidth="182.0" promptText="description" />
+      <Button fx:id="vld" layoutX="522.0" layoutY="354.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="64.0" style="-fx-background-color: #EE7F03;" styleClass="button2" stylesheets="@style.css" text="Valider" textFill="#f5f5f8">
          <font>
             <Font size="14.0" />
          </font></Button>

@@ -20,7 +20,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="171.0" prefWidth="410.0">
                      <children>
-                        <TableView fx:id="table" layoutY="53.0" prefHeight="282.0" prefWidth="695.0">
+                        <TableView fx:id="table" layoutY="53.0" prefHeight="282.0" prefWidth="695.0" stylesheets="@style.css">
                            <columns>
                               <TableColumn fx:id="col_id" prefWidth="89.0" text="ID" />
                               <TableColumn fx:id="col_ex" prefWidth="104.0" text="Examen" />
@@ -28,9 +28,9 @@
                               <TableColumn fx:id="col_des" prefWidth="328.0" text="Description" />
                            </columns>
                         </TableView>
-                        <Button fx:id="modif" layoutX="499.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #090257;" text="Modifier" textFill="#f8f8ff" />
-                        <Button fx:id="supprimer" layoutX="592.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #bc0505;" text="Supprimer" textFill="#f8f1f1" />
-                        <Label alignment="CENTER" layoutX="14.0" layoutY="16.0" prefHeight="26.0" prefWidth="204.0" text="Reclamation note" textFill="#0a0232">
+                        <Button fx:id="modif" layoutX="499.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #090257;" styleClass="button1" stylesheets="@style.css" text="Modifier" textFill="#f8f8ff" />
+                        <Button fx:id="supprimer" layoutX="592.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: #bc0505;" styleClass="button1" stylesheets="@style.css" text="Supprimer" textFill="#f8f1f1" />
+                        <Label alignment="CENTER" layoutX="42.0" layoutY="16.0" prefHeight="26.0" prefWidth="204.0" stylesheets="@style.css" text="Reclamation note" textFill="#ee7f03">
                            <font>
                               <Font name="Nirmala UI Bold" size="16.0" />
                            </font>
@@ -41,6 +41,11 @@
                            </image>
                         </ImageView>
                         <TextField fx:id="recherche" layoutX="497.0" layoutY="22.0" />
+                        <ImageView fitHeight="36.0" fitWidth="46.0" layoutX="24.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/2187.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </AnchorPane>
             </content>
@@ -49,7 +54,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="389.0" prefWidth="694.0">
                      <children>
-                        <TableView fx:id="tabfr" layoutY="53.0" prefHeight="275.0" prefWidth="695.0">
+                        <TableView fx:id="tabfr" layoutY="53.0" prefHeight="275.0" prefWidth="695.0" stylesheets="@style.css">
                           <columns>
                               <TableColumn fx:id="idfor" prefWidth="123.0" text="ID formation" />
                             <TableColumn fx:id="colfor" prefWidth="126.0" text="Formation" />
@@ -57,18 +62,23 @@
                               <TableColumn fx:id="cold" prefWidth="319.0" text="Description" />
                           </columns>
                         </TableView>
-                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="45.0" layoutY="19.0" prefHeight="27.0" prefWidth="186.0" text="Reclamation formation" textFill="#0a0232">
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="64.0" layoutY="19.0" prefHeight="27.0" prefWidth="186.0" stylesheets="@style.css" text="Reclamation formation" textFill="#ee7f03">
                            <font>
                               <Font name="Nirmala UI Bold" size="16.0" />
                            </font></Label>
-                        <TextField fx:id="cherche" layoutX="490.0" layoutY="20.0" />
+                        <TextField fx:id="cherche" layoutX="490.0" layoutY="20.0" stylesheets="@style.css" />
                         <ImageView fitHeight="35.0" fitWidth="52.0" layoutX="639.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/rech-removebg-preview.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="modifier" layoutX="499.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #090257;" text="Modifier" textFill="GHOSTWHITE" />
-                        <Button fx:id="suppr" layoutX="592.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: #bc0505;" text="Supprimer" textFill="GHOSTWHITE" />
+                        <Button fx:id="modifier" layoutX="499.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #090257;" styleClass="button1" stylesheets="@style.css" text="Modifier" textFill="GHOSTWHITE" />
+                        <Button fx:id="suppr" layoutX="592.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: #bc0505;" styleClass="button1" stylesheets="@style.css" text="Supprimer" textFill="GHOSTWHITE" />
+                        <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="21.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/2187.png" />
+                           </image>
+                        </ImageView>
                      </children></AnchorPane>
             </content>
           </Tab>
