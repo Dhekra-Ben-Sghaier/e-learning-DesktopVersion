@@ -84,7 +84,7 @@
                         </Circle>
                         <VBox alignment="CENTER" minWidth="-Infinity" prefHeight="56.0" prefWidth="362.0">
                            <children>
-                              <Button fx:id="nom_user" mnemonicParsing="false" prefHeight="39.0" prefWidth="191.0" style="-fx-background-color: #fff;" text="nom utilisateur">
+                              <Button fx:id="nom_user" mnemonicParsing="false" onAction="#affprofil" prefHeight="39.0" prefWidth="191.0" style="-fx-background-color: #fff;" text="nom utilisateur">
                                  <cursor>
                                     <Cursor fx:constant="HAND" />
                                  </cursor>

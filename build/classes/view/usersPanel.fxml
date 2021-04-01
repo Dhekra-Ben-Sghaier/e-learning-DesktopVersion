@@ -76,7 +76,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btn_pub" mnemonicParsing="false" opacity="0.95" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Publicités" textFill="WHITE">
+            <Button fx:id="btn_pub" mnemonicParsing="false" onAction="#affpub" opacity="0.95" prefHeight="50.0" prefWidth="275.0" stylesheets="@style.css" text="Publicités" textFill="WHITE">
                <VBox.margin>
                   <Insets left="10.0" top="25.0" />
                </VBox.margin>
@@ -130,6 +130,7 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Label fx:id="roleLab" disable="true" visible="false" />
          </children>
       </VBox>
    </left>
@@ -138,7 +139,6 @@
          <children>
             <VBox prefHeight="75.0" prefWidth="286.0" style="-fx-background-color: #0A0232;">
                <children>
-                  <Label fx:id="roleLab" disable="true" visible="false" />
                   <Label fx:id="IdUser" disable="true" text="Label" visible="false" />
                   <Label fx:id="br" opacity="0.48" text="Brainovation" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
                      <font>

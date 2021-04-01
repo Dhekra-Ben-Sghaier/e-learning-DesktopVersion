@@ -79,12 +79,12 @@ public class ApprenantFormationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         load();
         search_formation();
-    }    
 
 
 
 
     
+    }    
 void search_formation() {     
         FilteredList<Formation> filteredata;
         filteredata = new FilteredList<>(listdata.getFormations(), b -> true);
@@ -129,7 +129,7 @@ void search_formation() {
             
             PayerController cont = loader.<PayerController>getController();
             cont.setFormation(f);
-            cont.setId(Integer.parseInt(IdUser.getText()));
+            cont.setId(id);
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);

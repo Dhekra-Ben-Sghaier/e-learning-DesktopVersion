@@ -90,6 +90,6 @@
                </light>
             </Lighting>
          </effect></Button>
-      <TextField fx:id="cherche" layoutX="175.0" layoutY="126.0" prefHeight="31.0" prefWidth="461.0" promptText="Rechercher" />
+      <TextField fx:id="cherchef" layoutX="175.0" layoutY="126.0" prefHeight="31.0" prefWidth="461.0" promptText="Rechercher" />
    </children>
 </AnchorPane>

@@ -48,6 +48,8 @@ public class InterfaceAdminController implements Initializable {
     private Button validerstage;
     @FXML
     private Button validertravail;
+    @FXML
+    private Button gererpub;
 
     /**
      * Initializes the controller class.
@@ -119,6 +121,12 @@ public class InterfaceAdminController implements Initializable {
     @FXML
     private void gerertravail(ActionEvent event) {
         loadPage("/view/Update_back_travail.fxml");
+    }
+
+    @FXML
+    private void gererpublicite(ActionEvent event) {
+        loadPage("/view/consulterpub.fxml");
+
     }
 
    

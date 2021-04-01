@@ -26,6 +26,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -64,7 +65,9 @@ public class UsersPanelController implements Initializable {
     @FXML
     private Label IdUser;
     private int id;
-
+  
+    
+    double x,y=0;
     /**
      * Initializes the controller class.
      */
@@ -137,9 +140,42 @@ public class UsersPanelController implements Initializable {
               
             parent = (Parent)loader.load();
             
-             ApprenantFormationController cont = loader.<ApprenantFormationController>getController();
+             ListerFormationsApprenantController cont = loader.<ListerFormationsApprenantController>getController();
           
              cont.setId(n);
+
+//            root = FXMLLoader.load(getClass().getResource(page));
+        } catch (IOException ex) {
+            Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setCenter(parent);
+    }
+    public void  loadTable(){
+        Parent parent = null;
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TableForm.fxml"));
+            parent = (Parent)loader.load();
+        } catch (IOException ex) {
+            Logger.getLogger(InterfaceAdminController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bp.setCenter(parent);
+            
+        }
+
+    
+    
+    public void  loadPageUsr(String page){
+        Parent parent = null;
+   
+        try {
+              FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+              
+            parent = (Parent)loader.load();
+            
+             ListerFormationsController cont = loader.<ListerFormationsController>getController();
+          
+//             cont.setId(n);
 
 //            root = FXMLLoader.load(getClass().getResource(page));
         } catch (IOException ex) {
@@ -224,7 +260,7 @@ public class UsersPanelController implements Initializable {
        System.out.println(roleLab);
         
     }
-        public void setId(int a){
+         public void setId(int a){
         this.id= a;
       IdUser.setText(a+"");
       
@@ -284,15 +320,51 @@ public class UsersPanelController implements Initializable {
         }
         bp.setCenter(parent);
     }
+         public void  loadPagePub(String page){
+        Parent parent = null;
+     
+     Stage stage=new Stage();
+       try {
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource(page));
+//             parent = (Parent)loader.load();            
+//            
+//            
+//            Scene scene = new Scene(parent);
+//            Stage stage = new Stage();
+//            stage.setScene(scene);
+//            stage.show();
+                Stage newWindow = new Stage();
+ Parent root = FXMLLoader.load(getClass().getResource(page)); 
+  stage.initStyle(StageStyle.UNDECORATED);
+
+  root.setOnMousePressed(event -> {
+  x = event.getSceneX();
+  y = event.getSceneY();
+  });
+  root.setOnMouseDragged(event -> {
+    stage.setX(event.getScreenX() - x);
+    stage.setY(event.getScreenY() - y);
+    
+    
+});
+    stage.setScene(new Scene(root, 580 , 400));
+    stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterPubController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
     @FXML
     private void affform(ActionEvent event) {
         System.out.println("rolelab="+roleLab.getText());
+        loadPagePub("/view/image.fxml");
         if("apprenant".equals(roleLab.getText())){
             
-             loadPageUser("/view/ApprenantFormation.fxml",Integer.parseInt(IdUser.getText()));
+             loadPageUser("/view/ListerFormationApprenant.fxml",Integer.parseInt(IdUser.getText()));
         }
         else if("formateur".equals(roleLab.getText())){
-              loadPageUser("/view/TableForm.fxml",Integer.parseInt(IdUser.getText()));
+                // loadPageUsr("/view/ListerFormations.fxml");
+                 loadTable();
         
         } 
           
@@ -321,6 +393,8 @@ public class UsersPanelController implements Initializable {
 
     @FXML
     private void affOff(ActionEvent event) {
+
+            
         if("societe".equals(roleLab.getText())){
             
              loadPageHomeSoc("/view/homeSoc.fxml",Integer.parseInt(IdUser.getText()));
@@ -328,6 +402,11 @@ public class UsersPanelController implements Initializable {
               loadPageHome("/view/Home.fxml",Integer.parseInt(IdUser.getText()));
         
         }
+    }
+
+    @FXML
+    private void affpub(ActionEvent event) {
+        loadPage("/view/AjoutPub.fxml");
     }
 
 }

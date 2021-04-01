@@ -45,10 +45,15 @@ public class PayerController implements Initializable {
     private TextField numCarteField;
     @FXML
     private TextField codeConfidField;
-    @FXML
     private Label IdUser;
     
-    private int id;
+    int idform;
+    @FXML
+    private Label errorId;
+    @FXML
+    private Label errorNum;
+    @FXML
+    private Label errorCode;
 
     /**
      * Initializes the controller class.
@@ -76,7 +81,8 @@ public class PayerController implements Initializable {
           else {
         Formation f = new Formation();
         FormationDao fdao = FormationDao.getInstance();
-        fdao.insertAchat(Integer.parseInt(IdUser.getText()),Integer.parseInt(idLab.getText()));
+              System.out.println("idp   yzer="+idform);
+        fdao.insertAchat(idform,Integer.parseInt(idLab.getText()));
           }
        
      
@@ -96,21 +102,43 @@ public class PayerController implements Initializable {
 
         } 
        public void setId(int a){
-        this.id= a;
-        IdUser.setText(a+"");
-      
+        this.idform= a;
+           System.out.println("idform"+idform);
+       
         
     }
-    @FXML
+     @FXML
     private void verifId(MouseEvent event) {
+        if (!idField.getText().matches("^[0-9]*$") ) {
+                    errorId.setText("L'id doit etre un entier!");
+                    
+                }
+         else {
+             errorId.setText("");
+         }
     }
-
+    
     @FXML
     private void verifCarte(MouseEvent event) {
+        if (!numCarteField.getText().matches("^[0-9]*$") || (numCarteField.getText().length() < 8) ) {
+                    errorNum.setText("Numero de carte invalide!");
+                    
+                }
+        
+         else {
+             errorNum.setText("");
+         }
     }
 
     @FXML
     private void verifCode(MouseEvent event) {
+        if (!codeConfidField.getText().matches("^[0-9]*$") || (codeConfidField.getText().length() < 6 || codeConfidField.getText().length() > 9) ) {
+                    errorCode.setText("Code invalide!");
+                    
+                }
+         else {
+             errorCode.setText("");
+         }
     }
     
 }

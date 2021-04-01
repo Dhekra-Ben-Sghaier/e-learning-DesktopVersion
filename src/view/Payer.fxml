@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
@@ -13,83 +15,110 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PayerController">
+<AnchorPane id="AnchorPane" prefHeight="612.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PayerController">
    <children>
       <VBox layoutX="34.0" layoutY="93.0" prefHeight="332.0" prefWidth="302.0" spacing="30.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Formation :" wrappingWidth="230.6708984375">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Formation :" wrappingWidth="289.6708984375">
                <font>
-                  <Font name="Bookman Old Style Bold" size="36.0" />
+                  <Font name="Calibri Bold" size="42.0" />
                </font>
             </Text>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="7.0">
                <children>
-                  <Label text="Id :">
+                  <Label text="Réference  :">
                      <font>
-                        <Font name="Britannic Bold" size="18.0" />
+                        <Font name="Calibri Bold" size="22.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
                   </Label>
                   <Label fx:id="idLab">
                      <font>
-                        <Font name="Britannic Bold" size="18.0" />
+                        <Font name="Calibri" size="18.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="7.0">
                <children>
-                  <Label layoutX="10.0" layoutY="10.0" text="Titre :">
+                  <Label layoutX="10.0" layoutY="10.0" text="Titre            :">
                      <font>
-                        <Font name="Britannic Bold" size="18.0" />
+                        <Font name="Calibri Bold" size="22.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
                   </Label>
                   <Label fx:id="titleLab">
                      <font>
-                        <Font name="Britannic Bold" size="18.0" />
+                        <Font name="Calibri" size="18.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="7.0">
                <children>
                   <Label text="Decription :">
                      <font>
-                        <Font name="Britannic Bold" size="18.0" />
+                        <Font name="Calibri Bold" size="22.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
                   </Label>
                   <Label fx:id="descLab" layoutX="10.0" layoutY="10.0">
                      <font>
-                        <Font name="Britannic Bold" size="18.0" />
+                        <Font name="Calibri" size="18.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" spacing="50.0">
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="7.0">
                <children>
-                  <Label layoutX="10.0" layoutY="10.0" text="Prix :">
+                  <Label layoutX="10.0" layoutY="10.0" text="Prix             :">
                      <font>
-                        <Font name="Britannic Bold" size="18.0" />
+                        <Font name="Calibri Bold" size="22.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
                   </Label>
                   <Label fx:id="prixLab">
                      <font>
-                        <Font name="Britannic Bold" size="18.0" />
+                        <Font name="Calibri" size="18.0" />
                      </font>
+                     <HBox.margin>
+                        <Insets top="5.0" />
+                     </HBox.margin>
                   </Label>
                </children>
             </HBox>
          </children>
       </VBox>
-      <VBox layoutX="429.0" layoutY="107.0" prefHeight="342.0" prefWidth="266.0" spacing="10.0">
+      <VBox layoutX="407.0" layoutY="95.0" prefHeight="342.0" prefWidth="365.0" spacing="5.0" AnchorPane.rightAnchor="41.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Veillez remplir les champs suivants :" wrappingWidth="261.6708984375">
                <font>
-                  <Font name="Georgia" size="15.0" />
+                  <Font name="Calibri" size="17.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Text>
-            <Label text="ID :">
+            <Label text="Identifiant:">
                <font>
-                  <Font name="Britannic Bold" size="18.0" />
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
                <VBox.margin>
                   <Insets top="30.0" />
@@ -100,22 +129,36 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </TextField>
-            <Label layoutX="10.0" layoutY="10.0" text="Numero de carte ">
+            <Label fx:id="errorId" prefHeight="21.0" prefWidth="384.0" textFill="#dd0000">
                <font>
-                  <Font name="Britannic Bold" size="18.0" />
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="10.0" text="Numero de carte :">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
                </font>
             </Label>
             <TextField fx:id="numCarteField" layoutX="10.0" layoutY="10.0" onMouseExited="#verifCarte" promptText="Numero de carte" />
-            <Label layoutX="10.0" layoutY="10.0" text="Code Confidentiel">
+            <Label fx:id="errorNum" prefHeight="18.0" prefWidth="372.0" textFill="#dd0000">
                <font>
-                  <Font name="Britannic Bold" size="18.0" />
+                  <Font name="Calibri" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="codeConfidField" layoutX="10.0" layoutY="41.0" onMouseExited="#verifCode" promptText="Code" />
-            <Label fx:id="IdUser" visible="false" />
+            <Label layoutX="10.0" layoutY="10.0" text="Code confidentiel:">
+               <font>
+                  <Font name="Calibri Bold" size="20.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="codeConfidField" onMouseExited="#verifCode" promptText="Code Confidentiel" />
+            <Label fx:id="errorCode" prefHeight="18.0" prefWidth="424.0" textFill="#dd0000">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
-      <Button fx:id="btnPay" layoutX="502.0" layoutY="437.0" mnemonicParsing="false" onMouseClicked="#payer" prefHeight="52.0" prefWidth="103.0" styleClass="btn" stylesheets="@style.css" text="Payer" textFill="WHITE">
+      <Button fx:id="btnPay" layoutX="538.0" layoutY="509.0" mnemonicParsing="false" onMouseClicked="#payer" prefHeight="52.0" prefWidth="103.0" styleClass="btn" stylesheets="@style.css" text="Payer" textFill="WHITE">
          <font>
             <Font name="System Bold" size="19.0" />
          </font>
@@ -130,6 +173,6 @@
             </Lighting>
          </effect>
       </Button>
-      <VBox layoutX="365.0" layoutY="99.0" prefHeight="384.0" prefWidth="8.0" style="-fx-background-color: black;" />
+      <Separator layoutX="355.0" layoutY="107.0" orientation="VERTICAL" prefHeight="342.0" prefWidth="20.0" />
    </children>
 </AnchorPane>

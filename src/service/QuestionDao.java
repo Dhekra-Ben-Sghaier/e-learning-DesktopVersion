@@ -110,6 +110,11 @@ public class QuestionDao implements Idao<Question>{
     public List<Question> displayAllByEmail(String s) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void insert(Question o, int prix) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

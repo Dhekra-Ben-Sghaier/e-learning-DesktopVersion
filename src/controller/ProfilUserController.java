@@ -231,8 +231,10 @@ public class ProfilUserController implements Initializable {
               
             parent = (Parent)loader.load();
             
-           MesFormationsController cont = loader.<MesFormationsController>getController();
+          ListerMesFormationsController cont = loader.<ListerMesFormationsController>getController();
             cont.setId(Integer.parseInt(labb_id.getText()));
+            cont.affForm(Integer.parseInt(labb_id.getText()));
+             System.out.println("idformmm1="+Integer.parseInt(labb_id.getText()));
         } catch (IOException ex) {
             Logger.getLogger(UsersPanelController.class.getName()).log(Level.SEVERE, null, ex);
        
@@ -244,6 +246,6 @@ public class ProfilUserController implements Initializable {
     @FXML
     private void mesform(Event event) {
         System.out.println("iiiid="+labb_id.getText());
-   loadPage("/view/MesFormations.fxml");
+   loadPage("/view/ListerMesFormations.fxml");
     }
 }

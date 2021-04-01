@@ -20,6 +20,9 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
+import javafx.util.Duration;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
@@ -63,12 +66,7 @@ public class FormationDao implements Idao<Formation>{
         
         System.out.println(req);
         try {
-            System.out.println("req execute: "+st.executeUpdate(req));
-            System.out.println(req);
-            System.out.println("req execute: "+st.executeUpdate(req));
-            st.executeQuery(req);
-            //st.executeUpdate(req);
-           
+            st.executeUpdate(req);
             Alert alertInf = new Alert(Alert.AlertType.INFORMATION);
             alertInf.setTitle("Information Dialog");
             alertInf.setHeaderText(null);
@@ -219,6 +217,7 @@ public class FormationDao implements Idao<Formation>{
                 f.setPrix(rs.getFloat("prix"));
                 f.setDifficulte(rs.getString("difficulte"));
                 f.setCertifier(rs.getBoolean("certificat"));
+                f.setPathImg(rs.getString("Image"));
                 f.setPath(req);
                 list.add(f);
             }    
@@ -229,7 +228,7 @@ public class FormationDao implements Idao<Formation>{
     }
 
     
-    public Formation affFormation(int id){
+     public Formation affFormation(int id){
         String req = "SELECT * from formation f WHERE f.id ="+id; 
         Formation f =new Formation();
         
@@ -252,10 +251,80 @@ public class FormationDao implements Idao<Formation>{
 				while (input.read(buffer) > 0) {
 					output.write(buffer);
 				}
+                                System.out.println("theFile.getAbsoluteFile();    =>  "+theFile.getAbsoluteFile());
 				
 				System.out.println("\nSaved to file: " + theFile.getAbsolutePath());
 				Desktop.getDesktop().open(theFile.getAbsoluteFile());
 				System.out.println("\nCompleted successfully!");				
+
+
+		} catch (Exception exc) {
+			exc.printStackTrace();
+		}
+                f.setPath(req);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(FormationDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return f;
+        
+    }
+    public Formation saveFormation(int id){
+        String req = "SELECT * from formation f WHERE f.id ="+id; 
+        Formation f =new Formation();
+        
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+                f.setTitle(rs.getString("titre"));
+                f.setDescription(rs.getString("description"));
+                f.setDifficulte(rs.getString("difficulte"));
+  
+                try {
+		File fileToSave = null;	
+		InputStream input = null; 
+                JFrame parentFrame = new JFrame();
+ 
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setDialogTitle("Specify a file to save");   
+
+                int userSelection = fileChooser.showSaveDialog(parentFrame);
+
+                if (userSelection == JFileChooser.APPROVE_OPTION) {
+                    fileToSave = fileChooser.getSelectedFile();
+                    System.out.println("Save as file: " + fileToSave.getAbsolutePath());
+                }
+		File theFile = new File(fileToSave.getAbsolutePath());
+                   
+                FileOutputStream output = new FileOutputStream(theFile);
+                input = rs.getBinaryStream("cours");
+		System.out.println("Reading cours from database...");
+		System.out.println(req);
+		byte[] buffer = new byte[1024];
+				while (input.read(buffer) > 0) {
+                                    System.out.println("888888888 "+output.toString());
+                                     
+					output.write(buffer);
+				}
+                                System.out.println("theFile.getAbsoluteFile();    =>  "+theFile.getAbsoluteFile());
+				
+				System.out.println("\nSaved to file: " + theFile.getAbsolutePath());
+                                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                alert.setTitle("Information Dialog");
+                                alert.setHeaderText(null);
+                                alert.setContentText("votre fichier est enregistrer sous : "+theFile.getAbsoluteFile());
+                                alert.show();
+                                
+                                
+                                TrayNotification tray =new TrayNotification();
+                                tray.setTitle("Succès");
+                                tray.setMessage("Votre cours est enregistré !");
+                                tray.setAnimationType(AnimationType.POPUP);
+                                
+                                 tray.showAndDismiss(Duration.seconds(5));
+				output.close();
+                                input.close();
 
 
 		} catch (Exception exc) {
@@ -298,6 +367,11 @@ public class FormationDao implements Idao<Formation>{
 
     @Override
     public List<Formation> displayAllByEmail(String s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void insert(Formation o, int prix) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

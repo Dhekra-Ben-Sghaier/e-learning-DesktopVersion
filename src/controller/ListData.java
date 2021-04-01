@@ -36,7 +36,9 @@ class ListData {
     }
     
     public ObservableList<Formation> getFormAch(int id){
+       
           formAchete = (ObservableList<Formation>) fdao.displayAllById(id);
+           System.out.println("0000000002 => "+formAchete);
         return formAchete;
     }
     public ObservableList<Formation> getForm(){

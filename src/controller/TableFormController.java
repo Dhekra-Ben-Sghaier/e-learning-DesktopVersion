@@ -18,6 +18,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
@@ -60,8 +61,9 @@ public class TableFormController implements Initializable {
     private Button btnDel;
     @FXML
     private Button btnModif;
-    @FXML
     private TextField cherche;
+    @FXML
+    private TextField cherchef;
     
     /**
      * Initializes the controller class.
@@ -102,7 +104,7 @@ public class TableFormController implements Initializable {
             stage.show();
             load();
         } catch (IOException ex) {
-            Logger.getLogger(TableFormController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
     }
 
@@ -122,6 +124,14 @@ public class TableFormController implements Initializable {
     @FXML
     private void modifier(ActionEvent event) {
         Formation f = tabFormation.getSelectionModel().getSelectedItem();
+        if(f == null){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("Il faut choisir la formation à modifier!");
+            alert.show();
+        }
+        else{
         FormationDao fo =FormationDao.getInstance();
           
         try {
@@ -142,16 +152,16 @@ public class TableFormController implements Initializable {
             stage.initStyle(StageStyle.DECORATED);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(TableFormController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
     
-        
+        }  
     }
-
+    
     void search_formation() {     
         FilteredList<Formation> filteredata;
         filteredata = new FilteredList<>(listdata.getFormations(), b -> true);
-        cherche.textProperty().addListener((observable, oldValue, newValue) -> {
+        cherchef.textProperty().addListener((observable, oldValue, newValue) -> {
         
             filteredata.setPredicate(formation -> {
                 if (newValue == null){

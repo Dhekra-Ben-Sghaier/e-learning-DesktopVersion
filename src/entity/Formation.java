@@ -34,7 +34,14 @@ public class Formation {
         this.difficulte = difficulté;
         this.certifier = certifier;
     }
-
+    public Formation(int id, String title, String pathImg, String description, float prix) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.prix = prix;
+        this.pathImg = pathImg;
+       
+    }
     public Formation(int id, String title, String description, float prix, String difficulte, String path) {
         this.id = id;
         this.title = title;

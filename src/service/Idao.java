@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
  * @author benha
  */
 public interface Idao <T> {
+     public void insert(T o,int prix);
       public void insert(T o);
     public void delete(T o);
     public List<T> displayAll();
