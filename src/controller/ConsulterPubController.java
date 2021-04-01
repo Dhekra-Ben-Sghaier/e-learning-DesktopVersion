@@ -193,8 +193,8 @@ public class ConsulterPubController implements Initializable {
    Pub p = pubview.getSelectionModel().getSelectedItem();
           PubDao fo =PubDao.getInstance().getInstance();
           fo.delete(p);
-          pubview.getItems().removeAll(pubview.getSelectionModel().getSelectedItem());
-          
+//          pubview.getItems().removeAll(pubview.getSelectionModel().getSelectedItem());
+           pubview.getSelectionModel().getSelectedItems().forEach(this.PubList::remove);
              Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information Dialog");
         alert.setHeaderText(null);

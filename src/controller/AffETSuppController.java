@@ -75,6 +75,7 @@ public class AffETSuppController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+       
          apprenants.setItems(listdata.getPersonsapp());
          iduser.setCellValueFactory(cell -> cell.
                 getValue().getIdProperty().asObject());

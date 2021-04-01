@@ -15,6 +15,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import service.FormationDao;
 //import tray.animations.AnimationType;
 //import tray.notification.NotificationType;
@@ -54,6 +56,8 @@ public class PayerController implements Initializable {
     private Label errorNum;
     @FXML
     private Label errorCode;
+    @FXML
+    private BorderPane bprating;
 
     /**
      * Initializes the controller class.
@@ -74,7 +78,7 @@ public class PayerController implements Initializable {
     
     @FXML
     private void payer(MouseEvent event) {
-       
+      
           if("".equals(idField.getText()) || "".equals(numCarteField.getText()) || "".equals(codeConfidField.getText())){
                     verifField();
                 } 

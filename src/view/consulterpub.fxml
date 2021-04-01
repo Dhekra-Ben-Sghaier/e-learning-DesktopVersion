@@ -38,7 +38,7 @@
                         <TableColumn fx:id="lienp" prefWidth="75.0" text="Lien" />
                      </columns>
                   </TableView>
-                  <Button fx:id="supprimer" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #D72400;" text="SUPPRIMER">
+                  <Button fx:id="supprimer" layoutX="572.0" layoutY="547.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #D72400;" text="SUPPRIMER">
                      <effect>
                         <Lighting diffuseConstant="1.26" specularConstant="0.7" specularExponent="33.95" surfaceScale="1.73">
                            <bumpInput>
@@ -57,7 +57,7 @@
                         <Font name="Arial Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Button fx:id="modification" mnemonicParsing="false" onAction="#modification" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #3F93C6;" styleClass="Acropane" stylesheets="@../../../../../Bureau/BrainNovation-GestUser/src/view/style.css" text="MODIFIER">
+                  <Button fx:id="modification" layoutX="720.0" layoutY="546.0" mnemonicParsing="false" onAction="#modification" prefHeight="25.0" prefWidth="140.0" style="-fx-background-color: #3F93C6;" styleClass="Acropane" stylesheets="@../../../../../Bureau/BrainNovation-GestUser/src/view/style.css" text="MODIFIER">
                      <font>
                         <Font size="13.0" />
                      </font>
@@ -131,7 +131,7 @@
                         </Lighting>
                      </effect>
                   </Button>
-                  <ImageView fitHeight="46.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="46.0" fitWidth="72.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/ibm.jpg" />
                      </image>
@@ -141,7 +141,7 @@
                         <Image url="@../image/google_.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="46.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="46.0" fitWidth="47.0" layoutX="62.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/prada.jpg" />
                      </image>
@@ -156,7 +156,7 @@
                         <Image url="@../image/wix.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="55.0" fitWidth="130.0" layoutX="118.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="55.0" fitWidth="130.0" layoutX="645.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/netflix.jpg" />
                      </image>
@@ -180,7 +180,7 @@
                      </yAxis>
                   </BarChart>
                   <Label fx:id="label1" layoutX="21.0" layoutY="200.0" prefHeight="17.0" prefWidth="98.0" text="Somme des prix" />
-                  <Label fx:id="label2" layoutX="135.0" layoutY="69.0" prefHeight="17.0" prefWidth="71.0" text="Affichage" />
+                  <Label fx:id="label2" layoutX="275.0" layoutY="367.0" prefHeight="17.0" prefWidth="71.0" text="Affichage" />
                   <ImageView fitHeight="40.0" fitWidth="56.0" layoutX="444.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/list.png" />

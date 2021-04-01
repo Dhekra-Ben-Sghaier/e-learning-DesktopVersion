@@ -109,16 +109,21 @@
                      <effect>
                         <DropShadow />
                      </effect>
+                     <children>
+                        <Button fx:id="home" layoutX="2.0" layoutY="119.0" mnemonicParsing="false" style="-fx-background-color: #0A0232;">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/dec.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
                   </AnchorPane>
                   <ImageView fitHeight="114.0" fitWidth="115.0" layoutX="72.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/Admin-icon-removebg-preview.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="home" layoutX="62.0" layoutY="592.0" mnemonicParsing="false" style="-fx-background-color: #0A0232;" />
-                  <ImageView fitHeight="33.0" fitWidth="50.0" layoutX="56.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../images/homeicon.png" />
                      </image>
                   </ImageView>
                </children>

@@ -68,7 +68,7 @@ ObservableList<String> Affichage =FXCollections.observableArrayList("1000","2000
    
    @FXML
     private void Modifier(ActionEvent event) {
-            Pub f = new Pub (Integer.parseInt(id_p.getText()),nom_p.getText(), prenom_p.getText(), email_p.getText() , domaine_p.getText() , cb_occ.getValue(), lien_p.getText() );
+            Pub f = new Pub (Integer.parseInt(id_p.getText()),nom_p.getText(), prenom_p.getText(), email_p.getText() , domaine_p.getText() , cb_occ.getValue(),Integer.parseInt(prix_p.getText()), lien_p.getText() );
             PubDao fdao = PubDao.getInstance();
             fdao.update(f);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
