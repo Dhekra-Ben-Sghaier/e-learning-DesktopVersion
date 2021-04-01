@@ -1,23 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #E8F8F5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ContratController">
+<AnchorPane id="AnchorPane" prefHeight="503.0" prefWidth="497.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ContratController">
    <children>
-      <Label layoutX="94.0" layoutY="69.0" prefHeight="17.0" prefWidth="43.0" text="Nom" />
-      <Label layoutX="94.0" layoutY="131.0" prefHeight="17.0" prefWidth="53.0" text="Prenom" />
-      <Label fx:id="lastname" layoutX="230.0" layoutY="69.0" prefHeight="17.0" prefWidth="126.0" style="-fx-background-color: white;" />
-      <Label fx:id="name" layoutX="230.0" layoutY="131.0" prefHeight="17.0" prefWidth="126.0" style="-fx-background-color: white;" />
-      <Label layoutX="94.0" layoutY="183.0" prefHeight="17.0" prefWidth="43.0" text="Email" />
-      <Label fx:id="mail" layoutX="230.0" layoutY="183.0" prefHeight="17.0" prefWidth="126.0" style="-fx-background-color: white;" />
-      <Label layoutX="89.0" layoutY="273.0" text="Affichage" />
-      <Label layoutX="94.0" layoutY="308.0" text="Prix" />
-      <Label fx:id="pri" layoutX="206.0" layoutY="308.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" />
-      <Button fx:id="imprimer" layoutX="281.0" layoutY="352.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="25.0" prefWidth="139.0" styleClass="button1" stylesheets="@style.css" text="Imprimer" />
-      <Label layoutX="90.0" layoutY="235.0" prefHeight="17.0" prefWidth="50.0" text="Domaine" />
-      <Label fx:id="domain" layoutX="223.0" layoutY="227.0" prefHeight="17.0" prefWidth="139.0" style="-fx-background-color: white;" />
-      <Label fx:id="affiche" layoutX="217.0" layoutY="273.0" prefHeight="17.0" prefWidth="150.0" style="-fx-background-color: white;" />
+      <Button fx:id="imprimer" layoutX="302.0" layoutY="425.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="25.0" prefWidth="139.0" styleClass="button1" stylesheets="@style.css" text="Imprimer" />
+      <TextField fx:id="lastname" layoutX="227.0" layoutY="50.0" prefHeight="25.0" prefWidth="214.0" promptText="Nom">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="name" layoutX="233.0" layoutY="111.0" prefHeight="25.0" prefWidth="214.0" promptText="prenom">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mail" layoutX="233.0" layoutY="163.0" prefHeight="25.0" prefWidth="214.0" promptText="mail">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="domain" layoutX="233.0" layoutY="215.0" prefHeight="25.0" prefWidth="214.0" promptText="domaine">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="affiche" layoutX="233.0" layoutY="261.0" prefHeight="25.0" prefWidth="214.0" promptText="Affichage">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="pri" layoutX="233.0" layoutY="313.0" prefHeight="25.0" prefWidth="214.0" promptText="Prix">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="lie" layoutX="233.0" layoutY="349.0" prefHeight="25.0" prefWidth="214.0" promptText="lien">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </TextField>
+      <AnchorPane layoutX="-2.0" opacity="0.94" prefHeight="503.0" prefWidth="217.0" style="-fx-background-color: #0A0232;">
+         <children>
+            <ImageView fitHeight="117.0" fitWidth="214.0" layoutX="3.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/contr-removebg-preview.png" />
+               </image>
+            </ImageView>
+         </children>
+         <effect>
+            <DropShadow height="9.02" radius="5.46" spread="0.65" width="14.82">
+               <color>
+                  <Color blue="0.5467836260795593" green="0.587768018245697" red="0.6315789222717285" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
    </children>
 </AnchorPane>

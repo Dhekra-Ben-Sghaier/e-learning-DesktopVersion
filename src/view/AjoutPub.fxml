@@ -11,22 +11,22 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="579.0" prefWidth="980.0" style="-fx-background-color: #E8F8F5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AjoutPubController">
+<AnchorPane id="AnchorPane" prefHeight="588.0" prefWidth="823.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AjoutPubController">
    <children>
-      <Label layoutX="448.0" layoutY="14.0" prefHeight="46.0" prefWidth="384.0" text="          Ajouter une publicité " textFill="#2471a3">
+      <Label layoutX="386.0" layoutY="22.0" prefHeight="46.0" prefWidth="384.0" text="          Ajouter une publicité " textFill="#f87a04">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="399.0" layoutY="101.0" prefHeight="17.0" prefWidth="38.0" text="Nom" />
-      <Label layoutX="395.0" layoutY="240.0" prefHeight="17.0" prefWidth="38.0" text="Email" />
-      <Label layoutX="391.0" layoutY="307.0" text="domaine" />
-      <TextField fx:id="nom" layoutX="517.0" layoutY="97.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-color: white;" />
-      <TextField fx:id="email" layoutX="518.0" layoutY="236.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-color: white;" />
-      <TextField fx:id="domaine" layoutX="518.0" layoutY="303.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-color: white;" />
-      <Button fx:id="deposerbutton" layoutX="492.0" layoutY="517.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #2471a3;" text="Deposer" />
-      <Button fx:id="ch" layoutX="756.0" layoutY="308.0" mnemonicParsing="false" onAction="#choose" prefHeight="32.0" prefWidth="175.0" styleClass="button1" stylesheets="@style.css" text="Browse" />
-      <AnchorPane fx:id="anchorpane" layoutX="1.0" layoutY="-3.0" opacity="0.94" prefHeight="503.0" prefWidth="318.0" style="-fx-background-color: #0A0232;">
+      <TextField fx:id="nom" layoutX="368.0" layoutY="98.0" prefHeight="26.0" prefWidth="183.0" promptText="Nom" style="-fx-background-color: #E7EFF1;">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></TextField>
+      <TextField fx:id="email" layoutX="368.0" layoutY="237.0" prefHeight="26.0" prefWidth="183.0" promptText="Email" style="-fx-background-color: #E7EFF1;" />
+      <TextField fx:id="domaine" layoutX="368.0" layoutY="312.0" prefHeight="26.0" prefWidth="183.0" promptText="domaine" style="-fx-background-color: #E7EFF1white;" />
+      <Button fx:id="deposerbutton" layoutX="614.0" layoutY="534.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="175.0" styleClass="button1" stylesheets="@style.css" text="Deposer" />
+      <Button fx:id="ch" layoutX="614.0" layoutY="309.0" mnemonicParsing="false" onAction="#choose" prefHeight="32.0" prefWidth="175.0" text="Browse" />
+      <AnchorPane fx:id="anchorpane" layoutY="-2.0" opacity="0.94" prefHeight="590.0" prefWidth="310.0" style="-fx-background-color: #0A0232;">
          <effect>
             <DropShadow height="9.02" radius="5.46" spread="0.65" width="14.82">
                <color>
@@ -37,21 +37,22 @@
          <children>
             <ImageView fitHeight="241.0" fitWidth="302.0" layoutX="8.0" layoutY="169.0" opacity="0.88" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/publicité.jpg" />
+                  <Image url="@../image/publicité-removebg-preview.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <Button fx:id="provisoire" layoutX="39.0" layoutY="533.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="175.0" style="-fx-background-color: #2471a3;" text="Bouton_provisoire" />
-      <Label layoutX="399.0" layoutY="174.0" text="Prénom" />
-      <TextField fx:id="prenom" layoutX="518.0" layoutY="171.0" prefHeight="26.0" prefWidth="183.0" style="-fx-background-color: white;" />
+      <TextField fx:id="prenom" layoutX="368.0" layoutY="160.0" prefHeight="26.0" prefWidth="183.0" promptText="Prénom" style="-fx-background-color: #E7EFF1;">
+         <font>
+            <Font name="Marlett" size="12.0" />
+         </font></TextField>
       <Label fx:id="lab_email" layoutX="520.0" layoutY="290.0" prefHeight="17.0" prefWidth="224.0" />
-      <Label layoutX="394.0" layoutY="385.0" prefHeight="17.0" prefWidth="87.0" text="Affichage" />
-      <ComboBox fx:id="comb" layoutX="520.0" layoutY="381.0" prefHeight="25.0" prefWidth="196.0" promptText="Combien de fois" />
-      <ImageView fx:id="impub" fitHeight="175.0" fitWidth="200.0" layoutX="744.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+      <ComboBox fx:id="comb" layoutX="368.0" layoutY="386.0" prefHeight="25.0" prefWidth="196.0" promptText="Affichage" />
+      <ImageView fx:id="impub" fitHeight="175.0" fitWidth="200.0" layoutX="632.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/pub.png" />
          </image>
       </ImageView>
+      <TextField fx:id="lien" layoutX="375.0" layoutY="458.0" prefHeight="25.0" prefWidth="183.0" promptText="lien" style="-fx-background-color: #E7EFF1;" />
    </children>
 </AnchorPane>

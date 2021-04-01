@@ -25,6 +25,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 
 /**
@@ -37,19 +38,21 @@ public class ContratController implements Initializable {
     private Pub pub;
     private InputStream input;
     @FXML
-    private Label lastname;
+    private TextField lastname;
     @FXML
-    private Label name;
+    private TextField name;
     @FXML
-    private Label mail;
+    private TextField mail;
     @FXML
-    private Label pri;
+    private TextField pri;
     @FXML
     private Button imprimer;
     @FXML
-    private Label domain;
+    private TextField domain;
     @FXML
-    private Label affiche;
+    private TextField affiche;
+    @FXML
+    private TextField lie;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -64,6 +67,7 @@ public class ContratController implements Initializable {
          mail.setText(a.getEmail());
          domain.setText(a.getDomaine());
          affiche.setText(a.getAffichage());
+         lie.setText(a.getLien());
          
         
     } 
@@ -92,16 +96,17 @@ public class ContratController implements Initializable {
        doc.open();
        com.itextpdf.text.Image img = com.itextpdf.text.Image.getInstance("C:\\Users\\hp\\OneDrive\\Documents\\NetBeansProjects\\PidevPubStat\\src\\image\\contrat.png");
        img.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER);
-       img.scaleToFit(400, 900);
+       img.scaleToFit(500, 1000);
        
        doc.add(img);
        doc.add(new Paragraph("Le contrat suivant est réalisé avec l'annonceur dont les coordonnées ci dessous : "
-                             + "\nNom annonceur : "+lastname.getText()+""
-                             + "\nPrenom annonceur : "+name.getText()+""
-                             + "\nEmail : "+mail.getText()+""
-                             + "\nDomaine de la publicité : "+domain.getText()+""
-                             + "\nLe nombre des occurences et affichages de cette publicité par clic sur le site est de l'ordre de : "+affiche.getText()+""
-                             + "\nComme le mentionne le contrat suivant, le paiment sera en fonction de l'affichage des publicités :" +pri.getText()+""
+                             + "\n \n Nom annonceur : "+lastname.getText()+""
+                                     
+                             + "\n \n Prenom annonceur : "+name.getText()+""
+                             + "\n \n Email : "+mail.getText()+""
+                             + "\n \n Domaine de la publicité : "+domain.getText()+""
+                             + "\n \n Le nombre des occurences et affichages de cette publicité par clic sur le site est de l'ordre de : "+affiche.getText()+""
+                             + "\n \n Comme le mentionne le contrat suivant, le paiment sera en fonction de l'affichage des publicités :" +pri.getText()+""
                              + "\n",FontFactory.getFont(FontFactory.TIMES_ROMAN,14,Font.ITALIC,BaseColor.BLACK)
        ))
                

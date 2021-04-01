@@ -38,14 +38,14 @@ return prix;
  }
   public int recId (Pub p,int prix){
     
-      String req = "select id from publicité where  nom ='"+p.getNom()+"'AND prenom ='"+p.getPrenom()+"'AND email ='"+p.getEmail()+"'AND domaine ='"+p.getDomaine()+"'AND Affichage ='"+p.getAffichage()+"' AND Prix ="+prix;
+      String req = "select id from publicité where  nom ='"+p.getNom()+"'AND prenom ='"+p.getPrenom()+"'AND email ='"+p.getEmail()+"'AND domaine ='"+p.getDomaine()+"'AND Affichage ='"+p.getAffichage()+"'AND lien ='"+p.getLien()+"' AND Prix ="+prix;
       int res=0;
         try {
            rs=st.executeQuery(req);
             
             while(rs.next()){
                res=rs.getInt("id");
-              return res ;
+                return res ;
             }
             
         } catch (SQLException ex) {
@@ -53,4 +53,19 @@ return prix;
         }
         return res; 
   }
+  public String recLien (int id) {
+        String req="select lien from publicité where id ="+id;
+        String res="null";
+        try {
+            rs=st.executeQuery(req);
+            while(rs.next()){
+               res=rs.getString("lien");
+              return res ;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(fct.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return res; 
+    }
 }

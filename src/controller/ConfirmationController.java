@@ -22,8 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.paint.Paint;
+
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
@@ -34,6 +33,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.io.FileInputStream;
+import javafx.scene.control.TextField;
 /**
  * FXML Controller class
  *
@@ -48,7 +48,7 @@ public class ConfirmationController implements Initializable {
     @FXML
     private Button valider;
     @FXML
-    private Label prx;
+    private TextField prx;
    
     private Pub pub;
     private FileInputStream input;
@@ -70,6 +70,9 @@ public class ConfirmationController implements Initializable {
      
      private PreparedStatement store;
      private String openst="UPDATE publicité SET image= ? WHERE id=?";
+   
+    @FXML
+    private Label seven;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -80,15 +83,23 @@ public class ConfirmationController implements Initializable {
                PubDao pdao = PubDao.getInstance();
                 conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
             store=conn.prepareStatement(openst);
+            
+             
               
         valider.setOnAction((javafx.event.ActionEvent event) -> {
+            
                pdao.insert(pub, Integer.parseInt(prx.getText()));
                fct f=new fct();
                int id=f.recId(pub,Integer.parseInt(prx.getText()));
+              
+               
+              
                System.out.println(id);
                System.out.println(input);
                
+               
               try {
+                  
                store.setBinaryStream(1, input);
                store.setInt(2, id);
                store.execute(); 
@@ -101,11 +112,15 @@ public class ConfirmationController implements Initializable {
         alert.setHeaderText(null);
          alert.setContentText("Pub est insérée");
         alert.show();
+//        String lie = f.reclien(id);
             });                 
         } catch (Exception e) {
             e.printStackTrace();
             
-        } 
+        }
+             
+             
+             
           String tilte ="Confirmation d'ajout";
           String message =first.getText();
           TrayNotification tray = new TrayNotification();
@@ -114,7 +129,7 @@ public class ConfirmationController implements Initializable {
           tray.setTitle(tilte);
           tray.setMessage(tilte);
           tray.setNotificationType(NotificationType.SUCCESS);
-          tray.showAndDismiss(Duration.millis(3000));
+          tray.showAndDismiss(Duration.millis(4000));
        
         retour.setOnAction((javafx.event.ActionEvent event) -> {
             
@@ -166,15 +181,17 @@ public class ConfirmationController implements Initializable {
         pub.setEmail(a.getEmail());
         pub.setDomaine(a.getDomaine());
         pub.setAffichage(a.getAffichage());
+        pub.setLien(a.getLien());
         first.setText(a.getNom());
         second.setText(a.getPrenom());
         three.setText(a.getEmail());
         four.setText(a.getDomaine());
         five.setText(a.getAffichage());
-        
+        seven.setText(a.getLien());
     }   
     public void setIm(FileInputStream is){
         input=is;
     }
+    
     
 }

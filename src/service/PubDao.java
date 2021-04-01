@@ -40,7 +40,7 @@ public class PubDao implements Idao<Pub>{
     }
 @Override
     public void insert(Pub o ,int prix) {
-        String req="insert into publicité (nom,prenom,email,domaine,Affichage,Prix ) values ('"+o.getNom()+"','"+o.getPrenom()+"','"+o.getEmail()+"', '"+o.getDomaine()+"','"+o.getAffichage()+"','"+prix+"')";
+        String req="insert into publicité (nom,prenom,email,domaine,Affichage,Prix,lien) values ('"+o.getNom()+"','"+o.getPrenom()+"','"+o.getEmail()+"', '"+o.getDomaine()+"','"+o.getAffichage()+"','"+prix+"','"+o.getLien()+"')";
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
@@ -65,6 +65,7 @@ public class PubDao implements Idao<Pub>{
                 p.setDomaine(rs.getString(5));
                 p.setAffichage(rs.getString(6));
                  p.setPrix(rs.getInt(8));
+                 p.setLien(rs.getString(9));
                 
 
                 
@@ -131,7 +132,7 @@ public class PubDao implements Idao<Pub>{
 
     @Override
     public boolean update(Pub os) {
-        String qry = "update publicité set nom = '"+os.getNom()+"' , prenom = '"+os.getPrenom()+"', email = '"+os.getEmail()+"', domaine = '"+os.getDomaine()+"' , Affichage = '"+os.getAffichage()+"'Prix = '"+os.getPrix()+"'  WHERE id = "+os.getId();
+        String qry = "update publicité set nom = '"+os.getNom()+"' , prenom = '"+os.getPrenom()+"', email = '"+os.getEmail()+"', domaine = '"+os.getDomaine()+"' , Affichage = '"+os.getAffichage()+"',Prix = '"+os.getPrix()+"',lien='"+os.getLien()+"'  WHERE id = "+os.getId();
         
         try {
             if (st.executeUpdate(qry) > 0) {
@@ -160,6 +161,7 @@ public class PubDao implements Idao<Pub>{
                 p.setDomaine(rs.getString(5));
                 p.setAffichage(rs.getString(6));
                 p.setPrix(rs.getInt(8));
+                p.setLien(rs.getString(9));
                
                 //}  
         } catch (SQLException ex) {

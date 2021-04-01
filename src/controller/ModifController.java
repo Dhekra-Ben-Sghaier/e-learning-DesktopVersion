@@ -42,6 +42,8 @@ ObservableList<String> Affichage =FXCollections.observableArrayList("1000","2000
     private ComboBox<String> cb_occ;
     @FXML
     private TextField prix_p;
+    @FXML
+    private TextField lien_p;
 
     /**
      * Initializes the controller class.
@@ -61,11 +63,12 @@ ObservableList<String> Affichage =FXCollections.observableArrayList("1000","2000
         domaine_p.setText(f.getDomaine());
         cb_occ.setValue(f.getAffichage());
         prix_p.setText(""+f.getPrix());
+        lien_p.setText(f.getLien());
     }
    
    @FXML
     private void Modifier(ActionEvent event) {
-            Pub f = new Pub (Integer.parseInt(id_p.getText()),nom_p.getText(), prenom_p.getText(), email_p.getText() , domaine_p.getText() , cb_occ.getValue() );
+            Pub f = new Pub (Integer.parseInt(id_p.getText()),nom_p.getText(), prenom_p.getText(), email_p.getText() , domaine_p.getText() , cb_occ.getValue(), lien_p.getText() );
             PubDao fdao = PubDao.getInstance();
             fdao.update(f);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -77,6 +80,7 @@ ObservableList<String> Affichage =FXCollections.observableArrayList("1000","2000
             prenom_p.setText("");
             email_p.setText("");
             domaine_p.setText("");
+            lien_p.setText("");
             
 }
 

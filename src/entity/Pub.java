@@ -17,12 +17,13 @@ public class Pub {
     private SimpleStringProperty email;
     private SimpleStringProperty domaine;
     private SimpleIntegerProperty Prix;
+    private SimpleStringProperty lien;
 
     public Pub() {
     }
 
     
-    public Pub (int id, String nom,String prenom,String email, String domaine,String Affichage, int Prix ) {
+    public Pub (int id, String nom,String prenom,String email, String domaine,String Affichage, int Prix, String lien) {
         this.id = new SimpleIntegerProperty(id);
         this.nom = new SimpleStringProperty(nom);
         this.prenom = new SimpleStringProperty(prenom);
@@ -30,22 +31,25 @@ public class Pub {
         this.domaine = new SimpleStringProperty(domaine);
         this.Affichage = new SimpleStringProperty(Affichage);
         this.Prix = new SimpleIntegerProperty(Prix);
+        this.lien = new SimpleStringProperty();
     }
 
-    public Pub (String nom,String prenom,String email, String domaine, String Affichage) {
+    public Pub (String nom,String prenom,String email, String domaine, String Affichage,String lien) {
         this.nom = new SimpleStringProperty(nom);
         this.prenom = new SimpleStringProperty(prenom);
         this.email = new SimpleStringProperty(email);
         this.domaine = new SimpleStringProperty(domaine);
         this.Affichage = new SimpleStringProperty(Affichage);
+        this.lien = new SimpleStringProperty(lien);
     }
- public Pub (int id,String nom,String prenom,String email, String domaine, String Affichage) {
+ public Pub (int id,String nom,String prenom,String email, String domaine, String Affichage,String lien) {
              this.id = new SimpleIntegerProperty(id);
         this.nom = new SimpleStringProperty(nom);
         this.prenom = new SimpleStringProperty(prenom);
         this.email = new SimpleStringProperty(email);
         this.domaine = new SimpleStringProperty(domaine);
         this.Affichage = new SimpleStringProperty(Affichage);
+        this.lien = new SimpleStringProperty(lien);
     }
 
    
@@ -119,10 +123,25 @@ public class Pub {
  public SimpleIntegerProperty getPrixProperty(){
         return Prix;
     }
+ public String getLien() {
+        return lien.get();
+    }
+
+    public void setLien(String prenom) {
+        this.lien = new SimpleStringProperty(prenom);
+    }
+    public SimpleStringProperty getLienProperty(){
+        return lien;
+    }
+
+ 
+
+    
+    
  
     @Override
     public String toString() {
-        return "Pub{" + "id=" + id.get() + ", nom=" + nom.get() + ",prenom=" + prenom.get() + ", email=" + email.get() + ", domaine=" + domaine.get() + ", Affichage=" + Affichage.get() +'}';
+        return "Pub{" + "id=" + id.get() + ", nom=" + nom.get() + ",prenom=" + prenom.get() + ", email=" + email.get() + ", domaine=" + domaine.get() + ", Affichage=" + Affichage.get() + ", lien=" + lien.get() +'}';
     }
 
     @Override

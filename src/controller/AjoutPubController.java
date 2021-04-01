@@ -77,6 +77,8 @@ public class AjoutPubController implements Initializable {
    
     @FXML
     private Button ch;
+    @FXML
+    private TextField lien;
      @Override
     public void initialize(URL url, ResourceBundle rb) { 
          
@@ -84,7 +86,7 @@ public class AjoutPubController implements Initializable {
  comb.setItems(occur);
 
  deposerbutton.setOnAction((javafx.event.ActionEvent event) -> {
-           if(ControleSaisie.isNull(nom.getText()) || ControleSaisie.isNull(prenom.getText()) || ControleSaisie.isNull(email.getText()) || ControleSaisie.isNull(email.getText()) || ControleSaisie.isNull(domaine.getText()) )
+           if(ControleSaisie.isNull(nom.getText()) || ControleSaisie.isNull(prenom.getText()) || ControleSaisie.isNull(email.getText()) || ControleSaisie.isNull(email.getText()) || ControleSaisie.isNull(domaine.getText()) || ControleSaisie.isNull(email.getText()) || ControleSaisie.isNull(domaine.getText()))
          { Alert alerts = new Alert(Alert.AlertType.WARNING);
          alerts.setTitle("Warning");
         alerts.setHeaderText(null);
@@ -101,9 +103,14 @@ public class AjoutPubController implements Initializable {
               
                            
    try {
+       Pub p=new Pub(nom.getText(), prenom.getText(), email.getText(), domaine.getText(),comb.getValue(), lien.getText());
+       System.out.println("nom="+nom.getText());
+        System.out.println("nom="+prenom.getText());
+         System.out.println("nom="+email.getText());
+          System.out.println("nom="+domaine.getText());
+           System.out.println("nom="+comb.getValue());
+            System.out.println("nom="+lien.getText());
        
-       Pub p = new Pub(nom.getText(),prenom.getText(),email.getText(), domaine.getText(), comb.getValue());
-
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/Confirmation.fxml"));
         
 //           
@@ -119,7 +126,7 @@ public class AjoutPubController implements Initializable {
             cont.setPrix(prix);
             System.out.println("inpuuuuuuuuuut="+input);
             cont.setIm(input);
-            cont.setPub(p);
+           cont.setPub(p);
             
             Scene scene = new Scene(parent);
             Stage stage = new Stage();

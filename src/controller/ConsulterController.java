@@ -29,7 +29,9 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Side;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -40,6 +42,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import static sun.nio.cs.Surrogate.is;
 
@@ -79,7 +82,16 @@ public class ConsulterController implements Initializable {
     @FXML
     private TableColumn<Pub, Integer> prixp;
     @FXML
-//    private PieChart piechart1;
+    private BarChart<String, Integer> barChart;
+    @FXML
+    private Button loadChart;
+    @FXML
+    private Label label1;
+    @FXML
+    private Label label2;
+    @FXML
+    private TableColumn<Pub, String> lienp;
+    
    private void load(){
         listdata = new ListDet();
         idp.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -89,6 +101,7 @@ public class ConsulterController implements Initializable {
         domainep.setCellValueFactory(new PropertyValueFactory<>("domaine"));
         affichagep.setCellValueFactory(new PropertyValueFactory<>("Affichage"));
         prixp.setCellValueFactory(new PropertyValueFactory<>("Prix"));
+        lienp.setCellValueFactory(new PropertyValueFactory<>("lien"));
   
         pubview.setItems(listdata.getPub());
         pubview.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
@@ -99,16 +112,40 @@ public class ConsulterController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        loadChart.setOnAction(event -> {    
+            XYChart.Series<String,Integer> series = new XYChart.Series<>();
+            
+         try {
+        Connection conn;
+        conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
+        String req=" select * from publicité ";
+        Statement st = conn.createStatement();
+        ResultSet rs =st.executeQuery(req);
+        while(rs.next()) {
+        series.getData().add(new XYChart.Data<>(rs.getString(6), rs.getInt(8)));
+        
+        }
+        
+        barChart.getData().add(series);
+        barChart.setTitle("Somme des prix par rapport aux affichages");
+       
+        
+    } catch (SQLException ex) {
+         Logger.getLogger(ConsulterController.class.getName()).log(Level.SEVERE, null, ex);
+}
+         
+        });
+        
 //        ObservableList<PieChart.Data>data=FXCollections.observableArrayList();
-//        Connection conn;
+// Connection conn;
 //        try {
 //                
 //               
-//                conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
+//       conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
 //               String req=" select * from publicité GROUP BY Affichage";
-//               Statement st = conn.createStatement();
-//               ResultSet rs =st.executeQuery(req);
-//               while(rs.next()) {
+//              Statement st = conn.createStatement();
+//            ResultSet rs =st.executeQuery(req);
+ //while(rs.next()) {
 //                   String d=(rs.getString(6));
 //                   System.out.println("d "+d);
 //                   System.out.println("rs:  "+rs.toString());
@@ -118,8 +155,8 @@ public class ConsulterController implements Initializable {
 //               
 //                
 //               }
-//        } catch (SQLException ex) {
-//         Logger.getLogger(ConsulterController.class.getName()).log(Level.SEVERE, null, ex);
+ //    } catch (SQLException ex) {
+   //      Logger.getLogger(ConsulterController.class.getName()).log(Level.SEVERE, null, ex);
 //     }
 //        piechart1.setTitle("Statistique des annonceurs");
 //        piechart1.setLegendSide(Side.LEFT);
@@ -144,6 +181,9 @@ public class ConsulterController implements Initializable {
          
          prixp.setCellValueFactory(cell -> cell.
                getValue().getPrixProperty().asObject());
+         lienp.setCellValueFactory(cell -> cell.
+                getValue().getLienProperty());
+       
         
     
     
@@ -186,8 +226,7 @@ public class ConsulterController implements Initializable {
 					return true; // Filter matches nom.
                 
                                         } 
-                    
-                  
+                
                 else  
 				    	 return false;
                
@@ -232,11 +271,6 @@ public class ConsulterController implements Initializable {
          load();
     }
 
-//    void stat() {
-//     ObservableList<PieChart.Data>data=FXCollections.observableArrayList();
-//     data = FXCollections.observableArrayList();
-//     
-//    }
     
     
     
