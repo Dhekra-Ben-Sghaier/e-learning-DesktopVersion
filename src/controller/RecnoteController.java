@@ -37,7 +37,6 @@ public class RecnoteController implements Initializable {
     private Button envoyer;
     @FXML
     private DatePicker champ_date;
-    private TextField mailnote;
     @FXML
     private TextField email;
     @FXML

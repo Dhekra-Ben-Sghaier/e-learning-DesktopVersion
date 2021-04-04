@@ -2,30 +2,127 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeSocController">
+<AnchorPane id="AnchorPane" prefHeight="562.0" prefWidth="852.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeSocController">
    <children>
-      <Label alignment="CENTER" layoutX="149.0" layoutY="39.0" prefHeight="62.0" prefWidth="399.0" text="Le portail de l'emploi" textAlignment="CENTER">
+      <Label alignment="CENTER" layoutX="327.0" layoutY="40.0" prefHeight="27.0" prefWidth="237.0" text="Ajouter une offre" textAlignment="CENTER" textFill="#ff6600f5">
          <font>
-            <Font name="System Italic" size="42.0" />
+            <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="236.0" layoutY="119.0" prefHeight="27.0" prefWidth="237.0" text="Ajouter une offre" textAlignment="CENTER">
+      <Button fx:id="ajouter_travail" layoutX="214.0" layoutY="103.0" mnemonicParsing="false" onAction="#OAajouter_travail" prefHeight="157.0" prefWidth="172.0" styleClass="button2" stylesheets="@style.css" />
+      <Button fx:id="ajouter_stage" layoutX="446.0" layoutY="103.0" mnemonicParsing="false" onAction="#OAajouter_stage" prefHeight="157.0" prefWidth="172.0" styleClass="button2" stylesheets="@style.css" />
+      <Label alignment="CENTER" layoutX="195.0" layoutY="279.0" prefHeight="32.0" prefWidth="502.0" text="Afficher et modifier mes publications" textAlignment="CENTER" textFill="#ff6600">
          <font>
-            <Font size="18.0" />
+            <Font name="Arial Bold" size="28.0" />
          </font>
       </Label>
-      <Button fx:id="ajouter_travail" layoutX="118.0" layoutY="176.0" mnemonicParsing="false" onAction="#OAajouter_travail" prefHeight="25.0" prefWidth="237.0" text="Offre travail" />
-      <Button fx:id="ajouter_stage" layoutX="385.0" layoutY="176.0" mnemonicParsing="false" onAction="#OAajouter_stage" prefHeight="25.0" prefWidth="237.0" text="Offre stage" />
-      <Label alignment="CENTER" layoutX="204.0" layoutY="241.0" prefHeight="27.0" prefWidth="300.0" text="Afficher et modifier mes publications" textAlignment="CENTER">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Button fx:id="update_travail" layoutX="112.0" layoutY="296.0" mnemonicParsing="false" onAction="#OAupdate_travail" prefHeight="25.0" prefWidth="237.0" text="Publication offre travail" />
-      <Button fx:id="update_stage" layoutX="385.0" layoutY="296.0" mnemonicParsing="false" onAction="#OAupdate_stage" prefHeight="25.0" prefWidth="237.0" text="Publication offre stage" />
+      <Button fx:id="update_travail" layoutX="214.0" layoutY="338.0" mnemonicParsing="false" onAction="#OAupdate_travail" prefHeight="139.0" prefWidth="172.0" styleClass="button2" stylesheets="@style.css" />
+      <Button fx:id="update_stage" layoutX="458.0" layoutY="333.0" mnemonicParsing="false" onAction="#OAupdate_stage" prefHeight="139.0" prefWidth="172.0" styleClass="button2" stylesheets="@style.css" />
       <Label fx:id="labid" disable="true" layoutX="27.0" layoutY="31.0" />
+      <Label layoutX="236.0" layoutY="221.0" text="Offre travail" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9736841917037964" green="0.9568551182746887" blue="0.9421296119689941" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <ImageView fitHeight="75.0" fitWidth="156.0" layoutX="473.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/publicité-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="472.0" layoutY="221.0" text="Offre stage" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9736841917037964" green="0.9568551182746887" blue="0.9421296119689941" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <ImageView fitHeight="75.0" fitWidth="156.0" layoutX="222.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/apprenant.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="233.0" layoutY="442.0" text="Publication Offre travail" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9736841917037964" green="0.9568551182746887" blue="0.9421296119689941" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <Label layoutX="480.0" layoutY="442.0" text="Publication offre stage" textFill="WHITE">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9736841917037964" green="0.9568551182746887" blue="0.9421296119689941" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Label>
+      <ImageView fitHeight="75.0" fitWidth="156.0" layoutX="497.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cat.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="75.0" fitWidth="156.0" layoutX="253.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cat.png" />
+         </image>
+      </ImageView>
    </children> 
 </AnchorPane>

@@ -44,6 +44,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import service.Operation;
 import service.QuizzDao;
 public class CertificatController implements Initializable {
     
@@ -75,7 +76,7 @@ public class CertificatController implements Initializable {
         private FileChooser fc = new FileChooser();
         Stage stage;
         Utilisateur utili;
-    private int id;
+   int id;
     @FXML
     private Label labid;
         
@@ -116,8 +117,8 @@ public class CertificatController implements Initializable {
         //Set smtp port
         prop.put("mail.smtp.port", "587");
         
-        String monCompte = "maissa.loussaief@esprit.tn";
-        String mdp = "203JFT0904";
+        String monCompte = "brainovation21@gmail.com";
+        String mdp = "brainovation$$$";
         Session session = Session.getInstance(prop, new Authenticator() {
 
             @Override
@@ -165,7 +166,7 @@ public class CertificatController implements Initializable {
 //                    Rectangle captureRect = new Rectangle (0, 0, 739, 569 );
 //                    BufferedImage screenFullImage = robot.createScreenCapture(captureRect); 
 //                    ImageIO.write(screenFullImage, format, new File(fileName));
-                     File file=new File("C:\\Users\\Tarek.Loussaief\\Desktop\\11111.pdf");
+                     File file=new File("C:\\Users\\benha\\Desktop\\certificat.pdf");
                      javafx.scene.image.Image img = new javafx.scene.image.Image(file.toURI().toURL().toString());
              //        imageCadeau.setImage(img);
                //     mbp2.attachFile(img);
@@ -238,7 +239,10 @@ public class CertificatController implements Initializable {
     @FXML
     private void mail(ActionEvent event) throws IOException {
         try {
-            this.certificatController.envoyerMail("maissa.loussaief@esprit.tn");
+            Operation op=new Operation();
+            String emailuser = op.recEmailUser(id);
+            System.out.println("emaail="+emailuser);
+            this.certificatController.envoyerMail(emailuser);
         } catch (MessagingException ex) {
             Logger.getLogger(CertificatController.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -39,7 +39,7 @@
             <Label alignment="CENTER" layoutX="257.0" layoutY="180.0" prefHeight="21.0" prefWidth="86.0" text="Nom Certificat" textAlignment="CENTER" />
             <TextField fx:id="nomUtilisateur" layoutX="357.0" layoutY="131.0" prefHeight="25.0" prefWidth="204.0" />
             <TextField fx:id="nomField" layoutX="357.0" layoutY="178.0" prefHeight="25.0" prefWidth="204.0" />
-            <Button fx:id="btnModif" layoutX="405.0" layoutY="317.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="34.0" prefWidth="109.0" text="Confimer" />
+            <Button fx:id="btnModif" layoutX="405.0" layoutY="317.0" mnemonicParsing="false" onAction="#Modifier" prefHeight="34.0" prefWidth="109.0" styleClass="button1" stylesheets="@style.css" text="Confimer" />
             <Label fx:id="label" layoutX="243.0" layoutY="361.0" opacity="0.0" text="Label" textFill="WHITE" />
             <Label fx:id="id_inscri" layoutX="432.0" layoutY="94.0" text="id_inscri" />
          </children>

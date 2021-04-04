@@ -61,7 +61,7 @@ public class QuizResultatController implements Initializable {
     private Set<Quizz> keys;
     @FXML
     private Label labid;
-    private int id;
+   int id;
     
 
         
@@ -173,6 +173,7 @@ public class QuizResultatController implements Initializable {
                 String nom=operation.recNom(Integer.parseInt(labid.getText()));
                 String prenom=operation.recPrenom(Integer.parseInt(labid.getText()));
                qq.setNomPrenom(nom, prenom);
+               qq.setId(id);
                 Scene scene = new Scene(root); 
                 Stage stage = new Stage();
                 stage.setScene(scene);

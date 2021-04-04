@@ -10,7 +10,6 @@
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -175,6 +174,5 @@
          </effect>
       </Button>
       <Separator layoutX="355.0" layoutY="107.0" orientation="VERTICAL" prefHeight="342.0" prefWidth="20.0" />
-      <BorderPane fx:id="bprating" layoutX="37.0" layoutY="437.0" prefHeight="158.0" prefWidth="296.0" />
    </children>
 </AnchorPane>

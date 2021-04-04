@@ -7,7 +7,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="219.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SuiviController">
    <children>
-      <TableView fx:id="tab" layoutX="63.0" prefHeight="219.0" prefWidth="381.0">
+      <TableView fx:id="tab" layoutX="63.0" prefHeight="219.0" prefWidth="381.0" stylesheets="@style.css">
         <columns>
           <TableColumn fx:id="id_rec" prefWidth="75.0" text="ID" />
           <TableColumn fx:id="exam" prefWidth="92.0" text="Examen" />

@@ -77,6 +77,7 @@ public class ListerMesFormationsController implements Initializable {
             Parent parent = (Parent)loader.load();
             MesFormationDetailsController cont = loader.<MesFormationDetailsController>getController();
             cont.setFormation(f);
+           
             cont.setId(Integer.parseInt(labid.getText()));
             Scene scene = new Scene(parent);
             Stage stage = new Stage();

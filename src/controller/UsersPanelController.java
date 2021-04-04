@@ -409,4 +409,9 @@ public class UsersPanelController implements Initializable {
         loadPage("/view/AjoutPub.fxml");
     }
 
+    @FXML
+    private void affaccueil(ActionEvent event) {
+         loadPageUsr("/view/ListerFormations.fxml");
+    }
+
 }

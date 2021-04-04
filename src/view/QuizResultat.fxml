@@ -14,9 +14,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="list" prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QuizResultatController">
+<AnchorPane id="AnchorPane" fx:id="list" prefHeight="400.0" prefWidth="599.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.QuizResultatController">
    <children>
-      <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
          <content>
             <SplitPane fx:id="maissa" dividerPositions="0.4211409395973154" prefHeight="160.0" prefWidth="200.0">
               <items>
@@ -43,10 +43,13 @@
                                  <bottom>
                                     <FlowPane prefHeight="32.0" prefWidth="35.0" BorderPane.alignment="CENTER">
                                        <children>
-                                          <JFXButton fx:id="ObtenirCertificat" onAction="#ObtenirCertificat" text="Obtenir Certificat">
+                                          <JFXButton fx:id="ObtenirCertificat" onAction="#ObtenirCertificat" styleClass="button1" stylesheets="@style.css" text="Obtenir Certificat">
                                              <padding>
                                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                                              </padding>
+                                             <FlowPane.margin>
+                                                <Insets left="200.0" />
+                                             </FlowPane.margin>
                                           </JFXButton>
                                           <Label fx:id="labid" disable="true" layoutX="111.0" layoutY="15.0" visible="false" />
                                        </children>

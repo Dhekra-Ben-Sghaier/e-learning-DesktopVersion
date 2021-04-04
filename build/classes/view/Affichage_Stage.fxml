@@ -60,7 +60,7 @@
       <Label fx:id="champ_durée" layoutX="678.0" layoutY="350.0" prefHeight="17.0" prefWidth="155.0" />
       <Label fx:id="champ_description" layoutX="678.0" layoutY="380.0" prefHeight="74.0" prefWidth="155.0" />
       <Label fx:id="Id_stage" layoutX="527.0" layoutY="56.0" visible="false" />
-      <Label fx:id="Id_user" layoutX="575.0" layoutY="56.0" />
+      <Label fx:id="Id_user" layoutX="575.0" layoutY="56.0" visible="false" />
       <Button fx:id="Btn_deja_Inscrit" layoutX="79.0" layoutY="64.0" mnemonicParsing="false" onAction="#Deja_Inscrit_Affichage" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #3F93C6;" text="Deja Inscrit">
          <effect>
             <Lighting>

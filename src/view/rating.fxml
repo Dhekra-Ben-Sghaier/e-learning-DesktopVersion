@@ -2,11 +2,17 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import org.controlsfx.control.Rating?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RatingController">
+
+<AnchorPane id="AnchorPane" prefHeight="130.0" prefWidth="303.0" style="-fx-background-color: #fff;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="controller.RatingController">
    <children>
-      <Rating fx:id="rating" layoutX="167.0" layoutY="101.0" rating="0.0" />
-      <Label fx:id="msg" layoutX="225.0" layoutY="200.0" prefHeight="32.0" prefWidth="68.0" />
+      <Rating fx:id="rating" layoutX="53.0" layoutY="20.0" />
+      <Label fx:id="msg" layoutX="113.0" layoutY="86.0" textFill="#1c0472">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

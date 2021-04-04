@@ -115,7 +115,7 @@
                            <right>
                               <FlowPane alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="234.0" BorderPane.alignment="CENTER">
                                  <children>
-                                    <JFXButton fx:id="questionSuivante" onAction="#questionSuivante" text="Question suivante">
+                                    <JFXButton fx:id="questionSuivante" onAction="#questionSuivante" styleClass="button1" stylesheets="@style.css" text="Question suivante">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
@@ -126,7 +126,7 @@
                                           <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                        </padding>
                                     </JFXButton>
-                                    <JFXButton fx:id="valider" onAction="#valider" text="Valider">
+                                    <JFXButton fx:id="valider" onAction="#valider" styleClass="button1" stylesheets="@style.css" text="Valider">
                                        <font>
                                           <Font size="15.0" />
                                        </font>

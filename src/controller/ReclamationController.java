@@ -71,6 +71,7 @@ Parent parent = null;
              AutresController cont = loader.<AutresController>getController();
            Operation oper=new Operation();
            String emailuser=oper.recEmailUser(Integer.parseInt(labid.getText()));
+            System.out.println("iddautre="+labid.getText());
            cont.setId(Integer.parseInt(labid.getText()));
                  Scene scene = new Scene(parent);
                 Stage stage = new Stage();
@@ -127,6 +128,7 @@ Parent parent = null;
            Operation oper=new Operation();
            String emailuser=oper.recEmailUser(n);
            cont.setId(n);
+            System.out.println("emaailnote="+emailuser);
            cont.setEmail(emailuser);
 
         } catch (IOException ex) {
@@ -160,7 +162,7 @@ Parent parent = null;
 
     @FXML
     private void reclamer(javafx.scene.input.MouseEvent event) {
-        loadPageNote("/view/Recnote.fxml",Integer.parseInt(labid.getText()));
+         loadPageNote("/view/Recnote.fxml",Integer.parseInt(labid.getText()));
         
     }
 

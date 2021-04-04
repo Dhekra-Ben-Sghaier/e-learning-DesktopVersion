@@ -1,37 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="479.0" prefWidth="796.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Afficher_inscriController">
+<AnchorPane id="AnchorPane" prefHeight="642.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Afficher_inscriController">
    <children>
-      <TableView fx:id="tabInscriCertif" layoutX="87.0" layoutY="91.0" prefHeight="242.0" prefWidth="665.0">
+      <TableView fx:id="tabInscriCertif" layoutX="155.0" layoutY="136.0" prefHeight="312.0" prefWidth="582.0" stylesheets="@style.css">
         <columns>
-          <TableColumn fx:id="id_inscri" prefWidth="58.0" text="id_inscri" />
-          <TableColumn fx:id="nom_utilisateur" prefWidth="101.0" text="nom_utilisateur" />
-            <TableColumn fx:id="nom_certificat" prefWidth="97.0" text="nom_certificat" />
+          <TableColumn fx:id="id_inscri" prefWidth="87.0" text="id_inscri" />
+          <TableColumn fx:id="nom_utilisateur" prefWidth="163.0" text="nom_utilisateur" />
+            <TableColumn fx:id="nom_certificat" prefWidth="199.0" text="nom_certificat" />
         </columns>
       </TableView>
-      <Button fx:id="actualiser" layoutX="419.0" layoutY="355.0" mnemonicParsing="false" onAction="#actualiser" prefHeight="25.0" prefWidth="72.0" text="Actualiser" />
-      <Button fx:id="modifer" layoutX="332.0" layoutY="355.0" mnemonicParsing="false" onAction="#modifer" prefHeight="25.0" prefWidth="72.0" text="Modifer" />
-      <Button fx:id="supprimer" layoutX="504.0" layoutY="355.0" mnemonicParsing="false" onAction="#supprimer" text="Supprimer" />
-      <Button fx:id="ajouter" alignment="CENTER" layoutX="250.0" layoutY="355.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="25.0" prefWidth="72.0" text="Ajouter" textAlignment="CENTER" />
       <ImageView fitHeight="54.0" fitWidth="57.0" layoutX="217.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../build/classes/images/admin-settings-male.png" />
          </image>
       </ImageView>
-      <TextField fx:id="txt_search" layoutX="540.0" layoutY="32.0" prefHeight="25.0" prefWidth="149.0" promptText="Rechercher" />
+      <TextField fx:id="txt_search" layoutX="491.0" layoutY="57.0" prefHeight="25.0" prefWidth="207.0" promptText="Rechercher" />
       <ImageView fitHeight="32.0" fitWidth="27.0" layoutX="508.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../Desktop/BrainNovation-GestUser/src/images/recherche.png" />
          </image>
       </ImageView>
-      <Button fx:id="imprimer" layoutX="582.0" layoutY="355.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="25.0" prefWidth="107.0" styleClass="Button2" stylesheets="@../../../../../Desktop/jardin/src/resource/Style.css" text="Imprimer la liste" />
+      <Label layoutX="123.0" layoutY="52.0" prefHeight="35.0" prefWidth="303.0" text="Liste des inscrits" textFill="#ee7f03">
+         <font>
+            <Font name="Tahoma Bold" size="29.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="36.0" fitWidth="44.0" layoutX="457.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rech-removebg-preview.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="modifer" alignment="CENTER" layoutX="224.0" layoutY="505.0" onAction="#modifer" style="-fx-background-color: #0A0232;" text="Modifer" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="actualiser" alignment="CENTER" layoutX="333.0" layoutY="505.0" onAction="#actualiser" style="-fx-background-color: #0A0232;" text="Actualiser" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="supprimer" alignment="CENTER" layoutX="449.0" layoutY="505.0" onAction="#supprimer" style="-fx-background-color: #0A0232;" text="Supprimer" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="imprimer" alignment="CENTER" layoutX="550.0" layoutY="505.0" onAction="#imprimer" style="-fx-background-color: #0A0232;" text="Imprimer La Liste" textFill="WHITE">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="85.0" fitWidth="85.0" layoutX="27.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/inscription.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

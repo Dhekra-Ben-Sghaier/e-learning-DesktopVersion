@@ -17,7 +17,7 @@ import org.controlsfx.control.Rating;
 /**
  * FXML Controller class
  *
- * @author asus
+ * @author benha
  */
 public class RatingController implements Initializable {
 
@@ -31,23 +31,17 @@ public class RatingController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         // TODO
-        rating.ratingProperty().addListener(new ChangeListener<Number>(){
+           rating.ratingProperty().addListener(new ChangeListener<Number>(){
             @Override
             public void changed(ObservableValue<? extends Number> url, Number oldValue, Number newValue) {
                 msg.setText("Rating : "+newValue.toString() );
             }
+
+               
             
         }
     );
-    }}
+    }    
     
-    
-               
-               
-           
-           
-           
-    
-
+}

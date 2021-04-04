@@ -109,6 +109,6 @@
             </Tab>
          </tabs>
       </JFXTabPane>
-      <Label fx:id="labb_id" disable="true" />
+      <Label fx:id="labb_id" disable="true" visible="false" />
    </children>
 </AnchorPane>

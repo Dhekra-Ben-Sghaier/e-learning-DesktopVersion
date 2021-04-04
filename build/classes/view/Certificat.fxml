@@ -48,14 +48,13 @@
             <Image url="@../images/certificat.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="pdf" layoutX="560.0" layoutY="515.0" mnemonicParsing="false" onAction="#pdf" text="PDF" />
+      <Button fx:id="pdf" layoutX="501.0" layoutY="524.0" mnemonicParsing="false" onAction="#pdf" text="Télécharger en Pdf" />
       <Label layoutX="26.0" layoutY="340.0" prefHeight="56.0" prefWidth="45.0" text="En : ">
          <font>
             <Font name="Times New Roman" size="21.0" />
          </font>
       </Label>
-      <Button fx:id="mail" layoutX="640.0" layoutY="515.0" mnemonicParsing="false" onAction="#mail" text="Mail" />
-      <Button fx:id="cap" layoutX="493.0" layoutY="515.0" mnemonicParsing="false" onAction="#cap" text="cap" />
+      <Button fx:id="mail" layoutX="639.0" layoutY="524.0" mnemonicParsing="false" onAction="#mail" text="Envoyer par mail" />
       <Label fx:id="labid" disable="true" layoutX="175.0" layoutY="519.0" visible="false" />
    </children>
 </AnchorPane>
