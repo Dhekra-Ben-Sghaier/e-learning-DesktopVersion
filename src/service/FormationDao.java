@@ -60,8 +60,8 @@ public class FormationDao implements Idao<Formation>{
     public void insert(Formation o) {
         System.out.println("pdf link: =>  "+o.getPath());
         String urlImage = o.getPathImg().length()>0?o.getPathImg():"C:\\\\xampp\\\\htdocs\\\\img\\\\default.jpg";
-        String req = "insert into formation (id,titre,description,prix,difficulte,cours,Image) values ('"+o.getId()+"','"+o.getTitle()+"','"+o.getDescription()
-                +"','"+o.getPrix()+"','"+o.getDifficulte()+"', LOAD_FILE('"+o.getPath()+"'),'"+urlImage+"')";
+       String req = "insert into formation (id,titre,description,prix,difficulte,cours,Image) values ('"+o.getId()+"','"+o.getTitle()+"','"+o.getDescription()
+                +"','"+o.getPrix()+"','"+o.getDifficulte()+"','"+o.getPath()+"','"+urlImage+"')";
         
         
         System.out.println(req);
