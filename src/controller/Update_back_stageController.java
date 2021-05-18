@@ -102,6 +102,8 @@ public class Update_back_stageController implements Initializable {
     private Label champ_Date_pub;
     private Button Retour;
     int id_User = 1;
+    @FXML
+    private Label Valide;
 
     /**
      * Initializes the controller class.
@@ -121,7 +123,7 @@ public class Update_back_stageController implements Initializable {
             Statement stmt = conn.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_stage");
+            rs = stmt.executeQuery("SELECT * FROM offre_stage WHERE valide =0");
             while (rs.next()) {
                 int id = rs.getInt("Id_Stage");
                 String nom = rs.getString("Nom_soc");
@@ -136,7 +138,8 @@ public class Update_back_stageController implements Initializable {
                 Date date_f = rs.getDate("Date_fin");
                 String titre = rs.getString("Titre");
                 int id_user = rs.getInt("Id_societe");
-                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f,id_user , titre));
+                int Valide = rs.getInt("Valide");
+                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f,id_user , titre, Valide));
                 }
             conn.close();
         } catch (Exception e) {
@@ -171,6 +174,7 @@ public class Update_back_stageController implements Initializable {
                 Duree.setText(Integer.toString(ol.getDuree()));
                 champ_Date_pub.setText(ol.getDate_pub().toString());
                 champ_Id_user.setText(Integer.toString(ol.getId_societe()));
+                Valide.setText(Integer.toString(ol.getValide()));
                 supprimer.setDisable(false);
                 Valider.setDisable(false);
             }
@@ -216,6 +220,7 @@ public class Update_back_stageController implements Initializable {
         Duree.setText("");
         champ_Id_user.setText("");
         Titre.setText("");
+        Valide.setText("");
         data.clear();
         loadDataFromDatabase();
         TrayNotification tray = new TrayNotification();
@@ -246,10 +251,10 @@ public class Update_back_stageController implements Initializable {
              java.sql.Date Date_pubS = java.sql.Date.valueOf(date_pubt);
             String TitreS = Titre.getText();
             int Id_societeS = Integer.parseInt(champ_Id_user.getText());
-            OffreStage SS = new OffreStage(Id_offre,Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Duree_stageS, datedeb, datef,Id_societeS , TitreS);
+            int Valides= 1;
+            OffreStage SS = new OffreStage(Id_offre,Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, Duree_stageS, datedeb, datef,Id_societeS , TitreS, Valides);
             service.StageService su = new StageService();
-            su.valider_Offe_Stage(SS); 
-            StageService.DeletoffreByID(Id_offre);
+            su.updateStage(SS); 
             data.clear();
             loadDataFromDatabase();
             TrayNotification tray = new TrayNotification();

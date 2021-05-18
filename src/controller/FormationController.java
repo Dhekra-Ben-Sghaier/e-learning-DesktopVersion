@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controller;
-
 import entity.Formation;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -29,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import service.FormationDao;
 
 /**
@@ -74,12 +74,12 @@ public class FormationController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+       
     }    
 
     @FXML
     private void ajouterFormation(ActionEvent event) {
-        
+       
        
             try {
             File pdfFile = new File(cours.getText());
@@ -94,14 +94,14 @@ public class FormationController implements Initializable {
 
             Formation f = new Formation(Integer.parseInt(idField.getText()), titleField.getText(), descField.getText(), Float.parseFloat(prixField.getText()), diffField.getText(), cours.getText(), image.getText());
             FormationDao fdao = FormationDao.getInstance();
-            
-            
+           
+           
             fdao.insert(f);
-            
+           
             } catch (Exception e) {
                 if("".equals(idField.getText())){
                     idField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
-                } 
+                }
                 if("".equals(titleField.getText())){
                 titleField.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
                 }
@@ -117,14 +117,14 @@ public class FormationController implements Initializable {
                 if("".equals(cours.getText())){
                 cours.setStyle("-fx-border-width:0 0 2 0;-fx-border-color: red");
                 }
-                
+               
                 if(! "".equals(errorId.getText())){
-            
+           
             idField.setText("");
    
-           } 
+           }
            else if(!"".equals(errorPrice.getText())) {
-              prixField.setText(""); 
+              prixField.setText("");
            }
            else {
                Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -133,20 +133,21 @@ public class FormationController implements Initializable {
             alert.setContentText("Verifier les champs!");
             alert.show();
            }
-                
-        } 
-          
+               
+        }
+         
            
 
 
-            
-            
+           
+           
        
     }
 
     @FXML
     private void ajoutPdf(ActionEvent event) {
         JFileChooser fc = new JFileChooser();
+        fc.setFileFilter(new FileNameExtensionFilter("PDF (*.pdf)", "pdf"));
         fc.showOpenDialog(null);
         File selectedFile = fc.getSelectedFile();
         String fileName = selectedFile.getAbsolutePath().replace("\\", "/");
@@ -155,22 +156,23 @@ public class FormationController implements Initializable {
         } else {
             System.out.println("file not valid");
         }
-        
-        
+       
+       
     }
 
     void putImgServer(String path, String nomImg){
         try {
             FileInputStream in = new FileInputStream(path);
-            FileOutputStream out = new FileOutputStream("C:\\xampp\\htdocs\\img\\"+nomImg);
+            FileOutputStream out = new FileOutputStream("C:\\Users\\benha\\Desktop\\PidevWebFinale\\PidevWeb\\public\\uploads\\"+nomImg);
+          
             BufferedInputStream bin = new BufferedInputStream(in);
             BufferedOutputStream bou = new BufferedOutputStream(out);
-            
+           
             while(b != -1){
                 try {
                     b=bin.read();
                     bou.write(b);
-                    
+                   
                 } catch (IOException ex) {
                     Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -185,11 +187,11 @@ public class FormationController implements Initializable {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+       
     }
     @FXML
     private void ajoutImage(ActionEvent event) {
-        
+       
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.showOpenDialog(null);
         File selectedFile = fileChooser.getSelectedFile();
@@ -197,9 +199,9 @@ public class FormationController implements Initializable {
         String nomImg = selectedFile.getName();
         putImgServer(imgName,nomImg);
         if (selectedFile != null) {
-            image.setText("C:\\\\xampp\\\\htdocs\\\\img\\\\"+nomImg);
-//            Image image1 = new Image(selectedFile.toURI().toString());
-            
+            image.setText(nomImg);
+//            Image image1 = new Image(selectedFile.toURI().toString());"C:\\\\Users\\\\Asus\\\\Desktop\\\\P\\\\webPidevv\\\\PidevWeb\\\\public\\\\uploads\\\\"+
+           
         }
         else {
             System.out.println("file not valid");
@@ -210,7 +212,7 @@ public class FormationController implements Initializable {
     private void cancelAjout(ActionEvent event) {
         stage = (Stage) ((Button)event.getSource()).getScene().getWindow();
         stage.close();
-        
+       
     }
 
     @FXML
@@ -218,7 +220,7 @@ public class FormationController implements Initializable {
          if (!idField.getText().matches("^[0-9]*$") ) {
                     System.out.println("IDDDD: "+ idField.getText());
                     errorId.setText("L'id doit etre un entier!");
-                    
+                   
                 }
          else {
              errorId.setText("");
@@ -230,15 +232,15 @@ public class FormationController implements Initializable {
         if (!prixField.getText().matches("^([0-9]+([.][0-9]*)?|[.][0-9]+)*$") ) {
                    System.out.println("IDDDD: "+ prixField.getText());
                     errorPrice.setText("vous devez saisir un prix correcte!");
-                    
+                   
                 }
          else {
              errorPrice.setText("");
          }
     }
 
-  
-    
+ 
+   
 
-    
+   
 }

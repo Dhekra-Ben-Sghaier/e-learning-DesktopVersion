@@ -179,7 +179,7 @@ public class Affichage_StageController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM `offre_stage_valide` WHERE Id_Stage not in (SELECT Id_Stage FROM `postuler_stage` WHERE Id_Societe =" + iduser +") and Date_debut > now() ORDER by Date_pub DESC" );
+            rs = stmt.executeQuery("SELECT * FROM `offre_stage` WHERE Id_Stage not in (SELECT Id_Stage FROM `postuler_stage` WHERE Id_Societe =" + iduser +") and Date_debut > now() and  valide =1 ORDER by Date_pub DESC " );
             while (rs.next()) {
                 int id = rs.getInt("Id_Stage");
                 String nom = rs.getString("Nom_soc");
@@ -193,8 +193,8 @@ public class Affichage_StageController implements Initializable {
                 Date date_d = rs.getDate("Date_debut");
                 Date date_f = rs.getDate("Date_fin");
                 String titre = rs.getString("Titre");
-                
-                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_User , titre));
+                int Valide = rs.getInt("valide");
+                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_User , titre, Valide));
                 
             }
             con.close();
@@ -213,7 +213,7 @@ public class Affichage_StageController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM `offre_stage_valide` WHERE Id_Stage in (SELECT Id_Stage FROM `postuler_stage` WHERE Id_Societe =" + id_User +") ORDER by Date_pub DESC" );
+            rs = stmt.executeQuery("SELECT * FROM `offre_stage` WHERE Id_Stage in (SELECT Id_Stage FROM `postuler_stage` WHERE Id_Societe =" + id_User +") and Date_debut > now() and  valide =1  ORDER by Date_pub DESC " );
             while (rs.next()) {
                 int id = rs.getInt("Id_Stage");
                 String nom = rs.getString("Nom_soc");
@@ -228,7 +228,8 @@ public class Affichage_StageController implements Initializable {
                 Date date_f = rs.getDate("Date_fin");
                 String titre = rs.getString("Titre");
                 int id_user = 1;
-                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_User , titre));
+                int Valide = rs.getInt("valide");
+                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_User , titre, Valide));
                 
             }
             con.close();

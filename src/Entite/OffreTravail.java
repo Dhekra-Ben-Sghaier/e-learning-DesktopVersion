@@ -23,11 +23,12 @@ public class OffreTravail {
     private String Type_contrat;
     private int Id_societe;
     private String Titre;
+    private int Valide;
 
     public OffreTravail() {
     }
 
-    public OffreTravail(int Id_Travail, String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, String Type_contrat,int Id_societe, String Titre) {
+    public OffreTravail(int Id_Travail, String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, String Type_contrat,int Id_societe, String Titre, int Valide) {
         this.Id_Travail = Id_Travail;
         this.Nom_soc = Nom_soc;
         this.Adr_mail_soc = Adr_mail_soc;
@@ -39,9 +40,10 @@ public class OffreTravail {
         this.Type_contrat= Type_contrat;
         this.Id_societe=Id_societe;
         this.Titre=Titre;
+        this.Valide=Valide;
     }
 
-    public OffreTravail(String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, String Type_contrat,int Id_societe, String Titre) {
+    public OffreTravail(String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, String Type_contrat,int Id_societe, String Titre, int Valide) {
         this.Nom_soc = Nom_soc;
         this.Adr_mail_soc = Adr_mail_soc;
         this.Adr_soc = Adr_soc;
@@ -52,7 +54,16 @@ public class OffreTravail {
         this.Type_contrat= Type_contrat;
         this.Id_societe=Id_societe;
         this.Titre=Titre;
+        this.Valide=Valide;
         
+    }
+
+    public int getValide() {
+        return Valide;
+    }
+
+    public void setValide(int Valide) {
+        this.Valide = Valide;
     }
 
     public int getId_Travail() {

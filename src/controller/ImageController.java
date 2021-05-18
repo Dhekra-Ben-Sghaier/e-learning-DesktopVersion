@@ -50,7 +50,7 @@ import service.fct;
 public class ImageController implements Initializable {
     private PreparedStatement retrieve,store;
    
-private String loadst="select image from publicité where id =(?)";
+private String loadst="select image from publicite where id =(?)";
    
     @FXML
     private ImageView exit;

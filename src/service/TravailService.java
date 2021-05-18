@@ -24,7 +24,7 @@ public class TravailService {
             
       public void ajouter_Offe_Travail(OffreTravail S) {
 
-        String req = "insert into offre_travail(Nom_soc,Adr_mail_soc,Adr_soc,Description,Date_pub,Niv_etude,Certificat,Type_contrat,Id_societe,Titre) values (?,?,?,?,?,?,?,?,?,?)";
+        String req = "insert into offre_travail(Nom_soc,Adr_mail_soc,Adr_soc,Description,Date_pub,Niv_etude,Certificat,Type_contrat,Id_societe,Titre,valide) values (?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement ps = ds.getCnx().prepareStatement(req);
@@ -39,6 +39,7 @@ public class TravailService {
             ps.setString(8, S.getType_contrat()); 
             ps.setInt(9, S.getId_societe());
             ps.setString(10, S.getTitre());
+            ps.setInt(11, S.getValide());
             ps.executeUpdate();
 
 
@@ -46,7 +47,7 @@ public class TravailService {
             Logger.getLogger(TravailService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-       public void valider_Offe_Travail(OffreTravail S) {
+       /*public void valider_Offe_Travail(OffreTravail S) {
 
         String req = "insert into offre_travail_valide(Id_travail,Nom_soc,Adr_mail_soc,Adr_soc,Description,Date_pub,Niv_etude,Certificat,Type_contrat,Id_societe,Titre) values (?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -69,7 +70,7 @@ public class TravailService {
         } catch (SQLException ex) {
             Logger.getLogger(StageService.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
       public void ajouter_Postuler_Travail(Postuler_travail S) {
 
         String req = "insert into postuler_travail(Id_travail,Id_Societe) values (?,?)";
@@ -86,7 +87,7 @@ public class TravailService {
         }
        }
       public static void updateTravail(OffreTravail S) {      
-        String req = "UPDATE offre_travail_valide SET Nom_soc=?,Adr_mail_soc=?,Adr_soc=?,Description=?,Date_pub=?, Niv_etude=?, Certificat=?, Type_contrat=?, Titre=? WHERE Id_travail=?";
+        String req = "UPDATE offre_travail SET Nom_soc=?,Adr_mail_soc=?,Adr_soc=?,Description=?,Date_pub=?, Niv_etude=?, Certificat=?, Type_contrat=?, Titre=?, valide=? WHERE Id_travail=?";
         try {
             PreparedStatement ps = ds.getCnx().prepareStatement(req);
             ps.setString(1, S.getNom_soc());
@@ -98,7 +99,8 @@ public class TravailService {
             ps.setString(7, S.getCertificat());            
             ps.setString(8, S.getType_contrat());
             ps.setString(9, S.getTitre());
-            ps.setInt(10, S.getId_Travail());
+            ps.setInt(10, S.getValide());
+            ps.setInt(11, S.getId_Travail());
             ps.executeUpdate();
 
         } catch (SQLException ex) {

@@ -138,7 +138,7 @@ public class FormationDao implements Idao<Formation>{
                 f.setDescription(rs.getString("description"));
                 f.setPrix(rs.getFloat("prix"));
                 f.setDifficulte(rs.getString("difficulte"));
-                f.setCertifier(rs.getBoolean("certificat"));
+               // f.setCertifier(rs.getBoolean("certificat"));
                 f.setPath(req);
                 list.add(f);
             }
@@ -161,8 +161,9 @@ public class FormationDao implements Idao<Formation>{
                 f.setTitle(rs.getString("titre"));
                 f.setDescription(rs.getString("description"));
                 f.setPrix(rs.getFloat("prix"));
-                f.setPathImg(rs.getString("Image"));
-                
+                //f.setPathImg(rs.getString("Image"));
+                f.setPathImg("C:\\\\Users\\\\benha\\\\Desktop\\\\PidevWebFinale\\\\PidevWeb\\\\public\\\\uploads\\\\"+rs.getString("Image"));
+               
                 list.add(f);
             }
             
@@ -217,7 +218,9 @@ public class FormationDao implements Idao<Formation>{
                 f.setPrix(rs.getFloat("prix"));
                 f.setDifficulte(rs.getString("difficulte"));
                 f.setCertifier(rs.getBoolean("certificat"));
-                f.setPathImg(rs.getString("Image"));
+                //f.setPathImg(rs.getString("Image"));
+                 f.setPathImg("C:\\\\Users\\\\benha\\\\Desktop\\\\PidevWebFinale\\\\PidevWeb\\\\public\\\\uploads\\\\"+rs.getString("Image"));
+               
                 f.setPath(req);
                 list.add(f);
             }    

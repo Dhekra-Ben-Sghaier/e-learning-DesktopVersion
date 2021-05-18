@@ -139,6 +139,7 @@ public class Ajout_Post_StageController implements Initializable {
             java.sql.Date datedeb = java.sql.Date.valueOf(Date_debutS);
             java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
             String TitreS = Champ_Titre.getText();
+            int Valide =0;
             
             /*-----*/
             
@@ -147,7 +148,7 @@ public class Ajout_Post_StageController implements Initializable {
             OffreStage SS = new OffreStage(Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS,
                                             Niveau_EtudeS, CertificatS,
                                                Integer.parseInt(Champ_Duree_stage.getText()), 
-                                                   datedeb, datef,id_User , TitreS);
+                                                   datedeb, datef,id_User , TitreS, Valide);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
              alert.setTitle("Ajout");
              alert.setHeaderText(null);

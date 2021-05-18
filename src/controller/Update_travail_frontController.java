@@ -85,6 +85,8 @@ public class Update_travail_frontController implements Initializable {
     @FXML
     private ListView<OffreTravail> list_offreTravail;
     int id_User ;
+    @FXML
+    private Label valide;
 
     /**
      * Initializes the controller class.
@@ -122,6 +124,7 @@ public class Update_travail_frontController implements Initializable {
                 Type_contrat.setValue(ol.getType_contrat());
                 Desc.setText(ol.getDescription());               
                 date_pub.setText(ol.getDate_pub().toString());
+                valide.setText(Integer.toString(ol.getValide()));
                 modifier.setDisable(false);
                 supprimer.setDisable(false);                  
             }
@@ -135,7 +138,7 @@ public class Update_travail_frontController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_travail_valide WHERE Id_societe=" + iduser);
+            rs = stmt.executeQuery("SELECT * FROM offre_travail WHERE Id_societe=" + iduser);
             while (rs.next()) {
                 int id = rs.getInt("Id_travail");
                 String nom = rs.getString("Nom_soc");
@@ -146,8 +149,9 @@ public class Update_travail_frontController implements Initializable {
                 String niv_etude = rs.getString("Niv_etude");
                 String certificat = rs.getString("Certificat");
                 String Type_contratE = rs.getString("Type_contrat");
-                String titre = rs.getString("Titre");                                       
-                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, Type_contratE, id_User, titre));
+                String titre = rs.getString("Titre");
+                int Valide = rs.getInt("Valide");
+                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, Type_contratE, id_User, titre, Valide));
                 
             }
             con.close();
@@ -222,7 +226,8 @@ public class Update_travail_frontController implements Initializable {
         String DescS = Desc.getText();
         Date Date_pubs=new SimpleDateFormat("yyyy-MM-dd").parse(date_pub.getText());       
         String TitreS = Titre.getText();
-        OffreTravail o = new OffreTravail(idE, Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubs, Niveau_EtudeS, CertificatS, Type_contratS,  id_User, TitreS);
+        int Valide = Integer.parseInt(valide.getText());
+        OffreTravail o = new OffreTravail(idE, Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubs, Niveau_EtudeS, CertificatS, Type_contratS,  id_User, TitreS,Valide);
         service.TravailService ser = new TravailService();
         ser.updateTravail(o);
         data.clear();

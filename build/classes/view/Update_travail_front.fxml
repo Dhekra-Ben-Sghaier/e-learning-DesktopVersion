@@ -112,5 +112,6 @@
             <Image url="@../image/kk-removebg-preview.png" />
          </image>
       </ImageView>
+      <Label fx:id="valide" layoutX="312.0" layoutY="22.0" visible="false" />
    </children>  
 </AnchorPane>

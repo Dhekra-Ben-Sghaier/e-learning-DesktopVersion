@@ -69,7 +69,7 @@ public class ConfirmationController implements Initializable {
      */
      
      private PreparedStatement store;
-     private String openst="UPDATE publicité SET image= ? WHERE id=?";
+     private String openst="UPDATE publicite SET image= ? WHERE id=?";
    
     @FXML
     private Label seven;

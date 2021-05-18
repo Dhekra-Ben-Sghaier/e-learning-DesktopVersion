@@ -40,7 +40,7 @@ public class PubDao implements Idao<Pub>{
     }
 @Override
     public void insert(Pub o ,int prix) {
-        String req="insert into publicité (nom,prenom,email,domaine,Affichage,Prix,lien) values ('"+o.getNom()+"','"+o.getPrenom()+"','"+o.getEmail()+"', '"+o.getDomaine()+"','"+o.getAffichage()+"','"+prix+"','"+o.getLien()+"')";
+        String req="insert into publicite (nom,prenom,email,domaine,Affichage,Prix,lien) values ('"+o.getNom()+"','"+o.getPrenom()+"','"+o.getEmail()+"', '"+o.getDomaine()+"','"+o.getAffichage()+"','"+prix+"','"+o.getLien()+"')";
         try {
             st.executeUpdate(req);
         } catch (SQLException ex) {
@@ -51,7 +51,7 @@ public class PubDao implements Idao<Pub>{
     
     @Override
     public List<Pub> displayAll() {
-      String req="select * from publicité";
+      String req="select * from publicite";
         ObservableList<Pub> list=FXCollections.observableArrayList();       
         
         try {
@@ -111,7 +111,7 @@ public class PubDao implements Idao<Pub>{
 //    }
     
     public ArrayList displayPrixList() {
-        String req="select DISTINCT Prix from publicité ORDER by Prix ASC";
+        String req="select DISTINCT Prix from publicite ORDER by Prix ASC";
         ArrayList list=new ArrayList();
         
         try {
@@ -132,7 +132,7 @@ public class PubDao implements Idao<Pub>{
 
     @Override
     public boolean update(Pub os) {
-        String qry = "update publicité set nom = '"+os.getNom()+"' , prenom = '"+os.getPrenom()+"', email = '"+os.getEmail()+"', domaine = '"+os.getDomaine()+"' , Affichage = '"+os.getAffichage()+"',Prix = '"+os.getPrix()+"',lien='"+os.getLien()+"'  WHERE id = "+os.getId();
+        String qry = "update publicite set nom = '"+os.getNom()+"' , prenom = '"+os.getPrenom()+"', email = '"+os.getEmail()+"', domaine = '"+os.getDomaine()+"' , Affichage = '"+os.getAffichage()+"',Prix = '"+os.getPrix()+"',lien='"+os.getLien()+"'  WHERE id = "+os.getId();
         
         try {
             if (st.executeUpdate(qry) > 0) {
@@ -148,7 +148,7 @@ public class PubDao implements Idao<Pub>{
     // hedheya testhakha f supprimer
      @Override
     public Pub displayById(int id) {
-            String req="select * from publicité where id ="+id;
+            String req="select * from publicite where id ="+id;
        Pub p=new Pub();
         try {
             rs=st.executeQuery(req);
@@ -173,7 +173,7 @@ public class PubDao implements Idao<Pub>{
     
 
     public void delete(Pub p) {
-        String req="delete from publicité where id="+p.getId();
+        String req="delete from publicite where id="+p.getId();
         Pub o=displayById(p.getId());
         
           if(o!=null)

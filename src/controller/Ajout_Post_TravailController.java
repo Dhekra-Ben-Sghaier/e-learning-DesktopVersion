@@ -100,10 +100,11 @@ public class Ajout_Post_TravailController implements Initializable {
             Date Date_pubS = new SimpleDateFormat("yyyyMMdd_HHmmss").parse(Date_pubb);
             String Type_contratS = Champ_Type_Contrat.getValue();
             String TitreS = Champ_Titre.getText();
-            
+            int Valide =0;
+
             OffreTravail SS = new OffreTravail(Nom_SocS, Adresse_MailS, AdresseS,
                                                 DescS, Date_pubS, Niveau_EtudeS, CertificatS,
-                                                    Type_contratS,id_User, TitreS);
+                                                    Type_contratS,id_User, TitreS, Valide);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
              alert.setTitle("Ajout");
              alert.setHeaderText(null);

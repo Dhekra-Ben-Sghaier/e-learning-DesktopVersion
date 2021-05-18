@@ -26,11 +26,12 @@ public class OffreStage {
     private Date Date_fin;
     private int Id_societe;
     private String Titre;
+    private int Valide;
 
     public OffreStage() {
     }
 
-    public OffreStage(int Id_Stage, String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, int Duree, Date Date_debut, Date Date_fin, int Id_societe, String Titre) {
+    public OffreStage(int Id_Stage, String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, int Duree, Date Date_debut, Date Date_fin, int Id_societe, String Titre, int Valide) {
         this.Id_Stage = Id_Stage;
         this.Nom_soc = Nom_soc;
         this.Adr_mail_soc = Adr_mail_soc;
@@ -44,9 +45,10 @@ public class OffreStage {
         this.Date_fin = Date_fin;
         this.Id_societe=Id_societe;
         this.Titre=Titre;
+        this.Valide=Valide;
     }
 
-    public OffreStage(String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, int Duree, Date Date_debut, Date Date_fin, int Id_societe, String Titre) {
+    public OffreStage(String Nom_soc, String Adr_mail_soc, String Adr_soc, String Description, Date Date_pub, String Niv_etude, String Certificat, int Duree, Date Date_debut, Date Date_fin, int Id_societe, String Titre, int Valide) {
         this.Nom_soc = Nom_soc;
         this.Adr_mail_soc = Adr_mail_soc;
         this.Adr_soc = Adr_soc;
@@ -59,6 +61,15 @@ public class OffreStage {
         this.Date_fin = Date_fin;
         this.Id_societe = Id_societe;
         this.Titre =Titre;
+        this.Valide=Valide;
+    }
+
+    public void setValide(int Valide) {
+        this.Valide = Valide;
+    }
+
+    public int getValide() {
+        return Valide;
     }
 
     public int getId_Stage() {

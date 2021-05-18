@@ -118,7 +118,7 @@ public class ConsulterPubController implements Initializable {
          try {
         Connection conn;
         conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/esprit","root","");
-        String req=" select * from publicité ";
+        String req=" select * from publicite ";
         Statement st = conn.createStatement();
         ResultSet rs =st.executeQuery(req);
         while(rs.next()) {

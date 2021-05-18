@@ -38,7 +38,7 @@ return prix;
  }
   public int recId (Pub p,int prix){
     
-      String req = "select id from publicité where  nom ='"+p.getNom()+"'AND prenom ='"+p.getPrenom()+"'AND email ='"+p.getEmail()+"'AND domaine ='"+p.getDomaine()+"'AND Affichage ='"+p.getAffichage()+"'AND lien ='"+p.getLien()+"' AND Prix ="+prix;
+      String req = "select id from publicite where  nom ='"+p.getNom()+"'AND prenom ='"+p.getPrenom()+"'AND email ='"+p.getEmail()+"'AND domaine ='"+p.getDomaine()+"'AND Affichage ='"+p.getAffichage()+"'AND lien ='"+p.getLien()+"' AND Prix ="+prix;
       int res=0;
         try {
            rs=st.executeQuery(req);
@@ -54,7 +54,7 @@ return prix;
         return res; 
   }
   public String recLien (int id) {
-        String req="select lien from publicité where id ="+id;
+        String req="select lien from publicite where id ="+id;
         String res="null";
         try {
             rs=st.executeQuery(req);

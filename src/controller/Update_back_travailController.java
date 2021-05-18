@@ -93,6 +93,8 @@ public class Update_back_travailController implements Initializable {
     private Label Type_contrat;
     private ObservableList<OffreTravail> data;
     private Button Retour;
+    @FXML
+    private Label valide;
 
     /**
      * Initializes the controller class.
@@ -112,7 +114,7 @@ public class Update_back_travailController implements Initializable {
             Statement stmt = conn.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_travail");
+            rs = stmt.executeQuery("SELECT * FROM offre_travail WHERE valide =0");
             while (rs.next()) {
                 int id = rs.getInt("Id_travail");
                 String nom = rs.getString("Nom_soc");
@@ -125,8 +127,8 @@ public class Update_back_travailController implements Initializable {
                 String Type_contratt = rs.getString("Type_contrat");
                 int id_user = rs.getInt("Id_societe");
                 String titre = rs.getString("Titre");
-               
-                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat,Type_contratt ,id_user , titre));
+                int Valide = rs.getInt("Valide");
+                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat,Type_contratt ,id_user , titre, Valide));
                 }
             conn.close();
         } catch (Exception e) {
@@ -159,6 +161,7 @@ public class Update_back_travailController implements Initializable {
                 Type_contrat.setText(ol.getType_contrat());   
                 champ_Date_pub.setText(ol.getDate_pub().toString());
                 champ_Id_user.setText(Integer.toString(ol.getId_societe()));
+                valide.setText(Integer.toString(ol.getValide()));
                 supprimer.setDisable(false);
                 Valider.setDisable(false);
             }
@@ -202,6 +205,7 @@ public class Update_back_travailController implements Initializable {
         Type_contrat.setText("");
         champ_Id_user.setText("");
         Titre.setText("");
+        valide.setText("");
         data.clear();
         loadDataFromDatabase();
         TrayNotification tray = new TrayNotification();
@@ -228,15 +232,15 @@ public class Update_back_travailController implements Initializable {
             String TitreS = Titre.getText();
             String type_cont = Type_contrat.getText();
             int Id_societeS = Integer.parseInt(champ_Id_user.getText());
-            OffreTravail SS = new OffreTravail(Id_offre,Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, type_cont,Id_societeS , TitreS);
+            int Valides= 1;
+            OffreTravail SS = new OffreTravail(Id_offre,Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubS, Niveau_EtudeS, CertificatS, type_cont,Id_societeS , TitreS,Valides);
             service.TravailService su = new TravailService();
-            su.valider_Offe_Travail(SS); 
-            TravailService.DeletoffreByID(Id_offre);
+            su.updateTravail(SS);             
             data.clear();
             loadDataFromDatabase();
             TrayNotification tray = new TrayNotification();
             Image whatsAppImg = new Image("/image/image1.png");
-            String text = "Offre de stage validé avec succés ";
+            String text = "Offre de travail validé avec succés ";
 
             tray.setTray("welcome", text + " ", whatsAppImg, Paint.valueOf("#2A9A84"), AnimationType.SLIDE);
 

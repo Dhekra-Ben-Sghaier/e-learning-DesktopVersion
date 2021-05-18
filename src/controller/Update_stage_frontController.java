@@ -94,6 +94,8 @@ public class Update_stage_frontController implements Initializable {
     @FXML
     private TextField date_pub;
     int id_User ;
+    @FXML
+    private Label Valide;
     
 
     /**
@@ -137,6 +139,7 @@ public class Update_stage_frontController implements Initializable {
                 Date_d.setValue(localDate1 );                
                 Duree.setText(Integer.toString(ol.getDuree()) );
                 date_pub.setText(ol.getDate_pub().toString());
+                Valide.setText(Integer.toString(ol.getValide()));
                 modifier.setDisable(false);
                 supprimer.setDisable(false);                  
             }
@@ -150,7 +153,7 @@ public class Update_stage_frontController implements Initializable {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM offre_stage_valide WHERE Id_societe=" + iduser);
+            rs = stmt.executeQuery("SELECT * FROM offre_stage WHERE Id_societe=" + iduser);
             while (rs.next()) {
                 int id = rs.getInt("Id_Stage");
                 String nom = rs.getString("Nom_soc");
@@ -164,7 +167,8 @@ public class Update_stage_frontController implements Initializable {
                 Date date_d = rs.getDate("Date_debut");
                 Date date_f = rs.getDate("Date_fin");
                 String titre = rs.getString("Titre");
-                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_User , titre));
+                int Valide = rs.getInt("Valide");
+                data.add(new OffreStage(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, duree, date_d, date_f, id_User , titre, Valide));
                 
             }
             con.close();
@@ -318,7 +322,8 @@ public class Update_stage_frontController implements Initializable {
         java.sql.Date datef = java.sql.Date.valueOf(Date_finS);
         String TitreS = Titre.getText();
         int Id_societeS = 1;
-        OffreStage o = new OffreStage(idE, Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubs, Niveau_EtudeS, CertificatS, Integer.parseInt(Duree.getText()), datedeb, datef, Id_societeS, TitreS);
+        int valide = Integer.parseInt(Valide.getText());
+        OffreStage o = new OffreStage(idE, Nom_SocS, Adresse_MailS, AdresseS, DescS, Date_pubs, Niveau_EtudeS, CertificatS, Integer.parseInt(Duree.getText()), datedeb, datef, Id_societeS, TitreS, valide);
         service.StageService ser = new StageService();
         ser.updateStage(o);
         data.clear();

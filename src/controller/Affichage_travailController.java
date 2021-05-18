@@ -171,7 +171,7 @@ public void loadDataFromDatabase(int a) {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM `offre_travail_valide` WHERE Id_travail not in (SELECT Id_travail FROM `postuler_travail` WHERE Id_Societe = " + a +")  ORDER by Date_pub DESC" );
+            rs = stmt.executeQuery("SELECT * FROM `offre_travail` WHERE Id_travail not in (SELECT Id_travail FROM `postuler_travail` WHERE Id_Societe = " + id_User +")  and  valide =1  ORDER by Date_pub DESC" );
             while (rs.next()) {
                 int id = rs.getInt("Id_travail");
                 String nom = rs.getString("Nom_soc");
@@ -183,8 +183,8 @@ public void loadDataFromDatabase(int a) {
                 String certificat = rs.getString("Certificat");
                 String titre = rs.getString("Titre");
                 String type_contrat = rs.getString("Type_contrat");
-                
-                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, type_contrat, id_User, titre));
+                int Valide = rs.getInt("valide");
+                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, type_contrat, id_User, titre, Valide));
                 
             }
             con.close();
@@ -203,7 +203,7 @@ public void loadDataFromDatabase(int a) {
             Statement stmt = con.createStatement();
             ResultSet rs;
 
-            rs = stmt.executeQuery("SELECT * FROM `offre_travail_valide` WHERE Id_travail  in (SELECT Id_travail  FROM `postuler_travail` WHERE Id_Societe = " + id_User +") ORDER by Date_pub DESC" );
+            rs = stmt.executeQuery("SELECT * FROM `offre_travail` WHERE Id_travail  in (SELECT Id_travail  FROM `postuler_travail` WHERE Id_Societe = " + id_User +")  and  valide =1  ORDER by Date_pub DESC" );
             while (rs.next()) {
                 int id = rs.getInt("Id_travail");
                 String nom = rs.getString("Nom_soc");
@@ -215,8 +215,8 @@ public void loadDataFromDatabase(int a) {
                 String certificat = rs.getString("Certificat");
                 String titre = rs.getString("Titre");
                 String type_contrat = rs.getString("Type_contrat");
-                
-                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, type_contrat, id_User, titre));
+                int Valide = rs.getInt("valide");
+                data.add(new OffreTravail(id, nom, Adr_mail, adresseE, description, date_p, niv_etude, certificat, type_contrat, id_User, titre, Valide));
                 
             }
             con.close();

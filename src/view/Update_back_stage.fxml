@@ -88,5 +88,6 @@
             <Font name="Tahoma Bold" size="20.0" />
          </font>
       </Label>
+      <Label fx:id="Valide" layoutX="337.0" layoutY="388.0" visible="false" />
    </children>
 </AnchorPane>
