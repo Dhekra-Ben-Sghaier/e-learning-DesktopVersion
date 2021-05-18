@@ -82,15 +82,15 @@ public class FormationController implements Initializable {
        
        
             try {
-            File pdfFile = new File(cours.getText());
-            FileInputStream fis = new FileInputStream(pdfFile);
-            ByteArrayOutputStream bos = new ByteArrayOutputStream();
-            byte[] pd = new byte[1024];
-            int bytesRead;
-            while ((bytesRead = fis.read(pd)) != -1) {
-                           bos.write(pd);
-                    }
-            byte[] bytes = bos.toByteArray();
+//            File pdfFile = new File(cours.getText());
+//            FileInputStream fis = new FileInputStream(pdfFile);
+//            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+//            byte[] pd = new byte[1024];
+//            int bytesRead;
+//            while ((bytesRead = fis.read(pd)) != -1) {
+//                           bos.write(pd);
+//                    }
+//            byte[] bytes = bos.toByteArray();
 
             Formation f = new Formation(Integer.parseInt(idField.getText()), titleField.getText(), descField.getText(), Float.parseFloat(prixField.getText()), diffField.getText(), cours.getText(), image.getText());
             FormationDao fdao = FormationDao.getInstance();
@@ -144,35 +144,65 @@ public class FormationController implements Initializable {
        
     }
 
-    @FXML
+  @FXML
     private void ajoutPdf(ActionEvent event) {
-        JFileChooser fc = new JFileChooser();
-        fc.setFileFilter(new FileNameExtensionFilter("PDF (*.pdf)", "pdf"));
-        fc.showOpenDialog(null);
-        File selectedFile = fc.getSelectedFile();
-        String fileName = selectedFile.getAbsolutePath().replace("\\", "/");
-        if (selectedFile != null){
-            cours.setText(fileName);
-        } else {
-            System.out.println("file not valid");
+        
+        
+        
+        
+        FileInputStream sourceFile = null;
+        try {
+            JFileChooser fc = new JFileChooser();
+            fc.setFileFilter(new FileNameExtensionFilter("PDF (*.pdf)", "pdf"));
+            fc.showOpenDialog(null);
+            File selectedFile = fc.getSelectedFile();
+            String nomFichier = selectedFile.getName();
+            String fileName = selectedFile.getAbsolutePath().replace("/", "\\");
+            if (selectedFile != null){
+                cours.setText(nomFichier);
+            } else {
+                System.out.println("file not valid");
+            }   
+            File pdfFile = new File(fileName);
+            sourceFile = new FileInputStream(fileName);
+            FileOutputStream destinationFile = new FileOutputStream("C:\\xampp\\htdocs\\webPidevv\\PidevWeb\\public\\uploads\\cours\\"+nomFichier);
+            byte buffer[]=new byte[512*1024]; 
+            int nbLecture; 
+            while( (nbLecture = sourceFile.read(buffer)) != -1 ) { 
+            destinationFile.write(buffer, 0, nbLecture); 
+}
+        
+        
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                sourceFile.close();
+            } catch (IOException ex) {
+                Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-       
-       
+              
+              
+              
     }
 
-    void putImgServer(String path, String nomImg){
+
+   void putImgServer(String path, String nomImg){
         try {
             FileInputStream in = new FileInputStream(path);
-            FileOutputStream out = new FileOutputStream("C:\\Users\\benha\\Desktop\\PidevWebFinale\\PidevWeb\\public\\uploads\\"+nomImg);
-          
+            FileOutputStream out = new FileOutputStream("C:\\xampp\\htdocs\\webPidevv\\PidevWeb\\public\\uploads\\"+nomImg);
+             
             BufferedInputStream bin = new BufferedInputStream(in);
             BufferedOutputStream bou = new BufferedOutputStream(out);
-           
+            
             while(b != -1){
                 try {
                     b=bin.read();
                     bou.write(b);
-                   
+                    
                 } catch (IOException ex) {
                     Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -187,7 +217,7 @@ public class FormationController implements Initializable {
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FormationController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+        
     }
     @FXML
     private void ajoutImage(ActionEvent event) {
